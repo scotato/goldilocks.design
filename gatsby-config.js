@@ -7,20 +7,20 @@ module.exports = {
     twitter: '@scotato',
     siteUrl: 'https://goldilocks.design', // https://www.gatsbyjs.org/docs/path-prefix
     shortTitle: 'goldilocks.design', // Used for App manifest e.g. Mobile Home Screen
-    shareImage: '/share.jpg', // Open Graph Default Share Image. 1200x1200 is recommended
+    shareImage: '/images/share.jpg', // Open Graph Default Share Image. 1200x1200 is recommended
     shareImageWidth: 900, // Change to the width of your default share image
     shareImageHeight: 600, // Change to the height of your default share image
-    siteLogo: '/logo-512.png', // Logo used for SEO, RSS, and App manifest
+    siteLogo: '/images/logo-512.png', // Logo used for SEO, RSS, and App manifest
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `images`,
+    //     path: `${__dirname}/src/images`,
+    //   },
+    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
