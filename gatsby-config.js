@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `goldilocks.design`,
-    titleAlt: `goldilocks.design - building software that's just right`,
+    title: `goldilocks design`,
+    titleAlt: `goldilocks design - building software that's just right`,
     description: `building software that's just right`,
     author: `@scotato`,
     twitter: '@scotato',

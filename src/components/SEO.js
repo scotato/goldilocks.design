@@ -32,7 +32,7 @@ function SEO({ description, lang, meta, keywords, title }) {
               },
               {
                 property: `og:description`,
-                content: metaDescription,
+                content: data.site.siteMetadata.description,
               },
               {
                 property: `og:image`,
