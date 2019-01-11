@@ -12,6 +12,7 @@ function SEO({ description, lang, meta, keywords, title }) {
           description || data.site.siteMetadata.description
         return (
           <Helmet
+            {...data.site.siteMetadata}
             htmlAttributes={{
               lang,
             }}
@@ -90,6 +91,11 @@ const detailsQuery = graphql`
         title
         description
         author
+        siteUrl
+        twitter
+        shareImage
+        shareImageWidth
+        shareImageHeight
       }
     }
   }

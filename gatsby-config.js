@@ -1,8 +1,16 @@
 module.exports = {
   siteMetadata: {
-    title: `goldilocks design`,
+    title: `goldilocks.design`,
+    titleAlt: `goldilocks.design - building software that's just right`,
     description: `building software that's just right`,
     author: `@scotato`,
+    twitter: '@scotato',
+    siteUrl: 'https://goldilocks.design', // https://www.gatsbyjs.org/docs/path-prefix
+    shortTitle: 'goldilocks.design', // Used for App manifest e.g. Mobile Home Screen
+    shareImage: '/share.jpg', // Open Graph Default Share Image. 1200x1200 is recommended
+    shareImageWidth: 900, // Change to the width of your default share image
+    shareImageHeight: 600, // Change to the height of your default share image
+    siteLogo: '/logo-512.png', // Logo used for SEO, RSS, and App manifest
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -25,7 +33,7 @@ module.exports = {
         background_color: `#F6D55C`,
         theme_color: `#F6D55C`,
         display: `minimal-ui`,
-        icon: `src/images/favicon.png`,
+        icon: `static/images/favicon.png`,
       },
     },
   ],
