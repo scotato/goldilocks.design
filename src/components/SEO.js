@@ -12,7 +12,6 @@ function SEO({ description, lang, meta, keywords, title }) {
           description || data.site.siteMetadata.description
         return (
           <Helmet
-            {...data.site.siteMetadata}
             htmlAttributes={{
               lang,
             }}
@@ -24,12 +23,20 @@ function SEO({ description, lang, meta, keywords, title }) {
                 content: metaDescription,
               },
               {
+                property: `image`,
+                content: data.site.siteMetadata.shareImage,
+              },
+              {
                 property: `og:title`,
                 content: title,
               },
               {
                 property: `og:description`,
                 content: metaDescription,
+              },
+              {
+                property: `og:image`,
+                content: data.site.siteMetadata.shareImage,
               },
               {
                 property: `og:type`,
@@ -50,6 +57,10 @@ function SEO({ description, lang, meta, keywords, title }) {
               {
                 name: `twitter:description`,
                 content: metaDescription,
+              },
+              {
+                name: `twitter:image`,
+                content: data.site.siteMetadata.shareImage,
               },
             ]
               .concat(
