@@ -39,6 +39,14 @@ function SEO({ description, lang, meta, keywords, title }) {
                 content: data.site.siteMetadata.shareImage,
               },
               {
+                property: `og:image:width`,
+                content: data.site.siteMetadata.shareImageWidth,
+              },
+              {
+                property: `og:image:height`,
+                content: data.site.siteMetadata.shareImageHeight,
+              },
+              {
                 property: `og:type`,
                 content: `website`,
               },
