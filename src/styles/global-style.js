@@ -14,7 +14,7 @@ const rebootCss = reboot({
   // fontSizeBase: '1rem',
   // fontWeightBase: 400,
   // lineHeightBase: 1.5,
-  bodyColor: 'white',
+  // bodyColor: 'white',
   bodyBg: colors.brand,
   // headingsMarginBottom: '0.5rem',
   // paragraphMarginBottom: '1rem',
