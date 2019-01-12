@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
+import { ThemeProvider } from 'styled-components'
 
+import theme from '../styles/theme'
 import SEO from './SEO'
 import GlobalStyle from '../styles/global-style'
 
@@ -17,11 +19,13 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <>
-        <GlobalStyle />
-        <SEO />
-        {children}
-      </>
+      <ThemeProvider theme={theme}>
+        <>
+          <GlobalStyle />
+          <SEO />
+          {children}
+        </>
+      </ThemeProvider>
     )}
   />
 )
