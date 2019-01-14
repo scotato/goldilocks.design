@@ -16,23 +16,13 @@ const getTextColor = props => isPrimary(
 const Bubble = styled.div`
   position: relative;
   padding: 0.7rem 1.25rem;
-  border-radius: ${isPrimary('24px 4px 4px 24px', '4px 24px 24px 4px')};
+  border-radius: 24px;
   background-color: ${getBackgroundColor};
   color: ${getTextColor};
   min-height: 48px;
   line-height: 1.25;
   will-change: border-radius;
   transition: border-radius 0.1s ease-out;
-
-  &:first-child {
-    border-top-left-radius: 24px;
-    border-top-right-radius: 24px;
-  }
-
-  &:last-child {
-    border-bottom-left-radius: 24px;
-    border-bottom-right-radius: 24px;
-  }
 `
 
 export default Bubble

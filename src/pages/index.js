@@ -1,8 +1,9 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
+import Message from '../components/Message'
 
 class BlogIndex extends React.Component {
   render() {
@@ -13,20 +14,18 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO />
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <h3>
-                <Link to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              {/* <p dangerouslySetInnerHTML={{ __html: node.excerpt }} /> */}
-            </div>
-          )
-        })}
+        {posts.map(({ node }) => (
+          <Message
+            key={node.fields.slug}
+            banner={node.frontmatter.banner.childImageSharp.fixed}
+            avatar={data.avatar.childImageSharp.fixed}
+            author={node.frontmatter.author}
+            children={node.frontmatter.title}
+            timestamp={node.frontmatter.date}
+            to={node.fields.slug}
+            justifyContent='center'
+          />
+        ))}
       </Layout>
     )
   }
@@ -41,16 +40,38 @@ export const pageQuery = graphql`
         title
       }
     }
+    avatar: file(absolutePath: { regex: "/avatar-scotato.jpg/" }) {
+      childImageSharp {
+        fixed(width: 256) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
-          excerpt
           fields {
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            author
             title
+            intro
+            date
+            banner {
+              childImageSharp {
+                fixed(width: 512) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
+            icon {
+              childImageSharp {
+                fixed(width: 256) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
           }
         }
       }

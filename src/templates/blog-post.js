@@ -5,7 +5,7 @@ import styled from 'styled-components'
  
 import Layout from '../components/Layout'
 import Button from '../components/Button'
-import BubbleGroup from '../components/BubbleGroup'
+import Message from '../components/Message'
 import SEO from '../components/SEO'
 
 const Posts = styled.article`
@@ -61,7 +61,7 @@ class BlogPostTemplate extends React.Component {
       >
         <SEO title={post.frontmatter.title} description={post.excerpt} />
         <h1>{post.frontmatter.title}</h1>
-        <BubbleGroup
+        <Message
           avatar={avatar.childImageSharp.fixed}
           author={post.frontmatter.author}
           children={post.frontmatter.intro}
@@ -118,7 +118,7 @@ export const pageQuery = graphql`
             }
           }
         }
-        date(formatString: "MMMM DD, YYYY")
+        date
       }
     }
   }
