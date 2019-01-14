@@ -1,15 +1,19 @@
 export const black = {
-  900: '#333333',
-  800: '#555555',
-  700: '#777777',
-  400: '#999999',
-  300: '#BBBBBB',
+  100: '#F7F7F7',
   200: '#DDDDDD',
-  100: '#F7F7F7'
+  300: '#BBBBBB',
+  400: '#999999',
+  700: '#777777',
+  800: '#555555',
+  900: '#333333',
 }
 
-export const gold = '#F6D55C'
-export const primary = gold
+export const gold = {
+  500: '#F6D55C',
+  700: '#B89000',
+  900: '#524900'
+}
+export const primary = gold[500]
 
 export default {
   black,

@@ -1,47 +1,86 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
+import styled from 'styled-components'
  
 import Layout from '../components/Layout'
+import Button from '../components/Button'
+import BubbleGroup from '../components/BubbleGroup'
 import SEO from '../components/SEO'
- 
+
+const Posts = styled.article`
+  margin: 3.2rem 0;
+`
+
+const Icon = styled(Img).attrs({
+  style: {
+    width: '100%',
+    height: '100%'
+  }
+})`
+`
+
+const Pager = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+const ButtonPrevious = styled(Button)`
+  margin-right: auto;
+`
+
+const ButtonNext = styled(Button)`
+  margin-left: auto;
+`
+
+const ArrowPrevious = styled.span.attrs({
+  children: '←'
+})`
+  margin-right: 0.5em;
+`
+
+const ArrowNext = styled.span.attrs({
+  children: '→'
+})`
+  margin-left: 0.5em;
+`
+
 class BlogPostTemplate extends React.Component {
   render() {
-    console.log(this.props)
     const post = this.props.data.markdownRemark
+    const avatar = this.props.data.avatar
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
  
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout
+        location={this.props.location}
+        title={siteTitle}
+        icon={<Icon fixed={post.frontmatter.icon.childImageSharp.fixed} />}
+      >
         <SEO title={post.frontmatter.title} description={post.excerpt} />
         <h1>{post.frontmatter.title}</h1>
-        <p>{post.frontmatter.date}</p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
- 
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
+        <BubbleGroup
+          avatar={avatar.childImageSharp.fixed}
+          author={post.frontmatter.author}
+          children={post.frontmatter.intro}
+          timestamp={post.frontmatter.date}
+        />
+        <Posts dangerouslySetInnerHTML={{ __html: post.html }} />
+
+        <Pager>
+          {previous && (
+            <ButtonPrevious to={previous.fields.slug} rel="prev">
+              <ArrowPrevious /> {previous.frontmatter.title}
+            </ButtonPrevious>
+          )}
+          {next && (
+            <ButtonNext to={next.fields.slug} rel="next">
+              {next.frontmatter.title} <ArrowNext />
+            </ButtonNext>
+          )}
+        </Pager>
       </Layout>
     )
   }
@@ -57,12 +96,28 @@ export const pageQuery = graphql`
         author
       }
     }
+    avatar: file(absolutePath: { regex: "/avatar-scotato.jpg/" }) {
+      childImageSharp {
+        fixed(width: 256) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
       html
       frontmatter {
+        author
         title
+        intro
+        icon {
+          childImageSharp {
+            fixed(width: 256) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
         date(formatString: "MMMM DD, YYYY")
       }
     }
