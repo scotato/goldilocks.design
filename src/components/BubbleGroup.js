@@ -12,9 +12,20 @@ const MessageGroup = styled.div`
   align-items: center;
 `
 
-const MessageAvatar = styled(Avatar)`
+const MessageAvatarLink = styled.a`
   margin-right: 0.5rem;
+  line-height: 1;
 `
+
+const MessageAvatar = props => (
+  <MessageAvatarLink
+    href={`https://twitter.com/${props.author}`}
+    title={props.author}
+    target="_blank"
+  >
+    <Avatar {...props} />
+  </MessageAvatarLink>
+)
 
 const Flex = styled.div`
   flex-direction: column;
