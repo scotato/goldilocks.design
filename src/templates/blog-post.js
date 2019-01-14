@@ -66,6 +66,7 @@ class BlogPostTemplate extends React.Component {
           author={post.frontmatter.author}
           children={post.frontmatter.intro}
           timestamp={post.frontmatter.date}
+          timeToRead={post.timeToRead}
         />
         <Posts dangerouslySetInnerHTML={{ __html: post.html }} />
 
@@ -107,6 +108,7 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       html
+      timeToRead
       frontmatter {
         author
         title

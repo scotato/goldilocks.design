@@ -9,7 +9,7 @@ import Bubble from './Bubble'
 
 const Message = styled.div`
   display: grid;
-  margin: 0 auto 1rem;
+  margin: 0 auto 3.2rem;
   grid-template-columns: 48px auto 48px;
   grid-template-rows: auto auto;
   grid-column-gap: 8px;
@@ -19,12 +19,7 @@ const Message = styled.div`
   justify-content: ${props => props.justifyContent || 'start'};
 `
 
-const MessageBanner = styled(Img).attrs({
-  style: {
-    // width: '100%',
-    // height: '100%'
-  }
-})``
+const MessageBanner = styled(Img)``
 
 const bubbles = css`
   display: flex;
@@ -82,7 +77,7 @@ const Timestamp = styled.small`
   color: ${props => props.theme.colors.black[300]};
 `
 
-export default ({children, banner, avatar, author, title, timestamp, to, ...props}) => (
+export default ({children, banner, avatar, author, title, timestamp, timeToRead, to, ...props}) => (
   <Message {...props}>
     <MessageAvatar fixed={avatar} author={author} />
     <Bubbles to={to}>
@@ -91,6 +86,6 @@ export default ({children, banner, avatar, author, title, timestamp, to, ...prop
         {children}
       </Bubble>
     </Bubbles>
-    <Timestamp>{moment(timestamp).fromNow()}</Timestamp>
+    <Timestamp>{moment(timestamp).fromNow()} - {timeToRead} min read</Timestamp>
   </Message>
 )

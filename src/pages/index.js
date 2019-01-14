@@ -22,6 +22,7 @@ class BlogIndex extends React.Component {
             author={node.frontmatter.author}
             children={node.frontmatter.title}
             timestamp={node.frontmatter.date}
+            timeToRead={node.timeToRead}
             to={node.fields.slug}
             justifyContent='center'
           />
@@ -53,6 +54,7 @@ export const pageQuery = graphql`
           fields {
             slug
           }
+          timeToRead
           frontmatter {
             author
             title
