@@ -17,7 +17,7 @@ HTML 5 gives us all sorts of great elements ` <video>`, `<audio>`, ` <canvas> `,
 
 ## JavaScript
 
-Ok, this analogy is kind of falling apart but basically we're going to use it to take our app from static to dynamic. Love it or hate it, JS is the language of the web and it has become a monster.
+Ok, this analogy is kind of falling apart but basically we're going to use it to take our app from static to dynamic. Love it or hate it, JS is the language of the web and it has become a monster. Have you been using [es6](http://es6-features.org)? It's great.
 
 JavaScript has had the [most contributions on GitHub over the last 4 years](https://octoverse.github.com/projects#languages), that's impressive. Not only that, TypeScript has recently jumped to the the seventh most popular language on GitHub and it's basically just fancy JavaScript.
 
@@ -27,7 +27,7 @@ JavaScript has had the [most contributions on GitHub over the last 4 years](http
 
 Ok so we have structure and we can move, next we need skin. Much like JavaScript, this is a love/hate situation for developers. But wait, like it's cousins HTML and JS, it has new super powers in the form of CSS 3!
 
-With CSS 3 we get [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/), [grid](https://css-tricks.com/snippets/css/complete-guide-grid/), and all sorts of fancy features that make styling web apps a dream. Now we're talkin', we have structure, we can move, and we can look a certain kinda way.
+With CSS 3 we get [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/), [grid](https://css-tricks.com/snippets/css/complete-guide-grid/), [animation](https://css-tricks.com/almanac/properties/a/animation/), and all sorts of fancy features that make styling web apps a dream. Now we're talkin', we have structure, we can move, and we can look a certain kinda way.
 
 
 

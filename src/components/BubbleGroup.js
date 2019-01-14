@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import moment from 'moment'
 
 import Avatar from './Avatar'
 import Bubble from './Bubble'
 import BubbleTyping from './BubbleTyping'
 
 const MessageGroup = styled.div`
-  margin: 3.2rem 0;
+  margin: 1.6rem 0 6.4rem;
   display: flex;
   align-items: center;
 `
@@ -45,7 +46,7 @@ export default ({ type = 'secondary', ...props }) => {
           : (
             <Bubble type={type}>
               {props.children}
-              <Timestamp>{props.timestamp}</Timestamp>
+              <Timestamp>{moment(props.timestamp).fromNow()}</Timestamp>
             </Bubble>
           )
         }
