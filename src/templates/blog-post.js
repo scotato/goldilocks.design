@@ -12,6 +12,13 @@ const Posts = styled.article`
   margin: 3.2rem 0;
 `
 
+const Title = styled.h1`
+  margin-bottom: 1rem;
+  font-size: 5rem;
+  line-height: 1;
+  text-transform: lowercase;
+`
+
 const Icon = styled(Img).attrs({
   style: {
     width: '100%',
@@ -60,7 +67,7 @@ class BlogPostTemplate extends React.Component {
         icon={<Icon fixed={post.frontmatter.icon.childImageSharp.fixed} />}
       >
         <SEO title={post.frontmatter.title} description={post.excerpt} />
-        <h1>{post.frontmatter.title}</h1>
+        <Title>{post.frontmatter.title}</Title>
         <Message
           avatar={avatar.childImageSharp.fixed}
           author={post.frontmatter.author}

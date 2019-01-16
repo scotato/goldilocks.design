@@ -10,13 +10,13 @@ import Bubble from './Bubble'
 const Message = styled.div`
   display: grid;
   margin: 0 auto 3.2rem;
-  grid-template-columns: 48px auto 48px;
+  grid-template-columns: 48px ${props => props.bubbleWidth || ''} 48px;
   grid-template-rows: auto auto;
   grid-column-gap: 8px;
   grid-template-areas: 
     "avatar bubbles ."
     ". timestamp .";
-  justify-content: ${props => props.justifyContent || 'start'};
+  justify-content: start;
 `
 
 const MessageBanner = styled(Img)``
