@@ -58,12 +58,17 @@ const OverlayRight = styled(OverlayBase)`
 `
 
 const slide = keyframes`
-  from {
-    transform: translateX(0);
+  0% {
+    transform: translateX(0) scale(1, 0.5);
   }
 
-  to {
-    transform: translateX(-100vw);
+  50% {
+    transform: translateX(-50vw) scale(2, 1);
+
+  }
+
+  100% {
+    transform: translateX(-100vw) scale(1, 0.5);
   }
 `;
 
@@ -74,6 +79,7 @@ const Blob = styled.img.attrs({
   top: 0;
   width: 200vw;
   animation: ${slide} 12s linear infinite;
+  transform-origin: top;
 `
 
 const BlobTopLeft = styled(Blob)`
