@@ -42,6 +42,7 @@ const OverlayBase = styled.div`
   position: relative;
   background-color: ${props => props.theme.colors.black[100]};
   overflow: hidden;
+  user-select: none;
 `
 
 const OverlayTop = styled(OverlayBase)`
@@ -107,8 +108,6 @@ export default props => (
       )}
     </Sticky>
     <TabletBody>
-      {props.children}
-      {props.children}
       {props.children}
     </TabletBody>
   </StickyContainer>

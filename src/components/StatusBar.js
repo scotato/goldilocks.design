@@ -16,6 +16,7 @@ const StatusBar = styled.div`
   background-color: white;
   border-bottom: 0.1vh solid rgba(0, 0, 0, 0.1);
   font-weight: 500;
+  user-select: none;
 `
 
 const StatusLogo = styled(Logo)`

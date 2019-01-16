@@ -21,6 +21,7 @@ const Blob = styled.img.attrs({
 })`
   position: absolute;
   width: 200vw;
+  user-select: none;
 `
 
 export const BlobAnimated = styled(Blob)`
