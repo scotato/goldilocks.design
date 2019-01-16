@@ -1,6 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { StickyContainer, Sticky } from 'react-sticky'
+import blob from '../../static/images/blob-line.svg'
 
 const aspectRatio = 2732 / 2048
 
@@ -19,9 +20,9 @@ const TabletGrid = styled.div`
 `
 
 const Tablet = styled.div`
-  margin: -1.5rem;
-  border: 1.5rem solid ${props => props.theme.colors.black[900]};
-  border-radius: 2.125rem;
+  margin: -3vh;
+  border: 3vh solid ${props => props.theme.colors.black[900]};
+  border-radius: 4vh;
   z-index: 10;
   pointer-events: none;
   grid-area: body;
@@ -36,7 +37,8 @@ const TabletBody = styled.div`
 
 const OverlayBase = styled.div`
   position: relative;
-  background-color: ${props => props.theme.colors.primary};
+  background-color: ${props => props.theme.colors.black[100]};
+  overflow: hidden;
 `
 
 const OverlayTop = styled(OverlayBase)`
@@ -45,27 +47,56 @@ const OverlayTop = styled(OverlayBase)`
 
 const OverlayBottom = styled(OverlayBase)`
   grid-area: 3 / 1 / 4 / 4;
-  background-color: ${props => props.theme.colors.black[100]};
 `
 
 const OverlayLeft = styled(OverlayBase)`
   grid-area: 1 / 1 / 4 / 2;
-  border-top: 15vh solid ${props => props.theme.colors.primary};
-  background-color: ${props => props.theme.colors.black[100]};
 `
 
 const OverlayRight = styled(OverlayBase)`
   grid-area: 1 / 3 / 4 / 4;
-  border-top: 15vh solid ${props => props.theme.colors.primary};
-  background-color: ${props => props.theme.colors.black[100]};
+`
+
+const slide = keyframes`
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100vw);
+  }
+`;
+
+const Blob = styled.img.attrs({
+  src: blob
+})`
+  position: absolute;
+  top: 0;
+  width: 200vw;
+  animation: ${slide} 12s linear infinite;
+`
+
+const BlobTopLeft = styled(Blob)`
+  left: 0;
+`
+
+const BlobTopRight = styled(Blob)`
+  left: initial;
+  right: -100vw;
 `
 
 const Overlay = props => (
   <React.Fragment>
-    <OverlayTop />
+    <OverlayTop>
+      <BlobTopLeft />    
+    </OverlayTop>
     <OverlayBottom />
-    <OverlayLeft />
-    <OverlayRight />
+    <OverlayLeft>
+      <BlobTopLeft />
+    </OverlayLeft>
+    <OverlayRight>
+      <BlobTopRight />
+    </OverlayRight>
   </React.Fragment>
 )
 

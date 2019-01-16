@@ -22,6 +22,8 @@ const Banner = styled.h1`
   font-weight: 800;
   text-align: center;
   line-height: 1;
+  user-select: none;
+  letter-spacing: -0.025em;
 `
 
 const Placeholder = styled.div`
