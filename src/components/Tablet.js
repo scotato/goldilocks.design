@@ -1,7 +1,9 @@
 import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import { StickyContainer, Sticky } from 'react-sticky'
-import blob from '../../static/images/blob-line.svg'
+
+import StatusBar from './StatusBar'
+import { BlobAnimated } from './Blob'
 
 const aspectRatio = 2732 / 2048
 
@@ -26,11 +28,12 @@ const Tablet = styled.div`
   z-index: 10;
   pointer-events: none;
   grid-area: body;
+  overflow: hidden;
 `
 
 const TabletBody = styled.div`
   margin: -90vh auto 0;
-  padding: 3rem;
+  padding: 10vh 2.5vh;
   width: ${80 * aspectRatio}vh;
   background-color: white;
 `
@@ -45,10 +48,6 @@ const OverlayTop = styled(OverlayBase)`
   grid-area: 1 / 1 / 2 / 4;
 `
 
-const OverlayBottom = styled(OverlayBase)`
-  grid-area: 3 / 1 / 4 / 4;
-`
-
 const OverlayLeft = styled(OverlayBase)`
   grid-area: 1 / 1 / 4 / 2;
 `
@@ -57,36 +56,18 @@ const OverlayRight = styled(OverlayBase)`
   grid-area: 1 / 3 / 4 / 4;
 `
 
-const slide = keyframes`
-  0% {
-    transform: translateX(0) scale(1, 0.5);
-  }
-
-  50% {
-    transform: translateX(-50vw) scale(2, 1);
-
-  }
-
-  100% {
-    transform: translateX(-100vw) scale(1, 0.5);
-  }
-`;
-
-const Blob = styled.img.attrs({
-  src: blob
-})`
-  position: absolute;
-  top: 0;
-  width: 200vw;
-  animation: ${slide} 12s linear infinite;
-  transform-origin: top;
+const OverlayBottom = styled(OverlayBase)`
+  grid-area: 3 / 1 / 4 / 4;
+  border-bottom: 1vh solid ${props => props.theme.colors.primary};
 `
 
-const BlobTopLeft = styled(Blob)`
+const BlobTopLeft = styled(BlobAnimated)`
+  top: 0;  
   left: 0;
 `
 
-const BlobTopRight = styled(Blob)`
+const BlobTopRight = styled(BlobAnimated)`
+  top: 0;  
   left: initial;
   right: -100vw;
 `
@@ -96,13 +77,13 @@ const Overlay = props => (
     <OverlayTop>
       <BlobTopLeft />    
     </OverlayTop>
-    <OverlayBottom />
     <OverlayLeft>
       <BlobTopLeft />
     </OverlayLeft>
     <OverlayRight>
       <BlobTopRight />
     </OverlayRight>
+    <OverlayBottom />
   </React.Fragment>
 )
 
@@ -119,7 +100,9 @@ export default props => (
       }) => (
         <TabletGrid style={style}>
           <Overlay />
-          <Tablet />
+          <Tablet>
+            <StatusBar />
+          </Tablet>
         </TabletGrid>
       )}
     </Sticky>

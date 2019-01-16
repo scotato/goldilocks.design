@@ -26,11 +26,6 @@ const Banner = styled.h1`
   letter-spacing: -0.025em;
 `
 
-const Placeholder = styled.div`
-  height: 50vh;
-  background-color: ${props => props.theme.colors.black[100]};
-`
-
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
@@ -58,7 +53,6 @@ class BlogIndex extends React.Component {
             />
           ))}
         </Tablet>
-        <Placeholder />
       </Layout>
     )
   }

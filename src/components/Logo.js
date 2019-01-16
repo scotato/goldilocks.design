@@ -7,13 +7,14 @@ const LogoStyled = styled(Image)`
   width: 100%;
 `
 
-const Logo = () => (
+const Logo = props => (
   <StaticQuery
     query={identityQuery}
     render={data => (
         <LogoStyled
-          fixed={data.logo.childImageSharp.fixed}
+          fluid={data.logo.childImageSharp.fluid}
           alt={data.site.siteMetadata.title}
+          {...props}
         />
       )
     }
@@ -24,8 +25,8 @@ const identityQuery = graphql`
   query IdentityQuery {
     logo: file(absolutePath: { regex: "/goldilocks-design-icon.png/" }) {
       childImageSharp {
-        fixed(width: 50, height: 50) {
-          ...GatsbyImageSharpFixed
+        fluid {
+          ...GatsbyImageSharpFluid_noBase64
         }
       }
     }
