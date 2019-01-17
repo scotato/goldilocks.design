@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { StickyContainer, Sticky } from 'react-sticky'
 
 import StatusBar from './StatusBar'
+import InputBar from './InputBar'
 import { BlobAnimated } from './Blob'
 
 const aspectRatio = 2732 / 2048
@@ -15,7 +16,7 @@ const TabletGrid = styled.div`
   grid-template-areas:
     ". statusbar ."
     ". body ."
-    ". . .";
+    ". inputbar .";
   min-height: 100vh;
   pointer-events: none;
   z-index: 10;
@@ -23,9 +24,17 @@ const TabletGrid = styled.div`
 
 const TabletBody = styled.div`
   margin: -85vh auto 0;
-  padding: 5vh 5vh 15vh;
+  padding: 5vh 2.5vh 15vh;
   width: ${90 * aspectRatio}vh;
   background-color: white;
+`
+
+const TabletShadow = styled.div`
+  margin: 5vh 0;
+  grid-area: 1 / 2 / 4 / 3;
+  border-radius: 5vh;
+  box-shadow: 0 1vh 5vh rgba(0, 0, 0, 0.1);
+  z-index: 1;
 `
 
 const OverlayBase = styled.div`
@@ -65,6 +74,8 @@ export default props => (
       }) => (
         <TabletGrid style={style}>
           <StatusBar />
+          <InputBar />
+          <TabletShadow />
           <OverlayTop>
             <BlobAnimated />
           </OverlayTop>

@@ -14,14 +14,15 @@ const StatusBar = styled.div`
   align-items: center;
   align-self: end;
   height: 10vh;
-  font-size: 2.5vh;
+  font-size: 2vh;
   background-color: white;
-  border-bottom: 0.1vh solid rgba(0, 0, 0, 0.1);
+  border-bottom: 0.25vh solid ${props => props.theme.colors.black[100]};
   font-weight: 300;
   user-select: none;
   color: ${props => props.theme.colors.black[300]};
   border-top-left-radius: 5vh;
   border-top-right-radius: 5vh;
+  pointer-events: auto;
   z-index: 1;
 `
 
