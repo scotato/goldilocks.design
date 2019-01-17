@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
  
 import Layout from '../components/Layout'
-import Button from '../components/Button'
+import { ButtonLink } from '../components/Button'
 import Message from '../components/Message'
 import SEO from '../components/SEO'
 
@@ -33,11 +33,11 @@ const Pager = styled.nav`
   align-items: center;
 `
 
-const ButtonPrevious = styled(Button)`
+const ButtonPrevious = styled(ButtonLink)`
   margin-right: auto;
 `
 
-const ButtonNext = styled(Button)`
+const ButtonNext = styled(ButtonLink)`
   margin-left: auto;
 `
 
