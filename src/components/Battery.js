@@ -6,10 +6,10 @@ const BatteryIndicator = styled.div`
   position: relative;
   align-items: center;
   justify-content: flex-start;
-  background-color: ${props => props.theme.colors.black[200]};
-  border-radius: 0.5vh;
-  width: 4vh;
-  height: 1vh;
+  background-color: ${props => props.theme.colors.black[300]};
+  border-radius: 0.75vh;
+  width: 8vh;
+  height: 2vh;
   overflow: hidden;
 
   &:before {
@@ -24,18 +24,14 @@ const BatteryIndicator = styled.div`
     position: absolute;
     content: " ";
     width: ${props => props.batteryLevel}%;
-    height: 1vh;
-    background-color: ${props => props.theme.colors.black[900]};
+    height: 2vh;
+    background-color: ${props => props.theme.colors.black[200]};
     align-self: flex-start;
     z-index: 1;
   }
 `
 
 export default class Battery extends Component {
-  constructor (props) {
-    super(props)
-  }
-
   state = {
     isCharging: true,
     level: 1

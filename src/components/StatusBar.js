@@ -7,20 +7,26 @@ import Time from './Time'
 
 const StatusBar = styled.div`
   display: grid;
-  padding: 0 2vh;
+  grid-area: statusbar;
+  padding: 0 5vh;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
   align-items: center;
-  height: 5vh;
-  font-size: 1.5vh;
+  align-self: end;
+  height: 10vh;
+  font-size: 2.5vh;
   background-color: white;
   border-bottom: 0.1vh solid rgba(0, 0, 0, 0.1);
-  font-weight: 500;
+  font-weight: 300;
   user-select: none;
+  color: ${props => props.theme.colors.black[300]};
+  border-top-left-radius: 5vh;
+  border-top-right-radius: 5vh;
+  z-index: 1;
 `
 
 const StatusLogo = styled(Logo)`
-  width: 4.5vh;
+  width: 6vh;
 `
 
 const StatusTime = styled(Time)`
