@@ -7,7 +7,7 @@ const gooey = keyframes`
   }
 
   50% {
-    transform: translateX(-50vw) scale(2, 0.95);
+    transform: translateX(-50vw) scale(2, 1);
 
   }
 
@@ -21,6 +21,7 @@ const Blob = styled.img.attrs({
 })`
   position: absolute;
   width: 200vw;
+  height: 100%;
   user-select: none;
 `
 
