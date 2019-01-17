@@ -1,7 +1,31 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import { library } from "@fortawesome/fontawesome-svg-core"
+import * as solidIcons from "@fortawesome/free-solid-svg-icons"
+import * as brandIcons from "@fortawesome/free-brands-svg-icons"
 
-// You can delete this file if you're not using it
+const icons = {
+  solid: [
+    'faEnvelope',
+    'faShare',
+    'faComment',
+    'faUserCircle',
+    'faUserCircle',
+    'faTimes',
+    'faEllipsisH'
+    // 'batteryFull',
+    // 'batteryThreeQuarters',
+    // 'batteryQuarter',
+    // 'batteryHalf',
+    // 'batteryEmpty'
+  ],
+  brand: [
+    'faTwitter',
+    'faGithub',
+    'faSpotify'
+  ]
+}
+
+export const onClientEntry = () => {
+  icons.solid.forEach(icon => library.add(solidIcons[icon]))
+  icons.brand.forEach(icon => library.add(brandIcons[icon]))
+}
+
