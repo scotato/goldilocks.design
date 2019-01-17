@@ -17,7 +17,6 @@ const StatusBar = styled.div`
   font-size: 2vh;
   background-color: white;
   border-bottom: 0.25vh solid ${props => props.theme.colors.black[100]};
-  font-weight: 400;
   user-select: none;
   color: ${props => props.theme.colors.black[300]};
   border-top-left-radius: 5vh;
@@ -32,6 +31,7 @@ const StatusLogo = styled(Logo)`
 
 const StatusTime = styled(Time)`
   justify-self: start;
+  font-weight: 800;
 `
 
 const StatusBattery = styled(Battery)`

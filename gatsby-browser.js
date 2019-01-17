@@ -10,12 +10,12 @@ const icons = {
     'faUserCircle',
     'faUserCircle',
     'faTimes',
-    'faEllipsisH'
-    // 'batteryFull',
-    // 'batteryThreeQuarters',
-    // 'batteryQuarter',
-    // 'batteryHalf',
-    // 'batteryEmpty'
+    'faEllipsisH',
+    'faBatteryFull',
+    'faBatteryThreeQuarters',
+    'faBatteryQuarter',
+    'faBatteryHalf',
+    'faBatteryEmpty'
   ],
   brand: [
     'faTwitter',

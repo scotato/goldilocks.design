@@ -1,40 +1,35 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const BatteryIndicator = styled.div`
-  display: flex;
-  position: relative;
-  align-items: center;
-  justify-content: flex-start;
-  background-color: ${props => props.theme.colors.black[300]};
-  border-radius: 0.75vh;
-  width: 8vh;
-  height: 2vh;
-  overflow: hidden;
-
-  &:before {
-    display: block;
-    content: " ";
-    align-self: flex-start;
-    z-index: 0;
-  }
-
-  &:after {
-    display: block;
-    position: absolute;
-    content: " ";
-    width: ${props => props.batteryLevel}%;
-    height: 2vh;
-    background-color: ${props => props.theme.colors.black[200]};
-    align-self: flex-start;
-    z-index: 1;
+const BatteryIcon = styled(FontAwesomeIcon)`
+  &.svg-inline--fa {
+    width: 5vh;
+    height: 5vh;
+    justify-self: end;
   }
 `
 
 export default class Battery extends Component {
   state = {
     isCharging: true,
-    level: 1
+    level: 100
+  }
+
+  getIcon = () => {
+    const batteryLevel = Math.floor(this.state.level/20)
+    switch (batteryLevel) {
+      case 0:
+        return 'battery-empty'
+      case 1:
+        return 'battery-quarter'
+      case 2:
+        return 'battery-half'
+      case 3:
+        return 'battery-three-quarters'
+      default:
+        return 'battery-full'
+    }
   }
 
   componentDidMount() {
@@ -48,7 +43,7 @@ export default class Battery extends Component {
 
   render () {
     return (
-      <BatteryIndicator {...this.props} batteryLevel={this.state.level} />
+      <BatteryIcon icon={this.getIcon()} />
     )
   }
 }

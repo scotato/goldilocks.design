@@ -10,8 +10,6 @@ const InputBar = styled.div`
   grid-template-rows: 5vh;
   place-content: center;
   justify-content: stretch;
-  /* align-self: stretch; */
-  /* width: 100%; */
   height: 10vh;
   font-size: 2.5vh;
   background-color: ${props => props.theme.colors.black[100]};
