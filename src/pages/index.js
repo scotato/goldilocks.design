@@ -16,9 +16,7 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO />
-        <Banner>
-          {data.site.siteMetadata.title}
-        </Banner>
+        <Banner title={data.site.siteMetadata.title} />
         <Tablet>
           {posts.map(({ node }) => (
             <Message

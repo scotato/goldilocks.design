@@ -7,16 +7,17 @@ import Layout from '../components/Layout'
 import { ButtonLink } from '../components/Button'
 import { BlobAnimated } from '../components/Blob'
 import Banner from '../components/Banner'
-// import Message from '../components/Message'
+import BlogBar from '../components/BlogBar'
+import Message from '../components/Message'
 import SEO from '../components/SEO'
 
 const Page = styled.div`
   position: relative;
   display: grid;
-  grid-template-columns: auto 90vw auto;
+  grid-template-columns: auto 80vw auto;
   grid-template-rows: 15vh auto 15vh;
   grid-template-areas:
-    ". statusbar ."
+    ". blogbar ."
     ". body ."
     ". userbar .";
   min-height: 100vh;
@@ -29,6 +30,9 @@ const PageBlob = styled(BlobAnimated)`
 
 const Posts = styled.article`
   grid-area: body;
+  background-color: white;
+  padding: 5rem 10rem;
+  max-width: 1152px;
 `
 
 // const Icon = styled(Img).attrs({
@@ -43,6 +47,7 @@ const Pager = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  grid-area: userbar;
 `
 
 const ButtonPrevious = styled(ButtonLink)`
@@ -68,7 +73,7 @@ const ArrowNext = styled.span.attrs({
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
-    // const avatar = this.props.data.avatar
+    const avatar = this.props.data.avatar
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
  
@@ -78,18 +83,24 @@ class BlogPostTemplate extends React.Component {
         title={siteTitle}
       >
         <SEO title={post.frontmatter.title} description={post.excerpt} />
-        <Banner type="post">{post.frontmatter.title}</Banner>
-        {/* <Message
-          avatar={avatar.childImageSharp.fixed}
-          author={post.frontmatter.author}
-          children={post.frontmatter.intro}
-          timestamp={post.frontmatter.date}
-          timeToRead={post.timeToRead}
-        /> */}
+        <Banner type="post" title={post.frontmatter.title}>
+          <Message
+            avatar={avatar.childImageSharp.fixed}
+            author={post.frontmatter.author}
+            children={post.frontmatter.intro}
+            timestamp={post.frontmatter.date}
+            timeToRead={post.timeToRead}
+          />
+        </Banner>
+        
         <Page>
           <PageBlob />
+          <BlogBar />
           {/* <Icon fixed={post.frontmatter.icon.childImageSharp.fixed} /> */}
-          <Posts dangerouslySetInnerHTML={{ __html: post.html }} />
+          <Posts>
+            <h1>{post.frontmatter.title}</h1>
+            <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          </Posts>
           <Pager>
             {previous && (
               <ButtonPrevious to={previous.fields.slug} rel="prev">
