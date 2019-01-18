@@ -33,9 +33,7 @@ const UserBarContainer = styled.div`
   z-index: 1;
 `
 
-const Form = styled.form`
-  
-`
+const Form = styled.form``
 
 const encode = data => Object.keys(data).map(key =>
     encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
