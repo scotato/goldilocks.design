@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled, { css } from 'styled-components'
+import addToMailchimp from 'gatsby-plugin-mailchimp'
 
 import { ButtonIcon } from './Button'
 import { AvatarUser } from './Avatar'
@@ -36,12 +37,20 @@ const Form = styled.form`
   
 `
 
+const encode = data => Object.keys(data).map(key =>
+    encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+  ).join("&")
+
 export default class UserBar extends Component {
   state = {
     activeButton: 'message',
     messageValue: '',
     newsletterValue: '',
-    responseNewsletter: null
+    responseNewsletter: {
+      result: '',
+      msg: ''
+    },
+    responseMessage: {}
   }
 
   isButtonActive = button => button === this.state.activeButton
@@ -49,16 +58,39 @@ export default class UserBar extends Component {
 
   handleSubmitMessage = e => {
     e.preventDefault()
-    console.log(this.state.messageValue)
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": "message",
+        message: this.state.messageValue,
+        page: window && window.location.pathname
+      })
+    })
+      .then(() => console.log('success'))
+      .catch(error => console.log(error));
+
     this.setState({ messageValue: '' })
+    window.ga && window.ga('send', {
+      hitType: 'event',
+      eventCategory: 'NetlifyForm',
+      eventLabel: 'Message',
+      eventAction: 'submit'
+    })
   }
   
   handleSubmitNewsletter = async (e) => {
     e.preventDefault()
-    // const responseNewsletter = await addToMailchimp(this.state.inputValue)
-    this.setState({
-      // responseNewsletter,
-      newsletterValue: ''
+    const responseNewsletter = await addToMailchimp(this.state.newsletterValue)
+    this.setState({ responseNewsletter, newsletterValue: '' })
+    console.log(responseNewsletter)
+
+    window.ga && window.ga('send', {
+      hitType: 'event',
+      eventCategory: 'Mailchimp',
+      eventLabel: 'Newsletter',
+      eventAction: 'submit',
+      eventValue: responseNewsletter.result === 'success' ? 1 : 0
     })
   }
 
@@ -86,7 +118,7 @@ export default class UserBar extends Component {
               onClick={() => this.setActiveButton('message')}
             />
             {this.state.activeButton === 'message' && (
-              <Form onSubmit={this.handleSubmitMessage}>
+              <Form onSubmit={this.handleSubmitMessage} >
                 <Input
                   placeholder="message..."
                   value={this.state.messageValue}
