@@ -1,30 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import styled from 'styled-components'
 
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import Message from '../components/Message'
 import Tablet from '../components/Tablet'
-
-const Banner = styled.h1`
-  position: relative;
-  display: flex;
-  margin-bottom: -10vh;
-  left: 0;
-  width: 100vw;
-  padding: 0 25vw;
-  height: 90vh;
-  background-color: ${props => props.theme.colors.primary};
-  font-size: 20vh;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  text-align: center;
-  line-height: 1;
-  user-select: none;
-  letter-spacing: -0.025em;
-`
+import Banner from '../components/Banner'
 
 class BlogIndex extends React.Component {
   render() {
