@@ -9,13 +9,12 @@ import Bubble from './Bubble'
 
 const Message = styled.div`
   display: grid;
-  margin: 0 auto 3.2rem;
-  grid-template-columns: 48px ${props => props.bubbleWidth || 'auto'} 48px;
+  grid-template-columns: 48px ${props => props.bubbleWidth || 'auto'};
   grid-template-rows: auto auto;
   grid-column-gap: 8px;
   grid-template-areas: 
-    "avatar bubbles ."
-    ". timestamp .";
+    "avatar bubbles"
+    ". timestamp";
   justify-content: start;
 `
 
@@ -70,14 +69,14 @@ const MessageAvatar = props => (
   </MessageAvatarLink>
 )
 
-const Timestamp = styled.small`
+const Details = styled.small`
   margin: 0.5rem 1.25rem;
   grid-area: timestamp;
   font-size: 12px;
   color: ${props => props.theme.colors.black[300]};
 `
 
-export default ({children, banner, avatar, author, title, timestamp, timeToRead, to, ...props}) => (
+export default ({children, banner, avatar, author, title, timestamp, details, to, ...props}) => (
   <Message {...props}>
     <MessageAvatar fixed={avatar} author={author} />
     <Bubbles to={to}>
@@ -86,6 +85,12 @@ export default ({children, banner, avatar, author, title, timestamp, timeToRead,
         {children}
       </Bubble>
     </Bubbles>
-    <Timestamp>{moment(timestamp).fromNow()} - {timeToRead} min read</Timestamp>
+    {(timestamp || details) && (
+      <Details>
+        {timestamp && moment(timestamp).fromNow()}
+        {(timestamp && details) && ' - '}
+        {details}
+      </Details>
+    )}
   </Message>
 )

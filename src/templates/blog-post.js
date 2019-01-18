@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-// import Img from 'gatsby-image'
 import styled from 'styled-components'
  
 import Layout from '../components/Layout'
@@ -10,6 +9,11 @@ import Banner from '../components/Banner'
 import BlogBar from '../components/BlogBar'
 import Message from '../components/Message'
 import SEO from '../components/SEO'
+
+const TitleMessage = styled(Message)`
+  margin-top: 2rem;
+  margin-bottom: -2rem;
+`
 
 const Page = styled.div`
   position: relative;
@@ -34,14 +38,6 @@ const Posts = styled.article`
   padding: 5rem 10rem;
   max-width: 1152px;
 `
-
-// const Icon = styled(Img).attrs({
-//   style: {
-//     width: '100%',
-//     height: '100%'
-//   }
-// })`
-// `
 
 const Pager = styled.nav`
   display: flex;
@@ -84,21 +80,24 @@ class BlogPostTemplate extends React.Component {
       >
         <SEO title={post.frontmatter.title} description={post.excerpt} />
         <Banner type="post" title={post.frontmatter.title}>
-          <Message
+          <TitleMessage
             avatar={avatar.childImageSharp.fixed}
             author={post.frontmatter.author}
             children={post.frontmatter.intro}
-            timestamp={post.frontmatter.date}
-            timeToRead={post.timeToRead}
           />
         </Banner>
         
         <Page>
           <PageBlob />
-          <BlogBar />
+          <BlogBar
+            siteTitle={siteTitle}
+            title={post.frontmatter.title}
+            date={post.frontmatter.date}
+            timeToRead={post.timeToRead}
+          />
           {/* <Icon fixed={post.frontmatter.icon.childImageSharp.fixed} /> */}
           <Posts>
-            <h1>{post.frontmatter.title}</h1>
+            {/* <h1>{post.frontmatter.title}</h1> */}
             <div dangerouslySetInnerHTML={{ __html: post.html }} />
           </Posts>
           <Pager>

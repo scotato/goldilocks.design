@@ -28,6 +28,7 @@ const BannerTitle = styled.h1`
 
   ${props => props.type === 'post' && css`
     font-size: 15vh;
+    line-height: 0.95;
     letter-spacing: -0.0125em;
   `}
 `
