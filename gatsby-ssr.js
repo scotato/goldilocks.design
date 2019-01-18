@@ -1,7 +1,10 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/ssr-apis/
- */
+import { ServerStyleSheet } from 'styled-components'
 
-// You can delete this file if you're not using it
+export const replaceRenderer = ({
+  setHeadComponents,
+}) => {
+  // Add styled-components in SSR/build
+  const sheet = new ServerStyleSheet()
+  const styleElement = sheet.getStyleElement()
+  setHeadComponents(styleElement)
+}
