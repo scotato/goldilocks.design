@@ -5,18 +5,31 @@ import styled from 'styled-components'
  
 import Layout from '../components/Layout'
 import { ButtonLink } from '../components/Button'
+import { BlobAnimated } from '../components/Blob'
+import Banner from '../components/Banner'
 import Message from '../components/Message'
 import SEO from '../components/SEO'
 
-const Posts = styled.article`
-  margin: 3.2rem 0;
+const Page = styled.div`
+  position: relative;
+  display: grid;
+  /* margin: 3.2rem 0; */
+  grid-template-columns: auto 90vw auto;
+  grid-template-rows: 15vh auto 15vh;
+  grid-template-areas:
+    ". statusbar ."
+    ". body ."
+    ". userbar .";
+  min-height: 100vh;
+  background-color: ${props => props.theme.colors.black[100]};
 `
 
-const Title = styled.h1`
-  margin-bottom: 1rem;
-  font-size: 5rem;
-  line-height: 1;
-  text-transform: lowercase;
+const PageBlob = styled(BlobAnimated)`
+  grid-area: 1 / 1 / 2 / 3;
+`
+
+const Posts = styled.article`
+  grid-area: body;
 `
 
 const Icon = styled(Img).attrs({
@@ -65,17 +78,22 @@ class BlogPostTemplate extends React.Component {
         location={this.props.location}
         title={siteTitle}
         icon={<Icon fixed={post.frontmatter.icon.childImageSharp.fixed} />}
+        shouldUseGrid={false}
       >
         <SEO title={post.frontmatter.title} description={post.excerpt} />
-        <Title>{post.frontmatter.title}</Title>
-        <Message
+        <Banner type="post">{post.frontmatter.title}</Banner>
+        {/* <Message
           avatar={avatar.childImageSharp.fixed}
           author={post.frontmatter.author}
           children={post.frontmatter.intro}
           timestamp={post.frontmatter.date}
           timeToRead={post.timeToRead}
-        />
-        <Posts dangerouslySetInnerHTML={{ __html: post.html }} />
+        /> */}
+        <Page>
+          <PageBlob />
+          <Posts dangerouslySetInnerHTML={{ __html: post.html }} />
+        </Page>
+
 
         <Pager>
           {previous && (
