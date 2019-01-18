@@ -7,7 +7,7 @@ const Button = styled.button.attrs({
   disabled: props => props.isActive
 })`
   display: flex;
-  background-color: ${props => props.isActive ? 'dodgerblue' : props.theme.colors.black[300]};
+  background-color: ${props => props.backgroundColor ||  (props.isActive ? 'dodgerblue' : props.theme.colors.black[300])};
   border-radius: 2.5vh;
   cursor: ${props => props.isActive ? 'default' : 'pointer'};
   border: 0;
@@ -18,7 +18,7 @@ const Button = styled.button.attrs({
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px dodgerblue;
+    box-shadow: inset 0 0 0 2px dodgerblue;
   }
 `
 

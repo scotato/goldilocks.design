@@ -8,7 +8,7 @@ const Time = styled.span`
 const getTime = () => moment().format('h:mm A ddd MMM D')
 
 export default props => {
-  const [time, setTime] = useState(getTime());
+  const [time, setTime] = useState(getTime())
   
   useEffect(() => {
     const timer = setInterval(() => {

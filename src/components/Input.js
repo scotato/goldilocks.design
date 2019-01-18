@@ -18,7 +18,7 @@ const Input = styled.input`
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px dodgerblue;
+    box-shadow: inset 0 0 0 2px dodgerblue;
   }
 `
 
