@@ -31,7 +31,7 @@ const StatusLogo = styled(Logo)`
 
 const StatusTime = styled(Time)`
   justify-self: start;
-  font-weight: 800;
+  font-weight: 600;
 `
 
 const StatusBattery = styled(Battery)`
