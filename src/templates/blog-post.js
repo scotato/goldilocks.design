@@ -1,19 +1,18 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+// import Img from 'gatsby-image'
 import styled from 'styled-components'
  
 import Layout from '../components/Layout'
 import { ButtonLink } from '../components/Button'
 import { BlobAnimated } from '../components/Blob'
 import Banner from '../components/Banner'
-import Message from '../components/Message'
+// import Message from '../components/Message'
 import SEO from '../components/SEO'
 
 const Page = styled.div`
   position: relative;
   display: grid;
-  /* margin: 3.2rem 0; */
   grid-template-columns: auto 90vw auto;
   grid-template-rows: 15vh auto 15vh;
   grid-template-areas:
@@ -32,13 +31,13 @@ const Posts = styled.article`
   grid-area: body;
 `
 
-const Icon = styled(Img).attrs({
-  style: {
-    width: '100%',
-    height: '100%'
-  }
-})`
-`
+// const Icon = styled(Img).attrs({
+//   style: {
+//     width: '100%',
+//     height: '100%'
+//   }
+// })`
+// `
 
 const Pager = styled.nav`
   display: flex;
@@ -69,7 +68,7 @@ const ArrowNext = styled.span.attrs({
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
-    const avatar = this.props.data.avatar
+    // const avatar = this.props.data.avatar
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
  
@@ -77,8 +76,6 @@ class BlogPostTemplate extends React.Component {
       <Layout
         location={this.props.location}
         title={siteTitle}
-        icon={<Icon fixed={post.frontmatter.icon.childImageSharp.fixed} />}
-        shouldUseGrid={false}
       >
         <SEO title={post.frontmatter.title} description={post.excerpt} />
         <Banner type="post">{post.frontmatter.title}</Banner>
@@ -91,22 +88,21 @@ class BlogPostTemplate extends React.Component {
         /> */}
         <Page>
           <PageBlob />
+          {/* <Icon fixed={post.frontmatter.icon.childImageSharp.fixed} /> */}
           <Posts dangerouslySetInnerHTML={{ __html: post.html }} />
+          <Pager>
+            {previous && (
+              <ButtonPrevious to={previous.fields.slug} rel="prev">
+                <ArrowPrevious /> {previous.frontmatter.title}
+              </ButtonPrevious>
+            )}
+            {next && (
+              <ButtonNext to={next.fields.slug} rel="next">
+                {next.frontmatter.title} <ArrowNext />
+              </ButtonNext>
+            )}
+          </Pager>
         </Page>
-
-
-        <Pager>
-          {previous && (
-            <ButtonPrevious to={previous.fields.slug} rel="prev">
-              <ArrowPrevious /> {previous.frontmatter.title}
-            </ButtonPrevious>
-          )}
-          {next && (
-            <ButtonNext to={next.fields.slug} rel="next">
-              {next.frontmatter.title} <ArrowNext />
-            </ButtonNext>
-          )}
-        </Pager>
       </Layout>
     )
   }
