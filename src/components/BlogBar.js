@@ -64,17 +64,17 @@ export default ({
     title,
     date,
     timeToRead,
-    isPinned,
+    isSticky,
     ...props
   }) => {
   return (
-    <BlogBar>
+    <BlogBar {...props}>
       <BrandHome>
         <BrandHomeIcon />
         {siteTitle}
       </BrandHome>
 
-      {isPinned ? (
+      {isSticky ? (
         <PostTitle children={title} />
       ) : (
         <BrandLogo />

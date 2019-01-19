@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
+import { StickyContainer, Sticky } from 'react-sticky'
  
 import Layout from '../components/Layout'
 import { ButtonLink } from '../components/Button'
@@ -19,12 +20,9 @@ const Page = styled.div`
   position: relative;
   display: grid;
   grid-template-columns: auto 80vw auto;
-  grid-template-rows: 15vh auto 15vh;
+  grid-template-rows: 15vh;
   grid-template-areas:
-    ". blogbar ."
-    ". body ."
-    ". userbar .";
-  min-height: 100vh;
+    ". blogbar .";
   background-color: ${props => props.theme.colors.black[100]};
 `
 
@@ -33,17 +31,28 @@ const PageBlob = styled(BlobAnimated)`
 `
 
 const Posts = styled.article`
-  grid-area: body;
+  margin: 0 auto;
   background-color: white;
   padding: 5rem 10rem;
+  width: 80vw;
   max-width: 1152px;
+  background-color: white;
+  min-height: 100vh;
 `
 
 const Pager = styled.nav`
   display: flex;
+  margin: 0 auto 5vh;
+  padding: 0 2.5vh;
   justify-content: space-between;
   align-items: center;
   grid-area: userbar;
+  width: 80vw;
+  height: 10vh;
+  max-width: 1152px;
+  background-color: white;
+  border-bottom-left-radius: 5vh;
+  border-bottom-right-radius: 5vh;
 `
 
 const ButtonPrevious = styled(ButtonLink)`
@@ -66,6 +75,11 @@ const ArrowNext = styled.span.attrs({
   margin-left: 0.5em;
 `
 
+const StickyContainerBlogbar = styled(StickyContainer)`
+  background-color: ${props => props.theme.colors.black[100]};
+  border-bottom: 1vh solid ${props => props.theme.colors.primary};
+`
+
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
@@ -86,20 +100,31 @@ class BlogPostTemplate extends React.Component {
             children={post.frontmatter.intro}
           />
         </Banner>
-        
-        <Page>
-          <PageBlob />
-          <BlogBar
-            siteTitle={siteTitle}
-            title={post.frontmatter.title}
-            date={post.frontmatter.date}
-            timeToRead={post.timeToRead}
-          />
-          {/* <Icon fixed={post.frontmatter.icon.childImageSharp.fixed} /> */}
-          <Posts>
-            {/* <h1>{post.frontmatter.title}</h1> */}
-            <div dangerouslySetInnerHTML={{ __html: post.html }} />
-          </Posts>
+
+        <StickyContainerBlogbar>
+          <Sticky>
+            {({
+              style,
+              isSticky,
+              wasSticky,
+              distanceFromTop,
+              distanceFromBottom,
+              calculatedHeight
+            }) => (
+              <Page style={style}>
+                <BlogBar
+                  siteTitle={siteTitle}
+                  title={post.frontmatter.title}
+                  date={post.frontmatter.date}
+                  timeToRead={post.timeToRead}
+                  isSticky={isSticky}
+                />
+                <PageBlob />
+              </Page>
+            )}
+          </Sticky>
+
+          <Posts dangerouslySetInnerHTML={{ __html: post.html }} />
           <Pager>
             {previous && (
               <ButtonPrevious to={previous.fields.slug} rel="prev">
@@ -112,7 +137,7 @@ class BlogPostTemplate extends React.Component {
               </ButtonNext>
             )}
           </Pager>
-        </Page>
+        </StickyContainerBlogbar>
       </Layout>
     )
   }
