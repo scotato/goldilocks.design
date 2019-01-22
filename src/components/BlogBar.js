@@ -35,7 +35,7 @@ const BrandHome = styled(Link).attrs({
 })`
   padding: 1em 1em 1em 0;
   justify-self: start;
-  font-weight: 700;
+  /* font-weight: 700; */
   color: inherit;
 
   &:hover {
@@ -46,13 +46,14 @@ const BrandHome = styled(Link).attrs({
 const BrandHomeIcon = styled(FontAwesomeIcon).attrs({
   icon: 'angle-left'
 })`
-  transform: scale(2);
+  transform: scale(1.5);
   margin-right: 1em;
   color: ${props => props.theme.colors.black[200]};
 `
 
 const PostTitle = styled.span`
-
+  font-weight: 700;
+  color: ${props => props.theme.colors.black[900]};
 `
 
 const PostDate = styled.span`

@@ -19,7 +19,7 @@ const gooey = keyframes`
 const Blob = styled.img.attrs({
   src: blob
 })`
-  position: absolute;
+  /* position: absolute; */
   width: 200vw;
   height: 100%;
   user-select: none;
