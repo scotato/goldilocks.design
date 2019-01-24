@@ -1,41 +1,49 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+// import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
-import Image from 'gatsby-image'
+// import Image from 'gatsby-image'
 
-const LogoStyled = styled(Image)`
-  width: 100%;
+import Logo from '../../content/brand/goldilocks-logo-knot-black.svg'
+
+export default styled(Logo).attrs({
+  title: 'goldilocks design'
+})`
+  /* width: 100%; */
 `
 
-const Logo = props => (
-  <StaticQuery
-    query={identityQuery}
-    render={data => (
-        <LogoStyled
-          fluid={data.logo.childImageSharp.fluid}
-          alt={data.site.siteMetadata.title}
-          {...props}
-        />
-      )
-    }
-  />
-)
+// const LogoStyled = styled(Image)`
+//   width: 100%;
+// `
 
-const identityQuery = graphql`
-  query IdentityQuery {
-    logo: file(absolutePath: { regex: "/goldilocks-design-icon.png/" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid_noBase64
-        }
-      }
-    }
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`
+// const Logo = props => (
+//   <StaticQuery
+//     query={identityQuery}
+//     render={data => (
+//         <LogoStyled
+//           fluid={data.logo.childImageSharp.fluid}
+//           alt={data.site.siteMetadata.title}
+//           {...props}
+//         />
+//       )
+//     }
+//   />
+// )
 
-export default Logo
+// const identityQuery = graphql`
+//   query IdentityQuery {
+//     logo: file(absolutePath: { regex: "/goldilocks-design-icon.png/" }) {
+//       childImageSharp {
+//         fluid {
+//           ...GatsbyImageSharpFluid_noBase64
+//         }
+//       }
+//     }
+//     site {
+//       siteMetadata {
+//         title
+//       }
+//     }
+//   }
+// `
+
+// export default Logo

@@ -35,6 +35,14 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
     {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+          rule: {
+            include: /content/
+          }
+      }
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `goldilocks-design`,
