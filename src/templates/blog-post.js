@@ -59,16 +59,16 @@ const PageShadow = styled.div`
 const Pager = styled.nav`
   display: flex;
   margin: 0 auto 5vh;
-  padding: 0 2.5vh;
+  padding: 1vh;
   justify-content: space-between;
   align-items: center;
   grid-area: userbar;
   width: 80vw;
-  height: 10vh;
   max-width: 1152px;
-  background-color: white;
+  /* background-color: white; */
   border-bottom-left-radius: 5vh;
   border-bottom-right-radius: 5vh;
+  overflow: hidden;
 `
 
 const ButtonPrevious = styled(ButtonLink)`
@@ -96,6 +96,7 @@ const OverlayTop = styled.div`
   user-select: none;
   width: 100vw;
   height: 15vh;
+  overflow: hidden;
 `
 
 const StickyContainerBlogbar = styled(StickyContainer)`
@@ -146,24 +147,23 @@ class BlogPostTemplate extends React.Component {
               timeToRead={post.timeToRead}
             />
             <Posts dangerouslySetInnerHTML={{ __html: post.html }} />
-            <UserBar />
+            {/* <UserBar /> */}
+            <Pager>
+              {previous && (
+                <ButtonPrevious to={previous.fields.slug} rel="prev">
+                  <ArrowPrevious /> {previous.frontmatter.title}
+                </ButtonPrevious>
+              )}
+              {next && (
+                <ButtonNext to={next.fields.slug} rel="next">
+                  {next.frontmatter.title} <ArrowNext />
+                </ButtonNext>
+              )}
+            </Pager>
             <PageShadow />
           </Page>
 
         </StickyContainerBlogbar>
-
-        {/* <Pager>
-          {previous && (
-            <ButtonPrevious to={previous.fields.slug} rel="prev">
-              <ArrowPrevious /> {previous.frontmatter.title}
-            </ButtonPrevious>
-          )}
-          {next && (
-            <ButtonNext to={next.fields.slug} rel="next">
-              {next.frontmatter.title} <ArrowNext />
-            </ButtonNext>
-          )}
-        </Pager> */}
       </Layout>
     )
   }

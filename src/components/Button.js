@@ -24,8 +24,8 @@ const Button = styled.button.attrs({
 
 export const ButtonLink = styled(Link)`
   display: flex;
-  padding: 0.25em 1.25em;
-  border-radius: 2em;
+  padding: 0.75em 1.5em;
+  border-radius: 5vh;
   align-items: center;
   background-color: ${props => props.theme.colors.primary};
   color: ${props => props.theme.colors.gold[900]};

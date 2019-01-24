@@ -19,15 +19,16 @@ const BlogBar = styled.div`
   background-color: white;
   border-bottom: 0.25vh solid ${props => props.theme.colors.black[100]};
   user-select: none;
-  color: ${props => props.theme.colors.black[800]};
+  color: ${props => props.theme.colors.black[200]};
   border-top-left-radius: 5vh;
   border-top-right-radius: 5vh;
   pointer-events: auto;
   z-index: 1;
+  font-weight: 700;
 `
 
 const BrandLogo = styled(Logo)`
-  width: 6vh;
+  width: 8vh;
 `
 
 const BrandHome = styled(Link).attrs({
@@ -35,7 +36,6 @@ const BrandHome = styled(Link).attrs({
 })`
   padding: 1em 1em 1em 0;
   justify-self: start;
-  /* font-weight: 700; */
   color: inherit;
 
   &:hover {
@@ -46,14 +46,7 @@ const BrandHome = styled(Link).attrs({
 const BrandHomeIcon = styled(FontAwesomeIcon).attrs({
   icon: 'angle-left'
 })`
-  transform: scale(1.5);
-  margin-right: 1em;
-  color: ${props => props.theme.colors.black[200]};
-`
-
-const PostTitle = styled.span`
-  font-weight: 700;
-  color: ${props => props.theme.colors.black[900]};
+  transform: scale(2.5);
 `
 
 const PostDate = styled.span`
@@ -65,24 +58,18 @@ export default ({
     title,
     date,
     timeToRead,
-    isSticky,
     ...props
   }) => {
   return (
     <BlogBar {...props}>
-      <BrandHome>
+      <BrandHome title={siteTitle}>
         <BrandHomeIcon />
-        {siteTitle}
       </BrandHome>
 
-      {isSticky ? (
-        <PostTitle children={title} />
-      ) : (
-        <BrandLogo />
-      )}
+      <BrandLogo />
 
       <PostDate>
-        {moment(date).format('MMMM DDDo, YYYY')}
+        {moment(date).format('MMM DDD, YYYY')}
       </PostDate>
     </BlogBar>
   )

@@ -6,7 +6,7 @@ const Banner = styled.section`
   display: flex;
   margin: 0;
   width: 100vw;
-  padding: 0 25vw;
+  padding: 0 12.5vw;
   height: 80vh;
   background-color: ${props => props.theme.colors.primary};
   flex-direction: column;
@@ -19,16 +19,17 @@ const Banner = styled.section`
 `
 
 const BannerTitle = styled.h1`
-  font-size: 20vh;
+  margin: 0;
   font-weight: 800;
   text-align: center;
   line-height: 1;
   user-select: none;
   letter-spacing: -0.025em;
+  font-size: ${props => 1280 * 2 / props.children.length}px;
 
   ${props => props.type === 'post' && css`
-    font-size: 15vh;
-    line-height: 0.95;
+    /* font-size: 15vh; */
+    /* line-height: 0.9; */
     letter-spacing: -0.0125em;
   `}
 `
