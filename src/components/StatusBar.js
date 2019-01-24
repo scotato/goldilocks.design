@@ -14,11 +14,12 @@ const StatusBar = styled.div`
   align-items: center;
   align-self: end;
   height: 10vh;
-  font-size: 2vh;
+  font-size: 2.25vh;
+  font-weight: 700;
   background-color: white;
   border-bottom: 0.25vh solid ${props => props.theme.colors.black[100]};
   user-select: none;
-  color: ${props => props.theme.colors.black[300]};
+  color: ${props => props.theme.colors.black[200]};
   border-top-left-radius: 5vh;
   border-top-right-radius: 5vh;
   pointer-events: auto;
@@ -26,12 +27,11 @@ const StatusBar = styled.div`
 `
 
 const StatusLogo = styled(Logo)`
-  width: 6vh;
+  width: 8vh;
 `
 
 const StatusTime = styled(Time)`
   justify-self: start;
-  font-weight: 600;
 `
 
 const StatusBattery = styled(Battery)`
