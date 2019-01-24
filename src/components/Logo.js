@@ -3,12 +3,12 @@ import React from 'react'
 import styled from 'styled-components'
 // import Image from 'gatsby-image'
 
-import Logo from '../../content/brand/goldilocks-logo-knot-black.svg'
+import Logo from '../../content/brand/goldilocks-logo-knot-black-solid.svg'
 
 export default styled(Logo).attrs({
   title: 'goldilocks design'
 })`
-  /* width: 100%; */
+  opacity: 0.125;
 `
 
 // const LogoStyled = styled(Image)`
