@@ -25,11 +25,11 @@ const BannerTitle = styled.h1`
   line-height: 1;
   user-select: none;
   letter-spacing: -0.025em;
-  font-size: ${props => 1280 * 2 / props.children.length}px;
+  font-size: 20vh;
 
   ${props => props.type === 'post' && css`
-    /* font-size: 15vh; */
-    /* line-height: 0.9; */
+    font-size: 15vh;    
+    line-height: 0.9;
     letter-spacing: -0.0125em;
   `}
 `
