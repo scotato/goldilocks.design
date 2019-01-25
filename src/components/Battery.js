@@ -1,14 +1,10 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-const BatteryIcon = styled(FontAwesomeIcon)`
-  &.svg-inline--fa {
-    width: 5vh;
-    height: 5vh;
-    justify-self: end;
-  }
-`
+import BatteryEmpty from '../../content/icons/battery-empty.svg'
+import BatteryQuarter from '../../content/icons/battery-quarter.svg'
+import BatteryHalf from '../../content/icons/battery-half.svg'
+import BatteryThreeQuarters from '../../content/icons/battery-three-quarters.svg'
+import BatteryFull from '../../content/icons/battery-full.svg'
 
 export default class Battery extends Component {
   state = {
@@ -20,15 +16,15 @@ export default class Battery extends Component {
     const batteryLevel = Math.floor(this.state.level/20)
     switch (batteryLevel) {
       case 0:
-        return 'battery-empty'
+        return BatteryEmpty
       case 1:
-        return 'battery-quarter'
+        return BatteryQuarter
       case 2:
-        return 'battery-half'
+        return BatteryHalf
       case 3:
-        return 'battery-three-quarters'
+        return BatteryThreeQuarters
       default:
-        return 'battery-full'
+        return BatteryFull
     }
   }
 
@@ -42,9 +38,11 @@ export default class Battery extends Component {
   }
 
   render () {
-    return (
-      <BatteryIcon icon={this.getIcon()} />
-    )
+    const Icon = this.getIcon()
+    const BatteryIcon = styled(Icon)`
+      height: 33%;
+    `
+    return <BatteryIcon {...this.props} />
   }
 }
 
