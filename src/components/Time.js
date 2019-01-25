@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const Time = styled.span`
 `
 
-const getTime = () => moment().format('h:mm A ddd MMM D')
+const getTime = () => moment().format('h:mm A MMM D')
 
 export default props => {
   const [time, setTime] = useState(getTime())

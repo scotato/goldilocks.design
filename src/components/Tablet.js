@@ -6,12 +6,10 @@ import StatusBar from './StatusBar'
 import UserBar from './UserBar'
 import { BlobAnimated } from './Blob'
 
-const aspectRatio = 2732 / 2048
-
 const TabletGrid = styled.div`
   position: relative;
   display: grid;
-  grid-template-columns: auto ${90 * aspectRatio}vh auto;
+  grid-template-columns: auto 80vw auto;
   grid-template-rows: 15vh 70vh 15vh;
   grid-template-areas:
     ". statusbar ."
@@ -25,7 +23,7 @@ const TabletGrid = styled.div`
 const TabletBody = styled.div`
   margin: -85vh auto 0;
   padding: 5vh 2.5vh 15vh;
-  width: ${90 * aspectRatio}vh;
+  width: 80vw;
   background-color: white;
 `
 
