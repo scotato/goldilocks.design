@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components'
-import blob from '../../static/images/blob-line.svg'
+import BlobLine from '../../content/brand/blob-line.svg'
 
 const gooey = keyframes`
   0% {
@@ -16,13 +16,14 @@ const gooey = keyframes`
   }
 `
 
-const Blob = styled.img.attrs({
-  src: blob
-})`
-  /* position: absolute; */
+const Blob = styled(BlobLine)`
   width: 200vw;
   height: 100%;
   user-select: none;
+
+  path {
+    fill: ${props => props.theme.colors.primary};
+  }
 `
 
 export const BlobAnimated = styled(Blob)`
