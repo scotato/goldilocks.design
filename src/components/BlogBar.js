@@ -15,16 +15,15 @@ const BlogBar = styled.div`
   align-items: center;
   align-self: end;
   height: 10vh;
-  font-size: 2.25vh;
   background-color: white;
   border-bottom: 0.25vh solid ${props => props.theme.colors.black[100]};
   user-select: none;
-  color: ${props => props.theme.colors.black[200]};
+  color: ${props => props.theme.colors.black[500]};
   border-top-left-radius: 5vh;
   border-top-right-radius: 5vh;
   pointer-events: auto;
   z-index: 1;
-  font-weight: 700;
+  font-weight: 400;
 `
 
 const BrandLogo = styled(Logo)`
@@ -46,7 +45,7 @@ const BrandHome = styled(Link).attrs({
 const BrandHomeIcon = styled(FontAwesomeIcon).attrs({
   icon: 'angle-left'
 })`
-  transform: scale(2.5);
+  transform: scale(2);
 `
 
 const PostDate = styled.span`

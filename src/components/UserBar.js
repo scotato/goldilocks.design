@@ -26,7 +26,7 @@ const UserBarContainer = styled.div`
   background-color: ${props => props.theme.colors.black[100]};
   grid-column-gap: 1.25vh;
   font-weight: 300;
-  color: ${props => props.theme.colors.black[300]};
+  color: ${props => props.theme.colors.black[900]};
   border-bottom-left-radius: 5vh;
   border-bottom-right-radius: 5vh;
   pointer-events: auto;

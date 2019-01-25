@@ -73,7 +73,7 @@ const Details = styled.small`
   margin: 0.5rem 1.25rem;
   grid-area: timestamp;
   font-size: 12px;
-  color: ${props => props.theme.colors.black[300]};
+  color: ${props => props.theme.colors.black[900]};
 `
 
 export default ({children, banner, avatar, author, title, timestamp, details, to, ...props}) => (

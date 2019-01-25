@@ -7,7 +7,7 @@ const Button = styled.button.attrs({
   disabled: props => props.isActive
 })`
   display: flex;
-  background-color: ${props => props.backgroundColor ||  (props.isActive ? 'dodgerblue' : props.theme.colors.black[300])};
+  background-color: ${props => props.backgroundColor ||  (props.isActive ? 'dodgerblue' : props.theme.colors.black[500])};
   border-radius: 2.5vh;
   cursor: ${props => props.isActive ? 'default' : 'pointer'};
   border: 0;
@@ -28,11 +28,11 @@ export const ButtonLink = styled(Link)`
   border-radius: 5vh;
   align-items: center;
   background-color: ${props => props.theme.colors.primary};
-  color: ${props => props.theme.colors.gold[900]};
+  color: ${props => props.theme.colors.yellow[900]};
   font-weight: 500;
 
   &:hover {
-    color: ${props => props.theme.colors.gold[900]};
+    color: ${props => props.theme.colors.yellow[900]};
   }
 `
 

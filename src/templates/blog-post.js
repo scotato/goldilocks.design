@@ -8,7 +8,7 @@ import { ButtonLink } from '../components/Button'
 import { BlobAnimated } from '../components/Blob'
 import Banner from '../components/Banner'
 import BlogBar from '../components/BlogBar'
-import UserBar from '../components/UserBar'
+// import UserBar from '../components/UserBar'
 import Message from '../components/Message'
 import SEO from '../components/SEO'
 
@@ -44,7 +44,6 @@ const Posts = styled.article`
   width: 80vw;
   max-width: 1152px;
   background-color: white;
-  min-height: 100vh;
 `
 
 const PageShadow = styled.div`

@@ -22,7 +22,7 @@ const TabletGrid = styled.div`
 
 const TabletBody = styled.div`
   margin: -85vh auto 0;
-  padding: 5vh 2.5vh 15vh;
+  padding: 5vh 5vh 15vh;
   width: 80vw;
   background-color: white;
 `

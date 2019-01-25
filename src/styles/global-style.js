@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
       // paragraphMarginBottom: '1rem',
       // labelMarginBottom: '0.5rem',
       // dtFontWeight: 700,
-      // linkColor: props.theme.colors.gold[500],
+      // linkColor: props.theme.colors.yellow[500],
       // linkDecoration: 'none',
       // linkHoverColor: '#0056b3',
       linkHoverDecoration: 'none',

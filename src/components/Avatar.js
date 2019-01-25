@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export const AvatarUser = styled(FontAwesomeIcon).attrs({
   icon: 'user-circle'
 })`
-  color: ${props => props.theme.colors.black[200]};
+  color: ${props => props.theme.colors.black[300]};
 
   &.svg-inline--fa {
     width: 100%;

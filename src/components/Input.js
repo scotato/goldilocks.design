@@ -10,15 +10,16 @@ const Input = styled.input`
   align-self: stretch;
   color: ${props => props.theme.colors.black[900]};
   transition: box-shadow 0.1s ease-out;
+  box-shadow: inset 0 0 0 2px ${props => props.theme.colors.black[300]};
   
   &::placeholder {
-    color: ${props => props.theme.colors.black[200]};
+    color: ${props => props.theme.colors.black[500]};
     font-weight: 300;
   }
 
   &:focus {
     outline: none;
-    box-shadow: inset 0 0 0 2px dodgerblue;
+    box-shadow: inset 0 0 0 2px ${props => props.theme.colors.info};
   }
 `
 
