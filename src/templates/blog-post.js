@@ -120,6 +120,7 @@ class BlogPostTemplate extends React.Component {
             avatar={avatar.childImageSharp.fixed}
             author={post.frontmatter.author}
             children={post.frontmatter.intro}
+            to={post.frontmatter.introLink}
           />
         </Banner>
         <StickyContainerBlogbar>
@@ -194,6 +195,7 @@ export const pageQuery = graphql`
         author
         title
         intro
+        introLink
         icon {
           childImageSharp {
             fixed(width: 256) {

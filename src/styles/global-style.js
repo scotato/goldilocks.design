@@ -34,6 +34,17 @@ const GlobalStyle = createGlobalStyle`
       margin-top: 0;
     }
   }
+
+  blockquote {
+    padding: 2em;
+    color: ${props => props.theme.colors.black[600]};
+    background-color: ${props => props.theme.colors.black[100]};
+    border-radius: 2em;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
 `
  
 export default GlobalStyle;
