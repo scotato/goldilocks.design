@@ -27,14 +27,10 @@ const Page = styled.div`
     ". blogbar ."
     ". posts ."
     ". userbar .";
-  /* background-color: ${props => props.theme.colors.black[100]}; */
   border-bottom: 1vh solid ${props => props.theme.colors.primary};
 `
 
-const PageBlob = styled(BlobAnimated)`
-  /* grid-area: 1 / 1 / 2 / 3; */
-  /* height: 15vh; */
-`
+const PageBlob = styled(BlobAnimated)``
 
 const Posts = styled.article`
   margin: 0 auto;
@@ -64,7 +60,6 @@ const Pager = styled.nav`
   grid-area: userbar;
   width: 80vw;
   max-width: 1152px;
-  /* background-color: white; */
   border-bottom-left-radius: 5vh;
   border-bottom-right-radius: 5vh;
   overflow: hidden;
@@ -113,6 +108,7 @@ class BlogPostTemplate extends React.Component {
       <Layout
         location={this.props.location}
         title={siteTitle}
+        backgroundColor='secondary'
       >
         <SEO title={post.frontmatter.title} description={post.excerpt} />
         <Banner type="post" title={post.frontmatter.title}>

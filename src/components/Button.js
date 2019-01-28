@@ -7,7 +7,8 @@ const Button = styled.button.attrs({
   disabled: props => props.isActive
 })`
   display: flex;
-  background-color: ${props => props.backgroundColor ||  (props.isActive ? 'dodgerblue' : props.theme.colors.black[500])};
+  color: ${props => props.color || (props.isActive ? 'white' : props.theme.colors.black[600])};
+  background-color: ${props => props.backgroundColor || (props.isActive ? 'dodgerblue' : props.theme.colors.black[200])};
   border-radius: 2.5vh;
   cursor: ${props => props.isActive ? 'default' : 'pointer'};
   border: 0;
@@ -37,7 +38,7 @@ export const ButtonLink = styled(Link)`
 `
 
 const Icon = styled(FontAwesomeIcon)`
-  color: white;
+  /* color: white; */
 `
 
 export const ButtonIcon = ({icon, ...props}) => (

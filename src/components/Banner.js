@@ -8,7 +8,6 @@ const Banner = styled.section`
   width: 100vw;
   padding: 0 12.5vw;
   height: 80vh;
-  background-color: ${props => props.theme.colors.primary};
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -26,6 +25,7 @@ const BannerTitle = styled.h1`
   user-select: none;
   letter-spacing: -0.025em;
   font-size: 20vh;
+  color: ${props => props.theme.colors.black[900]};
 
   ${props => props.type === 'post' && css`
     font-size: 15vh;    
