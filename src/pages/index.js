@@ -2,42 +2,60 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
-import SEO from '../components/SEO'
-import Message from '../components/Message'
-import Tablet from '../components/Tablet'
-import Banner from '../components/Banner'
+import Device from '../components/Device'
+// import Time from '../components/Time'
 
-class BlogIndex extends React.Component {
+// const LockScreen = styled.div`
+//   position: relative;
+//   display: grid;
+//   grid-template-columns: auto 80vw auto;
+//   grid-template-rows: 15vh 55vh 15vh 15vh;
+//   grid-template-areas:
+//     ". header ."
+//     ". body ."
+//     "divider divider divider"
+//     "footer footer footer";
+//   min-height: 100vh;
+//   pointer-events: none;
+//   z-index: 10;
+// `
+
+// const LockScreenDivider = styled.div`
+//   grid-area: divider;
+//   background-color: ${props => props.theme.colors.black[100]};
+// `
+
+// const LockScreenFooter = styled.footer`
+//   grid-area: footer;
+//   background-color: ${props => props.theme.colors.black[100]};
+//   border-bottom: 1em solid ${props => props.theme.colors.primary};
+// `
+
+class Index extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
-    const posts = data.allMarkdownRemark.edges
+    // const posts = data.allMarkdownRemark.edges
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO />
-        <Banner title={data.site.siteMetadata.title} />
-        <Tablet>
-          {posts.map(({ node }) => (
-            <Message
-              key={node.fields.slug}
-              banner={node.frontmatter.banner.childImageSharp.fixed}
-              avatar={data.avatar.childImageSharp.fixed}
-              author={node.frontmatter.author}
-              children={node.frontmatter.title}
-              timestamp={node.frontmatter.date}
-              timeToRead={node.timeToRead}
-              to={node.fields.slug}
-              bubbleWidth='256px'
-            />
-          ))}
-        </Tablet>
+      <Layout
+        location={this.props.location}
+        title={siteTitle}
+      >
+        <Device />
+        {/* <LockScreen> */}
+          {/* <Time /> */}
+          {/* <LockScreenDivider>
+            <BlobAnimated />
+          </LockScreenDivider>
+          <LockScreenFooter /> */}
+        {/* </LockScreen> */}
       </Layout>
     )
   }
 }
 
-export default BlogIndex
+export default Index
 
 export const pageQuery = graphql`
   query {
