@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
@@ -31,6 +32,47 @@ import Device from '../components/Device'
 //   border-bottom: 1em solid ${props => props.theme.colors.primary};
 // `
 
+const P = styled.p`
+  line-height: 1;
+  margin: 0;
+`
+
+const H100 = styled(P)`
+  font-size: ${props => props.theme.size.typography[100]};
+`
+
+const H200 = styled(P)`
+  font-size: ${props => props.theme.size.typography[200]};
+`
+
+const H300 = styled(P)`
+  font-size: ${props => props.theme.size.typography[300]};
+`
+
+const H400 = styled(P)`
+  font-size: ${props => props.theme.size.typography[400]};
+`
+
+const H500 = styled(P)`
+  font-size: ${props => props.theme.size.typography[500]};
+`
+
+const H600 = styled(P)`
+  font-size: ${props => props.theme.size.typography[600]};
+`
+
+const H700 = styled(P)`
+  font-size: ${props => props.theme.size.typography[700]};
+`
+
+const H800 = styled(P)`
+  font-size: ${props => props.theme.size.typography[800]};
+`
+
+const H900 = styled(P)`
+  font-size: ${props => props.theme.size.typography[900]};
+`
+
 class Index extends React.Component {
   render() {
     const { data } = this.props
@@ -42,7 +84,17 @@ class Index extends React.Component {
         location={this.props.location}
         title={siteTitle}
       >
-        <Device />
+        <Device>
+          <H100>100</H100>
+          <H200>200</H200>
+          <H300>300</H300>
+          <H400>400</H400>
+          <H500>500</H500>
+          <H600>600</H600>
+          <H700>700</H700>
+          <H800>800</H800>
+          <H900>900</H900>
+        </Device>
         {/* <LockScreen> */}
           {/* <Time /> */}
           {/* <LockScreenDivider>

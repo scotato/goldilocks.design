@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
       //   '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
       // fontFamilyMonospace:
       //   'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
-      fontSizeBase: '1.25rem',
+      fontSizeBase: props.theme.size.typographyBase,
       // fontWeightBase: 400,
       lineHeightBase: 1.6,
       // bodyColor: props.theme.colors.black[900],
@@ -45,29 +45,6 @@ const GlobalStyle = createGlobalStyle`
       margin-bottom: 0;
     }
   }
-
-  /* body {
-    font-size: 1em;
-    line-height: 1.4em;
-  }
-
-  @media screen and (min-width: 20em) {
-    body {
-      font-size: calc(1em + (1.3125 - 1) * ((100vw - 20em) / (80 - 20)));
-      line-height: calc(1.4em + (1.8 - 1.4) * ((100vw - 20em) / (80 - 20)));
-    }
-  }
-
-  @media (min-width: 80em) {
-    body {
-      font-size: 1.3125em;
-      line-height: 1.8em;
-    }
-  } */
-
-  /* :root{
-    font-size: calc(16px + 3vw);
-  } */
 `
  
 export default GlobalStyle;

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import { ThemeProvider } from 'styled-components'
+import WindowSize from "@reach/window-size"
 
 import theme from '../styles/theme'
 import SEO from './SEO'
@@ -9,8 +10,8 @@ import GlobalStyle from '../styles/global-style'
 
 const Layout = styled.div`
   display: grid;
-  grid-template-columns: auto 80vw auto;
-  grid-template-rows: auto 90vh auto;
+  grid-template-columns: auto ${props => props.theme.size.layout[900]} auto;
+  grid-template-rows: ${props => props.theme.size.layout[400]} auto ${props => props.theme.size.layout[400]};
   grid-template-areas:
     ". . ."
     ". layout-body ."
@@ -31,15 +32,20 @@ export default ({ children }) => (
       }
     `}
     render={data => (
-      <ThemeProvider theme={theme}>
-        <>
-          <GlobalStyle />
-          <SEO />
-          <Layout>
-            {children}
-          </Layout>
-        </>
-      </ThemeProvider>
+      <WindowSize>
+        {size => (
+          <ThemeProvider theme={theme(size)}>
+          <>
+            {console.log(theme(size).size.layout)}
+            <GlobalStyle />
+            <SEO />
+            <Layout>
+              {children}
+            </Layout>
+          </>
+        </ThemeProvider>
+        )}
+      </WindowSize>
     )}
   />
 )
