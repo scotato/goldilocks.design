@@ -1,4 +1,4 @@
-// returns an exponentially scaled array
+// returns an exponentially scaled array [1, ..., 9]
 const getScale = (base = 2, multiplier = 2, offset = 0) => {
   const scale = []
   while (scale.length < 9) {
@@ -9,20 +9,20 @@ const getScale = (base = 2, multiplier = 2, offset = 0) => {
   return scale
 }
 
+// reducers
 const uniq = (acc, cur) => acc.includes(cur) ? acc : [...acc, cur]
 const fill = (acc, cur) => [...acc, cur * 0.5, cur, cur * 1.5]
-const flatten = multiplier =>
-  (acc, cur, i) => ({...acc, [(i + 1) * multiplier]: cur})
+const flatten = multiplier => (acc, cur, i) => ({...acc, [(i + 1) * multiplier]: cur})
 
 const typography = getScale(1, 1.5, -2)
   .map(val => `${val}em`)
-  .reduce(flatten(100), {})
+  .reduce(flatten(100), {}) // {100: 0.44em, 200: 0.67em, ..}
 
 const layout = base => getScale(base, 2, 1)
   .reduce(fill, [])
-  .reduce(uniq, [])
+  .reduce(uniq, []) // [1, ..., 19]
   .map(val => `${val}px`)
-  .reduce(flatten(50), {})
+  .reduce(flatten(50), {}) // {50: 2px, 100: 4px, ...}
 
 export default windowSize => {
   const { width, height } = windowSize
@@ -31,10 +31,31 @@ export default windowSize => {
   
   return {
     typography,
-    layout: layout(layoutRatio * width),
-    typographyBase: `${typographyRatio * width}px`,
+    layout: layout(layoutRatio * width), // pin scale to view width
+    typographyBase: `${typographyRatio * width}px`, // pin base to view width
     window: windowSize,
     isLandscape: width > height,
     isPortrait: height > width
   }
 }
+
+// layout @ 1280px view width
+// 50: 2px,
+// 100: 4px,
+// 150: 6px,
+// 200: 8px,
+// 250: 12px,
+// 300: 16px,
+// 350: 24px,
+// 400: 32px,
+// 450: 48px,
+// 500: 64px,
+// 550: 96px,
+// 600: 128px,
+// 650: 192px,
+// 700: 256px,
+// 750: 384px,
+// 800: 512px,
+// 850: 768px,
+// 900: 1024px,
+// 950: 1536px

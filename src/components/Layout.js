@@ -36,7 +36,6 @@ export default ({ children }) => (
         {size => (
           <ThemeProvider theme={theme(size)}>
           <>
-            {console.log(theme(size).size.layout)}
             <GlobalStyle />
             <SEO />
             <Layout>

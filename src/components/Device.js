@@ -8,8 +8,8 @@ const Device = styled.div`
   grid-area: layout-body;
   grid-template-rows: ${props => props.theme.size.layout[500]} auto ${props => props.theme.size.layout[500]};
   background-color: ${props => props.theme.colors.black[100]};
-  box-shadow: 0 1vh 5vh rgba(0, 0, 0, 0.1);
-  border-radius: ${props => props.theme.size.layout[300]};
+  box-shadow: 0 ${props => props.theme.size.layout[200]} ${props => props.theme.size.layout[400]} rgba(0, 0, 0, 0.075);
+  border-radius: ${props => props.theme.size.layout[400]};
 `
 
 const DeviceHeader = styled.header`
@@ -45,8 +45,8 @@ const DeviceBackground = styled.div`
   position: fixed;
   top: 0;
   left:0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: ${props => props.theme.colors.black[100]};
   pointer-events: none;
 `
