@@ -10,8 +10,7 @@ const getScale = (base = 2, multiplier = 2, offset = 0) => {
 }
 
 // reducers
-const uniq = (acc, cur) => acc.includes(cur) ? acc : [...acc, cur]
-const fill = (acc, cur) => [...acc, cur * 0.5, cur, cur * 1.5]
+const fill = (acc, cur, i, arr) => [...acc, (arr[i - 1] || 0) * 0.5 + cur * 0.5, cur]
 const flatten = multiplier => (acc, cur, i) => ({...acc, [(i + 1) * multiplier]: cur})
 
 const typography = getScale(1, 1.5, -2)
@@ -19,8 +18,7 @@ const typography = getScale(1, 1.5, -2)
   .reduce(flatten(100), {}) // {100: 0.44em, 200: 0.67em, ..}
 
 const layout = base => getScale(base, 2, 1)
-  .reduce(fill, [])
-  .reduce(uniq, []) // [1, ..., 19]
+  .reduce(fill, []) // [1, ..., 18]
   .map(val => `${val}px`)
   .reduce(flatten(50), {}) // {50: 2px, 100: 4px, ...}
 
@@ -57,5 +55,4 @@ export default windowSize => {
 // 750: 384px,
 // 800: 512px,
 // 850: 768px,
-// 900: 1024px,
-// 950: 1536px
+// 900: 1024px
