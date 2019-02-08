@@ -21,16 +21,16 @@ const DeviceHeader = styled.header`
 `
 
 const DeviceHeaderNav = styled.nav`
+  height: ${props => `${props.theme.size.layout[450]}`};
 `
 
 const DeviceHeaderIcon = styled.div`
+  height: ${props => `${props.theme.size.layout[450]}`};
   justify-self: center;
-  width: ${props => props.theme.size.layout[450]};
-  height: ${props => props.theme.size.layout[450]};
-  background-color: ${props => props.theme.colors.black[200]};
 `
 
 const DeviceHeaderAction = styled.div`
+  height: ${props => `${props.theme.size.layout[450]}`};
   justify-self: end;
 `
 
@@ -51,16 +51,16 @@ const DeviceBackground = styled.div`
   pointer-events: none;
 `
 
-export default ({children, ...props}) => (
+export default ({children, headerNav, headerIcon, headerAction, ...props}) => (
   <>
     <DeviceBackground>
       <BlobAnimated />
     </DeviceBackground>
     <Device {...props}>
       <DeviceHeader>
-        <DeviceHeaderNav>a</DeviceHeaderNav>
-        <DeviceHeaderIcon />
-        <DeviceHeaderAction>c</DeviceHeaderAction>
+        <DeviceHeaderNav>{headerNav}</DeviceHeaderNav>
+        <DeviceHeaderIcon>{headerIcon}</DeviceHeaderIcon>
+        <DeviceHeaderAction>{headerAction}</DeviceHeaderAction>
       </DeviceHeader>
       <DeviceBody>
         {children}

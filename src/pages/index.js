@@ -4,6 +4,8 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Device from '../components/Device'
+import Icon from '../components/Icon'
+import Battery from '../components/Battery'
 import Time from '../components/Time'
 
 const LockScreen = styled.div`
@@ -42,7 +44,16 @@ class Index extends React.Component {
         location={this.props.location}
         title={siteTitle}
       >
-        <Device>
+        <Device
+          headerNav={
+            <>
+              <Icon name='cellular' />
+              <Icon name='wifi' />
+            </>
+          }
+          headerIcon={<Icon name='lock' />}
+          headerAction={<Battery />}
+        >
           <LockScreen>
             <LockScreenTime />
             <LockScreenDate />

@@ -1,10 +1,5 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
-import BatteryEmpty from '.././content/icons/battery-empty.svg'
-import BatteryQuarter from '.././content/icons/battery-quarter.svg'
-import BatteryHalf from '.././content/icons/battery-half.svg'
-import BatteryThreeQuarters from '.././content/icons/battery-three-quarters.svg'
-import BatteryFull from '.././content/icons/battery-full.svg'
+import Icon from './Icon'
 
 export default class Battery extends Component {
   state = {
@@ -16,15 +11,15 @@ export default class Battery extends Component {
     const batteryLevel = Math.floor(this.state.level/20)
     switch (batteryLevel) {
       case 0:
-        return BatteryEmpty
+        return 'battery-empty'
       case 1:
-        return BatteryQuarter
+        return 'battery-quarter'
       case 2:
-        return BatteryHalf
+        return 'battery-half'
       case 3:
-        return BatteryThreeQuarters
+        return 'battery-three-quarters'
       default:
-        return BatteryFull
+        return 'battery-full'
     }
   }
 
@@ -37,12 +32,6 @@ export default class Battery extends Component {
     })
   }
 
-  render () {
-    const Icon = this.getIcon()
-    const BatteryIcon = styled(Icon)`
-      height: 33%;
-    `
-    return <BatteryIcon {...this.props} />
-  }
+  render = () => <Icon name={this.getIcon()} {...this.props} /> 
 }
 

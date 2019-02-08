@@ -19,14 +19,14 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/content/posts`,
+        path: `${__dirname}/src/posts`,
         name: `blog`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/content/brand`,
+        path: `${__dirname}/src/brand`,
         name: `brand`,
       },
     },
@@ -38,7 +38,7 @@ module.exports = {
       resolve: 'gatsby-plugin-react-svg',
       options: {
           rule: {
-            include: /content/
+            include: /brand|icons/
           }
       }
     },
