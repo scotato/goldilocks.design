@@ -24,14 +24,14 @@ const DeviceHeaderNav = styled.nav`
 `
 
 const DeviceHeaderIcon = styled.div`
-  place-self: center;
+  justify-self: center;
   width: ${props => props.theme.size.layout[450]};
   height: ${props => props.theme.size.layout[450]};
   background-color: ${props => props.theme.colors.black[200]};
 `
 
 const DeviceHeaderAction = styled.div`
-  place-self: center end;
+  justify-self: end;
 `
 
 const DeviceBody = styled.main`
