@@ -22,14 +22,14 @@ const Blob = styled(BlobLine)`
   user-select: none;
 
   path {
-    fill: ${props => props.theme.colors.primary};
+    fill: ${props => props.color};
   }
 `
 
 export const BlobAnimated = styled(Blob)`
   animation: ${gooey} 12s linear infinite;
-  transform-origin: top;
-  top: 0;
+  transform-origin: bottom;
+  bottom: 0;
   left: 0;
 `
 

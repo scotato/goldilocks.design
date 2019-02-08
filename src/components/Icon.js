@@ -8,6 +8,7 @@ import BatteryFull from '../icons/battery-full.svg'
 import Cellular from '../icons/cellular.svg'
 import Lock from '../icons/lock.svg'
 import Wifi from '../icons/wifi.svg'
+import Home from '../icons/home.svg'
 
 const icon = name => {
   switch (name) {
@@ -27,6 +28,8 @@ const icon = name => {
       return Lock
     case 'wifi':
       return Wifi
+    case 'home':
+      return Home
     default:
       return props => <div {...props} />
   }
@@ -36,6 +39,10 @@ export default props => {
   const Icon = styled(icon(props.name))`
     max-width: 100%;
     max-height: 100%;
+    
+    path {
+      fill: currentColor;
+    }
   `
   return <Icon {...props} />
 }

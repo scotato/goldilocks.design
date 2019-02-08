@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { ThemeConsumer } from 'styled-components'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
@@ -7,6 +7,7 @@ import Device from '../components/Device'
 import Icon from '../components/Icon'
 import Battery from '../components/Battery'
 import Time from '../components/Time'
+import { ButtonLink } from '../components/Button'
 
 const LockScreen = styled.div`
   display: flex;
@@ -14,11 +15,13 @@ const LockScreen = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 100%;
+  color: ${props => props.theme.colors.black[500]};
 `
 
 const LockScreenTime = styled.div.attrs({
   children: <Time format='h:mm' />
 })`
+  margin-top: auto;
   font-size: ${props => props.theme.size.typography[900]};
   line-height: 1;
   align-self: center;
@@ -28,9 +31,26 @@ const LockScreenTime = styled.div.attrs({
 const LockScreenDate = styled.div.attrs({
   children: <Time format='dddd, MMMM D' />
 })`
+  margin-bottom: ${props => props.theme.size.layout[500]};
   font-size: ${props => props.theme.size.typography[500]};
   line-height: 1;
   align-self: center;
+`
+const Network = styled.div`
+  display: flex;
+  align-items: center;
+  user-select: none;
+`
+
+const Unlock = styled(ButtonLink).attrs({
+  to: '/home',
+  children: <Icon name='home' />
+})`
+  margin-top: auto;
+  padding: ${props => props.theme.size.layout[300]};
+  width: ${props => props.theme.size.layout[500]};
+  background-color: ${props => props.theme.colors.black[200]};
+  color: ${props => props.theme.colors.black[500]};
 `
 
 class Index extends React.Component {
@@ -44,21 +64,28 @@ class Index extends React.Component {
         location={this.props.location}
         title={siteTitle}
       >
-        <Device
-          headerNav={
-            <>
-              <Icon name='cellular' />
-              <Icon name='wifi' />
-            </>
-          }
-          headerIcon={<Icon name='lock' />}
-          headerAction={<Battery />}
-        >
-          <LockScreen>
-            <LockScreenTime />
-            <LockScreenDate />
-          </LockScreen>
-        </Device>
+        <ThemeConsumer>
+          {theme => (
+            <Device
+            headerNav={
+              <Network>
+                <Icon name='cellular' />
+                GOLDI
+                <Icon name='wifi' />
+              </Network>
+            }
+            headerIcon={<Icon name='lock' />}
+            headerAction={<Battery />}
+            color={theme.colors.black[200]}
+          >
+            <LockScreen>
+              <LockScreenTime />
+              <LockScreenDate />
+              <Unlock />
+            </LockScreen>
+          </Device>
+          )}
+        </ThemeConsumer>
       </Layout>
     )
   }

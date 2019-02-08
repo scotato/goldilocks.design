@@ -9,7 +9,7 @@ const Button = styled.button.attrs({
   display: flex;
   color: ${props => props.color || (props.isActive ? 'white' : props.theme.colors.black[600])};
   background-color: ${props => props.backgroundColor || (props.isActive ? 'dodgerblue' : props.theme.colors.black[200])};
-  border-radius: 2.5vh;
+  border-radius: ${props => props.theme.size.layout[400]};
   cursor: ${props => props.isActive ? 'default' : 'pointer'};
   border: 0;
   padding: 0;
@@ -26,14 +26,14 @@ const Button = styled.button.attrs({
 export const ButtonLink = styled(Link)`
   display: flex;
   padding: 0.75em 1.5em;
-  border-radius: 5vh;
+  border-radius: ${props => props.theme.size.layout[400]};
   align-items: center;
   background-color: ${props => props.theme.colors.primary};
-  color: ${props => props.theme.colors.yellow[900]};
   font-weight: 500;
+  height: ${props => props.theme.size.layout[500]};
 
   &:hover {
-    color: ${props => props.theme.colors.yellow[900]};
+    color: inherit;
   }
 `
 
