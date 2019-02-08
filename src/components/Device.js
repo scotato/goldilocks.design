@@ -64,7 +64,7 @@ const DeviceBackgroundBlob = styled(BlobAnimated)`
 `
 
 export default ({children, headerNav, headerIcon, headerAction, footer, color, ...props}) => {
-  const hasHeader = headerNav || headerIcon || headerAction && true
+  const hasHeader = (headerNav || headerIcon || headerAction) && true
   const hasFooter = footer && true
 
   return (
