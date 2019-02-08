@@ -26,6 +26,7 @@ const LockScreenTime = styled.div.attrs({
   line-height: 1;
   align-self: center;
   justify-self: center;
+  user-select: none;
 `
 
 const LockScreenDate = styled.div.attrs({
@@ -35,6 +36,7 @@ const LockScreenDate = styled.div.attrs({
   font-size: ${props => props.theme.size.typography[500]};
   line-height: 1;
   align-self: center;
+  user-select: none;
 `
 const Network = styled.div`
   display: flex;

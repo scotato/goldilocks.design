@@ -14,10 +14,9 @@ const Device = styled.div`
 
 const DeviceHeader = styled.header`
   display: grid;
-  padding: ${props => `${props.theme.size.layout[200]} ${props.theme.size.layout[400]}`};
+  padding: ${props => `${props.theme.size.layout[300]} ${props.theme.size.layout[400]}`};
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  border-bottom: 2px solid ${props => props.theme.colors.black[200]};
   color: ${props => props.theme.colors.black[400]};
 `
 
