@@ -13,7 +13,7 @@ export default props => {
   
   useEffect(() => {
     const interval = setInterval(() => setLevel(
-      level === 0 ? 4 : level -1
+      level === 1 ? 4 : level -1
     ), 60 * 1000)
     return () => clearInterval(interval)
   })

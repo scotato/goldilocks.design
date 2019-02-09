@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState} from 'react'
 import styled from 'styled-components'
 import { BlobAnimated } from './Blob'
+import Charger from '../brand/device-charger.svg'
+import LockButton from '../brand/device-lock-button.svg'
 
 const Device = styled.div`
   display: flex;
@@ -10,6 +12,25 @@ const Device = styled.div`
   background-color: ${props => props.theme.colors.black[100]};
   box-shadow: 0 ${props => props.theme.size.layout[200]} ${props => props.theme.size.layout[400]} rgba(0, 0, 0, 0.075);
   border-radius: ${props => props.theme.size.layout[400]};
+`
+
+const DeviceCharger = styled(Charger)`
+  position: absolute;
+  align-self: center;
+  bottom: ${props => props.isCharging ? 0 : `-${props.theme.size.layout[400]}`};
+  width: ${props => props.theme.size.layout[400]};
+  transition: bottom .2s ease-out;
+  will-change: bottom;
+  cursor: pointer;
+`
+
+const DeviceLockButton = styled(LockButton)`
+  position: absolute;
+  margin-right: ${props => props.theme.size.layout[350]};
+  top: ${props => props.theme.size.layout[550]};
+  right: ${props => props.theme.size.layout[550]};
+  width: ${props => props.theme.size.layout[200]};
+  cursor: pointer;
 `
 
 const DeviceHeader = styled.header`
@@ -55,7 +76,6 @@ const DeviceBackground = styled.div`
   height: 100%;
   border-top: ${props => props.theme.size.layout[100]} solid ${props => props.color};
   background-color: ${props => props.theme.colors.black[100]};
-  pointer-events: none;
 `
 
 const DeviceBackgroundBlob = styled(BlobAnimated)`
@@ -63,6 +83,7 @@ const DeviceBackgroundBlob = styled(BlobAnimated)`
 `
 
 export default ({children, headerNav, headerIcon, headerAction, footer, color, ...props}) => {
+  const [isCharging, setIsCharging] = useState(false)
   const hasHeader = (headerNav || headerIcon || headerAction) && true
   const hasFooter = footer && true
 
@@ -70,6 +91,8 @@ export default ({children, headerNav, headerIcon, headerAction, footer, color, .
     <>
       <DeviceBackground color={color}>
         <DeviceBackgroundBlob color={color} />
+        <DeviceLockButton />
+        <DeviceCharger isCharging={isCharging} onClick={() => setIsCharging(!isCharging)} />
       </DeviceBackground>
       <Device {...props}>
         {hasHeader && (
