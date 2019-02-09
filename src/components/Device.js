@@ -30,6 +30,9 @@ const DeviceLockButton = styled(LockButton)`
   top: ${props => props.theme.size.layout[550]};
   right: ${props => props.theme.size.layout[550]};
   width: ${props => props.theme.size.layout[200]};
+  transform: translateX(${props => props.isMouseDown ? -2 : 0}px);
+  transition: transform .2s ease-out;
+  will-change: transform;
   cursor: pointer;
 `
 
@@ -84,6 +87,7 @@ const DeviceBackgroundBlob = styled(BlobAnimated)`
 
 export default ({children, headerNav, headerIcon, headerAction, footer, color, ...props}) => {
   const [isCharging, setIsCharging] = useState(false)
+  const [isLockButtonMouseDown, setIsLockButtonMouseDown] = useState(false)
   const hasHeader = (headerNav || headerIcon || headerAction) && true
   const hasFooter = footer && true
 
@@ -91,8 +95,15 @@ export default ({children, headerNav, headerIcon, headerAction, footer, color, .
     <>
       <DeviceBackground color={color}>
         <DeviceBackgroundBlob color={color} />
-        <DeviceLockButton />
-        <DeviceCharger isCharging={isCharging} onClick={() => setIsCharging(!isCharging)} />
+        <DeviceLockButton
+          isMouseDown={isLockButtonMouseDown}
+          onMouseDown={() => setIsLockButtonMouseDown(true)}
+          onMouseUp={() => setIsLockButtonMouseDown(false)}
+        />
+        <DeviceCharger
+          isCharging={isCharging}
+          onClick={() => setIsCharging(!isCharging)}
+        />
       </DeviceBackground>
       <Device {...props}>
         {hasHeader && (
