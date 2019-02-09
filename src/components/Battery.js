@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import Icon from './Icon'
 
 export default props => {
-  const [level, setLevel] = useState(4)
   const icons = [
     'battery-empty',
     'battery-quarter',
@@ -10,13 +9,6 @@ export default props => {
     'battery-three-quarters',
     'battery-full'
   ]
-  
-  useEffect(() => {
-    const interval = setInterval(() => setLevel(
-      level === 1 ? 4 : level -1
-    ), 60 * 1000)
-    return () => clearInterval(interval)
-  })
 
-  return <Icon name={icons[level]} {...props} /> 
+  return <Icon name={icons[Math.floor(props.level / 20)]} {...props} /> 
 }

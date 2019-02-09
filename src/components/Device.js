@@ -1,8 +1,9 @@
-import React, { useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { BlobAnimated } from './Blob'
 import Charger from '../brand/device-charger.svg'
 import LockButton from '../brand/device-lock-button.svg'
+import Battery from '../components/Battery'
 
 const Device = styled.div`
   display: flex;
@@ -87,9 +88,27 @@ const DeviceBackgroundBlob = styled(BlobAnimated)`
 
 export default ({children, headerNav, headerIcon, headerAction, footer, color, ...props}) => {
   const [isCharging, setIsCharging] = useState(false)
+  const [batteryLevel, setBatteryLevel] = useState(100)
   const [isLockButtonMouseDown, setIsLockButtonMouseDown] = useState(false)
   const hasHeader = (headerNav || headerIcon || headerAction) && true
   const hasFooter = footer && true
+
+  useEffect(() => {
+    const batteryInterval = setInterval(() => {
+      const isEmpty = batteryLevel === 0
+      const isFull = batteryLevel === 100
+      isEmpty && setIsCharging(true)
+      isFull && setIsCharging(false)
+      setBatteryLevel(
+        isCharging && isFull
+          ? 100
+          : isCharging
+            ? batteryLevel + 1
+            : batteryLevel - 1 
+      )
+    }, 1000)
+    return () => clearInterval(batteryInterval)
+  })
 
   return (
     <>
@@ -111,7 +130,10 @@ export default ({children, headerNav, headerIcon, headerAction, footer, color, .
           <DeviceHeader>
             <DeviceHeaderNav>{headerNav}</DeviceHeaderNav>
             <DeviceHeaderIcon>{headerIcon}</DeviceHeaderIcon>
-            <DeviceHeaderAction>{headerAction}</DeviceHeaderAction>
+            <DeviceHeaderAction>{headerAction
+              ? headerAction
+              : <Battery isCharging={isCharging} level={batteryLevel} />
+            }</DeviceHeaderAction>
           </DeviceHeader>
         )}
         <DeviceBody>

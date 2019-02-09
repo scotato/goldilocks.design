@@ -5,7 +5,6 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Device from '../components/Device'
 import Icon from '../components/Icon'
-import Battery from '../components/Battery'
 import Time from '../components/Time'
 import { ButtonLink } from '../components/Button'
 
@@ -77,7 +76,6 @@ class Index extends React.Component {
               </Network>
             }
             headerIcon={<Icon name='lock' />}
-            headerAction={<Battery />}
             color={theme.colors.black[200]}
           >
             <LockScreen>
