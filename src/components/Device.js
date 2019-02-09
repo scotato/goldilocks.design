@@ -100,13 +100,13 @@ export default ({children, headerNav, headerIcon, headerAction, footer, color, .
       isEmpty && setIsCharging(true)
       isFull && setIsCharging(false)
       setBatteryLevel(
-        isCharging && isFull
-          ? 100
-          : isCharging
-            ? batteryLevel + 1
-            : isEmpty
-              ? 0
-              : batteryLevel - 1 
+        isCharging
+          ? isFull
+            ? 100
+            : batteryLevel + 1 
+          : isEmpty
+            ? 0
+            : batteryLevel - 1 
       )
     }, 1000)
     return () => clearInterval(batteryInterval)
