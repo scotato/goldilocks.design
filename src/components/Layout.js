@@ -37,7 +37,7 @@ export default ({ children }) => (
           <ThemeProvider theme={theme(size)}>
           <>
             <GlobalStyle />
-            <SEO />
+            <SEO title={data.site.siteMetadata.title} />
             <Layout>
               {children}
             </Layout>
