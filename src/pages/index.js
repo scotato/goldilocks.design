@@ -61,7 +61,7 @@ export default props => (
           headerNav={<Network />}
           headerIcon={<IconLock />}
           color={theme.colors.black[200]}
-          lockAction={() => props.navigate(props.uri === '/' ? '/home' : '/')}
+          lockAction={() => props.navigate(props.location.pathname === '/' ? '/home' : '/')}
         >
           <LockScreen>
             <LockScreenTime />
@@ -79,13 +79,6 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-      }
-    }
-    avatar: file(absolutePath: { regex: "/avatar-scotato.jpg/" }) {
-      childImageSharp {
-        fixed(width: 256) {
-          ...GatsbyImageSharpFixed
-        }
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date] }) {
