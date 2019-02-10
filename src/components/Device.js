@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { BlobAnimated } from './Blob'
 import Charger from '../brand/device-charger.svg'
 import LockButton from '../brand/device-lock-button.svg'
-import Battery from '../components/Battery'
+import { BatteryIndicator } from '../components/Battery'
 
 const Device = styled.div`
   display: flex;
@@ -57,6 +57,8 @@ const DeviceHeaderIcon = styled.div`
 `
 
 const DeviceHeaderAction = styled.div`
+  display: flex;
+  align-items: center;
   height: ${props => `${props.theme.size.layout[450]}`};
   justify-self: end;
 `
@@ -96,17 +98,20 @@ export default ({children, headerNav, headerIcon, headerAction, footer, color, .
   useEffect(() => {
     const batteryInterval = setInterval(() => {
       const isEmpty = batteryLevel === 0
-      const isFull = batteryLevel === 100
+      const isFull = batteryLevel >= 100
       isEmpty && setIsCharging(true)
       isFull && setIsCharging(false)
+      isFull && setBatteryLevel(100)
       setBatteryLevel(
         isCharging
           ? isFull
             ? 100
-            : batteryLevel + 1 
+            : batteryLevel > 90
+              ? 100
+              : batteryLevel + 10
           : isEmpty
             ? 0
-            : batteryLevel - 1 
+            : batteryLevel - 1
       )
     }, 1000)
     return () => clearInterval(batteryInterval)
@@ -134,7 +139,7 @@ export default ({children, headerNav, headerIcon, headerAction, footer, color, .
             <DeviceHeaderIcon>{headerIcon}</DeviceHeaderIcon>
             <DeviceHeaderAction>{headerAction
               ? headerAction
-              : <Battery isCharging={isCharging} level={batteryLevel} />
+              : <BatteryIndicator isCharging={isCharging} level={batteryLevel} />
             }</DeviceHeaderAction>
           </DeviceHeader>
         )}

@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Device from '../components/Device'
-import Icon from '../components/Icon'
+import { IconHome, IconCellular, IconWifi, IconLock } from '../components/Icon'
 import Time from '../components/Time'
 import { ButtonLink } from '../components/Button'
 
@@ -45,7 +45,7 @@ const Network = styled.div`
 
 const Unlock = styled(ButtonLink).attrs({
   to: '/home',
-  children: <Icon name='home' />
+  children: <IconHome />
 })`
   margin-top: auto;
   padding: ${props => props.theme.size.layout[300]};
@@ -70,12 +70,12 @@ class Index extends React.Component {
             <Device
             headerNav={
               <Network>
-                <Icon name='cellular' />
+                <IconCellular />
                 GOLDI
-                <Icon name='wifi' />
+                <IconWifi />
               </Network>
             }
-            headerIcon={<Icon name='lock' />}
+            headerIcon={<IconLock />}
             color={theme.colors.black[200]}
           >
             <LockScreen>
