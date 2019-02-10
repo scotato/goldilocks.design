@@ -17,7 +17,7 @@ const Bolt = styled(IconBolt)`
 `
 
 export default props => (
-  <Battery>
+  <Battery title={`Battery Level: ${props.level}%`}>
     <Bolt isActive={props.isCharging} />
     <IndicatorBattery level={Math.floor(props.level * 6 / 100)} />
   </Battery>
