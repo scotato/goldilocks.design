@@ -4,7 +4,8 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Device from '../components/Device'
-import { IconHome, IconCellular, IconWifi, IconLock } from '../components/Icon'
+import { IconHome, IconLock } from '../components/Icon'
+import Network from '../components/Network'
 import Time from '../components/Time'
 import { ButtonLink } from '../components/Button'
 
@@ -37,11 +38,6 @@ const LockScreenDate = styled.div.attrs({
   align-self: center;
   user-select: none;
 `
-const Network = styled.div`
-  display: flex;
-  align-items: center;
-  user-select: none;
-`
 
 const Unlock = styled(ButtonLink).attrs({
   to: '/home',
@@ -54,44 +50,28 @@ const Unlock = styled(ButtonLink).attrs({
   color: ${props => props.theme.colors.black[500]};
 `
 
-class Index extends React.Component {
-  render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    // const posts = data.allMarkdownRemark.edges
-
-    return (
-      <Layout
-        location={this.props.location}
-        title={siteTitle}
-      >
-        <ThemeConsumer>
-          {theme => (
-            <Device
-            headerNav={
-              <Network>
-                <IconCellular />
-                GOLDI
-                <IconWifi />
-              </Network>
-            }
-            headerIcon={<IconLock />}
-            color={theme.colors.black[200]}
-          >
-            <LockScreen>
-              <LockScreenTime />
-              <LockScreenDate />
-              <Unlock />
-            </LockScreen>
-          </Device>
-          )}
-        </ThemeConsumer>
-      </Layout>
-    )
-  }
-}
-
-export default Index
+export default props => (
+  <Layout
+    location={props.location}
+    title={props.data.site.siteMetadata.title}
+  >
+    <ThemeConsumer>
+      {theme => (
+        <Device
+          headerNav={<Network />}
+          headerIcon={<IconLock />}
+          color={theme.colors.black[200]}
+        >
+          <LockScreen>
+            <LockScreenTime />
+            <LockScreenDate />
+            <Unlock />
+          </LockScreen>
+        </Device>
+      )}
+    </ThemeConsumer>
+  </Layout>
+)
 
 export const pageQuery = graphql`
   query {

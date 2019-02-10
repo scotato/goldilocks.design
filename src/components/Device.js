@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { BlobAnimated } from './Blob'
 import Charger from '../brand/device-charger.svg'
 import LockButton from '../brand/device-lock-button.svg'
-import { BatteryIndicator } from '../components/Battery'
+import Battery from '../components/Battery'
 
 const Device = styled.div`
   display: flex;
@@ -77,7 +77,7 @@ const DeviceBackground = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   top: 0;
-  left:0;
+  left: 0;
   width: 100%;
   height: 100%;
   border-top: ${props => props.theme.size.layout[100]} solid ${props => props.color};
@@ -106,9 +106,9 @@ export default ({children, headerNav, headerIcon, headerAction, footer, color, .
         isCharging
           ? isFull
             ? 100
-            : batteryLevel > 90
+            : batteryLevel > 95
               ? 100
-              : batteryLevel + 10
+              : batteryLevel + 5
           : isEmpty
             ? 0
             : batteryLevel - 1
@@ -139,7 +139,7 @@ export default ({children, headerNav, headerIcon, headerAction, footer, color, .
             <DeviceHeaderIcon>{headerIcon}</DeviceHeaderIcon>
             <DeviceHeaderAction>{headerAction
               ? headerAction
-              : <BatteryIndicator isCharging={isCharging} level={batteryLevel} />
+              : <Battery isCharging={isCharging} level={batteryLevel} />
             }</DeviceHeaderAction>
           </DeviceHeader>
         )}
@@ -154,5 +154,4 @@ export default ({children, headerNav, headerIcon, headerAction, footer, color, .
       </Device>
     </>
   )
-  
 }
