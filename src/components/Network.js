@@ -17,7 +17,7 @@ export default props => {
       const seed = Math.round(Math.random())
       seed === 0 && setCellularLevel(Math.round(Math.random() * 2) + 2)
       seed === 1 && setWifiLevel(Math.round(Math.random()) + 2)
-    }, 2000)
+    }, 1000)
     return () => clearInterval(networkInterval)
   })
 

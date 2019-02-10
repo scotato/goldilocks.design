@@ -6,7 +6,7 @@ import { IconBolt } from './Icon'
 const Battery = styled.div`
   display: flex;
   align-items: center;
-  height: ${props => props.theme.size.layout[350]};
+  height: ${props => props.theme.size.layout[400]};
 `
 
 const Bolt = styled(IconBolt)`
