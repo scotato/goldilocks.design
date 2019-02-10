@@ -61,6 +61,7 @@ export default props => (
           headerNav={<Network />}
           headerIcon={<IconLock />}
           color={theme.colors.black[200]}
+          lockAction={() => props.navigate(props.uri === '/' ? '/home' : '/')}
         >
           <LockScreen>
             <LockScreenTime />

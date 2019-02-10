@@ -126,6 +126,7 @@ export default ({children, headerNav, headerIcon, headerAction, footer, color, .
           onMouseDown={() => setIsLockButtonMouseDown(true)}
           onMouseOut={() => setIsLockButtonMouseDown(false)}
           onMouseUp={() => setIsLockButtonMouseDown(false)}
+          onClick={props.lockAction}
         />
         <DeviceCharger
           isCharging={isCharging}
