@@ -23,7 +23,7 @@ const Apps = styled.div`
   flex-wrap: wrap;
 `
 
-const Badge = styled(Link)`
+const AppIcon = styled(Link)`
   margin: ${props => props.theme.size.layout[400]};
   padding: ${props => props.theme.size.layout[250]};
   width: ${props => props.theme.size.layout[600]};
@@ -36,56 +36,56 @@ const Badge = styled(Link)`
   }
 `
 
-const Notifications = styled(Badge).attrs({
+const Notifications = styled(AppIcon).attrs({
   children: <IconNotifications />,
   to: '/notifications'
 })`
   background-color: ${props => props.theme.colors.red[500]};
 `
 
-const Blog = styled(Badge).attrs({
+const Blog = styled(AppIcon).attrs({
   children: <IconBlog />,
   to: '/blog'
 })`
   background-color: ${props => props.theme.colors.yellow[500]};
 `
 
-const Projects = styled(Badge).attrs({
+const Projects = styled(AppIcon).attrs({
   children: <IconProjects />,
   to: '/projects'
 })`
   background-color: ${props => props.theme.colors.blue[500]};
 `
 
-const Tools = styled(Badge).attrs({
+const Tools = styled(AppIcon).attrs({
   children: <IconTools />,
   to: '/tools'
 })`
   /* background-color: ${props => props.theme.colors.orange[500]}; */
 `
 
-const Messages = styled(Badge).attrs({
+const Messages = styled(AppIcon).attrs({
   children: <IconMessages />,
   to: '/messages'
 })`
   background-color: ${props => props.theme.colors.green[500]};
 `
 
-const Music = styled(Badge).attrs({
+const Music = styled(AppIcon).attrs({
   children: <IconMusic />,
   to: '/music'
 })`
   /* background-color: ${props => props.theme.colors.purple[500]}; */
 `
 
-const Videos = styled(Badge).attrs({
+const Videos = styled(AppIcon).attrs({
   children: <IconVideos />,
   to: '/videos'
 })`
   /* background-color: ${props => props.theme.colors.pink[500]}; */
 `
 
-const Settings = styled(Badge).attrs({
+const Settings = styled(AppIcon).attrs({
   children: <IconSettings />,
   to: '/settings'
 })`
