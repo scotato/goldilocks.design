@@ -14,10 +14,10 @@ export default props => {
 
   useEffect(() => {
     const networkInterval = setInterval(() => {
-      const seed = Math.floor(Math.random() * 100)
-      seed > 50 && setCellularLevel(Math.floor(Math.random() * 3) + 1)
-      seed < 25 && setWifiLevel(Math.round(Math.random()) + 2)
-    }, 1000)
+      const seed = Math.round(Math.random())
+      seed === 0 && setCellularLevel(Math.round(Math.random() * 2) + 2)
+      seed === 1 && setWifiLevel(Math.round(Math.random()) + 2)
+    }, 2000)
     return () => clearInterval(networkInterval)
   })
 
