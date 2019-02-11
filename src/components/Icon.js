@@ -14,10 +14,15 @@ import Messages from '../icons/fa-comment.svg'
 import Music from '../icons/fa-music.svg'
 import Videos from '../icons/fa-play.svg'
 import Settings from '../icons/fa-cog.svg'
+import Goldilocks from '../brand/goldilocks-logo-knot-yellow.svg'
 
-const icon = css`
+const fillContainer = css`
   max-width: 100%;
   max-height: 100%;
+`
+
+const icon = css`
+ ${fillContainer}
 
   path {
     fill: currentColor;
@@ -38,6 +43,7 @@ export const IconMessages = styled(Messages)`${icon}`
 export const IconMusic = styled(Music)`${icon}`
 export const IconVideos = styled(Videos)`${icon}`
 export const IconSettings = styled(Settings)`${icon}`
+export const IconGoldilocks = styled(Goldilocks)`${fillContainer}`
 
 const icons = {
   battery: IconBattery,
@@ -53,7 +59,8 @@ const icons = {
   messages: IconMessages,
   music: IconMusic,
   videos: IconVideos,
-  settings: IconSettings
+  settings: IconSettings,
+  goldilocks: IconGoldilocks
 }
 
 export default ({name, ...props}) => {

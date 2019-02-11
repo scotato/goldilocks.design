@@ -1,5 +1,5 @@
 ---
-icon: home
+icon: goldilocks
 slug: home
 title: Home
 color: yellow
