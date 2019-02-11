@@ -4,15 +4,18 @@ import styled from 'styled-components'
 import Link from './Link'
 import Icon from './Icon'
 
-const AppBadge = styled.div`
-  padding: ${props => props.theme.size.layout[250]};
-  width: ${props => props.theme.size.layout[600]};
+const Badge = styled.div`
+  display: flex;
+  padding: 10%;
+  justify-content: center;
+  align-items: center;
   color: ${props => props.theme.colors.black[100]};
-  border-radius: ${props => props.theme.size.layout[400]};
+  border-radius: 25%;
   background-color: ${props => props.theme.colors[props.color][props.colorWeight]};
   transform: scale(${props => props.isMouseDown ? 0.975 : 1});
   transition: transform .1s ease-out;
   will-change: transform;
+  line-height: 1;
 `
 
 const AppTitle = styled.span`
@@ -52,6 +55,13 @@ const AppNotification = styled.span`
   border-radius: 100%;
 `
 
+export const AppBadge = ({icon, ...props}) => (
+  <Badge {...props}>
+    <Icon name={icon} />
+  </Badge>
+)
+
+
 export default ({color = 'black', colorWeight = 500, title, icon, to, notifications, ...props}) => {
   const [isMouseDown, setIsMouseDown] = useState(false)
 
@@ -63,12 +73,11 @@ export default ({color = 'black', colorWeight = 500, title, icon, to, notificati
       {...props}
     >
       <AppBadge
+        icon={icon}
         color={color}
         colorWeight={colorWeight}
         isMouseDown={isMouseDown}
-      >
-        <Icon name={icon} />
-      </AppBadge>
+      />
       <AppTitle children={title} />
       <AppNotification children={notifications} />
     </AppIcon>

@@ -62,7 +62,7 @@ const icons = {
   music: IconMusic,
   videos: IconVideos,
   settings: IconSettings,
-  ['chevron-left']: IconChevronLeft,
+  'chevron-left': IconChevronLeft,
   goldilocks: IconGoldilocks
 }
 
