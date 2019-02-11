@@ -167,40 +167,34 @@ class BlogPostTemplate extends React.Component {
  
 export default BlogPostTemplate
  
-export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
-    avatar: file(absolutePath: { regex: "/avatar-scotato.jpg/" }) {
-      childImageSharp {
-        fixed(width: 256) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt(pruneLength: 160)
-      html
-      timeToRead
-      frontmatter {
-        author
-        title
-        intro
-        introLink
-        icon {
-          childImageSharp {
-            fixed(width: 256) {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
-        date
-      }
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   query BlogPostBySlug($slug: String!) {
+//     site {
+//       siteMetadata {
+//         title
+//         author
+//       }
+//     }
+//     avatar: file(absolutePath: { regex: "/avatar-scotato.jpg/" }) {
+//       childImageSharp {
+//         fixed(width: 256) {
+//           ...GatsbyImageSharpFixed
+//         }
+//       }
+//     }
+//     markdownRemark(fields: { slug: { eq: $slug } }) {
+//       id
+//       excerpt(pruneLength: 160)
+//       html
+//       timeToRead
+//       frontmatter {
+//         author
+//         title
+//         intro
+//         introLink
+//         icon
+//         date
+//       }
+//     }
+//   }
+// `

@@ -23,23 +23,27 @@ export const yellow = {
 }
 
 export const blue = {
-  100: 'hsl(210, 100%, 98%)', // #F5FAFF
-  200: 'hsl(210, 100%, 87%)', // #BFDFFF
-  300: 'hsl(210, 100%, 77%)', // #8AC4FF
-  400: 'hsl(210, 100%, 64%)', // #45A2FF
-  500: 'hsl(210, 100%, 56%)', // #1F8FFF
-  600: 'hsl(210, 96%, 35%)', // #045AB1
-  700: 'hsl(210, 100%, 28%)', // #00478F
-  800: 'hsl(210, 100%, 18%)', // #002D5A
-  900: 'hsl(210, 100%, 12%)', // #001F3D
+  500: '#1FB4FF',
 }
 
 export const green = {
-  500: '#20BE6B'
+  500: '#0BDA73'
 }
 
 export const red = {
-  500: '#EB1D27'
+  500: '#FF5252'
+}
+
+export const orange = {
+  500: '#FFA64C'
+}
+
+export const pink = {
+  500: '#F76EE0'
+}
+
+export const purple = {
+  500: '#955FFF'
 }
 
 export const primary = yellow[500]
@@ -54,6 +58,9 @@ export default {
   blue,
   green,
   red,
+  orange,
+  pink,
+  purple,
   yellow,
   primary,
   secondary,

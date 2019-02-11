@@ -1,125 +1,67 @@
 import React from 'react'
-import styled, { ThemeConsumer } from 'styled-components'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Device from '../components/Device'
 import Network from '../components/Network'
-import Link from '../components/Link'
-import {
-  IconHome,
-  IconNotifications,
-  IconBlog,
-  IconProjects,
-  IconTools,
-  IconMessages,
-  IconMusic,
-  IconVideos,
-  IconSettings
-} from '../components/Icon'
+import Icon from '../components/Icon'
+import AppIcon from '../components/AppIcon'
 
 const Apps = styled.div`
   display: flex;
   flex-wrap: wrap;
 `
 
-const AppIcon = styled(Link)`
-  margin: ${props => props.theme.size.layout[400]};
-  padding: ${props => props.theme.size.layout[250]};
-  width: ${props => props.theme.size.layout[600]};
-  color: ${props => props.theme.colors.black[100]};
-  border-radius: ${props => props.theme.size.layout[400]};
-  background-color: ${props => props.theme.colors.black[500]};
+const HomePage = props => {
+  const page = props.data.page.edges[0].node.frontmatter
+  const apps = props.data.apps.edges
 
-  &:hover {
-    color: ${props => props.theme.colors.black[100]};
-  }
-`
+  return (
+    <Layout
+      location={props.location}
+      title={props.data.site.siteMetadata.title}
+    >
+      <Device
+        headerNav={<Network />}
+        headerIcon={<Icon name={page.icon} />}
+        color={page.color}
+        colorWeight={page.colorWeight}
+        lockAction={() => props.navigate(props.location.pathname === '/' ? '/home' : '/')}
+      >
+        <Apps>
+          {apps.map(edge => {
+            const app = edge.node.frontmatter
+            return (
+              <AppIcon
+                title={app.title}
+                icon={app.icon}
+                to={app.slug}
+                color={app.color}
+                colorWeight={app.colorWeight}
+              />
+            )
+          })}
+        </Apps>
+      </Device>
+    </Layout>
+  )
+}
 
-const Notifications = styled(AppIcon).attrs({
-  children: <IconNotifications />,
-  to: '/notifications'
-})`
-  background-color: ${props => props.theme.colors.red[500]};
-`
+HomePage.propTypes = {
+  data: PropTypes.shape({
+    site: PropTypes.shape(PropTypes.object),
+    page: PropTypes.shape({
+      edges: PropTypes.array,
+    }),
+    apps: PropTypes.shape({
+      edges: PropTypes.array,
+    }),
+  }),
+}
 
-const Blog = styled(AppIcon).attrs({
-  children: <IconBlog />,
-  to: '/blog'
-})`
-  background-color: ${props => props.theme.colors.yellow[500]};
-`
-
-const Projects = styled(AppIcon).attrs({
-  children: <IconProjects />,
-  to: '/projects'
-})`
-  background-color: ${props => props.theme.colors.blue[500]};
-`
-
-const Tools = styled(AppIcon).attrs({
-  children: <IconTools />,
-  to: '/tools'
-})`
-  /* background-color: ${props => props.theme.colors.orange[500]}; */
-`
-
-const Messages = styled(AppIcon).attrs({
-  children: <IconMessages />,
-  to: '/messages'
-})`
-  background-color: ${props => props.theme.colors.green[500]};
-`
-
-const Music = styled(AppIcon).attrs({
-  children: <IconMusic />,
-  to: '/music'
-})`
-  /* background-color: ${props => props.theme.colors.purple[500]}; */
-`
-
-const Videos = styled(AppIcon).attrs({
-  children: <IconVideos />,
-  to: '/videos'
-})`
-  /* background-color: ${props => props.theme.colors.pink[500]}; */
-`
-
-const Settings = styled(AppIcon).attrs({
-  children: <IconSettings />,
-  to: '/settings'
-})`
-  background-color: ${props => props.theme.colors.black[500]};
-`
-
-export default props => (
-  <Layout
-    location={props.location}
-    title={props.data.site.siteMetadata.title}
-  >
-    <ThemeConsumer>
-      {theme => (
-        <Device
-          headerNav={<Network />}
-          headerIcon={<IconHome />}
-          color={theme.colors.yellow[500]}
-          lockAction={() => props.navigate(props.location.pathname === '/' ? '/home' : '/')}
-        >
-          <Apps>
-            <Notifications />
-            <Blog />
-            <Projects />
-            <Tools />
-            <Messages />
-            <Music />
-            <Videos />
-            <Settings />
-          </Apps>
-        </Device>
-      )}
-    </ThemeConsumer>
-  </Layout>
-)
+export default HomePage
 
 export const pageQuery = graphql`
   query {
@@ -128,39 +70,27 @@ export const pageQuery = graphql`
         title
       }
     }
-    avatar: file(absolutePath: { regex: "/avatar-scotato.jpg/" }) {
-      childImageSharp {
-        fixed(width: 256) {
-          ...GatsbyImageSharpFixed
+    page: allMarkdownRemark(filter: { frontmatter: { slug: { eq: "home" } } }) {
+      edges {
+        node {
+          frontmatter {
+            icon
+            title
+            color
+            colorWeight
+          }
         }
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date] }) {
+    apps: allMarkdownRemark(filter: { frontmatter: { appId: { gt: 0 } } }) {
       edges {
         node {
-          fields {
-            slug
-          }
-          timeToRead
           frontmatter {
-            author
+            icon
+            slug
             title
-            intro
-            date
-            banner {
-              childImageSharp {
-                fixed(width: 256) {
-                  ...GatsbyImageSharpFixed
-                }
-              }
-            }
-            icon {
-              childImageSharp {
-                fixed(width: 256) {
-                  ...GatsbyImageSharpFixed
-                }
-              }
-            }
+            color
+            colorWeight
           }
         }
       }

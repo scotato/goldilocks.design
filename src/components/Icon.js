@@ -1,3 +1,4 @@
+import React from 'react'
 import styled, { css } from 'styled-components'
 import Battery from '../icons/battery.svg'
 import Cellular from '../icons/cellular.svg'
@@ -37,3 +38,25 @@ export const IconMessages = styled(Messages)`${icon}`
 export const IconMusic = styled(Music)`${icon}`
 export const IconVideos = styled(Videos)`${icon}`
 export const IconSettings = styled(Settings)`${icon}`
+
+const icons = {
+  battery: IconBattery,
+  cellular: IconCellular,
+  lock: IconLock,
+  wifi: IconWifi,
+  bolt: IconBolt,
+  home: IconHome,
+  notifications: IconNotifications,
+  blog: IconBlog,
+  projects: IconProjects,
+  tools: IconTools,
+  messages: IconMessages,
+  music: IconMusic,
+  videos: IconVideos,
+  settings: IconSettings
+}
+
+export default ({name = 'settings', ...props}) => {
+  const Icon = icons[name]
+  return <Icon {...props } />
+}

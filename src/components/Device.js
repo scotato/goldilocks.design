@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
+import styled, { ThemeConsumer } from 'styled-components'
 import { BlobAnimated } from './Blob'
 import Charger from '../brand/device-charger.svg'
 import LockButton from '../brand/device-lock-button.svg'
@@ -88,7 +88,7 @@ const DeviceBackgroundBlob = styled(BlobAnimated)`
   height: ${props => props.theme.size.layout[600]};
 `
 
-export default ({children, headerNav, headerIcon, headerAction, footer, color, ...props}) => {
+export default ({children, headerNav, headerIcon, headerAction, footer, color = 'black', colorWeight = 500, ...props}) => {
   const [isCharging, setIsCharging] = useState(false)
   const [batteryLevel, setBatteryLevel] = useState(100)
   const [isLockButtonMouseDown, setIsLockButtonMouseDown] = useState(false)
@@ -118,40 +118,44 @@ export default ({children, headerNav, headerIcon, headerAction, footer, color, .
   })
 
   return (
-    <>
-      <DeviceBackground color={color}>
-        <DeviceBackgroundBlob color={color} />
-        <DeviceLockButton
-          isMouseDown={isLockButtonMouseDown}
-          onMouseDown={() => setIsLockButtonMouseDown(true)}
-          onMouseOut={() => setIsLockButtonMouseDown(false)}
-          onMouseUp={props.lockAction}
-        />
-        <DeviceCharger
-          isCharging={isCharging}
-          onClick={() => setIsCharging(!isCharging)}
-        />
-      </DeviceBackground>
-      <Device {...props}>
-        {hasHeader && (
-          <DeviceHeader>
-            <DeviceHeaderNav>{headerNav}</DeviceHeaderNav>
-            <DeviceHeaderIcon>{headerIcon}</DeviceHeaderIcon>
-            <DeviceHeaderAction>{headerAction
-              ? headerAction
-              : <Battery isCharging={isCharging} level={batteryLevel} />
-            }</DeviceHeaderAction>
-          </DeviceHeader>
-        )}
-        <DeviceBody>
-          {children}
-        </DeviceBody>
-        {hasFooter && (
-          <DeviceFooter>
-            {footer}
-          </DeviceFooter>
-        )}
-      </Device>
-    </>
+    <ThemeConsumer>
+      {theme => (
+        <>
+          <DeviceBackground color={theme.colors[color][colorWeight]}>
+            <DeviceBackgroundBlob color={theme.colors[color][colorWeight]} />
+            <DeviceLockButton
+              isMouseDown={isLockButtonMouseDown}
+              onMouseDown={() => setIsLockButtonMouseDown(true)}
+              onMouseOut={() => setIsLockButtonMouseDown(false)}
+              onMouseUp={props.lockAction}
+            />
+            <DeviceCharger
+              isCharging={isCharging}
+              onClick={() => setIsCharging(!isCharging)}
+            />
+          </DeviceBackground>
+          <Device {...props}>
+            {hasHeader && (
+              <DeviceHeader>
+                <DeviceHeaderNav>{headerNav}</DeviceHeaderNav>
+                <DeviceHeaderIcon>{headerIcon}</DeviceHeaderIcon>
+                <DeviceHeaderAction>{headerAction
+                  ? headerAction
+                  : <Battery isCharging={isCharging} level={batteryLevel} />
+                }</DeviceHeaderAction>
+              </DeviceHeader>
+            )}
+            <DeviceBody>
+              {children}
+            </DeviceBody>
+            {hasFooter && (
+              <DeviceFooter>
+                {footer}
+              </DeviceFooter>
+            )}
+          </Device>
+        </>
+      )}
+    </ThemeConsumer>
   )
 }

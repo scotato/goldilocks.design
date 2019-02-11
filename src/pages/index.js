@@ -81,35 +81,5 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date] }) {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          timeToRead
-          frontmatter {
-            author
-            title
-            intro
-            date
-            banner {
-              childImageSharp {
-                fixed(width: 256) {
-                  ...GatsbyImageSharpFixed
-                }
-              }
-            }
-            icon {
-              childImageSharp {
-                fixed(width: 256) {
-                  ...GatsbyImageSharpFixed
-                }
-              }
-            }
-          }
-        }
-      }
-    }
   }
 `
