@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
       // fontWeightBase: 400,
       lineHeightBase: 1.6,
       // bodyColor: props.theme.colors.black[900],
-      bodyBg: props.theme.colors.primary,
+      bodyBg: props.bodyBg || props.theme.colors.primary,
       // headingsMarginBottom: '0.5rem',
       // paragraphMarginBottom: '1rem',
       // labelMarginBottom: '0.5rem',

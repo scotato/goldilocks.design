@@ -21,6 +21,8 @@ const HomePage = props => {
     <Layout
       location={props.location}
       title={props.data.site.siteMetadata.title}
+      color={page.color}
+      colorWeight={page.colorWeight}
     >
       <Device
         headerNav={<Network />}

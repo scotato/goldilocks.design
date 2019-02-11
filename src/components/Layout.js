@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import { ThemeProvider } from 'styled-components'
 import WindowSize from "@reach/window-size"
 
-import theme from '../styles/theme'
+import getTheme from '../styles/theme'
 import SEO from './SEO'
 import GlobalStyle from '../styles/global-style'
 
@@ -20,7 +20,7 @@ const Layout = styled.div`
   width: 100vw;
 `
 
-export default ({ children }) => (
+export default ({ children, color = 'black', colorWeight = '500' }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -33,17 +33,21 @@ export default ({ children }) => (
     `}
     render={data => (
       <WindowSize>
-        {size => (
-          <ThemeProvider theme={theme(size)}>
-          <>
-            <GlobalStyle />
-            <SEO title={data.site.siteMetadata.title} />
-            <Layout>
-              {children}
-            </Layout>
-          </>
-        </ThemeProvider>
-        )}
+        {size => {
+          const theme = getTheme(size)
+
+          return (
+            <ThemeProvider theme={theme}>
+            <>
+              <GlobalStyle bodyBg={theme.colors[color][colorWeight]} />
+              <SEO title={data.site.siteMetadata.title} />
+              <Layout>
+                {children}
+              </Layout>
+            </>
+          </ThemeProvider>
+          )
+        }}
       </WindowSize>
     )}
   />
