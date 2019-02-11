@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled, { ThemeConsumer } from 'styled-components'
 import { Location } from '@reach/router'
-import { navigate } from "gatsby"
+import { Link, navigate } from "gatsby"
 
 import { BlobAnimated } from './Blob'
 import Charger from '../brand/device-charger.svg'
@@ -46,25 +46,24 @@ const DeviceHeader = styled.header`
   display: grid;
   padding: ${props => `${props.theme.size.layout[300]} ${props.theme.size.layout[400]}`};
   grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
+  grid-template-rows: ${props => props.theme.size.layout[450]};
   color: ${props => props.theme.colors.black[400]};
 `
 
 const DeviceHeaderNav = styled.nav`
   display: flex;
-  align-items: stretch;
-  height: ${props => `${props.theme.size.layout[350]}`};
+  align-items: center;
 `
 
 const DeviceHeaderIcon = styled.div`
-  height: ${props => `${props.theme.size.layout[450]}`};
-  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 const DeviceHeaderAction = styled.div`
   display: flex;
   align-items: center;
-  height: ${props => `${props.theme.size.layout[450]}`};
   justify-self: end;
 `
 
@@ -93,7 +92,33 @@ const DeviceBackgroundBlob = styled(BlobAnimated)`
   height: ${props => props.theme.size.layout[600]};
 `
 
-export default ({children, headerNav, headerIcon, headerAction, footer, page = {}, ...props}) => {
+const DeviceNav = styled(Link)`
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  line-height: 1;
+  text-transform: uppercase;
+  height: ${props => props.theme.size.layout[350]};
+
+  &:hover {
+    color: inherit;
+  }
+
+  svg {
+    margin-right: ${props => props.theme.size.layout[200]};
+  }
+`
+
+export default ({
+  children,
+  headerNav,
+  headerIcon,
+  headerAction,
+  footer,
+  page = {},
+  shouldShowNav,
+  ...props
+}) => {
   const [isCharging, setIsCharging] = useState(false)
   const [batteryLevel, setBatteryLevel] = useState(100)
   const [isLockButtonMouseDown, setIsLockButtonMouseDown] = useState(false)
@@ -141,16 +166,23 @@ export default ({children, headerNav, headerIcon, headerAction, footer, page = {
                   onMouseOut={() => setIsLockButtonMouseDown(false)}
                   onMouseUp={() => navigate(route.location.pathname === '/' ? '/home' : '/')}
                 />
-                <DeviceCharger
-                  isCharging={isCharging}
-                  onClick={() => setIsCharging(!isCharging)}
-                />
+                {!headerAction && (
+                  <DeviceCharger
+                    isCharging={isCharging}
+                    onClick={() => setIsCharging(!isCharging)}
+                  />)
+                }
               </DeviceBackground>
               <Device {...props}>
                 {hasHeader && (
                   <DeviceHeader>
-                    <DeviceHeaderNav>{headerNav
-                      ? headerNav
+                    <DeviceHeaderNav>{shouldShowNav
+                      ? (
+                      <DeviceNav to="/home">
+                        <Icon name='chevron-left' />
+                        {page.title}
+                      </DeviceNav>
+                      )
                       : <Network />
                     }</DeviceHeaderNav>
                     <DeviceHeaderIcon>{headerIcon

@@ -11,9 +11,7 @@ const BlogPage = props => {
 
   return (
     <Layout page={page}>
-      <Device page={page}>
-        {page.title}
-      </Device>
+      <Device page={page} shouldShowNav />
     </Layout>
   )
 }

@@ -14,6 +14,7 @@ import Messages from '../icons/fa-comment.svg'
 import Music from '../icons/fa-music.svg'
 import Videos from '../icons/fa-play.svg'
 import Settings from '../icons/fa-cog.svg'
+import ChevronLeft from '../icons/chevron-left.svg'
 import Goldilocks from '../brand/goldilocks-logo-knot-yellow.svg'
 
 const fillContainer = css`
@@ -43,6 +44,7 @@ export const IconMessages = styled(Messages)`${icon}`
 export const IconMusic = styled(Music)`${icon}`
 export const IconVideos = styled(Videos)`${icon}`
 export const IconSettings = styled(Settings)`${icon}`
+export const IconChevronLeft = styled(ChevronLeft)`${icon}`
 export const IconGoldilocks = styled(Goldilocks)`${fillContainer}`
 
 const icons = {
@@ -60,6 +62,7 @@ const icons = {
   music: IconMusic,
   videos: IconVideos,
   settings: IconSettings,
+  ['chevron-left']: IconChevronLeft,
   goldilocks: IconGoldilocks
 }
 

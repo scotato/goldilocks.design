@@ -6,6 +6,7 @@ const Network = styled.div`
   display: flex;
   align-items: center;
   user-select: none;
+  height: ${props => props.theme.size.layout[350]};
 `
 
 export default props => {
