@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import styled, { ThemeConsumer } from 'styled-components'
+import { Location } from '@reach/router'
+import { navigate } from "gatsby"
+
 import { BlobAnimated } from './Blob'
 import Charger from '../brand/device-charger.svg'
 import LockButton from '../brand/device-lock-button.svg'
+import Network from '../components/Network'
 import Battery from '../components/Battery'
+import Icon from '../components/Icon'
 
 const Device = styled.div`
   display: flex;
@@ -88,12 +93,17 @@ const DeviceBackgroundBlob = styled(BlobAnimated)`
   height: ${props => props.theme.size.layout[600]};
 `
 
-export default ({children, headerNav, headerIcon, headerAction, footer, color = 'black', colorWeight = 500, ...props}) => {
+export default ({children, headerNav, headerIcon, headerAction, footer, page = {}, ...props}) => {
   const [isCharging, setIsCharging] = useState(false)
   const [batteryLevel, setBatteryLevel] = useState(100)
   const [isLockButtonMouseDown, setIsLockButtonMouseDown] = useState(false)
-  const hasHeader = (headerNav || headerIcon || headerAction) && true
+  const hasHeader = (headerNav || headerIcon || headerAction || page.icon) && true
   const hasFooter = footer && true
+  const {
+    color = props.color || 'black',
+    colorWeight = props.colorWeight || 500,
+    icon = props.icon
+  } = page
 
   useEffect(() => {
     const batteryInterval = setInterval(() => {
@@ -120,41 +130,51 @@ export default ({children, headerNav, headerIcon, headerAction, footer, color = 
   return (
     <ThemeConsumer>
       {theme => (
-        <>
-          <DeviceBackground color={theme.colors[color][colorWeight]}>
-            <DeviceBackgroundBlob color={theme.colors[color][colorWeight]} />
-            <DeviceLockButton
-              isMouseDown={isLockButtonMouseDown}
-              onMouseDown={() => setIsLockButtonMouseDown(true)}
-              onMouseOut={() => setIsLockButtonMouseDown(false)}
-              onMouseUp={props.lockAction}
-            />
-            <DeviceCharger
-              isCharging={isCharging}
-              onClick={() => setIsCharging(!isCharging)}
-            />
-          </DeviceBackground>
-          <Device {...props}>
-            {hasHeader && (
-              <DeviceHeader>
-                <DeviceHeaderNav>{headerNav}</DeviceHeaderNav>
-                <DeviceHeaderIcon>{headerIcon}</DeviceHeaderIcon>
-                <DeviceHeaderAction>{headerAction
-                  ? headerAction
-                  : <Battery isCharging={isCharging} level={batteryLevel} />
-                }</DeviceHeaderAction>
-              </DeviceHeader>
-            )}
-            <DeviceBody>
-              {children}
-            </DeviceBody>
-            {hasFooter && (
-              <DeviceFooter>
-                {footer}
-              </DeviceFooter>
-            )}
-          </Device>
-        </>
+        <Location>
+          {route => (
+            <>
+              <DeviceBackground color={theme.colors[color][colorWeight]}>
+                <DeviceBackgroundBlob color={theme.colors[color][colorWeight]} />
+                <DeviceLockButton
+                  isMouseDown={isLockButtonMouseDown}
+                  onMouseDown={() => setIsLockButtonMouseDown(true)}
+                  onMouseOut={() => setIsLockButtonMouseDown(false)}
+                  onMouseUp={() => navigate(route.location.pathname === '/' ? '/home' : '/')}
+                />
+                <DeviceCharger
+                  isCharging={isCharging}
+                  onClick={() => setIsCharging(!isCharging)}
+                />
+              </DeviceBackground>
+              <Device {...props}>
+                {hasHeader && (
+                  <DeviceHeader>
+                    <DeviceHeaderNav>{headerNav
+                      ? headerNav
+                      : <Network />
+                    }</DeviceHeaderNav>
+                    <DeviceHeaderIcon>{headerIcon
+                      ? headerIcon
+                      : <Icon name={icon} />
+                    }</DeviceHeaderIcon>
+                    <DeviceHeaderAction>{headerAction
+                      ? headerAction
+                      : <Battery isCharging={isCharging} level={batteryLevel} />
+                    }</DeviceHeaderAction>
+                  </DeviceHeader>
+                )}
+                <DeviceBody>
+                  {children}
+                </DeviceBody>
+                {hasFooter && (
+                  <DeviceFooter>
+                    {footer}
+                  </DeviceFooter>
+                )}
+              </Device>
+            </>
+          )}
+        </Location>
       )}
     </ThemeConsumer>
   )

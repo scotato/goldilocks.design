@@ -20,7 +20,7 @@ const Layout = styled.div`
   width: 100vw;
 `
 
-export default ({ children, color = 'black', colorWeight = '500' }) => (
+export default ({ children, color = 'black', colorWeight = '500', title }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -40,7 +40,11 @@ export default ({ children, color = 'black', colorWeight = '500' }) => (
             <ThemeProvider theme={theme}>
             <>
               <GlobalStyle bodyBg={theme.colors[color][colorWeight]} />
-              <SEO title={data.site.siteMetadata.title} />
+              <SEO title={
+                title
+                ? `${title} - ${data.site.siteMetadata.title}`
+                : data.site.siteMetadata.title
+              } />
               <Layout>
                 {children}
               </Layout>

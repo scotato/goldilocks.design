@@ -5,8 +5,6 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Device from '../components/Device'
-import Network from '../components/Network'
-import Icon from '../components/Icon'
 import AppIcon from '../components/AppIcon'
 
 const Apps = styled.div`
@@ -17,20 +15,10 @@ const Apps = styled.div`
 const HomePage = props => {
   const page = props.data.page.edges[0].node.frontmatter
   const apps = props.data.apps.edges
+
   return (
-    <Layout
-      location={props.location}
-      title={props.data.site.siteMetadata.title}
-      color={page.color}
-      colorWeight={page.colorWeight}
-    >
-      <Device
-        headerNav={<Network />}
-        headerIcon={<Icon name={page.icon} />}
-        color={page.color}
-        colorWeight={page.colorWeight}
-        lockAction={() => props.navigate(props.location.pathname === '/' ? '/home' : '/')}
-      >
+    <Layout page={page}>
+      <Device page={page}>
         <Apps>
           {apps.map(edge => {
             const app = edge.node.frontmatter
@@ -67,11 +55,6 @@ export default HomePage
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     page: allMarkdownRemark(filter: { frontmatter: { slug: { eq: "home" } } }) {
       edges {
         node {

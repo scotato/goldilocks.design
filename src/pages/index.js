@@ -1,11 +1,9 @@
 import React from 'react'
 import styled, { ThemeConsumer } from 'styled-components'
-import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Device from '../components/Device'
-import { IconHome, IconLock } from '../components/Icon'
-import Network from '../components/Network'
+import { IconHome } from '../components/Icon'
 import Time from '../components/Time'
 import { ButtonLink } from '../components/Button'
 
@@ -50,20 +48,17 @@ const Unlock = styled(ButtonLink).attrs({
   color: ${props => props.theme.colors.black[500]};
 `
 
+const page = {
+  icon: 'lock',
+  color: 'black',
+  colorWeight: 200
+}
+
 export default props => (
-  <Layout
-    location={props.location}
-    title={props.data.site.siteMetadata.title}
-  >
+  <Layout>
     <ThemeConsumer>
       {theme => (
-        <Device
-          headerNav={<Network />}
-          headerIcon={<IconLock />}
-          color="black"
-          colorWeight={200}
-          lockAction={() => props.navigate(props.location.pathname === '/' ? '/home' : '/')}
-        >
+        <Device page={page}>
           <LockScreen>
             <LockScreenTime />
             <LockScreenDate />
@@ -74,13 +69,3 @@ export default props => (
     </ThemeConsumer>
   </Layout>
 )
-
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`

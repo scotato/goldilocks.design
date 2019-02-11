@@ -1,38 +1,53 @@
 import React from 'react'
-import styled, { ThemeConsumer } from 'styled-components'
-// import { graphql } from 'gatsby'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Device from '../components/Device'
-import Network from '../components/Network'
-// import AppIcon from '../components/AppIcon'
 
-const Apps = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+
+const BlogPage = props => {
+  const page = props.data.page.edges[0].node.frontmatter
+
+  return (
+    <Layout page={page}>
+      <Device page={page}>
+        {page.title}
+      </Device>
+    </Layout>
+  )
+}
+
+BlogPage.propTypes = {
+  data: PropTypes.shape({
+    site: PropTypes.shape(PropTypes.object),
+    page: PropTypes.shape({
+      edges: PropTypes.array,
+    }),
+    apps: PropTypes.shape({
+      edges: PropTypes.array,
+    }),
+  }),
+}
+
+export default BlogPage
+
+export const pageQuery = graphql`
+  query {
+    page: allMarkdownRemark(filter: { frontmatter: { slug: { eq: "blog" } } }) {
+      edges {
+        node {
+          frontmatter {
+            icon
+            title
+            color
+            colorWeight
+          }
+        }
+      }
+    }
+  }
 `
-
-export default props => (
-  <Layout
-    location={props.location}
-    // title={props.data.site.siteMetadata.title}
-  >
-    <ThemeConsumer>
-      {theme => (
-        <Device
-          headerNav={<Network />}
-          // headerIcon={}
-          color={theme.colors.yellow[500]}
-          lockAction={() => props.navigate(props.location.pathname === '/' ? '/home' : '/')}
-        >
-          <Apps>
-            
-          </Apps>
-        </Device>
-      )}
-    </ThemeConsumer>
-  </Layout>
-)
 
 // export const pageQuery = graphql`
 //   query {
