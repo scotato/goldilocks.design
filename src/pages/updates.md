@@ -1,7 +1,7 @@
 ---
 icon: notifications
-slug: notifications
-title: Notifications
+slug: updates
+title: Updates
 color: red
 colorWeight: 500
 appId: 1

@@ -56,7 +56,8 @@ const icons = {
   settings: IconSettings
 }
 
-export default ({name = 'settings', ...props}) => {
-  const Icon = icons[name]
+export default ({name, ...props}) => {
+  const hasIcon = Object.keys(icons).includes(name)
+  const Icon = hasIcon ? icons[name] : IconSettings
   return <Icon {...props } />
 }

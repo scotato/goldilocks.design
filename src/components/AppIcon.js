@@ -13,8 +13,10 @@ const AppBadge = styled.div`
 `
 
 const AppTitle = styled.span`
+  margin-top: ${props => props.theme.size.layout[300]};
+  color:  ${props => props.theme.colors.black[500]};
   text-transform: uppercase;
-  color:  ${props => props.theme.colors.black[600]};
+  line-height: 1;
 `
 
 const AppIcon = styled(Link)`
@@ -23,6 +25,7 @@ const AppIcon = styled(Link)`
   flex-direction: column;
   align-items: center;
   margin: ${props => props.theme.size.layout[400]};
+  margin-top: ${props => props.theme.size.layout[300]};
   width: ${props => props.theme.size.layout[600]};
 
   &:hover {

@@ -26,8 +26,8 @@ exports.createPages = ({ graphql, actions: { createPage } }) =>
     }
 
     const data = result.data.allMarkdownRemark.edges
-    const pages = data.filter(edge => edge.node.fileAbsolutePath.includes('/pages/'))
-    const posts = data.filter(edge => edge.node.fileAbsolutePath.includes('/posts/'))
+    const pages = data.filter(edge => edge.node.fileAbsolutePath && edge.node.fileAbsolutePath.includes('/pages/'))
+    const posts = data.filter(edge => edge.node.fileAbsolutePath && edge.node.fileAbsolutePath.includes('/posts/'))
     const page = path.resolve(`src/templates/page.js`)
     const post = path.resolve(`src/templates/post.js`)
 

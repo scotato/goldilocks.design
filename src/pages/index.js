@@ -60,7 +60,8 @@ export default props => (
         <Device
           headerNav={<Network />}
           headerIcon={<IconLock />}
-          color={theme.colors.black[200]}
+          color="black"
+          colorWeight={200}
           lockAction={() => props.navigate(props.location.pathname === '/' ? '/home' : '/')}
         >
           <LockScreen>

@@ -1,11 +1,11 @@
 import React from 'react'
 import styled, { ThemeConsumer } from 'styled-components'
-import { graphql } from 'gatsby'
+// import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Device from '../components/Device'
 import Network from '../components/Network'
-import AppIcon from '../components/AppIcon'
+// import AppIcon from '../components/AppIcon'
 
 const Apps = styled.div`
   display: flex;

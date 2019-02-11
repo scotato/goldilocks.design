@@ -17,7 +17,6 @@ const Apps = styled.div`
 const HomePage = props => {
   const page = props.data.page.edges[0].node.frontmatter
   const apps = props.data.apps.edges
-
   return (
     <Layout
       location={props.location}
@@ -35,6 +34,7 @@ const HomePage = props => {
             const app = edge.node.frontmatter
             return (
               <AppIcon
+                key={app.appId}
                 title={app.title}
                 icon={app.icon}
                 to={app.slug}
@@ -82,7 +82,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    apps: allMarkdownRemark(filter: { frontmatter: { appId: { gt: 0 } } }) {
+    apps: allMarkdownRemark(filter: { frontmatter: { appId: { gt: 0 } } }, sort: { fields: [frontmatter___appId] }) {
       edges {
         node {
           frontmatter {
@@ -91,6 +91,7 @@ export const pageQuery = graphql`
             title
             color
             colorWeight
+            appId
           }
         }
       }
