@@ -64,6 +64,7 @@ const DeviceHeaderIcon = styled.div`
 const DeviceHeaderAction = styled.div`
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   justify-self: end;
 `
 

@@ -46,6 +46,7 @@ const Notification = styled(Link)`
   width: ${props => props.theme.size.layout[800]};
   background-color: ${props => props.theme.colors.black[200]};
   border-radius: ${props => props.theme.size.layout[400]};
+  border-bottom: ${props => props.theme.size.layout[100]} solid ${props => props.theme.colors.black[300]};
   color: inherit;
 
   &:hover {
@@ -71,6 +72,7 @@ const NotificationDetail = styled.span`
   align-self: baseline;
   text-transform: uppercase;
   color: ${props => props.theme.colors.black[500]};
+  font-size: ${props => props.theme.size.typography[200]};
   line-height: 1;
 `
 
@@ -79,6 +81,7 @@ const NotificationTimestamp = styled.span`
   justify-self: flex-end;
   align-self: baseline;
   color: ${props => props.theme.colors.black[500]};
+  font-size: ${props => props.theme.size.typography[200]};
   line-height: 1;
 `
 
