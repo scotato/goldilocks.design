@@ -5,39 +5,36 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Device from '../components/Device'
-import Notification from '../components/Notification'
+import Card from '../components/Card'
+import { AppBadge } from '../components/AppIcon'
 
-const Notifications = styled.div`
+const Cards = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  align-self: center;
+  width: ${props => props.theme.size.layout[800]};
 `
 
-const notifications = [
+const cards = [
   {
     title: 'Design Systems',
     detail: 'Blog',
     date: '2019-02-11',
     to: '/blog/design-systems',
-    icon: 'blog',
-    color: 'yellow',
-    colorWeight: 500
+    appId: 1
   }, {
     title: 'Goldilocks Design',
     detail: 'Projects',
     date: '2019-01-10',
     to: '/projects/goldilocks-design',
-    icon: 'projects',
-    color: 'blue',
-    colorWeight: 500
+    appId: 2
   }, {
     title: 'Gatsby',
     detail: 'Tools',
     date: '2017-01-09',
     to: '/tools/gatsby',
-    icon: 'tools',
-    color: 'orange',
-    colorWeight: 500
+    appId: 3
   }
 ]
 
@@ -47,11 +44,18 @@ const UpdatesPage = props => {
   return (
     <Layout page={page}>
       <Device page={page} shouldShowNav>
-        <Notifications>
-          {notifications.map(notification => (
-            <Notification key={notification.date} {...notification} />
+        <Cards>
+          {cards.map(card => (
+            <Card
+              key={card.date}
+              badge={<AppBadge appId={card.appId} />}
+              title={card.title}
+              detail={card.detail}
+              date={card.date}
+              to={card.to}
+            />
           ))}
-        </Notifications>
+        </Cards>
       </Device>
     </Layout>
   )

@@ -18,6 +18,7 @@ const Device = styled.div`
   background-color: ${props => props.theme.colors.black[100]};
   box-shadow: 0 ${props => props.theme.size.layout[200]} ${props => props.theme.size.layout[400]} rgba(0, 0, 0, 0.075);
   border-radius: ${props => props.theme.size.layout[400]};
+  overflow: hidden;
 `
 
 const DeviceCharger = styled(Charger)`
@@ -48,6 +49,7 @@ const DeviceHeader = styled.header`
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: ${props => props.theme.size.layout[450]};
   color: ${props => props.theme.colors.black[400]};
+  text-transform: uppercase;
 `
 
 const DeviceHeaderNav = styled.nav`
@@ -69,7 +71,11 @@ const DeviceHeaderAction = styled.div`
 `
 
 const DeviceBody = styled.main`
-  padding: ${props => `${props.theme.size.layout[500]} ${props.theme.size.layout[600]}`};
+  display: flex;
+  padding: ${props => `${props.theme.size.layout[400]}`} ${props => `${props.theme.size.layout[500]}`};
+  align-items: stretch;
+  justify-content: stretch;
+  flex-direction: column;
   flex-grow: 1;
 `
 

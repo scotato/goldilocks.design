@@ -1,23 +1,29 @@
+import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export const AvatarUser = styled(FontAwesomeIcon).attrs({
-  icon: 'user-circle'
-})`
-  color: ${props => props.theme.colors.black[300]};
-
-  &.svg-inline--fa {
-    width: 100%;
-    height: 100%;
-  }
-`
-
-export default styled(Img).attrs({
+const Avatar = styled(Img).attrs({
   style: {
-    width: '3rem',
-    height: '3rem'
+    width: '100%',
+    height: '100%'
   }
 })`
   border-radius: 50%;
 `
+
+export default props => {
+  const { avatar } = useStaticQuery(graphql`
+    query AvatarQuery {
+      avatar: file(absolutePath: { regex: "/avatar-scotato.jpg/" }) {
+        childImageSharp {
+          fluid(maxWidth: 256) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+  
+  return <Avatar fluid={avatar.childImageSharp.fluid} />
+}

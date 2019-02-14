@@ -22,8 +22,7 @@ import Plus from '../icons/plus.svg'
 import Goldilocks from '../brand/goldilocks-logo-knot-yellow.svg'
 
 const fillContainer = css`
-  max-width: 100%;
-  max-height: 100%;
+  height: 100%;
 `
 
 const icon = css`

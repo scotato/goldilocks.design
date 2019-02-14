@@ -1,11 +1,10 @@
 ---
-title: The Anatomy of a Visual Web Interface
+title: Visual Web Interfaces
 intro: let's start with the basics
 introLink: https://www.w3schools.com
 author: scotato
-date: '2019-01-11'
-banner: the-anatomy-of-a-visual-web-interface-banner.png
-icon: the-anatomy-of-a-visual-web-interface-icon.png
+published: '2019-01-11'
+badge: the-anatomy-of-a-visual-web-interface-banner.png
 ---
 
 ## HTML

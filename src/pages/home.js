@@ -8,8 +8,10 @@ import Device from '../components/Device'
 import AppIcon from '../components/AppIcon'
 
 const Apps = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  margin: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-self: center;
 `
 
 const HomePage = props => {

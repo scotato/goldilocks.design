@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import Link from './Link'
@@ -10,6 +11,7 @@ const Badge = styled.div`
   justify-content: center;
   align-items: center;
   color: ${props => props.theme.colors.black[100]};
+  width: 100%;
   border-radius: 25%;
   background-color: ${props => props.theme.colors[props.color][props.colorWeight]};
   transform: scale(${props => props.isMouseDown ? 0.975 : 1});
@@ -33,6 +35,10 @@ const AppIcon = styled(Link)`
   margin: ${props => props.theme.size.layout[400]};
   margin-top: ${props => props.theme.size.layout[300]};
   width: ${props => props.theme.size.layout[600]};
+  
+  svg {
+    width: 100%;
+  }
 
   &:hover {
     color: inherit;
@@ -55,11 +61,38 @@ const AppNotification = styled.span`
   border-radius: 100%;
 `
 
-export const AppBadge = ({icon, ...props}) => (
-  <Badge {...props}>
-    <Icon name={icon} />
-  </Badge>
-)
+export const AppBadge = ({icon, ...props}) => {
+  const { apps: { edges } } = useStaticQuery(graphql`
+    query AppsQuery {
+      apps: allMarkdownRemark(filter: { frontmatter: { appId: { gt: 0 } } }, sort: { fields: [frontmatter___appId] }) {
+        edges {
+          node {
+            frontmatter {
+              icon
+              title
+              color
+              colorWeight
+              appId
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const app = props.appId && edges.find(edge => props.appId === edge.node.frontmatter.appId).node.frontmatter
+
+  return props.appId ? (
+    <Badge {...app}>
+      <Icon name={app.icon} />
+    </Badge>
+  ) : (
+    <Badge {...props}>
+      <Icon name={icon} />
+    </Badge>
+  )
+
+}
 
 
 export default ({color = 'black', colorWeight = 500, title, icon, to, notifications, ...props}) => {

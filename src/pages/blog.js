@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
+import { useLocalStorage } from '../hooks'
 
 import Layout from '../components/Layout'
 import Device from '../components/Device'
-import Notification from '../components/Notification'
+import Card from '../components/Card'
 import Icon from '../components/Icon'
+import Avatar from '../components/Avatar'
 
 const Action = styled(Icon)`
   color: ${props => props.theme.colors[props.color][props.colorWeight]};
@@ -14,45 +17,26 @@ const Action = styled(Icon)`
 `
 
 const Posts = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: ${props => props.displayMode === 'grid' ? '1fr 1fr' : '1fr'};
+  grid-row-gap: ${props => props.displayMode === 'card' ? props.theme.size.layout[300] : 0};
+  width: ${props => props.displayMode === 'grid' ? '100%' : props.theme.size.layout[800]};
 `
 
-const Post = styled(Notification)``
-
-const posts = [
-  {
-    title: 'Design Systems',
-    detail: 'Blog',
-    date: '2019-02-11',
-    to: '/blog/design-systems',
-    icon: 'blog',
-    color: 'yellow',
-    colorWeight: 500
-  }, {
-    title: 'Goldilocks Design',
-    detail: 'Projects',
-    date: '2019-01-10',
-    to: '/projects/goldilocks-design',
-    icon: 'projects',
-    color: 'blue',
-    colorWeight: 500
-  }, {
-    title: 'Gatsby',
-    detail: 'Tools',
-    date: '2017-01-09',
-    to: '/tools/gatsby',
-    icon: 'tools',
-    color: 'orange',
-    colorWeight: 500
-  }
-]
+const Post = styled(Card)`
+  flex: 1;
+`
+const PostImg = styled(Img)`
+  flex: 1;
+`
 
 const BlogPage = props => {
   const displayModes = ['card', 'grid', 'list']
-  const [displayMode, setDisplayMode] = useState('card')  
+  const [displayMode, setDisplayMode] = useLocalStorage('layout.blog', 'card')  
   const page = props.data.page.edges[0].node.frontmatter
+  const posts = props.data.posts.edges
+  const isList = displayMode === 'list'
   const nextDisplayMode = () => {
     const currentIndex = displayModes.indexOf(displayMode)
     const nextMode = currentIndex + 1 === displayModes.length
@@ -75,9 +59,20 @@ const BlogPage = props => {
         page={page}
         shouldShowNav
       >
-        <Posts>
+        <Posts displayMode={displayMode}>
           {posts.map(post => (
-            <Post key={post.date} {...post} />
+            <Post
+              key={post.node.frontmatter.published}
+              hero={!isList && <PostImg fluid={post.node.frontmatter.badge.childImageSharp.fluid} />}
+              badge={!isList
+                ? <Avatar />
+                : <PostImg fluid={post.node.frontmatter.badge.childImageSharp.fluid} />
+              }
+              title={post.node.frontmatter.title}
+              detail={`${post.node.timeToRead} min read`}
+              date={post.node.frontmatter.published}
+              to={`/blog${post.node.fields.slug}`}
+            />
           ))}
         </Posts>
       </Device>
@@ -113,45 +108,28 @@ export const pageQuery = graphql`
         }
       }
     }
+    posts: allMarkdownRemark(filter: { frontmatter: { published: { ne: null } } }, sort: { fields: [frontmatter___published] }) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          timeToRead
+          frontmatter {
+            author
+            title
+            intro
+            published
+            badge {
+              childImageSharp {
+                fluid(maxWidth: 900) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 `
-
-// export const pageQuery = graphql`
-//   query {
-//     site {
-//       siteMetadata {
-//         title
-//       }
-//     }
-//     allMarkdownRemark(sort: { fields: [frontmatter___date] }) {
-//       edges {
-//         node {
-//           fields {
-//             slug
-//           }
-//           timeToRead
-//           frontmatter {
-//             author
-//             title
-//             intro
-//             date
-//             banner {
-//               childImageSharp {
-//                 fixed(width: 256) {
-//                   ...GatsbyImageSharpFixed
-//                 }
-//               }
-//             }
-//             icon {
-//               childImageSharp {
-//                 fixed(width: 256) {
-//                   ...GatsbyImageSharpFixed
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
