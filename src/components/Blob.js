@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components'
-import BlobLine from '../brand/blob-line.svg'
+import BlobLine from '../content/brand/blob-line.svg'
 
 const gooey = keyframes`
   0% {

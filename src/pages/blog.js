@@ -108,7 +108,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    posts: allMarkdownRemark(filter: { frontmatter: { published: { ne: null } } }, sort: { fields: [frontmatter___published] }) {
+    posts: allMarkdownRemark(filter: { fileAbsolutePath: {regex : "\/posts/"} }, sort: { fields: [frontmatter___published], order: DESC }) {
       edges {
         node {
           fields {

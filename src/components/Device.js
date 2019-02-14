@@ -4,8 +4,8 @@ import { Location } from '@reach/router'
 import { Link, navigate } from "gatsby"
 
 import { BlobAnimated } from './Blob'
-import Charger from '../brand/device-charger.svg'
-import LockButton from '../brand/device-lock-button.svg'
+import Charger from '../content/brand/device-charger.svg'
+import LockButton from '../content/brand/device-lock-button.svg'
 import Network from '../components/Network'
 import Battery from '../components/Battery'
 import Icon from '../components/Icon'
