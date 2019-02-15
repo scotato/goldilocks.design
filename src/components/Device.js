@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useLocalStorage } from '../hooks'
 import styled, { ThemeConsumer } from 'styled-components'
 import { Location } from '@reach/router'
 import { Link, navigate } from "gatsby"
@@ -126,8 +127,8 @@ export default ({
   shouldShowNav,
   ...props
 }) => {
-  const [isCharging, setIsCharging] = useState(false)
-  const [batteryLevel, setBatteryLevel] = useState(100)
+  const [isCharging, setIsCharging] = useLocalStorage('device:isCharging', false)
+  const [batteryLevel, setBatteryLevel] = useLocalStorage('device:batteryLevel', 100)
   const [isLockButtonMouseDown, setIsLockButtonMouseDown] = useState(false)
   const hasHeader = (headerNav || headerIcon || headerAction || page.icon) && true
   const hasFooter = footer && true
