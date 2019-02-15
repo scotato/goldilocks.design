@@ -182,19 +182,19 @@ export default BlogPostTemplate
 //         }
 //       }
 //     }
-//     markdownRemark(fields: { slug: { eq: $slug } }) {
-//       id
-//       excerpt(pruneLength: 160)
-//       html
-//       timeToRead
-//       frontmatter {
-//         author
-//         title
-//         intro
-//         introLink
-//         icon
-//         date
-//       }
-//     }
+    // markdownRemark(fields: { slug: { eq: $slug } }) {
+    //   id
+    //   excerpt(pruneLength: 160)
+    //   html
+    //   timeToRead
+    //   frontmatter {
+    //     author
+    //     title
+    //     intro
+    //     introLink
+    //     icon
+    //     date
+    //   }
+    // }
 //   }
 // `

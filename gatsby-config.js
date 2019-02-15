@@ -14,50 +14,31 @@ module.exports = {
     shareImageHeight: 600, // Change to the height of your default share image
     siteLogo: '/images/logo-512.png', // Logo used for SEO, RSS, and App manifest
   },
+  mapping: {
+    'ProjectsYaml.app': `AppsYaml`,
+    'ProjectsYaml.tools': `ToolsYaml`
+  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/content/pages`,
-        name: `pages`,
+        path: `${__dirname}/src/content`,
+        name: `content`,
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-graphql",
       options: {
-        path: `${__dirname}/src/content/brand`,
-        name: `brand`,
-      },
+        typeName: "GitHub",
+        fieldName: "github",
+        url: "https://api.github.com/graphql",
+        headers: {
+          Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
+        }
+      }
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/content/posts`,
-        name: `posts`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/content/posts`,
-        name: `posts`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/content/projects`,
-        name: `projects`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/content/tools`,
-        name: `tools`,
-      },
-    },
+    `gatsby-transformer-yaml`,
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

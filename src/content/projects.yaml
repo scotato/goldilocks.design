@@ -1,0 +1,11 @@
+- id: goldilocks-design
+  github: goldilocksDesign
+  badge: projects/goldilocks-design-badge.png
+  dateAdded: '2019-02-14'
+  tools: 
+    - react
+    - gatsby
+    - styled-components
+    - graphql
+    - figma
+  app: projects

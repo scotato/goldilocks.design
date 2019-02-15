@@ -14,39 +14,31 @@ const Apps = styled.div`
   justify-self: center;
 `
 
-const HomePage = props => {
-  const page = props.data.page.edges[0].node.frontmatter
-  const apps = props.data.apps.edges
-
-  return (
-    <Layout page={page}>
-      <Device page={page}>
-        <Apps>
-          {apps.map(edge => {
-            const app = edge.node.frontmatter
-            return (
-              <AppIcon
-                key={app.appId}
-                title={app.title}
-                icon={app.icon}
-                to={app.slug}
-                color={app.color}
-                colorWeight={app.colorWeight}
-              />
-            )
-          })}
-        </Apps>
-      </Device>
-    </Layout>
-  )
-}
+const HomePage = ({data: { page, apps }}) => (
+  <Layout page={page}>
+    <Device page={page}>
+      <Apps>
+        {apps.edges.map(edge => {
+          const app = edge.node
+          return (
+            <AppIcon
+              key={app.id}
+              title={app.title}
+              icon={app.icon}
+              to={app.slug}
+              color={app.color}
+              colorWeight={app.colorWeight}
+            />
+          )
+        })}
+      </Apps>
+    </Device>
+  </Layout>
+)
 
 HomePage.propTypes = {
   data: PropTypes.shape({
-    site: PropTypes.shape(PropTypes.object),
-    page: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
+    page: PropTypes.object,
     apps: PropTypes.shape({
       edges: PropTypes.array,
     }),
@@ -57,29 +49,13 @@ export default HomePage
 
 export const pageQuery = graphql`
   query {
-    page: allMarkdownRemark(filter: { frontmatter: { slug: { eq: "home" } } }) {
-      edges {
-        node {
-          frontmatter {
-            icon
-            title
-            color
-            colorWeight
-          }
-        }
-      }
+    page: screensYaml(id: { eq: "home" }) {
+      ...ScreenInfo
     }
-    apps: allMarkdownRemark(filter: { frontmatter: { appId: { gt: 0 } } }, sort: { fields: [frontmatter___appId] }) {
+    apps: allAppsYaml {
       edges {
         node {
-          frontmatter {
-            icon
-            slug
-            title
-            color
-            colorWeight
-            appId
-          }
+          ...AppInfo
         }
       }
     }

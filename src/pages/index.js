@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { ThemeConsumer } from 'styled-components'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Device from '../components/Device'
@@ -48,13 +49,7 @@ const Unlock = styled(ButtonLink).attrs({
   color: ${props => props.theme.colors.black[500]};
 `
 
-const page = {
-  icon: 'lock',
-  color: 'black',
-  colorWeight: 200
-}
-
-export default props => (
+export default ({ data: { page }}) => (
   <Layout>
     <ThemeConsumer>
       {theme => (
@@ -69,3 +64,21 @@ export default props => (
     </ThemeConsumer>
   </Layout>
 )
+
+export const query = graphql`
+  fragment ScreenInfo on ScreensYaml {
+    id
+    icon
+    title
+    color
+    colorWeight
+  }
+`
+
+export const pageQuery = graphql`
+  query {
+    page: screensYaml(id: { eq: "lock" }) {
+      ...ScreenInfo
+    }
+  }
+`

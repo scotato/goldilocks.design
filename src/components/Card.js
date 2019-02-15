@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
 import moment from 'moment'
+
+import Link from './Link'
 
 moment.locale('en', {
   relativeTime: {

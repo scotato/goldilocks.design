@@ -31,11 +31,9 @@ const PostImg = styled(Img)`
   flex: 1;
 `
 
-const BlogPage = props => {
+const BlogPage = ({ data: { page, posts }}) => {
   const displayModes = ['card', 'grid', 'list']
   const [displayMode, setDisplayMode] = useLocalStorage('layout.blog', 'card')  
-  const page = props.data.page.edges[0].node.frontmatter
-  const posts = props.data.posts.edges
   const isList = displayMode === 'list'
   const nextDisplayMode = () => {
     const currentIndex = displayModes.indexOf(displayMode)
@@ -60,7 +58,7 @@ const BlogPage = props => {
         shouldShowNav
       >
         <Posts displayMode={displayMode}>
-          {posts.map(post => (
+          {posts.edges.map(post => (
             <Post
               key={post.node.frontmatter.published}
               hero={!isList && <PostImg fluid={post.node.frontmatter.badge.childImageSharp.fluid} />}
@@ -96,17 +94,8 @@ export default BlogPage
 
 export const pageQuery = graphql`
   query {
-    page: allMarkdownRemark(filter: { frontmatter: { slug: { eq: "blog" } } }) {
-      edges {
-        node {
-          frontmatter {
-            icon
-            title
-            color
-            colorWeight
-          }
-        }
-      }
+    page: appsYaml(id: { eq: "blog" }) {
+      ...AppInfo
     }
     posts: allMarkdownRemark(filter: { fileAbsolutePath: {regex : "\/posts/"} }, sort: { fields: [frontmatter___published], order: DESC }) {
       edges {

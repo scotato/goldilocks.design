@@ -16,75 +16,57 @@ const Cards = styled.div`
   width: ${props => props.theme.size.layout[800]};
 `
 
-const cards = [
-  {
-    title: 'Design Systems',
-    detail: 'Blog',
-    date: '2019-02-11',
-    to: '/blog/design-systems',
-    appId: 1
-  }, {
-    title: 'Goldilocks Design',
-    detail: 'Projects',
-    date: '2019-01-10',
-    to: '/projects/goldilocks-design',
-    appId: 2
-  }, {
-    title: 'Gatsby',
-    detail: 'Tools',
-    date: '2017-01-09',
-    to: '/tools/gatsby',
-    appId: 3
-  }
-]
-
-const UpdatesPage = props => {
-  const page = props.data.page.edges[0].node.frontmatter
-
-  return (
-    <Layout page={page}>
-      <Device page={page} shouldShowNav>
-        <Cards>
-          {cards.map(card => (
-            <Card
-              key={card.date}
-              badge={<AppBadge appId={card.appId} />}
-              title={card.title}
-              detail={card.detail}
-              date={card.date}
-              to={card.to}
-            />
-          ))}
-        </Cards>
-      </Device>
-    </Layout>
-  )
-}
+const UpdatesPage = ({ data: { page, projects }}) => (
+  <Layout page={page}>
+    <Device page={page} shouldShowNav>
+      <Cards>
+        {projects.edges.map(({node: project}) => (
+          <Card
+            key={project.id}
+            badge={<AppBadge {...project.app} />}
+            title={project.title}
+            detail={project.description}
+            date={project.dateAdded}
+            to={`/${project.app.id}`}
+          />
+        ))}
+      </Cards>
+    </Device>
+  </Layout>
+)
 
 UpdatesPage.propTypes = {
   data: PropTypes.shape({
-    site: PropTypes.shape(PropTypes.object),
-    page: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
-    apps: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
+    page: PropTypes.object,
   }),
 }
 
 export default UpdatesPage
 
+export const query = graphql`
+  fragment AppInfo on AppsYaml {
+    id
+    icon
+    slug
+    title
+    color
+    colorWeight
+  }
+`
+
 export const pageQuery = graphql`
   query {
-    page: allMarkdownRemark(filter: { frontmatter: { slug: { eq: "updates" } } }) {
+    page: appsYaml(id: { eq: "updates" }) {
+      ...AppInfo
+    }
+    projects: allProjectsYaml {
       edges {
         node {
-          frontmatter {
-            icon
-            title
-            color
-            colorWeight
+          id
+          title
+          description
+          app {
+            ...AppInfo
           }
         }
       }

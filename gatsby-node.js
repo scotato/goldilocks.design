@@ -5,7 +5,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) =>
   graphql(`
     {
       allMarkdownRemark(
-        sort: { fields: [frontmatter___date], order: DESC }
+        sort: { fields: [frontmatter___published], order: DESC }
         limit: 1000
       ) {
         edges {
@@ -26,22 +26,8 @@ exports.createPages = ({ graphql, actions: { createPage } }) =>
     }
 
     const data = result.data.allMarkdownRemark.edges
-    const pages = data.filter(edge => edge.node.fileAbsolutePath && edge.node.fileAbsolutePath.includes('/pages/'))
     const posts = data.filter(edge => edge.node.fileAbsolutePath && edge.node.fileAbsolutePath.includes('/posts/'))
-    const page = path.resolve(`src/templates/page.js`)
     const post = path.resolve(`src/templates/post.js`)
-
-    pages.forEach(edge => {
-      const id = edge.node.id
-      createPage({
-        path: edge.node.frontmatter.slug,
-        component: page,
-        // additional data can be passed via context
-        context: {
-          id,
-        },
-      })
-    })
 
     posts.forEach(edge => {
       const id = edge.node.id
