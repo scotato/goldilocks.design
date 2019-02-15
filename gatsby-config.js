@@ -38,6 +38,18 @@ module.exports = {
         }
       }
     },
+    {
+      resolve: `gatsby-source-twitter`,
+      options: {           
+          q: `scotato`,    
+          credentials: {
+              consumer_key: `${process.env.TWITTER_KEY}`,
+              consumer_secret: `${process.env.TWITTER_SECRET}`,
+              bearer_token: `${process.env.TWITTER_TOKEN}`
+          },
+          tweet_mode: 'extended'
+      }
+    },
     `gatsby-transformer-yaml`,
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
