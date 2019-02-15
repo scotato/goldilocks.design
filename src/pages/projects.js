@@ -72,9 +72,6 @@ export const pageQuery = graphql`
     projects: allProjectsYaml {
       edges {
         node {
-          title
-          dateAdded
-          dateCreated
           badge {
             childImageSharp {
               fluid(maxWidth: 900) {
