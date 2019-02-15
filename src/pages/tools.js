@@ -4,11 +4,24 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Device from '../components/Device'
+import Card, { Cards } from '../components/Card'
 
-
-const ToolsPage = ({ data: { page }}) => (
+const ToolsPage = ({ data: { page, tools }}) => (
   <Layout page={page}>
-    <Device page={page} shouldShowNav />
+    <Device page={page} shouldShowNav>
+      <Cards>
+        {tools.edges.map(({node: tool}) => (
+          <Card
+            key={tool.id}
+            // badge={<AppBadge {...tool.app} />}
+            title={tool.title}
+            // detail={tool.description}
+            // date={tool.dateAdded}
+            to={`/`}
+          />
+        ))}
+      </Cards>
+    </Device>
   </Layout>
 )
 
@@ -24,6 +37,14 @@ export const pageQuery = graphql`
   query {
     page: appsYaml(id: { eq: "tools" }) {
       ...AppInfo
+    }
+    tools: allToolsYaml {
+      edges {
+        node {
+          id
+          title
+        }
+      }
     }
   }
 `

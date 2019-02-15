@@ -1,20 +1,11 @@
 import React from 'react'
-import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Device from '../components/Device'
-import Card from '../components/Card'
+import Card, { Cards } from '../components/Card'
 import { AppBadge } from '../components/AppIcon'
-
-const Cards = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  align-self: center;
-  width: ${props => props.theme.size.layout[800]};
-`
 
 const UpdatesPage = ({ data: { page, projects }}) => (
   <Layout page={page}>

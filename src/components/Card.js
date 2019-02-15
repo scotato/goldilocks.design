@@ -111,6 +111,14 @@ const getTimestamp = date => {
       : then.format('MMM YYYY')
 }
 
+export const Cards = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  align-self: center;
+  width: ${props => props.theme.size.layout[800]};
+`
+
 export default props => (
   <Card to={props.to}>
     <CardHero>{props.hero}</CardHero>
