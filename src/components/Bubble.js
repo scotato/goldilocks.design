@@ -5,7 +5,7 @@ const isPrimary = (is, isNot) => props =>
 
 const getBackgroundColor = props => isPrimary(
   props.theme.colors.blue,
-  props.theme.colors.black[100],
+  props.theme.colors.black[200],
 )
 
 const getTextColor = props => isPrimary(

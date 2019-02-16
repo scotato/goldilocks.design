@@ -35,7 +35,7 @@ export default ToolsPage
 
 export const pageQuery = graphql`
   query {
-    page: appsYaml(id: { eq: "tools" }) {
+    page: appsYaml(id: { eq: "tech" }) {
       ...AppInfo
     }
     tools: allToolsYaml {

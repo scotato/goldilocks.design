@@ -18,7 +18,16 @@ const Message = styled.div`
   justify-content: start;
 `
 
-const MessageBanner = styled(Img)``
+export const Messages = styled.div`
+  display: grid;
+  align-self: center;
+  width: ${props => props.theme.size.layout[800]};
+  grid-row-gap: ${props => props.theme.size.layout[300]};
+`
+
+const MessageBanner = styled.img`
+  width: 100%;
+`
 
 const bubbles = css`
   display: flex;
@@ -80,7 +89,8 @@ export default ({children, banner, avatar, author, title, timestamp, details, to
   <Message {...props}>
     <MessageAvatar fixed={avatar} author={author} />
     <Bubbles to={to}>
-      {banner && <MessageBanner fixed={banner} title={title} />}
+      {/* {banner && <MessageBanner fixed={banner} title={title} />} */}
+      {banner && <MessageBanner src={banner} title={title} />}
       <Bubble>
         {children}
       </Bubble>

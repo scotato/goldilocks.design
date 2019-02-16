@@ -47,7 +47,7 @@ export const query = graphql`
 
 export const pageQuery = graphql`
   query {
-    page: appsYaml(id: { eq: "updates" }) {
+    page: appsYaml(id: { eq: "activity" }) {
       ...AppInfo
     }
     projects: allProjectsYaml {

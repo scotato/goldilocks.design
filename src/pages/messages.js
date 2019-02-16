@@ -4,23 +4,28 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Device from '../components/Device'
-import Card, { Cards } from '../components/Card'
+import Message, { Messages } from '../components/Message'
+
+const filterUrl = text => text.indexOf('https') > -1
+  ? text.slice(0, text.indexOf('https'))
+  : text
 
 const MessagesPage = ({ data: { page, tweets }}) => (
   <Layout page={page}>
     <Device page={page} shouldShowNav>
-      <Cards>
-          {tweets.edges.map(({node: tweet}) => (
-            <Card
-              key={tweet.id}
-              badge={<img src={tweet.user.profile_image_url_https} />}
-              title={tweet.full_text}
-              detail={tweet.description}
-              date={tweet.created_at}
-              to={`https://twitter.com/i/web/status/${tweet.id_str}`}
-            />
-          ))}
-        </Cards>
+      <Messages>
+        {console.log(tweets)}
+        {tweets.edges.map(({node: tweet}) => (
+          <Message
+            key={tweet.id}
+            author={tweet.user.screen_name}
+            timestamp={tweet.created_at}
+            banner={tweet.entities.media && tweet.entities.media[0].media_url_https}
+            children={filterUrl(tweet.full_text)}
+            to={`https://twitter.com/i/web/status/${tweet.id_str}`}
+          />
+        ))}
+      </Messages>
     </Device>
   </Layout>
 )
@@ -44,11 +49,57 @@ export const pageQuery = graphql`
           id_str
           created_at
           full_text
+          text
+          entities {
+            media {
+              id
+              id_str
+              indices
+              media_url
+              media_url_https
+              url
+              display_url
+              expanded_url
+              type
+              sizes {
+                thumb {
+                  w
+                  h
+                  resize
+                }
+                small {
+                  w
+                  h
+                  resize
+                }
+                medium {
+                  w
+                  h
+                  resize
+                }
+                large {
+                  w
+                  h
+                  resize
+                }
+              }
+              video_info {
+                variants {
+                  content_type
+                  url
+                }
+              }
+            }
+            urls {
+              url
+              expanded_url
+              display_url
+            } 
+          }
           user {
             id
-            name
+            screen_name
             url
-            profile_image_url_https
           }
         }
       }

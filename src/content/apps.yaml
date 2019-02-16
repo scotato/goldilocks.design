@@ -1,7 +1,7 @@
-- id: updates
-  icon: fa-bell
-  slug: updates
-  title: Updates
+- id: activity
+  icon: bolt
+  slug: activity
+  title: Activity
   color: red
   colorWeight: 500
 - id: blog
@@ -11,15 +11,15 @@
   color: yellow
   colorWeight: 500
 - id: projects
-  icon: fa-brackets-curly
+  icon: fa-pencil-ruler
   slug: projects
   title: Projects
   color: blue
   colorWeight: 500
-- id: tools
-  icon: fa-pencil-ruler
-  slug: tools
-  title: Tools
+- id: tech
+  icon: wifi
+  slug: tech
+  title: Tech
   color: orange
   colorWeight: 500
 - id: messages
