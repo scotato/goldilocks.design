@@ -6,8 +6,8 @@ import Layout from '../components/Layout'
 import Device from '../components/Device'
 import Message, { Messages } from '../components/Message'
 
-const filterUrl = text => text.indexOf('https') > -1
-  ? text.slice(0, text.indexOf('https'))
+const filterUrl = text => text.includes('http')
+  ? text.slice(0, text.indexOf('http'))
   : text
 
 const MessagesPage = ({ data: { page, tweets }}) => (

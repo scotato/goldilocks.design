@@ -10,6 +10,7 @@ import LockButton from '../content/brand/device-lock-button.svg'
 import Network from '../components/Network'
 import Battery from '../components/Battery'
 import Icon from '../components/Icon'
+import Logo from '../components/Logo'
 
 const Device = styled.div`
   display: flex;
@@ -20,6 +21,14 @@ const Device = styled.div`
   box-shadow: 0 ${props => props.theme.size.layout[200]} ${props => props.theme.size.layout[400]} rgba(0, 0, 0, 0.075);
   border-radius: ${props => props.theme.size.layout[400]};
   overflow: hidden;
+`
+
+const LockLogo = styled(Logo)`
+  position: relative;
+  grid-area: layout-body;
+  width: ${props => props.theme.size.layout[700]};
+  margin: auto;
+  cursor: pointer;
 `
 
 const DeviceCharger = styled(Charger)`
@@ -92,11 +101,23 @@ const DeviceBackground = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  border-top: ${props => props.theme.size.layout[100]} solid ${props => props.color};
-  background-color: ${props => props.theme.colors.black[100]};
+  border-top: ${props => props.theme.size.layout[100]} solid ${props => props.isAwake || props.theme.isDarkMode
+    ? props.theme.colors.black[800] 
+    : props.theme.colors.black[100]
+  };
+  background-color: ${props => props.isAwake || props.theme.isDarkMode
+    ? props.theme.colors.black[900] 
+    : props.theme.colors.black[100]
+  };
+  will-change: border-top, background-color;
+  transition: border-top .2s ease-out, background-color .2s ease-out;
 `
 
-const DeviceBackgroundBlob = styled(BlobAnimated)`
+const DeviceBackgroundBlob = styled(BlobAnimated).attrs({
+  color: props => props.isAwake
+    ? props.theme.colors.black[800] 
+    : props.theme.colors.black[200]
+})`
   height: ${props => props.theme.size.layout[600]};
 `
 
@@ -127,6 +148,7 @@ export default ({
   shouldShowNav,
   ...props
 }) => {
+  const [isAwake, setIsAwake] = useLocalStorage('device:isAwake', false)
   const [isCharging, setIsCharging] = useLocalStorage('device:isCharging', false)
   const [batteryLevel, setBatteryLevel] = useLocalStorage('device:batteryLevel', 100)
   const [isLockButtonMouseDown, setIsLockButtonMouseDown] = useState(false)
@@ -166,22 +188,31 @@ export default ({
         <Location>
           {route => (
             <>
-              <DeviceBackground color={theme.colors[color][colorWeight]}>
-                <DeviceBackgroundBlob color={theme.colors[color][colorWeight]} />
-                <DeviceLockButton
-                  isMouseDown={isLockButtonMouseDown}
-                  onMouseDown={() => setIsLockButtonMouseDown(true)}
-                  onMouseOut={() => setIsLockButtonMouseDown(false)}
-                  onMouseUp={() => navigate(route.location.pathname === '/' ? '/home' : '/')}
-                />
-                {!headerAction && (
+              <DeviceBackground isAwake={isAwake}>
+                <DeviceBackgroundBlob isAwake={isAwake} />
+                {!isAwake && (
+                  <DeviceLockButton
+                    isMouseDown={isLockButtonMouseDown}
+                    onMouseDown={() => setIsLockButtonMouseDown(true)}
+                    onMouseOut={() => setIsLockButtonMouseDown(false)}
+                    onMouseUp={() => setIsLockButtonMouseDown(false)}
+                    onClick={() => {
+                      setIsAwake(!isAwake)
+                      route.location.pathname !== '/' && navigate('/')
+                    }}
+                  />
+                )}
+                {!headerAction && !isAwake && (
                   <DeviceCharger
                     isCharging={isCharging}
                     onClick={() => setIsCharging(!isCharging)}
                   />)
                 }
               </DeviceBackground>
-              <Device {...props}>
+              {isAwake ? (
+                <LockLogo onClick={() => setIsAwake(false)} />
+              ) : (
+                <Device {...props}>
                 {hasHeader && (
                   <DeviceHeader>
                     <DeviceHeaderNav>{shouldShowNav
@@ -212,6 +243,7 @@ export default ({
                   </DeviceFooter>
                 )}
               </Device>
+              )}
             </>
           )}
         </Location>

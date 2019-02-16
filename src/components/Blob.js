@@ -23,6 +23,8 @@ const Blob = styled(BlobLine)`
 
   path {
     fill: ${props => props.color};
+    will-change: fill;
+    transition: fill .2s ease-out;
   }
 `
 
