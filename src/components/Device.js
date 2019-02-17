@@ -17,9 +17,14 @@ const Device = styled.div`
   flex-direction: column;
   grid-area: layout-body;
   position: relative;
-  background-color: ${props => props.theme.colors.black[100]};
-  box-shadow: 0 ${props => props.theme.size.layout[200]} ${props => props.theme.size.layout[400]} rgba(0, 0, 0, 0.075);
+  background-color: ${props => props.isOff || props.isDarkMode
+    ? props.theme.colors.black[900] 
+    : props.theme.colors.black[100]
+  };
+  box-shadow: 0 ${props => props.theme.size.layout[200]} ${props => props.theme.size.layout[400]} rgba(0, 0, 0, ${props => props.isOff || props.isDarkMode ? 0.15 : 0.075});
   border-radius: ${props => props.theme.size.layout[400]};
+  will-change: border-top, background-color, box-shadow;
+  transition: border-top .2s ease-out, background-color .2s ease-out, box-shadow .2s ease-out;
   overflow: hidden;
 `
 
@@ -34,7 +39,11 @@ const LockLogo = styled(Logo)`
 const DeviceCharger = styled(Charger)`
   position: absolute;
   align-self: center;
-  bottom: ${props => props.isCharging ? 0 : `-${props.theme.size.layout[400]}`};
+  bottom: ${props => props.isOff
+    ? `-${props.theme.size.layout[500]}`
+    : props.isCharging
+      ? 0
+      : `-${props.theme.size.layout[400]}`};
   width: ${props => props.theme.size.layout[400]};
   transition: bottom .2s ease-out;
   will-change: bottom;
@@ -51,6 +60,17 @@ const DeviceLockButton = styled(LockButton)`
   transition: transform .2s ease-out;
   will-change: transform;
   cursor: pointer;
+
+  .bar-1,
+  .bar-2
+  {
+    will-change: fill;
+    transition: fill .2s ease-out;
+    fill: ${props => props.isOff || props.isDarkMode
+      ? props.theme.colors.black[800] 
+      : props.theme.colors.black[200]
+    };
+  }
 `
 
 const DeviceHeader = styled.header`
@@ -101,11 +121,11 @@ const DeviceBackground = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  border-top: ${props => props.theme.size.layout[100]} solid ${props => props.isAwake || props.theme.isDarkMode
+  border-top: ${props => props.theme.size.layout[100]} solid ${props => props.isOff || props.theme.isDarkMode
     ? props.theme.colors.black[800] 
     : props.theme.colors.black[100]
   };
-  background-color: ${props => props.isAwake || props.theme.isDarkMode
+  background-color: ${props => props.isOff || props.theme.isDarkMode
     ? props.theme.colors.black[900] 
     : props.theme.colors.black[100]
   };
@@ -114,9 +134,9 @@ const DeviceBackground = styled.div`
 `
 
 const DeviceBackgroundBlob = styled(BlobAnimated).attrs({
-  color: props => props.isAwake
+  color: props => props.isOff
     ? props.theme.colors.black[800] 
-    : props.theme.colors.black[200]
+    : props.theme.colors[props.color][props.colorWeight]
 })`
   height: ${props => props.theme.size.layout[600]};
 `
@@ -148,17 +168,20 @@ export default ({
   shouldShowNav,
   ...props
 }) => {
-  const [isAwake, setIsAwake] = useLocalStorage('device:isAwake', false)
+  const [isOff, setisOff] = useLocalStorage('device:isOff', false)
   const [isCharging, setIsCharging] = useLocalStorage('device:isCharging', false)
   const [batteryLevel, setBatteryLevel] = useLocalStorage('device:batteryLevel', 100)
   const [isLockButtonMouseDown, setIsLockButtonMouseDown] = useState(false)
   const hasHeader = (headerNav || headerIcon || headerAction || page.icon) && true
   const hasFooter = footer && true
-  const {
-    color = props.color || 'black',
-    colorWeight = props.colorWeight || 500,
-    icon = props.icon
-  } = page
+  const { icon = props.icon } = page
+  const deviceProps = {
+    color: props.color || page.color || 'black',
+    colorWeight: props.colorWeight || page.colorWeight || 500,
+    isOff,
+    isCharging,
+    batteryLevel
+  }
 
   useEffect(() => {
     const batteryInterval = setInterval(() => {
@@ -188,32 +211,29 @@ export default ({
         <Location>
           {route => (
             <>
-              <DeviceBackground isAwake={isAwake}>
-                <DeviceBackgroundBlob isAwake={isAwake} />
-                {!isAwake && (
-                  <DeviceLockButton
-                    isMouseDown={isLockButtonMouseDown}
-                    onMouseDown={() => setIsLockButtonMouseDown(true)}
-                    onMouseOut={() => setIsLockButtonMouseDown(false)}
-                    onMouseUp={() => setIsLockButtonMouseDown(false)}
-                    onClick={() => {
-                      setIsAwake(!isAwake)
-                      route.location.pathname !== '/' && navigate('/')
-                    }}
-                  />
-                )}
-                {!headerAction && !isAwake && (
+              <DeviceBackground {...deviceProps}>
+                <DeviceBackgroundBlob {...deviceProps} />
+                <DeviceLockButton
+                  isMouseDown={isLockButtonMouseDown}
+                  onMouseDown={() => setIsLockButtonMouseDown(true)}
+                  onMouseOut={() => setIsLockButtonMouseDown(false)}
+                  onMouseUp={() => setIsLockButtonMouseDown(false)}
+                  onClick={() => {
+                    setisOff(!isOff)
+                    route.location.pathname !== '/' && navigate('/')
+                  }}
+                  {...deviceProps}
+                />
+                {!headerAction && (
                   <DeviceCharger
                     isCharging={isCharging}
+                    isOff={isOff}
                     onClick={() => setIsCharging(!isCharging)}
                   />)
                 }
               </DeviceBackground>
-              {isAwake ? (
-                <LockLogo onClick={() => setIsAwake(false)} />
-              ) : (
-                <Device {...props}>
-                {hasHeader && (
+              <Device {...deviceProps} {...props}>
+                {!isOff && hasHeader && (
                   <DeviceHeader>
                     <DeviceHeaderNav>{shouldShowNav
                       ? (
@@ -235,7 +255,9 @@ export default ({
                   </DeviceHeader>
                 )}
                 <DeviceBody>
-                  {children}
+                {isOff ? (
+                  <LockLogo onClick={() => setisOff(false)} />
+                ) : children}
                 </DeviceBody>
                 {hasFooter && (
                   <DeviceFooter>
@@ -243,7 +265,6 @@ export default ({
                   </DeviceFooter>
                 )}
               </Device>
-              )}
             </>
           )}
         </Location>

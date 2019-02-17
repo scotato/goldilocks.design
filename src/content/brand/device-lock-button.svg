@@ -1,4 +1,4 @@
 <svg viewBox="0 0 8 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 0V0C4.41828 0 8 3.58172 8 8V56C8 60.4183 4.41828 64 0 64V64V0Z" fill="#F2F1ED"/>
-<path d="M0 2V2C3.31371 2 6 4.68629 6 8V56C6 59.3137 3.31371 62 0 62V62V2Z" fill="#EDEBE4"/>
+<path class="bar-1" d="M0 0V0C4.41828 0 8 3.58172 8 8V56C8 60.4183 4.41828 64 0 64V64V0Z" fill="#F2F1ED"/>
+<path class="bar-2" d="M0 2V2C3.31371 2 6 4.68629 6 8V56C6 59.3137 3.31371 62 0 62V62V2Z" fill="#EDEBE4"/>
 </svg>

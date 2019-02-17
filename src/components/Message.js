@@ -1,7 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import moment from 'moment'
-import Img from 'gatsby-image'
 
 import Avatar from './Avatar'
 import Bubble from './Bubble'
