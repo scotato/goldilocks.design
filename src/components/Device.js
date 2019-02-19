@@ -11,6 +11,7 @@ import Network from '../components/Network'
 import Battery from '../components/Battery'
 import Icon from '../components/Icon'
 import Logo from '../components/Logo'
+import { ButtonBase } from '../components/Button'
 
 const Device = styled.div`
   display: flex;
@@ -50,16 +51,22 @@ const DeviceCharger = styled(Charger)`
   cursor: pointer;
 `
 
-const DeviceLockButton = styled(LockButton)`
+const DeviceLockButton = styled(ButtonBase).attrs({
+  children: <LockButton />
+})`
   position: absolute;
-  margin-right: ${props => props.theme.size.layout[350]};
+  margin-right: ${props => props.theme.size.layout[300]};
+  padding: ${props => props.theme.size.layout[200]};
+  padding-left: 0;
   top: ${props => props.theme.size.layout[550]};
   right: ${props => props.theme.size.layout[550]};
-  width: ${props => props.theme.size.layout[200]};
-  transform: translateX(${props => props.isMouseDown ? -2 : 0}px);
-  transition: transform .2s ease-out;
-  will-change: transform;
-  cursor: pointer;
+  width: ${props => props.theme.size.layout[300]};
+
+  svg {
+    transform: translateX(${props => props.isMouseDown ? -2 : 0}px);
+    transition: transform .2s ease-out;
+    will-change: transform;
+  }
 
   .bar-1,
   .bar-2
@@ -78,7 +85,9 @@ const DeviceHeader = styled.header`
   padding: ${props => `${props.theme.size.layout[300]} ${props.theme.size.layout[400]}`};
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: ${props => props.theme.size.layout[450]};
-  color: ${props => props.theme.colors.black[400]};
+  color: ${props => props.isDarkMode
+    ? props.theme.colors.black[700]
+    : props.theme.colors.black[400]};
   text-transform: uppercase;
 `
 
@@ -123,9 +132,9 @@ const DeviceBackground = styled.div`
   height: 100%;
   border-top: ${props => props.theme.size.layout[100]} solid ${props => props.isOff || props.theme.isDarkMode
     ? props.theme.colors.black[800] 
-    : props.theme.colors.black[100]
+    : props.theme.colors[props.color][props.colorWeight]
   };
-  background-color: ${props => props.isOff || props.theme.isDarkMode
+  background-color: ${props => props.isOff || props.isDarkMode
     ? props.theme.colors.black[900] 
     : props.theme.colors.black[100]
   };
@@ -171,6 +180,7 @@ export default ({
   const [isOff, setisOff] = useLocalStorage('device:isOff', false)
   const [isCharging, setIsCharging] = useLocalStorage('device:isCharging', false)
   const [batteryLevel, setBatteryLevel] = useLocalStorage('device:batteryLevel', 100)
+  const [isDarkMode] = useLocalStorage('settings:isDarkMode', false)
   const [isLockButtonMouseDown, setIsLockButtonMouseDown] = useState(false)
   const hasHeader = (headerNav || headerIcon || headerAction || page.icon) && true
   const hasFooter = footer && true
@@ -180,6 +190,7 @@ export default ({
     colorWeight: props.colorWeight || page.colorWeight || 500,
     isOff,
     isCharging,
+    isDarkMode,
     batteryLevel
   }
 
@@ -234,7 +245,7 @@ export default ({
               </DeviceBackground>
               <Device {...deviceProps} {...props}>
                 {!isOff && hasHeader && (
-                  <DeviceHeader>
+                  <DeviceHeader {...deviceProps}>
                     <DeviceHeaderNav>{shouldShowNav
                       ? (
                       <DeviceNav to="/home">

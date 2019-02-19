@@ -3,18 +3,23 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Button = styled.button.attrs({
+export const ButtonBase = styled.button`
+  display: flex;  
+  padding: 0;
+  border: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  cursor: pointer;
+`
+
+const Button = styled(ButtonBase).attrs({
   disabled: props => props.isActive
 })`
-  display: flex;
   color: ${props => props.color || (props.isActive ? 'white' : props.theme.colors.black[600])};
   background-color: ${props => props.backgroundColor || (props.isActive ? 'dodgerblue' : props.theme.colors.black[200])};
   border-radius: ${props => props.theme.size.layout[400]};
   cursor: ${props => props.isActive ? 'default' : 'pointer'};
-  border: 0;
-  padding: 0;
-  align-items: center;
-  justify-content: center;
   transition: box-shadow 0.1s ease-out;
 
   &:focus {
