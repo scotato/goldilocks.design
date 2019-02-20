@@ -1,0 +1,220 @@
+- id: figma
+  title: Figma
+  description: Design, prototype, and collaborate all in the browser—with Figma.
+  url: https://www.figma.com
+  urlSource: 
+  logo: tech/figma-logo.png
+  badge: 
+  category: design
+  children: 
+  dateAdded: 2019-02-19
+# - id: framer
+#   title: Framer
+#   description: Always interactive, lightning fast design. Where every layout you create is responsive.
+#   url: http://framer.com/
+#   urlSource: 
+#   logo: tech/framer-logo.png
+#   badge: 
+#   category: design
+#   children: 
+#   dateAdded: 2019-02-19
+- id: js
+  title: JS
+  description: JS is a lightweight, interpreted or JIT compiled programming language with first-class functions.
+  url: https://developer.mozilla.org/bm/docs/Web/JavaScript
+  urlSource: 
+  logo: tech/js-logo.png
+  badge: 
+  category: language
+  children: 
+  dateAdded: 2019-02-19
+# - id: html5
+#   title: HTML5
+#   description: HTML is the most basic building block of the Web. It defines the meaning and structure of web content. 
+#   url: https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
+#   urlSource: 
+#   logo: tech/html5-logo.png
+#   badge: 
+#   category: language
+#   children: 
+#   dateAdded: 2019-02-19
+# - id: css3
+#   title: CSS3
+#   description: CSS is a stylesheet language used to describe the presentation of a document written in HTML or XML.
+#   url: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3
+#   urlSource: 
+#   logo: tech/css3-logo.png
+#   badge: 
+#   category: language
+#   children: 
+#   dateAdded: 2019-02-19
+# - id: png
+#   title: png
+#   description: png is an XML-based markup language for describing two dimensional based vector graphics. png is essentially to graphics what HTML is to text.
+#   url: https://developer.mozilla.org/en-US/docs/Web/png
+#   urlSource: 
+#   logo: tech/png-logo.png
+#   badge: 
+#   category: language
+#   children: 
+#   dateAdded: 2019-02-19
+# - id: markdown
+#   title: Markdown
+#   description: Markdown is a lightweight markup language with plain text formatting syntax.
+#   url: https://daringfireball.net/projects/markdown
+#   urlSource: 
+#   logo: tech/markdown-logo.png
+#   badge: 
+#   category: language
+#   children: 
+#   dateAdded: 2019-02-19
+- id: react
+  title: React
+  description: A JavaScript library for building user interfaces.
+  url: https://reactjs.org
+  urlSource: https://github.com/facebook/react
+  logo: tech/react-logo.png
+  badge: 
+  category: framework
+  children: 
+  dateAdded: 2019-02-19
+- id: styledComponents
+  title: Styled Components
+  description: Visual primitives for the component age. Use the best bits of ES6 and CSS to style your apps without stress.
+  url: https://www.styled-components.com/
+  urlSource: https://github.com/styled-components/styled-components
+  logo: tech/styledComponents-logo.png
+  badge: 
+  category: framework
+  children: 
+  dateAdded: 2019-02-19
+- id: gatsby
+  title: Gatsby
+  description: Gatsby provides a modern framework for turning content into feature-rich, visually engaging apps and websites. 
+  url: https://www.gatsbyjs.org
+  urlSource: https://github.com/gatsbyjs/gatsby
+  logo: tech/gatsby-logo.png
+  badge: 
+  category: framework
+  children: 
+  dateAdded: 2019-02-19
+- id: graphQL
+  title: GraphQL
+  description: GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. 
+  url: https://graphql.org
+  urlSource: https://github.com/graphql/graphql-js
+  logo: tech/graphQL-logo.png
+  badge: 
+  category: framework
+  children: 
+  dateAdded: 2019-02-19
+- id: webpack
+  title: Webpack
+  description: A bundler for javascript and friends. Packs many modules into a few bundled assets. Code Splitting allows for loading parts of the application on demand.
+  url: https://webpack.js.org
+  urlSource: https://github.com/webpack/webpack
+  logo: tech/webpack-logo.png
+  badge: 
+  category: framework
+  children: 
+  dateAdded: 2019-02-19
+- id: node
+  title: Node
+  description: Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.
+  url: https://nodejs.org
+  urlSource: https://github.com/nodejs/node
+  logo: tech/node-logo.png
+  badge: 
+  category: framework
+  children: 
+  dateAdded: 2019-02-19
+# - id: npm
+#   title: NPM
+#   description: NPM is the package manager for JavaScript and the world’s largest software registry. 
+#   url: https://www.npmjs.com/
+#   urlSource: 
+#   logo: tech/npm-logo.png
+#   badge: 
+#   category: framework
+#   children: 
+#   dateAdded: 2019-02-19
+# - id: github
+#   title: Github
+#   description: GitHub is a web-based hosting service for version control using Git.
+#   url: https://github.com/
+#   urlSource: 
+#   logo: tech/github-logo.png
+#   badge: 
+#   category: devOps
+#   children: 
+#   dateAdded: 2019-02-19
+# - id: cloudFirestore
+#   title: Cloud Firestore
+#   description: Store and sync app data at global scale.
+#   url: https://firebase.google.com/products/firestore/
+#   urlSource: 
+#   logo: tech/googleCloud-logo.png
+#   badge: 
+#   category: devOps
+#   children: 
+#   dateAdded: 2019-02-19
+# - id: netlify
+#   title: Netlify
+#   description: Build, deploy, and manage modern web projects. An all-in-one workflow that combines global deployment, continuous integration, and automatic HTTPS.
+#   url: https://www.netlify.com
+#   urlSource: 
+#   logo: tech/netlify-logo.png
+#   badge: 
+#   category: devOps
+#   children: 
+#   dateAdded: 2019-02-19
+# - id: netlifyFunctions
+#   title: Netlify Functions
+#   description: Deploy AWS Lambda functions without configuring API gateways, coordinating deployments, or setting up an AWS account. 
+#   url: https://www.netlify.com/features/functions
+#   urlSource: 
+#   logo: tech/netlifyFunctions-logo.png
+#   badge: 
+#   category: devOps
+#   children: 
+#   dateAdded: 2019-02-19
+- id: git
+  title: Git
+  description: Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency. 
+  url: https://git-scm.com/
+  urlSource: https://github.com/git/git
+  logo: tech/git-logo.png
+  badge: 
+  category: versionControl
+  children: 
+  dateAdded: 2019-02-19
+- id: vsCode
+  title: Visual Studio Code
+  description: Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications.
+  url: https://code.visualstudio.com/
+  urlSource: https://github.com/Microsoft/vscode
+  logo: tech/vsCode-logo.png
+  badge: 
+  category: codeEditor
+  children: 
+  dateAdded: 2019-02-19
+- id: firefox
+  title: Firefox
+  description: Mozilla Firefox, a free Web browser. Firefox is created by a global non-profit dedicated to putting individuals in control online. 
+  url: https://www.firefox.com
+  urlSource: 
+  logo: tech/firefox-logo.png
+  badge: 
+  category: browser
+  children: 
+  dateAdded: 2019-02-19
+- id: spotify
+  title: Spotify
+  description: Spotify is a digital music service that gives you access to millions of songs.
+  url: https://spotify.com
+  urlSource: 
+  logo: tech/spotify-logo.png
+  badge: 
+  category: browser
+  children: 
+  dateAdded: 2019-02-19

@@ -1,22 +1,28 @@
 import React from 'react'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
 import Layout from '../components/Layout'
 import Device from '../components/Device'
 import Card, { Cards } from '../components/Card'
 
-const ToolsPage = ({ data: { page, tools }}) => (
+const Image = styled(Img)`
+  flex: 1;
+`
+
+const TechPage = ({ data: { page, tech }}) => (
   <Layout page={page}>
     <Device page={page} shouldShowNav>
       <Cards>
-        {tools.edges.map(({node: tool}) => (
+        {tech.edges.map(item => (
           <Card
-            key={tool.id}
-            // badge={<AppBadge {...tool.app} />}
-            title={tool.title}
-            // detail={tool.description}
-            // date={tool.dateAdded}
+            key={item.node.id}
+            badge={<Image fluid={item.node.logo.childImageSharp.fluid} />}
+            title={item.node.title}
+            detail={item.node.description}
+            date={item.node.dateAdded}
             to={`/`}
           />
         ))}
@@ -25,24 +31,35 @@ const ToolsPage = ({ data: { page, tools }}) => (
   </Layout>
 )
 
-ToolsPage.propTypes = {
+TechPage.propTypes = {
   data: PropTypes.shape({
     page: PropTypes.object,
   }),
 }
 
-export default ToolsPage
+export default TechPage
 
 export const pageQuery = graphql`
   query {
     page: appsYaml(id: { eq: "tech" }) {
       ...AppInfo
     }
-    tools: allToolsYaml {
+    tech: allTechYaml {
       edges {
         node {
           id
           title
+          description
+          url
+          urlSource
+          logo {
+            childImageSharp {
+              fluid(maxWidth: 512) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          dateAdded
         }
       }
     }
