@@ -119,6 +119,7 @@ const DeviceBody = styled.main`
 `
 
 const DeviceFooter = styled.footer`
+  min-height: ${props => props.theme.size.layout[450]};
 `
 
 const DeviceBackground = styled.div`

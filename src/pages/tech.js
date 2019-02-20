@@ -6,27 +6,37 @@ import Img from 'gatsby-image'
 
 import Layout from '../components/Layout'
 import Device from '../components/Device'
-import Card, { Cards } from '../components/Card'
+import AppIcon from '../components/AppIcon'
+
+const Tech = styled.div`
+  display: grid;
+  margin: auto;
+  padding: 0 ${props => props.theme.size.layout[350]};
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-self: center;
+  width: ${props => props.theme.size.layout[850]};
+  grid-row-gap: ${props => props.theme.size.layout[300]};
+  grid-column-gap: ${props => props.theme.size.layout[450]};
+`
 
 const Image = styled(Img)`
-  flex: 1;
+  width: 100%;
+  border-radius: ${props => props.theme.size.layout[300]};
 `
 
 const TechPage = ({ data: { page, tech }}) => (
   <Layout page={page}>
-    <Device page={page} shouldShowNav>
-      <Cards>
+    <Device page={page} footer={true} shouldShowNav>
+      <Tech>
         {tech.edges.map(item => (
-          <Card
-            key={item.node.id}
-            badge={<Image fluid={item.node.logo.childImageSharp.fluid} />}
-            title={item.node.title}
-            detail={item.node.description}
-            date={item.node.dateAdded}
-            to={`/`}
-          />
+          <AppIcon colorWeight={100} to={`/tech/${item.node.id}`}>
+            <Image
+              title={item.node.title}
+              fluid={item.node.logo.childImageSharp.fluid}
+            />
+          </AppIcon>
         ))}
-      </Cards>
+      </Tech>
     </Device>
   </Layout>
 )

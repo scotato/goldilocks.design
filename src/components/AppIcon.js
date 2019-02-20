@@ -22,8 +22,10 @@ const Badge = styled.div`
 const AppTitle = styled.span`
   margin-top: ${props => props.theme.size.layout[300]};
   color:  ${props => props.theme.colors.black[500]};
+  font-size:  ${props => props.theme.size.typography[300]};
   text-transform: uppercase;
   line-height: 1;
+  text-align: center;
 `
 
 const AppIcon = styled(Link)`
@@ -31,9 +33,8 @@ const AppIcon = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: ${props => props.theme.size.layout[400]};
-  margin-top: ${props => props.theme.size.layout[300]};
-  width: ${props => props.theme.size.layout[600]};
+  /* margin: ${props => props.theme.size.layout[300]} ${props => props.theme.size.layout[400]}; */
+  /* width: ${props => props.theme.size.layout[600]}; */
   
   svg {
     width: 100%;
@@ -60,13 +61,12 @@ const AppNotification = styled.span`
   border-radius: 100%;
 `
 
-export const AppBadge = ({icon, ...props}) =>
+export const AppBadge = ({icon, children, ...props}) =>
   <Badge {...props}>
-    <Icon name={icon} />
+    {icon ? <Icon name={icon} /> : children}
   </Badge>
 
-
-export default ({color = 'black', colorWeight = 500, title, icon, to, notifications, ...props}) => {
+export default ({color = 'black', colorWeight = 200, title, icon, to, notifications, children, ...props}) => {
   const [isMouseDown, setIsMouseDown] = useState(false)
 
   return (
@@ -81,8 +81,9 @@ export default ({color = 'black', colorWeight = 500, title, icon, to, notificati
         color={color}
         colorWeight={colorWeight}
         isMouseDown={isMouseDown}
+        children={children}
       />
-      <AppTitle children={title} />
+      {title && <AppTitle children={title} />}
       <AppNotification children={notifications} />
     </AppIcon>
   )

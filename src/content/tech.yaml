@@ -1,3 +1,83 @@
+- id: js
+  title: JS
+  description: JS is a lightweight, interpreted or JIT compiled programming language with first-class functions.
+  url: https://developer.mozilla.org/bm/docs/Web/JavaScript
+  urlSource: 
+  logo: tech/js-logo.png
+  badge: 
+  category: language
+  children: 
+  dateAdded: 2019-02-19
+- id: react
+  title: React
+  description: A JavaScript library for building user interfaces.
+  url: https://reactjs.org
+  urlSource: https://github.com/facebook/react
+  logo: tech/react-logo.png
+  badge: 
+  category: framework
+  children: 
+  dateAdded: 2019-02-19
+- id: styledComponents
+  title: Styled Components
+  description: Visual primitives for the component age. Use the best bits of ES6 and CSS to style your apps without stress.
+  url: https://www.styled-components.com/
+  urlSource: https://github.com/styled-components/styled-components
+  logo: tech/styledComponents-logo.png
+  badge: 
+  category: framework
+  children: 
+  dateAdded: 2019-02-19
+- id: graphQL
+  title: GraphQL
+  description: GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. 
+  url: https://graphql.org
+  urlSource: https://github.com/graphql/graphql-js
+  logo: tech/graphQL-logo.png
+  badge: 
+  category: framework
+  children: 
+  dateAdded: 2019-02-19
+- id: gatsby
+  title: Gatsby
+  description: Gatsby provides a modern framework for turning content into feature-rich, visually engaging apps and websites. 
+  url: https://www.gatsbyjs.org
+  urlSource: https://github.com/gatsbyjs/gatsby
+  logo: tech/gatsby-logo.png
+  badge: 
+  category: framework
+  children: 
+  dateAdded: 2019-02-19
+- id: webpack
+  title: Webpack
+  description: A bundler for javascript and friends. Packs many modules into a few bundled assets. Code Splitting allows for loading parts of the application on demand.
+  url: https://webpack.js.org
+  urlSource: https://github.com/webpack/webpack
+  logo: tech/webpack-logo.png
+  badge: 
+  category: framework
+  children: 
+  dateAdded: 2019-02-19
+- id: node
+  title: Node
+  description: Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.
+  url: https://nodejs.org
+  urlSource: https://github.com/nodejs/node
+  logo: tech/node-logo.png
+  badge: 
+  category: framework
+  children: 
+  dateAdded: 2019-02-19
+- id: git
+  title: Git
+  description: Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency. 
+  url: https://git-scm.com/
+  urlSource: https://github.com/git/git
+  logo: tech/git-logo.png
+  badge: 
+  category: versionControl
+  children: 
+  dateAdded: 2019-02-19
 - id: figma
   title: Figma
   description: Design, prototype, and collaborate all in the browser—with Figma.
@@ -8,24 +88,34 @@
   category: design
   children: 
   dateAdded: 2019-02-19
-# - id: framer
-#   title: Framer
-#   description: Always interactive, lightning fast design. Where every layout you create is responsive.
-#   url: http://framer.com/
-#   urlSource: 
-#   logo: tech/framer-logo.png
-#   badge: 
-#   category: design
-#   children: 
-#   dateAdded: 2019-02-19
-- id: js
-  title: JS
-  description: JS is a lightweight, interpreted or JIT compiled programming language with first-class functions.
-  url: https://developer.mozilla.org/bm/docs/Web/JavaScript
-  urlSource: 
-  logo: tech/js-logo.png
+- id: vsCode
+  title: Visual Studio Code
+  description: Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications.
+  url: https://code.visualstudio.com/
+  urlSource: https://github.com/Microsoft/vscode
+  logo: tech/vsCode-logo.png
   badge: 
-  category: language
+  category: codeEditor
+  children: 
+  dateAdded: 2019-02-19
+- id: firefox
+  title: Firefox
+  description: Mozilla Firefox, a free Web browser. Firefox is created by a global non-profit dedicated to putting individuals in control online. 
+  url: https://www.firefox.com
+  urlSource: 
+  logo: tech/firefox-logo.png
+  badge: 
+  category: browser
+  children: 
+  dateAdded: 2019-02-19
+- id: spotify
+  title: Spotify
+  description: Spotify is a digital music service that gives you access to millions of songs.
+  url: https://spotify.com
+  urlSource: 
+  logo: tech/spotify-logo.png
+  badge: 
+  category: browser
   children: 
   dateAdded: 2019-02-19
 # - id: html5
@@ -68,66 +158,16 @@
 #   category: language
 #   children: 
 #   dateAdded: 2019-02-19
-- id: react
-  title: React
-  description: A JavaScript library for building user interfaces.
-  url: https://reactjs.org
-  urlSource: https://github.com/facebook/react
-  logo: tech/react-logo.png
-  badge: 
-  category: framework
-  children: 
-  dateAdded: 2019-02-19
-- id: styledComponents
-  title: Styled Components
-  description: Visual primitives for the component age. Use the best bits of ES6 and CSS to style your apps without stress.
-  url: https://www.styled-components.com/
-  urlSource: https://github.com/styled-components/styled-components
-  logo: tech/styledComponents-logo.png
-  badge: 
-  category: framework
-  children: 
-  dateAdded: 2019-02-19
-- id: gatsby
-  title: Gatsby
-  description: Gatsby provides a modern framework for turning content into feature-rich, visually engaging apps and websites. 
-  url: https://www.gatsbyjs.org
-  urlSource: https://github.com/gatsbyjs/gatsby
-  logo: tech/gatsby-logo.png
-  badge: 
-  category: framework
-  children: 
-  dateAdded: 2019-02-19
-- id: graphQL
-  title: GraphQL
-  description: GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. 
-  url: https://graphql.org
-  urlSource: https://github.com/graphql/graphql-js
-  logo: tech/graphQL-logo.png
-  badge: 
-  category: framework
-  children: 
-  dateAdded: 2019-02-19
-- id: webpack
-  title: Webpack
-  description: A bundler for javascript and friends. Packs many modules into a few bundled assets. Code Splitting allows for loading parts of the application on demand.
-  url: https://webpack.js.org
-  urlSource: https://github.com/webpack/webpack
-  logo: tech/webpack-logo.png
-  badge: 
-  category: framework
-  children: 
-  dateAdded: 2019-02-19
-- id: node
-  title: Node
-  description: Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.
-  url: https://nodejs.org
-  urlSource: https://github.com/nodejs/node
-  logo: tech/node-logo.png
-  badge: 
-  category: framework
-  children: 
-  dateAdded: 2019-02-19
+# - id: framer
+#   title: Framer
+#   description: Always interactive, lightning fast design. Where every layout you create is responsive.
+#   url: http://framer.com/
+#   urlSource: 
+#   logo: tech/framer-logo.png
+#   badge: 
+#   category: design
+#   children: 
+#   dateAdded: 2019-02-19
 # - id: npm
 #   title: NPM
 #   description: NPM is the package manager for JavaScript and the world’s largest software registry. 
@@ -178,43 +218,3 @@
 #   category: devOps
 #   children: 
 #   dateAdded: 2019-02-19
-- id: git
-  title: Git
-  description: Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency. 
-  url: https://git-scm.com/
-  urlSource: https://github.com/git/git
-  logo: tech/git-logo.png
-  badge: 
-  category: versionControl
-  children: 
-  dateAdded: 2019-02-19
-- id: vsCode
-  title: Visual Studio Code
-  description: Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications.
-  url: https://code.visualstudio.com/
-  urlSource: https://github.com/Microsoft/vscode
-  logo: tech/vsCode-logo.png
-  badge: 
-  category: codeEditor
-  children: 
-  dateAdded: 2019-02-19
-- id: firefox
-  title: Firefox
-  description: Mozilla Firefox, a free Web browser. Firefox is created by a global non-profit dedicated to putting individuals in control online. 
-  url: https://www.firefox.com
-  urlSource: 
-  logo: tech/firefox-logo.png
-  badge: 
-  category: browser
-  children: 
-  dateAdded: 2019-02-19
-- id: spotify
-  title: Spotify
-  description: Spotify is a digital music service that gives you access to millions of songs.
-  url: https://spotify.com
-  urlSource: 
-  logo: tech/spotify-logo.png
-  badge: 
-  category: browser
-  children: 
-  dateAdded: 2019-02-19
