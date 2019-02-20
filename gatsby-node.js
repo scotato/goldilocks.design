@@ -19,6 +19,13 @@ exports.createPages = ({ graphql, actions: { createPage } }) =>
           }
         }
       }
+      tech: allTechYaml {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
     }
   `).then(result => {
     if (result.errors) {
@@ -27,7 +34,9 @@ exports.createPages = ({ graphql, actions: { createPage } }) =>
 
     const data = result.data.allMarkdownRemark.edges
     const posts = data.filter(edge => edge.node.fileAbsolutePath && edge.node.fileAbsolutePath.includes('/posts/'))
+    const technology = result.data.tech.edges
     const post = path.resolve(`src/templates/post.js`)
+    const tech = path.resolve(`src/templates/tech.js`)
 
     posts.forEach(edge => {
       const id = edge.node.id
@@ -40,6 +49,16 @@ exports.createPages = ({ graphql, actions: { createPage } }) =>
         },
       })
     })
+
+    technology.forEach(edge =>
+      createPage({
+        path: `tech/${edge.node.slug}`,
+        component: tech,
+        context: {
+          slug: edge.node.slug
+        },
+      })  
+    )
   })
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -53,4 +72,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
   }
+
+  // if (node.internal.type === `TechYaml`) {
+  //   const value = createFilePath({ node, getNode })
+  //   createNodeField({
+  //     name: `slug`,
+  //     node,
+  //     value,
+  //   })
+  // }
 }

@@ -1,4 +1,5 @@
 - id: js
+  slug: js
   title: JS
   description: JS is a lightweight, interpreted or JIT compiled programming language with first-class functions.
   url: https://developer.mozilla.org/bm/docs/Web/JavaScript
@@ -9,6 +10,7 @@
   children: 
   dateAdded: 2019-02-19
 - id: react
+  slug: react
   title: React
   description: A JavaScript library for building user interfaces.
   url: https://reactjs.org
@@ -19,6 +21,7 @@
   children: 
   dateAdded: 2019-02-19
 - id: styledComponents
+  slug: styled-components
   title: Styled Components
   description: Visual primitives for the component age. Use the best bits of ES6 and CSS to style your apps without stress.
   url: https://www.styled-components.com/
@@ -29,6 +32,7 @@
   children: 
   dateAdded: 2019-02-19
 - id: graphQL
+  slug: graphql
   title: GraphQL
   description: GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. 
   url: https://graphql.org
@@ -39,6 +43,7 @@
   children: 
   dateAdded: 2019-02-19
 - id: gatsby
+  slug: gatsby
   title: Gatsby
   description: Gatsby provides a modern framework for turning content into feature-rich, visually engaging apps and websites. 
   url: https://www.gatsbyjs.org
@@ -49,6 +54,7 @@
   children: 
   dateAdded: 2019-02-19
 - id: webpack
+  slug: webpack
   title: Webpack
   description: A bundler for javascript and friends. Packs many modules into a few bundled assets. Code Splitting allows for loading parts of the application on demand.
   url: https://webpack.js.org
@@ -59,6 +65,7 @@
   children: 
   dateAdded: 2019-02-19
 - id: node
+  slug: node
   title: Node
   description: Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.
   url: https://nodejs.org
@@ -69,6 +76,7 @@
   children: 
   dateAdded: 2019-02-19
 - id: git
+  slug: git
   title: Git
   description: Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency. 
   url: https://git-scm.com/
@@ -79,6 +87,7 @@
   children: 
   dateAdded: 2019-02-19
 - id: figma
+  slug: figma
   title: Figma
   description: Design, prototype, and collaborate all in the browser—with Figma.
   url: https://www.figma.com
@@ -89,6 +98,7 @@
   children: 
   dateAdded: 2019-02-19
 - id: vsCode
+  slug: visual-studio-code
   title: Visual Studio Code
   description: Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications.
   url: https://code.visualstudio.com/
@@ -99,6 +109,7 @@
   children: 
   dateAdded: 2019-02-19
 - id: firefox
+  slug: firefox
   title: Firefox
   description: Mozilla Firefox, a free Web browser. Firefox is created by a global non-profit dedicated to putting individuals in control online. 
   url: https://www.firefox.com
@@ -109,6 +120,7 @@
   children: 
   dateAdded: 2019-02-19
 - id: spotify
+  slug: spotify
   title: Spotify
   description: Spotify is a digital music service that gives you access to millions of songs.
   url: https://spotify.com
@@ -119,6 +131,7 @@
   children: 
   dateAdded: 2019-02-19
 # - id: html5
+#   slug: html5
 #   title: HTML5
 #   description: HTML is the most basic building block of the Web. It defines the meaning and structure of web content. 
 #   url: https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
@@ -129,6 +142,7 @@
 #   children: 
 #   dateAdded: 2019-02-19
 # - id: css3
+#   slug: css3
 #   title: CSS3
 #   description: CSS is a stylesheet language used to describe the presentation of a document written in HTML or XML.
 #   url: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3
@@ -139,6 +153,7 @@
 #   children: 
 #   dateAdded: 2019-02-19
 # - id: png
+#   slug: png
 #   title: png
 #   description: png is an XML-based markup language for describing two dimensional based vector graphics. png is essentially to graphics what HTML is to text.
 #   url: https://developer.mozilla.org/en-US/docs/Web/png
@@ -149,6 +164,7 @@
 #   children: 
 #   dateAdded: 2019-02-19
 # - id: markdown
+#   slug: markdown
 #   title: Markdown
 #   description: Markdown is a lightweight markup language with plain text formatting syntax.
 #   url: https://daringfireball.net/projects/markdown
@@ -159,6 +175,7 @@
 #   children: 
 #   dateAdded: 2019-02-19
 # - id: framer
+#   slug: framer
 #   title: Framer
 #   description: Always interactive, lightning fast design. Where every layout you create is responsive.
 #   url: http://framer.com/
@@ -169,6 +186,7 @@
 #   children: 
 #   dateAdded: 2019-02-19
 # - id: npm
+#   slug: npm
 #   title: NPM
 #   description: NPM is the package manager for JavaScript and the world’s largest software registry. 
 #   url: https://www.npmjs.com/
@@ -179,6 +197,7 @@
 #   children: 
 #   dateAdded: 2019-02-19
 # - id: github
+#   slug: github
 #   title: Github
 #   description: GitHub is a web-based hosting service for version control using Git.
 #   url: https://github.com/
@@ -189,6 +208,7 @@
 #   children: 
 #   dateAdded: 2019-02-19
 # - id: cloudFirestore
+#   slug: cloudFirestore
 #   title: Cloud Firestore
 #   description: Store and sync app data at global scale.
 #   url: https://firebase.google.com/products/firestore/
@@ -199,6 +219,7 @@
 #   children: 
 #   dateAdded: 2019-02-19
 # - id: netlify
+#   slug: netlify
 #   title: Netlify
 #   description: Build, deploy, and manage modern web projects. An all-in-one workflow that combines global deployment, continuous integration, and automatic HTTPS.
 #   url: https://www.netlify.com
@@ -209,6 +230,7 @@
 #   children: 
 #   dateAdded: 2019-02-19
 # - id: netlifyFunctions
+#   slug: netlifyFunctions
 #   title: Netlify Functions
 #   description: Deploy AWS Lambda functions without configuring API gateways, coordinating deployments, or setting up an AWS account. 
 #   url: https://www.netlify.com/features/functions

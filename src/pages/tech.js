@@ -29,7 +29,7 @@ const TechPage = ({ data: { page, tech }}) => (
     <Device page={page} footer={true} shouldShowNav>
       <Tech>
         {tech.edges.map(item => (
-          <AppIcon colorWeight={100} to={`/tech/${item.node.id}`}>
+          <AppIcon colorWeight={100} to={`/tech/${item.node.slug}`}>
             <Image
               title={item.node.title}
               fluid={item.node.logo.childImageSharp.fluid}
@@ -58,6 +58,7 @@ export const pageQuery = graphql`
       edges {
         node {
           id
+          slug
           title
           description
           url

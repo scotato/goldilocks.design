@@ -249,7 +249,7 @@ export default ({
                   <DeviceHeader {...deviceProps}>
                     <DeviceHeaderNav>{shouldShowNav
                       ? (
-                      <DeviceNav to="/home">
+                      <DeviceNav to={page.to || '/home'}>
                         <Icon name='chevron-left' />
                         {page.title}
                       </DeviceNav>
