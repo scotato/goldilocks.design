@@ -8,7 +8,7 @@
   logo: tech/js-logo.png
   badge: 
   category: language
-  children: 
+  tech: 
   dateAdded: 2019-02-19
 - id: react
   slug: react
@@ -20,7 +20,8 @@
   logo: tech/react-logo.png
   badge: 
   category: framework
-  children: 
+  tech: 
+    - js
   dateAdded: 2019-02-19
 - id: styledComponents
   slug: styled-components
@@ -32,7 +33,9 @@
   logo: tech/styledComponents-logo.png
   badge: 
   category: framework
-  children: 
+  tech: 
+    - js
+    - react
   dateAdded: 2019-02-19
 - id: graphQL
   slug: graphql
@@ -44,7 +47,9 @@
   logo: tech/graphQL-logo.png
   badge: 
   category: framework
-  children: 
+  tech: 
+    - js
+    - react
   dateAdded: 2019-02-19
 - id: gatsby
   slug: gatsby
@@ -56,7 +61,11 @@
   logo: tech/gatsby-logo.png
   badge: 
   category: framework
-  children: 
+  tech: 
+    - js
+    - react
+    - node
+    - graphQL
   dateAdded: 2019-02-19
 - id: webpack
   slug: webpack
@@ -68,7 +77,9 @@
   logo: tech/webpack-logo.png
   badge: 
   category: framework
-  children: 
+  tech: 
+    - js
+    - node
   dateAdded: 2019-02-19
 - id: node
   slug: node
@@ -80,7 +91,8 @@
   logo: tech/node-logo.png
   badge: 
   category: framework
-  children: 
+  tech: 
+    - js
   dateAdded: 2019-02-19
 - id: git
   slug: git
@@ -92,7 +104,7 @@
   logo: tech/git-logo.png
   badge: 
   category: versionControl
-  children: 
+  tech: 
   dateAdded: 2019-02-19
 - id: figma
   slug: figma
@@ -104,7 +116,7 @@
   logo: tech/figma-logo.png
   badge: 
   category: design
-  children: 
+  tech: 
   dateAdded: 2019-02-19
 - id: vsCode
   slug: visual-studio-code
@@ -116,7 +128,8 @@
   logo: tech/vsCode-logo.png
   badge: 
   category: codeEditor
-  children: 
+  tech: 
+    - git
   dateAdded: 2019-02-19
 - id: firefox
   slug: firefox
@@ -128,7 +141,7 @@
   logo: tech/firefox-logo.png
   badge: 
   category: browser
-  children: 
+  tech: 
   dateAdded: 2019-02-19
 - id: spotify
   slug: spotify
@@ -140,7 +153,7 @@
   logo: tech/spotify-logo.png
   badge: 
   category: browser
-  children: 
+  tech: 
   dateAdded: 2019-02-19
 # - id: html5
 #   slug: html5
@@ -151,7 +164,7 @@
 #   logo: tech/html5-logo.png
 #   badge: 
 #   category: language
-#   children: 
+#   tech: 
 #   dateAdded: 2019-02-19
 # - id: css3
 #   slug: css3
@@ -162,7 +175,7 @@
 #   logo: tech/css3-logo.png
 #   badge: 
 #   category: language
-#   children: 
+#   tech: 
 #   dateAdded: 2019-02-19
 # - id: png
 #   slug: png
@@ -173,7 +186,7 @@
 #   logo: tech/png-logo.png
 #   badge: 
 #   category: language
-#   children: 
+#   tech: 
 #   dateAdded: 2019-02-19
 # - id: markdown
 #   slug: markdown
@@ -184,7 +197,7 @@
 #   logo: tech/markdown-logo.png
 #   badge: 
 #   category: language
-#   children: 
+#   tech: 
 #   dateAdded: 2019-02-19
 # - id: framer
 #   slug: framer
@@ -195,7 +208,7 @@
 #   logo: tech/framer-logo.png
 #   badge: 
 #   category: design
-#   children: 
+#   tech: 
 #   dateAdded: 2019-02-19
 # - id: npm
 #   slug: npm
@@ -206,7 +219,7 @@
 #   logo: tech/npm-logo.png
 #   badge: 
 #   category: framework
-#   children: 
+#   tech: 
 #   dateAdded: 2019-02-19
 # - id: github
 #   slug: github
@@ -217,7 +230,7 @@
 #   logo: tech/github-logo.png
 #   badge: 
 #   category: devOps
-#   children: 
+#   tech: 
 #   dateAdded: 2019-02-19
 # - id: cloudFirestore
 #   slug: cloudFirestore
@@ -228,7 +241,7 @@
 #   logo: tech/googleCloud-logo.png
 #   badge: 
 #   category: devOps
-#   children: 
+#   tech: 
 #   dateAdded: 2019-02-19
 # - id: netlify
 #   slug: netlify
@@ -239,7 +252,7 @@
 #   logo: tech/netlify-logo.png
 #   badge: 
 #   category: devOps
-#   children: 
+#   tech: 
 #   dateAdded: 2019-02-19
 # - id: netlifyFunctions
 #   slug: netlifyFunctions
@@ -250,5 +263,5 @@
 #   logo: tech/netlifyFunctions-logo.png
 #   badge: 
 #   category: devOps
-#   children: 
+#   tech: 
 #   dateAdded: 2019-02-19
