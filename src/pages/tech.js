@@ -15,8 +15,8 @@ const Tech = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-self: center;
   width: ${props => props.theme.size.layout[850]};
-  grid-row-gap: ${props => props.theme.size.layout[300]};
-  grid-column-gap: ${props => props.theme.size.layout[450]};
+  grid-row-gap: ${props => props.theme.size.layout[400]};
+  grid-column-gap: ${props => props.theme.size.layout[500]};
 `
 
 const Image = styled(Img)`
