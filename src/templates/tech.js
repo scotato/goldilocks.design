@@ -7,6 +7,7 @@ import Img from 'gatsby-image'
 import Layout from '../components/Layout'
 import Device from '../components/Device'
 import Link from '../components/Link'
+import Icon from '../components/Icon'
 
 const Tech = styled.div`
   display: grid;
@@ -14,37 +15,58 @@ const Tech = styled.div`
   grid-template-columns: 1fr 3fr;
   grid-column-gap: ${props => props.theme.size.layout[500]};
   width: ${props => props.theme.size.layout[850]};
-  /* justify-content: center; */
-  /* align-items: center; */
+  align-items: center;
 `
+
+const TechLink = styled(Link)`
+  margin-right: ${props => props.theme.size.layout[100]};
+`
+
+const TechIcon = styled(Icon)`
+  width: ${props => props.theme.size.layout[400]};
+  color: ${props => props.theme.colors.black[500]};
+`
+
+const TechIconLink = ({icon, to}) => to ? (
+  <TechLink to={to}>
+    <TechIcon name={icon} />
+  </TechLink>
+) : null
 
 const Image = styled(Img)`
   width: 100%;
   border-radius: ${props => props.theme.size.layout[300]};
 `
 
+const TechBadge = props => (
+  <div>
+    <Image {...props} />
+  </div>
+)
+
 const TechPage = ({ data: { page, tech }}) => (
   <Layout page={page}>
-    <Device page={{
-      ...page,
-      title: tech.title,
-      to: '/tech'
-    }} footer={true} shouldShowNav>
+    <Device
+      page={{
+        ...page,
+        title: tech.title,
+        to: '/tech'
+      }}
+      footer
+      shouldShowNav>
       <Tech>
-        {console.log(tech)}
-        <div>
-          <Image
-            title={tech.title}
-            fluid={tech.logo.childImageSharp.fluid}
-          />
-        </div>
+        <TechBadge
+          title={tech.title}
+          fluid={tech.logo.childImageSharp.fluid}
+        />
         <div>
           <h1>{tech.title}</h1>
           <p>{tech.description}</p>
-          <Link to={tech.url}>{tech.url}</Link>
-          <br />
-          {tech.urlSource && <Link to={tech.urlSource}>{tech.urlSource}</Link>}
-          <p>{tech.dateAdded}</p>
+          <p>
+            <TechIconLink to={tech.url} icon="fa-link" />
+            <TechIconLink to={tech.urlSource} icon="fa-github" />
+            <TechIconLink to={tech.urlApi} icon="api" />
+          </p>
         </div>
       </Tech>
     </Device>
@@ -70,10 +92,11 @@ export const pageQuery = graphql`
       description
       url
       urlSource
+      urlApi
       logo {
         childImageSharp {
           fluid(maxWidth: 512) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
       }

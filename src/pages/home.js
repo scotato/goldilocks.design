@@ -10,6 +10,7 @@ import AppIcon from '../components/AppIcon'
 const Apps = styled.div`
   display: grid;
   margin: auto;
+  padding: 0 ${props => props.theme.size.layout[350]};
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-row-gap: ${props => props.theme.size.layout[400]};
   grid-column-gap: ${props => props.theme.size.layout[500]};
@@ -19,7 +20,7 @@ const Apps = styled.div`
 
 const HomePage = ({data: { page, apps }}) => (
   <Layout page={page}>
-    <Device page={page}>
+    <Device page={page} footer>
       <Apps>
         {apps.edges.map(edge => {
           const app = edge.node

@@ -8,15 +8,15 @@ import Layout from '../components/Layout'
 import Device from '../components/Device'
 import AppIcon from '../components/AppIcon'
 
-const Tech = styled.div`
+const TechGrid = styled.div`
   display: grid;
   margin: auto;
   padding: 0 ${props => props.theme.size.layout[350]};
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  justify-self: center;
   width: ${props => props.theme.size.layout[850]};
-  grid-row-gap: ${props => props.theme.size.layout[400]};
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-column-gap: ${props => props.theme.size.layout[500]};
+  grid-row-gap: ${props => props.theme.size.layout[400]};
+  justify-self: center;
 `
 
 const Image = styled(Img)`
@@ -26,8 +26,12 @@ const Image = styled(Img)`
 
 const TechPage = ({ data: { page, tech }}) => (
   <Layout page={page}>
-    <Device page={page} footer={true} shouldShowNav>
-      <Tech>
+    <Device
+      page={page}
+      footer
+      shouldShowNav
+    >
+      <TechGrid>
         {tech.edges.map(item => (
           <AppIcon colorWeight={100} to={`/tech/${item.node.slug}`}>
             <Image
@@ -36,7 +40,7 @@ const TechPage = ({ data: { page, tech }}) => (
             />
           </AppIcon>
         ))}
-      </Tech>
+      </TechGrid>
     </Device>
   </Layout>
 )
@@ -63,10 +67,11 @@ export const pageQuery = graphql`
           description
           url
           urlSource
+          urlApi
           logo {
             childImageSharp {
               fluid(maxWidth: 512) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp_tracedSVG
               }
             }
           }

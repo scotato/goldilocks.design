@@ -15,11 +15,14 @@ import FaMusic from '../content/icons/fa-music.svg'
 import FaPlay from '../content/icons/fa-play.svg'
 import FaCog from '../content/icons/fa-cog.svg'
 import FaGithub from '../content/icons/fa-github.svg'
+import FaLink from '../content/icons/fa-link.svg'
 import ChevronLeft from '../content/icons/chevron-left.svg'
 import List from '../content/icons/list.svg'
 import Grid from '../content/icons/grid.svg'
 import Card from '../content/icons/card.svg'
 import Plus from '../content/icons/plus.svg'
+import Plug from '../content/icons/plug.svg'
+import Api from '../content/icons/api.svg'
 import Goldilocks from '../content/brand/goldilocks-logo-knot-yellow.svg'
 
 const fillContainer = css`
@@ -46,6 +49,8 @@ export const IconList = styled(List)`${icon}`
 export const IconGrid = styled(Grid)`${icon}`
 export const IconCard = styled(Card)`${icon}`
 export const IconPlus = styled(Plus)`${icon}`
+export const IconPlug = styled(Plug)`${icon}`
+export const IconApi = styled(Api)`${icon}`
 export const IconFaBell = styled(FaBell)`${icon}`
 export const IconFaBookOpen = styled(FaBookOpen)`${icon}`
 export const IconFaBracketsCurly = styled(FaBracketsCurly)`${icon}`
@@ -54,6 +59,7 @@ export const IconFaComment = styled(FaComment)`${icon}`
 export const IconFaMusic = styled(FaMusic)`${icon}`
 export const IconFaPlay = styled(FaPlay)`${icon}`
 export const IconFaCog = styled(FaCog)`${icon}`
+export const IconFaLink = styled(FaLink)`${icon}`
 export const IconFaGithub = styled(FaGithub)`${icon}`
 
 const icons = {
@@ -68,6 +74,8 @@ const icons = {
   grid: IconGrid,
   card: IconCard,
   plus: IconPlus,
+  plug: IconPlug,
+  api: IconApi,
   'chevron-left': IconChevronLeft,
   'fa-book-open': IconFaBookOpen,
   'fa-bell': IconFaBell,
@@ -77,6 +85,7 @@ const icons = {
   'fa-music': IconFaMusic,
   'fa-play': IconFaPlay,
   'fa-cog': IconFaCog,
+  'fa-link': IconFaLink,
   'fa-github': IconFaGithub,
 }
 

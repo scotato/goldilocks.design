@@ -1,9 +1,10 @@
 - id: js
   slug: js
-  title: JS
+  title: JavaScript
   description: JS is a lightweight, interpreted or JIT compiled programming language with first-class functions.
-  url: https://developer.mozilla.org/bm/docs/Web/JavaScript
+  url: https://wikipedia.org/wiki/JavaScript 
   urlSource: 
+  urlApi: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API
   logo: tech/js-logo.png
   badge: 
   category: language
@@ -15,6 +16,7 @@
   description: A JavaScript library for building user interfaces.
   url: https://reactjs.org
   urlSource: https://github.com/facebook/react
+  urlApi: https://reactjs.org/docs/react-api.html
   logo: tech/react-logo.png
   badge: 
   category: framework
@@ -24,8 +26,9 @@
   slug: styled-components
   title: Styled Components
   description: Visual primitives for the component age. Use the best bits of ES6 and CSS to style your apps without stress.
-  url: https://www.styled-components.com/
+  url: https://www.styled-components.com
   urlSource: https://github.com/styled-components/styled-components
+  urlApi: https://www.styled-components.com/docs/api
   logo: tech/styledComponents-logo.png
   badge: 
   category: framework
@@ -37,6 +40,7 @@
   description: GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. 
   url: https://graphql.org
   urlSource: https://github.com/graphql/graphql-js
+  urlApi: https://facebook.github.io/graphql/
   logo: tech/graphQL-logo.png
   badge: 
   category: framework
@@ -48,6 +52,7 @@
   description: Gatsby provides a modern framework for turning content into feature-rich, visually engaging apps and websites. 
   url: https://www.gatsbyjs.org
   urlSource: https://github.com/gatsbyjs/gatsby
+  urlApi: https://www.gatsbyjs.org/docs/api-specification/
   logo: tech/gatsby-logo.png
   badge: 
   category: framework
@@ -59,6 +64,7 @@
   description: A bundler for javascript and friends. Packs many modules into a few bundled assets. Code Splitting allows for loading parts of the application on demand.
   url: https://webpack.js.org
   urlSource: https://github.com/webpack/webpack
+  urlApi: https://webpack.js.org/api
   logo: tech/webpack-logo.png
   badge: 
   category: framework
@@ -70,6 +76,7 @@
   description: Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.
   url: https://nodejs.org
   urlSource: https://github.com/nodejs/node
+  urlApi: https://nodejs.org/dist/latest-v11.x/docs/api/
   logo: tech/node-logo.png
   badge: 
   category: framework
@@ -81,6 +88,7 @@
   description: Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency. 
   url: https://git-scm.com/
   urlSource: https://github.com/git/git
+  urlApi: https://git-scm.com/docs
   logo: tech/git-logo.png
   badge: 
   category: versionControl
@@ -91,7 +99,8 @@
   title: Figma
   description: Design, prototype, and collaborate all in the browser—with Figma.
   url: https://www.figma.com
-  urlSource: 
+  urlSource: https://github.com/figma
+  urlApi: https://www.figma.com/developers/docs
   logo: tech/figma-logo.png
   badge: 
   category: design
@@ -103,6 +112,7 @@
   description: Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications.
   url: https://code.visualstudio.com/
   urlSource: https://github.com/Microsoft/vscode
+  urlApi: https://code.visualstudio.com/api
   logo: tech/vsCode-logo.png
   badge: 
   category: codeEditor
@@ -113,7 +123,8 @@
   title: Firefox
   description: Mozilla Firefox, a free Web browser. Firefox is created by a global non-profit dedicated to putting individuals in control online. 
   url: https://www.firefox.com
-  urlSource: 
+  urlSource: https://github.com/mozilla
+  urlApi: https://developer.mozilla.org/en-US/docs/WebAPI
   logo: tech/firefox-logo.png
   badge: 
   category: browser
@@ -124,7 +135,8 @@
   title: Spotify
   description: Spotify is a digital music service that gives you access to millions of songs.
   url: https://spotify.com
-  urlSource: 
+  urlSource: https://github.com/spotify
+  urlApi: https://developer.spotify.com/documentation/web-api/
   logo: tech/spotify-logo.png
   badge: 
   category: browser
