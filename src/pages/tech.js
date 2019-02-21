@@ -11,7 +11,7 @@ import Link from '../components/Link'
 const TechGrid = styled.div`
   display: grid;
   position: absolute;
-  padding: ${props => props.theme.size.layout[500]};
+  padding: ${props => props.theme.size.layout[450]};
   grid-template-columns: 1fr 1fr 1fr 1fr;
   width: 100%;
   grid-column-gap: ${props => props.theme.size.layout[500]};
@@ -31,6 +31,15 @@ const Image = styled(Img)`
   filter: drop-shadow(0 0 ${props => props.theme.size.layout[50]} rgba(0, 0, 0, 0.125));
 `
 
+const shuffleArray = array => {
+  const arrayShuffled = [...array]
+  for (let i = arrayShuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arrayShuffled[i], arrayShuffled[j]] = [arrayShuffled[j], arrayShuffled[i]];
+  }
+  return arrayShuffled
+}
+
 const TechPage = ({ data: { page, tech }}) => (
   <Layout page={page}>
     <Device
@@ -39,7 +48,7 @@ const TechPage = ({ data: { page, tech }}) => (
       shouldShowNav
     >
       <TechGrid>
-        {tech.edges.map(item => (
+        {shuffleArray(tech.edges).map(item => (
           <TechSticker to={`/tech/${item.node.slug}`}>
             <Image
               title={item.node.title}
