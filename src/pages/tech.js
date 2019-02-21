@@ -61,21 +61,7 @@ export const pageQuery = graphql`
     tech: allTechYaml {
       edges {
         node {
-          id
-          slug
-          title
-          description
-          url
-          urlSource
-          urlApi
-          logo {
-            childImageSharp {
-              fluid(maxWidth: 512) {
-                ...GatsbyImageSharpFluid_withWebp_tracedSVG
-              }
-            }
-          }
-          dateAdded
+          ...TechInfo
         }
       }
     }

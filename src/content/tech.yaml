@@ -1,10 +1,10 @@
 - id: js
   slug: js
   title: JavaScript
-  description: JS is a lightweight, interpreted or JIT compiled programming language with first-class functions.
+  description: JavaScript is a lightweight, interpreted or JIT compiled programming language with first-class functions.
   url: https://wikipedia.org/wiki/JavaScript 
   urlSource: 
-  urlApi: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API
+  urlApi: http://www.ecma-international.org/publications/standards/Ecma-262.htm
   logo: tech/js-logo.png
   badge: 
   category: language
@@ -64,8 +64,8 @@
   tech: 
     - js
     - react
-    - node
     - graphQL
+    - node
   dateAdded: 2019-02-19
 - id: webpack
   slug: webpack
@@ -83,7 +83,7 @@
   dateAdded: 2019-02-19
 - id: node
   slug: node
-  title: Node
+  title: Node.js
   description: Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.
   url: https://nodejs.org
   urlSource: https://github.com/nodejs/node
@@ -142,6 +142,7 @@
   badge: 
   category: browser
   tech: 
+    - js
   dateAdded: 2019-02-19
 - id: spotify
   slug: spotify
