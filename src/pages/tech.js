@@ -6,22 +6,29 @@ import Img from 'gatsby-image'
 
 import Layout from '../components/Layout'
 import Device from '../components/Device'
-import AppIcon from '../components/AppIcon'
+import Link from '../components/Link'
 
 const TechGrid = styled.div`
   display: grid;
-  margin: auto;
-  padding: 0 ${props => props.theme.size.layout[350]};
-  width: ${props => props.theme.size.layout[850]};
+  position: absolute;
+  padding: ${props => props.theme.size.layout[500]};
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 100%;
   grid-column-gap: ${props => props.theme.size.layout[500]};
-  grid-row-gap: ${props => props.theme.size.layout[400]};
   justify-self: center;
+  align-self: center;
+`
+
+const TechSticker = styled(Link)`
+  transform:
+    scale(${props => Math.random() / 2 + 1.5})
+    rotate(${props => 15 - Math.random() * 30}deg);
 `
 
 const Image = styled(Img)`
   width: 100%;
   border-radius: ${props => props.theme.size.layout[300]};
+  filter: drop-shadow(0 0 ${props => props.theme.size.layout[50]} rgba(0, 0, 0, 0.125));
 `
 
 const TechPage = ({ data: { page, tech }}) => (
@@ -33,12 +40,12 @@ const TechPage = ({ data: { page, tech }}) => (
     >
       <TechGrid>
         {tech.edges.map(item => (
-          <AppIcon colorWeight={100} to={`/tech/${item.node.slug}`}>
+          <TechSticker to={`/tech/${item.node.slug}`}>
             <Image
               title={item.node.title}
-              fluid={item.node.logo.childImageSharp.fluid}
+              fluid={item.node.sticker.childImageSharp.fluid}
             />
-          </AppIcon>
+          </TechSticker>
         ))}
       </TechGrid>
     </Device>

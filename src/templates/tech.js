@@ -128,6 +128,13 @@ export const query = graphql`
         }
       }
     }
+    sticker {
+      childImageSharp {
+        fluid(maxWidth: 512) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
     dateAdded
   }
   fragment TechInfoEdges on TechYaml {

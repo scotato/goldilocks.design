@@ -6,6 +6,7 @@
   urlSource: 
   urlApi: http://www.ecma-international.org/publications/standards/Ecma-262.htm
   logo: tech/js-logo.png
+  sticker: tech/js-logo-sticker.png
   badge: 
   category: language
   tech: 
@@ -18,6 +19,7 @@
   urlSource: https://github.com/facebook/react
   urlApi: https://reactjs.org/docs/react-api.html
   logo: tech/react-logo.png
+  sticker: tech/react-logo-sticker.png
   badge: 
   category: framework
   tech: 
@@ -31,6 +33,7 @@
   urlSource: https://github.com/styled-components/styled-components
   urlApi: https://www.styled-components.com/docs/api
   logo: tech/styledComponents-logo.png
+  sticker: tech/styledComponents-logo-sticker.png
   badge: 
   category: framework
   tech: 
@@ -45,6 +48,7 @@
   urlSource: https://github.com/graphql/graphql-js
   urlApi: https://facebook.github.io/graphql/
   logo: tech/graphQL-logo.png
+  sticker: tech/graphQL-logo-sticker.png
   badge: 
   category: framework
   tech: 
@@ -59,6 +63,7 @@
   urlSource: https://github.com/gatsbyjs/gatsby
   urlApi: https://www.gatsbyjs.org/docs/api-specification/
   logo: tech/gatsby-logo.png
+  sticker: tech/gatsby-logo-sticker.png
   badge: 
   category: framework
   tech: 
@@ -75,6 +80,7 @@
   urlSource: https://github.com/webpack/webpack
   urlApi: https://webpack.js.org/api
   logo: tech/webpack-logo.png
+  sticker: tech/webpack-logo-sticker.png
   badge: 
   category: framework
   tech: 
@@ -89,6 +95,7 @@
   urlSource: https://github.com/nodejs/node
   urlApi: https://nodejs.org/dist/latest-v11.x/docs/api/
   logo: tech/node-logo.png
+  sticker: tech/node-logo-sticker.png
   badge: 
   category: framework
   tech: 
@@ -102,6 +109,7 @@
   urlSource: https://github.com/git/git
   urlApi: https://git-scm.com/docs
   logo: tech/git-logo.png
+  sticker: tech/git-logo-sticker.png
   badge: 
   category: versionControl
   tech: 
@@ -114,6 +122,7 @@
   urlSource: https://github.com/figma
   urlApi: https://www.figma.com/developers/docs
   logo: tech/figma-logo.png
+  sticker: tech/figma-logo-sticker.png
   badge: 
   category: design
   tech: 
@@ -126,6 +135,7 @@
   urlSource: https://github.com/Microsoft/vscode
   urlApi: https://code.visualstudio.com/api
   logo: tech/vsCode-logo.png
+  sticker: tech/vsCode-logo-sticker.png
   badge: 
   category: codeEditor
   tech: 
@@ -139,6 +149,7 @@
   urlSource: https://github.com/mozilla
   urlApi: https://developer.mozilla.org/en-US/docs/WebAPI
   logo: tech/firefox-logo.png
+  sticker: tech/firefox-logo-sticker.png
   badge: 
   category: browser
   tech: 
@@ -152,6 +163,7 @@
   urlSource: https://github.com/spotify
   urlApi: https://developer.spotify.com/documentation/web-api/
   logo: tech/spotify-logo.png
+  sticker: tech/spotify-logo-sticker.png
   badge: 
   category: browser
   tech: 
