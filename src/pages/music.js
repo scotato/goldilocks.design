@@ -10,12 +10,16 @@ import Device from '../components/Device'
 
 const Artists = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: ${props => props.theme.size.layout[300]};
+  grid-row-gap: ${props => props.theme.size.layout[300]};
   width: 100%;
 `
 
 const ArtistCard = styled.div``
-const ArtistAvatar = styled(Img)``
+const ArtistAvatar = styled(Img)`
+  border-radius: 50%;
+`
 
 const TrackCard = styled.div``
 const TrackArt = styled(Img)``
@@ -25,13 +29,13 @@ const MusicPage = ({ data: { page, artists, tracks, playlist }}) => (
   <Layout page={page}>
     <Device page={page} shouldShowNav>
       <Artists>
-        {/* {artists.edges.map(({node: artist}) =>
+        {artists.edges.map(({node: artist}) =>
           <ArtistCard key={artist.name}>
             {artist.image && <ArtistAvatar fluid={artist.image.localFile.childImageSharp.fluid} />}
             {console.log(artist)}
-            {artist.genres}
+            {/* {artist.genres} */}
           </ArtistCard>
-        )} */}
+        )}
 
         {tracks.edges.map(({node: track}) =>
           <TrackCard key={track.name}>
@@ -60,8 +64,9 @@ export const pageQuery = graphql`
       ...AppInfo
     },
     artists: allSpotifyTopArtist(
-      filter: { time_range: { eq: "medium_term" } }
+      filter: { time_range: { eq: "short_term" } }
       sort: { fields: order }
+      limit: 16
     ) {
       edges {
         node {
@@ -84,7 +89,7 @@ export const pageQuery = graphql`
     tracks: allSpotifyTopTrack(
       filter: { time_range: { eq: "short_term" } }
       sort: { fields: order }
-      limit: 50
+      limit: 16
     ) {
       edges {
         node {
@@ -113,11 +118,6 @@ export const pageQuery = graphql`
           }
         }
       }
-    },
-    playlist: spotifyPlaylist(spotifyId: { eq: "3MYiW7kPg4VSbi2c4FQDuk" }) {
-      name
-      uri
-      spotifyId
     }
   }
 `
