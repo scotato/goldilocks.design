@@ -4,9 +4,7 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Device from '../components/Device'
-import { IconHome } from '../components/Icon'
 import Time from '../components/Time'
-import { ButtonLink } from '../components/Button'
 
 const LockScreen = styled.div`
   display: flex;
@@ -20,7 +18,6 @@ const LockScreen = styled.div`
 const LockScreenTime = styled.div.attrs({
   children: <Time format='h:mm' />
 })`
-  margin-top: auto;
   font-size: ${props => props.theme.size.typography[900]};
   line-height: 1;
   align-self: center;
@@ -38,17 +35,6 @@ const LockScreenDate = styled.div.attrs({
   user-select: none;
 `
 
-const Unlock = styled(ButtonLink).attrs({
-  to: '/home',
-  children: <IconHome />
-})`
-  margin-top: auto;
-  padding: ${props => props.theme.size.layout[300]};
-  width: ${props => props.theme.size.layout[500]};
-  background-color: ${props => props.theme.colors.black[200]};
-  color: ${props => props.theme.colors.black[500]};
-`
-
 export default ({ data: { page }}) => (
   <Layout>
     <ThemeConsumer>
@@ -57,7 +43,6 @@ export default ({ data: { page }}) => (
           <LockScreen>
             <LockScreenTime />
             <LockScreenDate />
-            <Unlock />
           </LockScreen>
         </Device>
       )}
