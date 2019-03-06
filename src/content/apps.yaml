@@ -10,9 +10,3 @@
   title: Projects
   color: blue
   colorWeight: 500
-- id: tech
-  icon: wifi
-  slug: tech
-  title: Tech
-  color: orange
-  colorWeight: 500

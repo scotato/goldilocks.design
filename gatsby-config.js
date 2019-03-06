@@ -16,8 +16,6 @@ module.exports = {
   },
   mapping: {
     'ProjectsYaml.app': `AppsYaml`,
-    'ProjectsYaml.tech': `TechYaml`,
-    'TechYaml.tech': `TechYaml`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
