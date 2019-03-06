@@ -5,6 +5,8 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Device from '../components/Device'
 import Time from '../components/Time'
+import Card from '../components/Card'
+import { AppBadge } from '../components/AppIcon'
 
 const LockScreen = styled.div`
   display: flex;
@@ -12,7 +14,6 @@ const LockScreen = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 100%;
-  color: ${props => props.theme.colors.black[500]};
 `
 
 const LockScreenTime = styled.div.attrs({
@@ -23,6 +24,7 @@ const LockScreenTime = styled.div.attrs({
   align-self: center;
   justify-self: center;
   user-select: none;
+  color: ${props => props.theme.colors.black[500]};
 `
 
 const LockScreenDate = styled.div.attrs({
@@ -33,6 +35,11 @@ const LockScreenDate = styled.div.attrs({
   line-height: 1;
   align-self: center;
   user-select: none;
+  color: ${props => props.theme.colors.black[500]};
+`
+
+const Notification = styled(Card)`
+  width: ${props => props.theme.size.layout[800]};
 `
 
 export default ({ data: { page }}) => (
@@ -43,6 +50,19 @@ export default ({ data: { page }}) => (
           <LockScreen>
             <LockScreenTime />
             <LockScreenDate />
+            <Notification
+              badge={(
+                <AppBadge
+                  icon='fa-pencil-ruler'
+                  color='blue'
+                  colorWeight={500}
+                />
+              )}
+              title='goldilocks design'
+              detail='github.com/scotato/goldilocks.design'
+              date='03/06/2019 14:30'
+              to='https://github.com/scotato/goldilocks.design'
+            />
           </LockScreen>
         </Device>
       )}

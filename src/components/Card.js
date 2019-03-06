@@ -84,7 +84,6 @@ const CardTitle = styled.h2`
 const CardDetail = styled.span`
   grid-area: detail;
   align-self: baseline;
-  text-transform: uppercase;
   color: ${props => props.theme.colors.black[500]};
   font-size: ${props => props.theme.size.typography[200]};
   line-height: 1;
@@ -119,14 +118,14 @@ export const Cards = styled.div`
   width: ${props => props.theme.size.layout[800]};
 `
 
-export default props => (
-  <Card to={props.to}>
-    <CardHero>{props.hero}</CardHero>
+export default ({to, hero, badge, title, detail, date, ...props}) => (
+  <Card {...props} to={to}>
+    <CardHero>{hero}</CardHero>
     <CardDetails>
-      <CardBadge>{props.badge}</CardBadge>
-      <CardTitle>{props.title}</CardTitle>
-      <CardDetail>{props.detail}</CardDetail>
-      <CardTimestamp>{getTimestamp(props.date)}</CardTimestamp>
+      <CardBadge>{badge}</CardBadge>
+      <CardTitle>{title}</CardTitle>
+      <CardDetail>{detail}</CardDetail>
+      <CardTimestamp>{getTimestamp(date)}</CardTimestamp>
     </CardDetails>
   </Card>
 )
