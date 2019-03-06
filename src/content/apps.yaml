@@ -1,9 +1,3 @@
-- id: activity
-  icon: bolt
-  slug: activity
-  title: Activity
-  color: red
-  colorWeight: 500
 - id: blog
   icon: fa-book-open
   slug: blog
@@ -28,4 +22,3 @@
   title: Messages
   color: green
   colorWeight: 500
-  
