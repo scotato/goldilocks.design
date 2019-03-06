@@ -14,7 +14,7 @@ const MessagesPage = ({ data: { page, tweets }}) => (
   <Layout page={page}>
     <Device page={page} shouldShowNav>
       <Messages>
-        {console.log(tweets)}
+        {/* {console.log(tweets)}
         {tweets.edges.map(({node: tweet}) => (
           <Message
             key={tweet.id}
@@ -24,7 +24,7 @@ const MessagesPage = ({ data: { page, tweets }}) => (
             children={filterUrl(tweet.full_text)}
             to={`https://twitter.com/i/web/status/${tweet.id_str}`}
           />
-        ))}
+        ))} */}
       </Messages>
     </Device>
   </Layout>
@@ -43,66 +43,66 @@ export const pageQuery = graphql`
     page: appsYaml(id: { eq: "messages" }) {
       ...AppInfo
     }
-    tweets: allTweet {
-      edges {
-        node {
-          id_str
-          created_at
-          full_text
-          text
-          entities {
-            media {
-              id
-              id_str
-              indices
-              media_url
-              media_url_https
-              url
-              display_url
-              expanded_url
-              type
-              sizes {
-                thumb {
-                  w
-                  h
-                  resize
-                }
-                small {
-                  w
-                  h
-                  resize
-                }
-                medium {
-                  w
-                  h
-                  resize
-                }
-                large {
-                  w
-                  h
-                  resize
-                }
-              }
-              video_info {
-                variants {
-                  content_type
-                  url
-                }
-              }
-            }
-            urls {
-              url
-              expanded_url
-              display_url
-            } 
-          }
-          user {
-            id
-            screen_name
-            url
-          }
-        }
-      }
-    }
+    # tweets: allTweet {
+    #   edges {
+    #     node {
+    #       id_str
+    #       created_at
+    #       full_text
+    #       text
+    #       entities {
+    #         media {
+    #           id
+    #           id_str
+    #           indices
+    #           media_url
+    #           media_url_https
+    #           url
+    #           display_url
+    #           expanded_url
+    #           type
+    #           sizes {
+    #             thumb {
+    #               w
+    #               h
+    #               resize
+    #             }
+    #             small {
+    #               w
+    #               h
+    #               resize
+    #             }
+    #             medium {
+    #               w
+    #               h
+    #               resize
+    #             }
+    #             large {
+    #               w
+    #               h
+    #               resize
+    #             }
+    #           }
+    #           video_info {
+    #             variants {
+    #               content_type
+    #               url
+    #             }
+    #           }
+    #         }
+    #         urls {
+    #           url
+    #           expanded_url
+    #           display_url
+    #         } 
+    #       }
+    #       user {
+    #         id
+    #         screen_name
+    #         url
+    #       }
+    #     }
+    #   }
+    # }
   }
 `
