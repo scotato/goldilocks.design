@@ -34,12 +34,6 @@
   title: Music
   color: purple
   colorWeight: 500
-- id: videos
-  icon: fa-play
-  slug: videos
-  title: Videos
-  color: pink
-  colorWeight: 500
 - id: settings
   icon: fa-cog
   slug: settings

@@ -62,13 +62,6 @@ module.exports = {
         timeRanges: ['short_term', 'medium_term', 'long_term'], // optional. Set time ranges to be fetched
       },
     },
-    // {
-    //   resolve: 'gatsby-source-youtube',
-    //   options: {
-    //     key: "<YOUR_API_KEY_HERE>",
-    //     q: "yellow flowers",
-    //   }
-    // },
     `gatsby-transformer-yaml`,
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
