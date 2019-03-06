@@ -28,12 +28,6 @@
   title: Messages
   color: green
   colorWeight: 500
-- id: music
-  icon: fa-music
-  slug: music
-  title: Music
-  color: purple
-  colorWeight: 500
 - id: settings
   icon: fa-cog
   slug: settings
