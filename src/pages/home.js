@@ -11,11 +11,15 @@ const Apps = styled.div`
   display: grid;
   margin: auto;
   padding: 0 ${props => props.theme.size.layout[350]};
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-columns: 20%;
+  grid-auto-rows: auto;
+  grid-auto-flow: column;
   grid-row-gap: ${props => props.theme.size.layout[400]};
   grid-column-gap: ${props => props.theme.size.layout[500]};
   width: ${props => props.theme.size.layout[850]};
   justify-self: center;
+  align-items: center;
+  justify-content: center;
 `
 
 const HomePage = ({data: { page, apps }}) => (
