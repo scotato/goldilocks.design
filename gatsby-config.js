@@ -14,9 +14,6 @@ module.exports = {
     shareImageHeight: 600, // Change to the height of your default share image
     siteLogo: '/images/logo-512.png', // Logo used for SEO, RSS, and App manifest
   },
-  mapping: {
-    'ProjectsYaml.app': `AppsYaml`,
-  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
@@ -26,29 +23,6 @@ module.exports = {
         name: `content`,
       },
     },
-    {
-      resolve: "gatsby-source-graphql",
-      options: {
-        typeName: "GitHub",
-        fieldName: "github",
-        url: "https://api.github.com/graphql",
-        headers: {
-          Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
-        }
-      }
-    },
-    // {
-    //   resolve: `gatsby-source-twitter`,
-    //   options: {           
-    //       q: `scotato`,    
-    //       credentials: {
-    //           consumer_key: `${process.env.TWITTER_KEY}`,
-    //           consumer_secret: `${process.env.TWITTER_SECRET}`,
-    //           bearer_token: `${process.env.TWITTER_TOKEN}`
-    //       },
-    //       tweet_mode: 'extended'
-    //   }
-    // },
     `gatsby-transformer-yaml`,
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
