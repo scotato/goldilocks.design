@@ -29,7 +29,7 @@ const timeSizes = {
 
 const dateSizes = {
   sm: 100,
-  md: 100,
+  md: 200,
   lg: 500
 }
 
