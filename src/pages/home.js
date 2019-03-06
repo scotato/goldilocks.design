@@ -51,6 +51,17 @@ HomePage.propTypes = {
 
 export default HomePage
 
+export const query = graphql`
+  fragment AppInfo on AppsYaml {
+    id
+    icon
+    slug
+    title
+    color
+    colorWeight
+  }
+`
+
 export const pageQuery = graphql`
   query {
     page: screensYaml(id: { eq: "home" }) {
