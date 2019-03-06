@@ -16,9 +16,3 @@
   title: Tech
   color: orange
   colorWeight: 500
-- id: messages
-  icon: fa-comment
-  slug: messages
-  title: Messages
-  color: green
-  colorWeight: 500
