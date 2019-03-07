@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react'
-import { useLocalStorage } from '../hooks'
+import React, { useEffect } from 'react'
+import { useSettings, useDevice } from '../hooks'
 import styled, { ThemeConsumer } from 'styled-components'
 import { Location } from '@reach/router'
 import { Link, navigate } from "gatsby"
 
 import { BlobAnimated } from './Blob'
-import Charger from '../content/brand/device-charger.svg'
-import LockButton from '../content/brand/device-lock-button.svg'
-import Network from '../components/Network'
-import Battery from '../components/Battery'
+import Network from './DeviceNetwork'
+import Battery from './DeviceBattery'
+import Charger from './DeviceCharger'
+import LockButton from './DeviceLockButton'
 import Icon from '../components/Icon'
 import Logo from '../components/Logo'
-import { ButtonBase } from '../components/Button'
 
 const Device = styled.div`
   display: flex;
@@ -26,7 +25,6 @@ const Device = styled.div`
   border-radius: ${props => props.theme.size.layout[400]};
   will-change: border-top, background-color, box-shadow;
   transition: border-top .2s ease-out, background-color .2s ease-out, box-shadow .2s ease-out;
-  overflow: hidden;
 `
 
 const LockLogo = styled(Logo)`
@@ -35,49 +33,6 @@ const LockLogo = styled(Logo)`
   width: ${props => props.theme.size.layout[700]};
   margin: auto;
   cursor: pointer;
-`
-
-const DeviceCharger = styled(Charger)`
-  position: absolute;
-  align-self: center;
-  bottom: ${props => props.isOff
-    ? `-${props.theme.size.layout[500]}`
-    : props.isCharging
-      ? 0
-      : `-${props.theme.size.layout[400]}`};
-  width: ${props => props.theme.size.layout[400]};
-  transition: bottom .2s ease-out;
-  will-change: bottom;
-  cursor: pointer;
-`
-
-const DeviceLockButton = styled(ButtonBase).attrs({
-  children: <LockButton />
-})`
-  position: absolute;
-  margin-right: ${props => props.theme.size.layout[300]};
-  padding: ${props => props.theme.size.layout[200]};
-  padding-left: 0;
-  top: ${props => props.theme.size.layout[550]};
-  right: ${props => props.theme.size.layout[550]};
-  width: ${props => props.theme.size.layout[300]};
-
-  svg {
-    transform: translateX(${props => props.isMouseDown ? -2 : 0}px);
-    transition: transform .2s ease-out;
-    will-change: transform;
-  }
-
-  .bar-1,
-  .bar-2
-  {
-    will-change: fill;
-    transition: fill .2s ease-out;
-    fill: ${props => props.isOff || props.isDarkMode
-      ? props.theme.colors.black[800] 
-      : props.theme.colors.black[200]
-    };
-  }
 `
 
 const DeviceHeader = styled.header`
@@ -178,20 +133,17 @@ export default ({
   shouldShowNav,
   ...props
 }) => {
-  const [isOff, setisOff] = useLocalStorage('device:isOff', false)
-  const [isCharging, setIsCharging] = useLocalStorage('device:isCharging', false)
-  const [batteryLevel, setBatteryLevel] = useLocalStorage('device:batteryLevel', 100)
-  const [isDarkMode] = useLocalStorage('settings:isDarkMode', false)
-  const [isLockButtonMouseDown, setIsLockButtonMouseDown] = useState(false)
+  const [{ isDarkMode }] = useSettings()
+  const [{ isOff, isCharging, batteryLevel }, setDevice] = useDevice()
   const hasHeader = (headerNav || headerIcon || headerAction || page.icon) && true
   const hasFooter = footer && true
   const { icon = props.icon } = page
   const deviceProps = {
     color: props.color || page.color || 'black',
     colorWeight: props.colorWeight || page.colorWeight || 500,
+    isDarkMode,
     isOff,
     isCharging,
-    isDarkMode,
     batteryLevel
   }
 
@@ -199,10 +151,10 @@ export default ({
     const batteryInterval = setInterval(() => {
       const isEmpty = batteryLevel === 0
       const isFull = batteryLevel >= 100
-      isEmpty && setIsCharging(true)
-      isFull && setIsCharging(false)
-      isFull && setBatteryLevel(100)
-      setBatteryLevel(
+      isEmpty && setDevice.isCharging(true)
+      isFull && setDevice.isCharging(false)
+      isFull && setDevice.batteryLevel(100)
+      setDevice.batteryLevel(
         isCharging
           ? isFull
             ? 100
@@ -225,25 +177,18 @@ export default ({
             <>
               <DeviceBackground {...deviceProps}>
                 <DeviceBackgroundBlob {...deviceProps} />
-                <DeviceLockButton
-                  isMouseDown={isLockButtonMouseDown}
-                  onMouseDown={() => setIsLockButtonMouseDown(true)}
-                  onMouseOut={() => setIsLockButtonMouseDown(false)}
-                  onMouseUp={() => setIsLockButtonMouseDown(false)}
-                  onClick={() => {
-                    setisOff(!isOff)
-                    route.location.pathname !== '/' && navigate('/')
-                  }}
-                  {...deviceProps}
-                />
-                {!headerAction && (
-                  <DeviceCharger
-                    isCharging={isCharging}
-                    isOff={isOff}
-                    onClick={() => setIsCharging(!isCharging)}
-                  />)
-                }
               </DeviceBackground>
+              <LockButton onClick={() => {
+                setDevice.isOff(!isOff)
+                route.location.pathname !== '/' && navigate('/')
+              }} />
+              {!headerAction && (
+                <Charger
+                  isCharging={isCharging}
+                  isOff={isOff}
+                  onClick={() => setDevice.isCharging(!isCharging)}
+                />)
+              }
               <Device {...deviceProps} {...props}>
                 {!isOff && hasHeader && (
                   <DeviceHeader {...deviceProps}>
@@ -268,7 +213,7 @@ export default ({
                 )}
                 <DeviceBody>
                 {isOff ? (
-                  <LockLogo onClick={() => setisOff(false)} />
+                  <LockLogo onClick={() => setDevice.isOff(false)} />
                 ) : children}
                 </DeviceBody>
                 {hasFooter && (
