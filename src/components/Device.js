@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { useSettings, usePage, useDevice } from '../hooks'
+import React from 'react'
+import { useSettings, usePage, useDevice, useDeviceEffect } from '../hooks'
 import styled, { ThemeConsumer } from 'styled-components'
 import { Location } from '@reach/router'
 import { Link, navigate } from "gatsby"
@@ -118,27 +118,7 @@ export default ({
     batteryLevel
   }
 
-  useEffect(() => {
-    const batteryInterval = setInterval(() => {
-      const isEmpty = batteryLevel === 0
-      const isFull = batteryLevel >= 100
-      isEmpty && setDevice.isCharging(true)
-      isFull && setDevice.isCharging(false)
-      isFull && setDevice.batteryLevel(100)
-      setDevice.batteryLevel(
-        isCharging
-          ? isFull
-            ? 100
-            : batteryLevel > 95
-              ? 100
-              : batteryLevel + 5
-          : isEmpty
-            ? 0
-            : batteryLevel - 1
-      )
-    }, 1000)
-    return () => clearInterval(batteryInterval)
-  })
+  useDeviceEffect()
 
   return (
     <ThemeConsumer>

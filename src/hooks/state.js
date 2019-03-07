@@ -50,7 +50,8 @@ export const useDevice = () => {
     {
       isOff: isOff => setDevice({...device, isOff}),
       isCharging: isCharging => setDevice({...device, isCharging}),
-      batteryLevel: batteryLevel => setDevice({...device, batteryLevel})
+      batteryLevel: batteryLevel => setDevice({...device, batteryLevel}),
+      device: props => setDevice({...device, ...props})
     }
   ]
 }
