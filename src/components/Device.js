@@ -4,11 +4,11 @@ import styled, { ThemeConsumer } from 'styled-components'
 import { Location } from '@reach/router'
 import { Link, navigate } from "gatsby"
 
-import { BlobAnimated } from './Blob'
 import Network from './DeviceNetwork'
 import Battery from './DeviceBattery'
 import Charger from './DeviceCharger'
 import LockButton from './DeviceLockButton'
+import Background from './DeviceBackground'
 import Icon from '../components/Icon'
 import Logo from '../components/Logo'
 
@@ -77,35 +77,6 @@ const DeviceFooter = styled.footer`
   min-height: ${props => props.theme.size.layout[450]};
 `
 
-const DeviceBackground = styled.div`
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-top: ${props => props.theme.size.layout[100]} solid ${props => props.isOff || props.theme.isDarkMode
-    ? props.theme.colors.black[800] 
-    : props.theme.colors[props.color][props.colorWeight]
-  };
-  background-color: ${props => props.isOff || props.isDarkMode
-    ? props.theme.colors.black[900] 
-    : props.theme.colors.black[100]
-  };
-  will-change: border-top, background-color;
-  transition: border-top .2s ease-out, background-color .2s ease-out;
-`
-
-const DeviceBackgroundBlob = styled(BlobAnimated).attrs({
-  color: props => props.isOff
-    ? props.theme.colors.black[800] 
-    : props.theme.colors[props.color][props.colorWeight]
-})`
-  height: ${props => props.theme.size.layout[600]};
-`
-
 const DeviceNav = styled(Link)`
   display: inline-flex;
   align-items: center;
@@ -138,9 +109,12 @@ export default ({
   const hasHeader = (headerNav || headerIcon || headerAction || page.icon) && true
   const hasFooter = footer && true
   const { icon = props.icon } = page
+  const color = props.color || page.color || 'black'
+  const colorWeight = props.colorWeight || page.colorWeight || 500
+
   const deviceProps = {
-    color: props.color || page.color || 'black',
-    colorWeight: props.colorWeight || page.colorWeight || 500,
+    color,
+    colorWeight,
     isDarkMode,
     isOff,
     isCharging,
@@ -175,9 +149,7 @@ export default ({
         <Location>
           {route => (
             <>
-              <DeviceBackground {...deviceProps}>
-                <DeviceBackgroundBlob {...deviceProps} />
-              </DeviceBackground>
+              <Background color={color} colorWeight={colorWeight} />
               <LockButton onClick={() => {
                 setDevice.isOff(!isOff)
                 route.location.pathname !== '/' && navigate('/')
