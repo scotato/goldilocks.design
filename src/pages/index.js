@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { ThemeConsumer } from 'styled-components'
+import styled from 'styled-components'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
@@ -44,24 +44,20 @@ const LockScreenTime = styled(TimeClockDate)`
   };
 `
 
-export default ({ data: { page }}) => (
-  <Layout>
-    <ThemeConsumer>
-      {theme => (
-        <Device page={page} footer>
-          <LockScreen hasNotifications={notifications.length}>
-            <LockScreenTime size={notifications.length ? 'md' : 'lg'} />
-            {notifications.map(notification => (
-              <Notification
-                {...notification}
-                key={notification.title}
-                badge={<AppBadge {...notification.badge}/>}
-              />
-            ))}
-          </LockScreen>
-        </Device>
-      )}
-    </ThemeConsumer>
+export default props => (
+  <Layout page={props.data.page}>
+    <Device footer>
+      <LockScreen hasNotifications={notifications.length}>
+        <LockScreenTime size={notifications.length ? 'md' : 'lg'} />
+        {notifications.map(notification => (
+          <Notification
+            {...notification}
+            key={notification.title}
+            badge={<AppBadge {...notification.badge}/>}
+          />
+        ))}
+      </LockScreen>
+    </Device>
   </Layout>
 )
 

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useSettings, useDevice } from '../hooks'
+import { useSettings, usePage, useDevice } from '../hooks'
 import styled, { ThemeConsumer } from 'styled-components'
 import { Location } from '@reach/router'
 import { Link, navigate } from "gatsby"
@@ -100,17 +100,14 @@ export default ({
   headerIcon,
   headerAction,
   footer,
-  page = {},
   shouldShowNav,
   ...props
 }) => {
   const [{ isDarkMode }] = useSettings()
+  const [{ title, icon, color, colorWeight }] = usePage()
   const [{ isOff, isCharging, batteryLevel }, setDevice] = useDevice()
-  const hasHeader = (headerNav || headerIcon || headerAction || page.icon) && true
+  const hasHeader = (headerNav || headerIcon || headerAction || icon) && true
   const hasFooter = footer && true
-  const { icon = props.icon } = page
-  const color = props.color || page.color || 'black'
-  const colorWeight = props.colorWeight || page.colorWeight || 500
 
   const deviceProps = {
     color,
@@ -160,9 +157,9 @@ export default ({
                   <DeviceHeader {...deviceProps}>
                     <DeviceHeaderNav>{shouldShowNav
                       ? (
-                      <DeviceNav to={page.to || '/home'}>
+                      <DeviceNav to='/home'>
                         <Icon name='chevron-left' />
-                        {page.title}
+                        {title}
                       </DeviceNav>
                       )
                       : <Network />

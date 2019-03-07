@@ -1,1 +1,1 @@
-export { useSettings, useDevice } from './state'
+export { useSettings, usePage, useDevice } from './state'
