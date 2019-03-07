@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { navigate } from "gatsby"
 
 import { useSettings, useDevice } from '../hooks'
 import LockButtonSVG from '../content/brand/device-lock-button.svg'
@@ -34,10 +35,10 @@ const LockButton = styled(ButtonBase).attrs({
   }
 `
 
-export default ({ onClick }) => {
+export default () => {
   const [isMouseDown, setIsMouseDown] = useState(false)
   const [{ isDarkMode }] = useSettings()
-  const [{ isOff }] = useDevice()
+  const [{ isOff }, setDevice] = useDevice()
 
   return (
     <LockButton
@@ -47,7 +48,10 @@ export default ({ onClick }) => {
       onMouseDown={() => setIsMouseDown(true)}
       onMouseOut={() => setIsMouseDown(false)}
       onMouseUp={() => setIsMouseDown(false)}
-      onClick={onClick}
+      onClick={() => {
+        setDevice.isOff(!isOff)
+        !isOff && navigate('/')
+      }}
     />
   )
 }

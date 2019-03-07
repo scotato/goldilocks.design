@@ -1,57 +1,76 @@
 import createPersistedState from 'use-persisted-state'
-const useSettingsState = createPersistedState('settings')
-const usePageState = createPersistedState('page')
-const useDeviceState = createPersistedState('device')
+
+const useSettingsIsDarkModeState = createPersistedState('settings.isDarkMode')
 
 export const useSettings = () => {
-  const [settings, setSettings] = useSettingsState({
-    isDarkMode: false
-  })
+  const [isDarkMode, setIsDarkMode] = useSettingsIsDarkModeState(false)
 
-  return [
-    settings,
-    {
-      isDarkMode: isDarkMode => setSettings({...settings, isDarkMode})
+  return [{
+      isDarkMode
+    }, {
+      isDarkMode: val => setIsDarkMode(val)
     }
   ]
 }
+
+const usePageIdState = createPersistedState('page.id')
+const usePageIconState = createPersistedState('page.icon')
+const usePageTitleState = createPersistedState('page.title')
+const usePageColorState = createPersistedState('page.color')
+const usePageColorWeightState = createPersistedState('page.colorWeight')
 
 export const usePage = () => {
-  const [page, setPage] = usePageState({
-    id: 'home',
-    icon: 'goldilocks',
-    title: 'goldilocks',
-    color: 'black',
-    colorWeight: 500
-  })
+  const [id, setId] = usePageIdState('home')
+  const [icon, setIcon] = usePageIconState('goldilocks')
+  const [title, setTitle] = usePageTitleState('goldilocks')
+  const [color, setColor] = usePageColorState('black')
+  const [colorWeight, setColorWeight] = usePageColorWeightState(500)
 
-  return [
-    page,
-    {
-      id: id => setPage({...page, id}),
-      icon: icon => setPage({...page, icon}),
-      title: title => setPage({...page, title}),
-      color: color => setPage({...page, color}),
-      colorWeight: colorWeight => setPage({...page, colorWeight}),
-      page: props => setPage({...page, ...props})
+  return [{
+    id,
+    icon,
+    title,
+    color,
+    colorWeight
+  }, {
+      id: val => setId(val),
+      icon: val => setId(val),
+      title: val => setId(val),
+      color: val => setId(val),
+      colorWeight: val => setId(val),
+      page: page => {
+        setId(page.id || id)
+        setIcon(page.icon || icon)
+        setTitle(page.title || title)
+        setColor(page.color || color)
+        setColorWeight(page.colorWeight || colorWeight)
+      }
     }
   ]
 }
 
-export const useDevice = () => {
-  const [device, setDevice] = useDeviceState({
-    isOff: false,
-    isCharging: false,
-    batteryLevel: 100
-  })
+const useDeviceIsOffState = createPersistedState('device.isOff')
+const useDeviceIsChargingState = createPersistedState('device.isCharging')
+const useDeviceBatteryLevelState = createPersistedState('device.batteryLevel')
 
-  return [
-    device,
-    {
-      isOff: isOff => setDevice({...device, isOff}),
-      isCharging: isCharging => setDevice({...device, isCharging}),
-      batteryLevel: batteryLevel => setDevice({...device, batteryLevel}),
-      device: props => setDevice({...device, ...props})
+export const useDevice = () => {
+  const [isOff, setIsOff] = useDeviceIsOffState(false)
+  const [isCharging, setIsCharging] = useDeviceIsChargingState(false)
+  const [batteryLevel, setBatteryLevel] = useDeviceBatteryLevelState(100)
+
+  return [{
+      isOff,
+      isCharging,
+      batteryLevel
+    }, {
+      isOff: val => setIsOff(val),
+      isCharging: val => setIsCharging(val),
+      batteryLevel: val => setBatteryLevel(val),
+      device: device => {
+        setIsOff(device.isOff || isOff)
+        setIsCharging(device.isCharging || isCharging)
+        setBatteryLevel(device.batteryLevel || batteryLevel)
+      }
     }
   ]
 }

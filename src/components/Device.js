@@ -1,8 +1,7 @@
 import React from 'react'
 import { useSettings, usePage, useDevice, useDeviceEffect } from '../hooks'
-import styled, { ThemeConsumer } from 'styled-components'
-import { Location } from '@reach/router'
-import { Link, navigate } from "gatsby"
+import styled from 'styled-components'
+import { Link } from "gatsby"
 
 import Network from './DeviceNetwork'
 import Battery from './DeviceBattery'
@@ -106,69 +105,48 @@ export default ({
   const [{ isDarkMode }] = useSettings()
   const [{ title, icon, color, colorWeight }] = usePage()
   const [{ isOff, isCharging, batteryLevel }, setDevice] = useDevice()
-  const hasHeader = (headerNav || headerIcon || headerAction || icon) && true
-  const hasFooter = footer && true
-
-  const deviceProps = {
-    color,
-    colorWeight,
-    isDarkMode,
-    isOff,
-    isCharging,
-    batteryLevel
-  }
-
+  const hasHeader = !!(headerNav || headerIcon || headerAction || icon)
+  const hasFooter = !!footer
   useDeviceEffect()
 
   return (
-    <ThemeConsumer>
-      {theme => (
-        <Location>
-          {route => (
-            <>
-              <Background color={color} colorWeight={colorWeight} />
-              <LockButton onClick={() => {
-                setDevice.isOff(!isOff)
-                route.location.pathname !== '/' && navigate('/')
-              }} />
-              {!headerAction && <Charger />}
-              <Device {...deviceProps} {...props}>
-                {!isOff && hasHeader && (
-                  <DeviceHeader {...deviceProps}>
-                    <DeviceHeaderNav>{shouldShowNav
-                      ? (
-                      <DeviceNav to='/home'>
-                        <Icon name='chevron-left' />
-                        {title}
-                      </DeviceNav>
-                      )
-                      : <Network />
-                    }</DeviceHeaderNav>
-                    <DeviceHeaderIcon>{headerIcon
-                      ? headerIcon
-                      : <Icon name={icon} />
-                    }</DeviceHeaderIcon>
-                    <DeviceHeaderAction>{headerAction
-                      ? headerAction
-                      : <Battery isCharging={isCharging} level={batteryLevel} />
-                    }</DeviceHeaderAction>
-                  </DeviceHeader>
-                )}
-                <DeviceBody>
-                {isOff ? (
-                  <LockLogo onClick={() => setDevice.isOff(false)} />
-                ) : children}
-                </DeviceBody>
-                {hasFooter && (
-                  <DeviceFooter>
-                    {footer}
-                  </DeviceFooter>
-                )}
-              </Device>
-            </>
-          )}
-        </Location>
-      )}
-    </ThemeConsumer>
+    <>
+      <Background color={color} colorWeight={colorWeight} />
+      <LockButton />
+      {!headerAction && <Charger />}
+      <Device isOff={isOff} isDarkMode={isDarkMode}>
+        {!isOff && hasHeader && (
+          <DeviceHeader isDarkMode={isDarkMode}>
+            <DeviceHeaderNav>{shouldShowNav
+              ? (
+              <DeviceNav to='/home'>
+                <Icon name='chevron-left' />
+                {title}
+              </DeviceNav>
+              )
+              : <Network />
+            }</DeviceHeaderNav>
+            <DeviceHeaderIcon>{headerIcon
+              ? headerIcon
+              : <Icon name={icon} />
+            }</DeviceHeaderIcon>
+            <DeviceHeaderAction>{headerAction
+              ? headerAction
+              : <Battery isCharging={isCharging} level={batteryLevel} />
+            }</DeviceHeaderAction>
+          </DeviceHeader>
+        )}
+        <DeviceBody>
+        {isOff ? (
+          <LockLogo onClick={() => setDevice.isOff(false)} />
+        ) : children}
+        </DeviceBody>
+        {hasFooter && (
+          <DeviceFooter>
+            {footer}
+          </DeviceFooter>
+        )}
+      </Device>
+    </>
   )
 }

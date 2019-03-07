@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSettings, useDevice } from '../hooks/state'
+import { useSettings, usePage, useDevice } from '../hooks/state'
 import styled from 'styled-components'
 
 import { BlobAnimated } from './Blob'
@@ -33,8 +33,9 @@ const BackgroundBlob = styled(BlobAnimated).attrs({
   height: ${props => props.theme.size.layout[600]};
 `
 
-export default ({ color, colorWeight}) => {
+export default props => {
   const [{ isDarkMode }] = useSettings()
+  const [{ color, colorWeight }] = usePage()
   const [{ isOff }] = useDevice()
   const backgroundProps = {
     color,
