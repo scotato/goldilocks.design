@@ -99,8 +99,7 @@ export default ({
   headerIcon,
   headerAction,
   footer,
-  shouldShowNav,
-  ...props
+  shouldShowNav
 }) => {
   const [{ isDarkMode }] = useSettings()
   const [{ title, icon, color, colorWeight }] = usePage()
