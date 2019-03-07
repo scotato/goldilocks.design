@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useDevice } from '../hooks'
 
 import ChargerSVG from '../content/brand/device-charger.svg'
 
@@ -19,9 +20,7 @@ const Charger = styled(ChargerSVG)`
   will-change: transform;
 `
 
-export default styled.div.attrs({
-  children: props => <Charger isCharging={props.isCharging} isOff={props.isOff} />
-})`
+const ChargerContainer = styled.div`
   position: absolute;
   padding: 0 ${props => props.theme.size.layout[300]};
   justify-self: center;
@@ -31,3 +30,13 @@ export default styled.div.attrs({
   overflow: hidden;
   cursor: pointer;
 `
+
+export default () => {
+  const [{ isOff, isCharging}, setDevice] = useDevice()
+
+  return (
+    <ChargerContainer onClick={() => setDevice.isCharging(!isCharging)}>
+      <Charger isCharging={isCharging} isOff={isOff} />
+    </ChargerContainer>
+  )
+}

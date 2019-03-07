@@ -154,13 +154,7 @@ export default ({
                 setDevice.isOff(!isOff)
                 route.location.pathname !== '/' && navigate('/')
               }} />
-              {!headerAction && (
-                <Charger
-                  isCharging={isCharging}
-                  isOff={isOff}
-                  onClick={() => setDevice.isCharging(!isCharging)}
-                />)
-              }
+              {!headerAction && <Charger />}
               <Device {...deviceProps} {...props}>
                 {!isOff && hasHeader && (
                   <DeviceHeader {...deviceProps}>
