@@ -1,7 +1,5 @@
-import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const ButtonBase = styled.button`
   display: flex;  
@@ -41,15 +39,5 @@ export const ButtonLink = styled(Link)`
     color: inherit;
   }
 `
-
-const Icon = styled(FontAwesomeIcon)`
-  /* color: white; */
-`
-
-export const ButtonIcon = ({icon, ...props}) => (
-  <Button {...props}>
-    <Icon icon={icon} />
-  </Button>
-)
 
 export default Button

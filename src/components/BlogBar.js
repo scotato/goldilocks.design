@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import moment from 'moment'
 
 import Logo from './Logo'
@@ -42,11 +41,11 @@ const BrandHome = styled(Link).attrs({
   }
 `
 
-const BrandHomeIcon = styled(FontAwesomeIcon).attrs({
-  icon: 'angle-left'
-})`
-  transform: scale(2);
-`
+// const BrandHomeIcon = styled(Icon).attrs({
+//   icon: 'angle-left'
+// })`
+//   transform: scale(2);
+// `
 
 const PostDate = styled.span`
   justify-self: end;
@@ -62,7 +61,7 @@ export default ({
   return (
     <BlogBar {...props}>
       <BrandHome title={siteTitle}>
-        <BrandHomeIcon />
+        {/* <BrandHomeIcon /> */}
       </BrandHome>
 
       <BrandLogo />
