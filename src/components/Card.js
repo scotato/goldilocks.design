@@ -68,14 +68,14 @@ const CardDetails = styled.div`
   align-items: center;
 
   ${props => props.theme.media.tabletHorizontal`
-    grid-template-columns: ${props => props.theme.size.layout[550]} auto auto;
+    grid-template-columns: ${props => props.theme.size.layout[600]} auto auto;
     grid-column-gap: ${props => props.theme.size.layout[350]};
     grid-row-gap: ${props => props.theme.size.layout[200]};
     padding: ${props => props.theme.size.layout[350]};
   `}
 
   ${props => props.theme.media.phone`
-    grid-template-columns: ${props => props.theme.size.layout[600]} auto auto;
+    grid-template-columns: ${props => props.theme.size.layout[650]} auto auto;
     grid-column-gap: ${props => props.theme.size.layout[400]};
     grid-row-gap: ${props => props.theme.size.layout[250]};
     padding: ${props => props.theme.size.layout[400]};
@@ -91,10 +91,17 @@ const CardHero = styled.div`
 const CardBadge = styled.div`
   display: flex;
   grid-area: badge;
-  width: 100%;
-  height: 100%;
+  height: ${props => props.theme.size.layout[500]};
   border-radius: ${props => props.theme.size.layout[300]};
   overflow: hidden;
+
+  ${props => props.theme.media.tabletHorizontal`
+    height: ${props => props.theme.size.layout[600]};
+  `}
+
+  ${props => props.theme.media.phone`
+    height: ${props => props.theme.size.layout[650]};
+  `}
 `
 
 const CardTitle = styled.h2`

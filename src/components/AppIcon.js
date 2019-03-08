@@ -17,6 +17,10 @@ const Badge = styled.div`
   transition: transform .1s ease-out;
   will-change: transform;
   line-height: 1;
+
+  svg {
+    width: 100%;
+  }
 `
 
 const AppTitle = styled.span`

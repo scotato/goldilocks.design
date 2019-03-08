@@ -23,7 +23,6 @@ const getChargerPositionTablet = props => {
   } else {
     return `${props.theme.size.layout[400]}`
   }
-  return 0
 }
 
 const Charger = styled(ChargerSVG)`
