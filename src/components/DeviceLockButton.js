@@ -16,6 +16,15 @@ const LockButton = styled(ButtonBase).attrs({
   top: ${props => props.theme.size.layout[550]};
   right: ${props => props.theme.size.layout[550]};
   width: ${props => props.theme.size.layout[300]};
+  /* grid-area: layout-body-margin-bottom; */
+
+  ${props => props.theme.media.tabletHorizontal`
+    margin-right: ${props => props.theme.size.layout[200]};
+    padding: ${props => props.theme.size.layout[300]};
+    top: ${props => props.theme.size.layout[650]};
+    right: ${props => props.theme.size.layout[100]};
+    width: ${props => props.theme.size.layout[400]};
+  `}
 
   svg {
     transform: translateX(${props => props.isMouseDown ? -2 : 0}px);

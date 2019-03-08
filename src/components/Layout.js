@@ -16,7 +16,7 @@ const Layout = styled.div`
   grid-template-areas:
     ". . ."
     ". layout-body ."
-    ". . .";
+    ". layout-body-margin-bottom .";
   min-height: 100vh;
   width: 100vw;
 

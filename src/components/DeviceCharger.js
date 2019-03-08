@@ -25,30 +25,43 @@ const getChargerPositionTablet = props => {
 }
 
 const Charger = styled(ChargerSVG)`
+  display: block;
+  margin: 0 ${props => props.theme.size.layout[300]};
   transform: translateY(${getChargerPosition});
   transition: transform .2s ease-out;
   will-change: transform;
 
   ${props => props.theme.media.tabletHorizontal`
+    margin: 0 ${props => props.theme.size.layout[400]};
     transform: translateY(${getChargerPositionTablet});
   `}
 `
 
 const ChargerContainer = styled.div`
-  position: absolute;
-  padding: 0 ${props => props.theme.size.layout[300]};
-  justify-self: center;
-  bottom: 0;
   width: ${props => props.theme.size.layout[500]};
-  height: ${props => props.theme.size.layout[400]};
+  height: ${props => props.theme.size.layout[500]};
+  grid-area: layout-body-margin-bottom;
+  justify-self: center;
   overflow: hidden;
   cursor: pointer;
 
   ${props => props.theme.media.tabletHorizontal`
-    padding: 0 ${props => props.theme.size.layout[400]};
     width: ${props => props.theme.size.layout[600]};
-    height: ${props => props.theme.size.layout[500]};
+    height: ${props => props.theme.size.layout[600]}
   `}
+
+  &:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: ${props => props.theme.size.layout[500]};
+    height: ${props => props.theme.size.layout[500]};
+
+    ${props => props.theme.media.tabletHorizontal`
+    width: ${props => props.theme.size.layout[600]};
+    height: ${props => props.theme.size.layout[600]};
+  `}
+  }
 `
 
 export default () => {
