@@ -18,6 +18,14 @@ const LockScreen = styled.div`
 
 const Notification = styled(Card)`
   width: ${props => props.theme.size.layout[800]};
+  
+  ${props => props.theme.media.tabletHorizontal`
+    width: ${props => props.theme.size.layout[850]};
+  `}
+
+  ${props => props.theme.media.phone`
+    width: ${props => props.theme.size.layout[900]};
+  `}
 `
 
 const notifications = [{

@@ -7,6 +7,20 @@ const Network = styled.div`
   align-items: center;
   user-select: none;
   height: ${props => props.theme.size.layout[350]};
+  font-size: ${props => props.theme.size.typography[300]};
+
+  ${props => props.theme.media.tabletHorizontal`
+    height: ${props => props.theme.size.layout[400]};
+    font-size: ${props => props.theme.size.typography[400]};
+    font-weight: 500;
+    letter-spacing: -0.025em;
+  `}
+
+  ${props => props.theme.media.phone`
+    height: ${props => props.theme.size.layout[450]};
+    font-size: ${props => props.theme.size.typography[500]};
+    font-weight: 600;
+  `}
 `
 
 export default props => {

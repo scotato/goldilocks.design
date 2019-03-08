@@ -19,6 +19,11 @@ const Layout = styled.div`
     ". . .";
   min-height: 100vh;
   width: 100vw;
+
+  ${props => props.theme.media.tabletHorizontal`
+    grid-template-columns: ${props => props.theme.size.layout[500]} auto ${props => props.theme.size.layout[500]};
+    grid-template-rows: ${props => props.theme.size.layout[500]} auto ${props => props.theme.size.layout[500]};
+  `}
 `
 
 export default props => {

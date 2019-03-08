@@ -43,6 +43,14 @@ const DeviceHeader = styled.header`
     ? props.theme.colors.black[700]
     : props.theme.colors.black[400]};
   text-transform: uppercase;
+
+  ${props => props.theme.media.tabletHorizontal`
+    grid-template-rows: ${props => props.theme.size.layout[500]};
+  `}
+
+  ${props => props.theme.media.phone`
+    grid-template-rows: ${props => props.theme.size.layout[550]};
+  `}
 `
 
 const DeviceHeaderNav = styled.nav`

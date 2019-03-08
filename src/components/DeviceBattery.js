@@ -7,6 +7,14 @@ const Battery = styled.div`
   display: flex;
   align-items: center;
   height: ${props => props.theme.size.layout[400]};
+
+  ${props => props.theme.media.tabletHorizontal`
+    height: ${props => props.theme.size.layout[450]};
+  `}
+
+  ${props => props.theme.media.phone`
+    height: ${props => props.theme.size.layout[500]};
+  `}
 `
 
 const Bolt = styled(IconBolt)`
@@ -14,6 +22,14 @@ const Bolt = styled(IconBolt)`
   transform: scale(${props => props.isActive ? 1 : 0});
   transition: transform .2s ease-out;
   will-change: transform;
+
+  ${props => props.theme.media.tabletHorizontal`
+    height: ${props => props.theme.size.layout[400]};
+  `}
+
+  ${props => props.theme.media.phone`
+    height: ${props => props.theme.size.layout[450]};
+  `}
 `
 
 export default props => (

@@ -19,6 +19,18 @@ const Time = styled.span.attrs({
   children: props => <TimeString format={props.format} />
 })`
   font-size: ${props => props.theme.size.typography[props.fontSize || 500]};
+
+  ${props => props.theme.media.tabletHorizontal`
+    font-size: ${props => props.theme.size.typography[
+      props.fontSize ? props.fontSize + 100 : 600
+    ]};
+  `}
+
+  ${props => props.theme.media.phone`
+    font-size: ${props => props.theme.size.typography[
+      props.fontSize ? props.fontSize + 200 : 700
+    ]};
+  `}
 `
 
 const timeSizes = {
