@@ -11,7 +11,7 @@ const Badge = styled.div`
   align-items: center;
   color: ${props => props.theme.colors.black[100]};
   width: 100%;
-  border-radius: 25%;
+  border-radius: 33%;
   background-color: ${props => props.theme.colors[props.color][props.colorWeight]};
   transform: scale(${props => props.isMouseDown ? 0.975 : 1});
   transition: transform .1s ease-out;

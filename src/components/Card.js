@@ -40,12 +40,12 @@ const Card = styled(Link)`
   color: inherit;
 
   ${props => props.theme.media.tabletHorizontal`
-    border-radius: ${props => props.theme.size.layout[450]};
+    border-radius: ${props => props.theme.size.layout[500]};
     border-width: ${props => props.theme.size.layout[150]};
   `}
 
   ${props => props.theme.media.phone`
-    border-radius: ${props => props.theme.size.layout[500]};
+    border-radius: ${props => props.theme.size.layout[550]};
     border-width: ${props => props.theme.size.layout[200]};
   `}
 
@@ -59,26 +59,28 @@ const CardDetails = styled.div`
   grid-template-columns: ${props => props.theme.size.layout[500]} auto auto;
   grid-template-rows: auto auto;
   grid-column-gap: ${props => props.theme.size.layout[300]};
-  grid-row-gap: ${props => props.theme.size.layout[150]};
+  grid-row-gap: ${props => props.theme.size.layout[200]};
   grid-template-areas: 
     "badge title title"
     "badge detail timestamp";
   padding: ${props => props.theme.size.layout[300]};
-  padding-right: ${props => props.theme.size.layout[350]};
+  padding-right: ${props => props.theme.size.layout[400]};
   align-items: center;
 
   ${props => props.theme.media.tabletHorizontal`
     grid-template-columns: ${props => props.theme.size.layout[600]} auto auto;
-    grid-column-gap: ${props => props.theme.size.layout[350]};
-    grid-row-gap: ${props => props.theme.size.layout[200]};
+    grid-column-gap: ${props => props.theme.size.layout[400]};
+    grid-row-gap: ${props => props.theme.size.layout[300]};
     padding: ${props => props.theme.size.layout[350]};
+    padding-right: ${props => props.theme.size.layout[450]};
   `}
 
   ${props => props.theme.media.phone`
     grid-template-columns: ${props => props.theme.size.layout[650]} auto auto;
-    grid-column-gap: ${props => props.theme.size.layout[400]};
-    grid-row-gap: ${props => props.theme.size.layout[250]};
-    padding: ${props => props.theme.size.layout[400]};
+    grid-column-gap: ${props => props.theme.size.layout[450]};
+    grid-row-gap: ${props => props.theme.size.layout[350]};
+    padding: ${props => props.theme.size.layout[450]};
+    padding-right: ${props => props.theme.size.layout[500]};
   `}
 `
 
@@ -92,8 +94,6 @@ const CardBadge = styled.div`
   display: flex;
   grid-area: badge;
   height: ${props => props.theme.size.layout[500]};
-  border-radius: ${props => props.theme.size.layout[300]};
-  overflow: hidden;
 
   ${props => props.theme.media.tabletHorizontal`
     height: ${props => props.theme.size.layout[600]};
@@ -108,16 +108,17 @@ const CardTitle = styled.h2`
   margin: 0;
   grid-area: title;
   align-self: end;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1;
-  font-size: ${props => props.theme.size.typography[300]};
+  font-size: ${props => props.theme.size.layout[350]};
+  color: ${props => props.theme.colors.black[700]};
 
   ${props => props.theme.media.tabletHorizontal`
-    font-size: ${props => props.theme.size.typography[400]};
+    font-size: ${props => props.theme.size.layout[400]};
   `}
 
   ${props => props.theme.media.phone`
-    font-size: ${props => props.theme.size.typography[500]};
+    font-size: ${props => props.theme.size.layout[500]};
   `}
 `
 
@@ -125,15 +126,15 @@ const CardDetail = styled.span`
   grid-area: detail;
   align-self: baseline;
   color: ${props => props.theme.colors.black[500]};
-  font-size: ${props => props.theme.size.typography[200]};
+  font-size: ${props => props.theme.size.layout[250]};
   line-height: 1;
 
   ${props => props.theme.media.tabletHorizontal`
-    font-size: ${props => props.theme.size.typography[300]};
+    font-size: ${props => props.theme.size.layout[350]};
   `}
 
   ${props => props.theme.media.phone`
-    font-size: ${props => props.theme.size.typography[400]};
+    font-size: ${props => props.theme.size.layout[450]};
   `}
 `
 
@@ -142,15 +143,15 @@ const CardTimestamp = styled.span`
   justify-self: flex-end;
   align-self: baseline;
   color: ${props => props.theme.colors.black[500]};
-  font-size: ${props => props.theme.size.typography[200]};
+  font-size: ${props => props.theme.size.layout[250]};
   line-height: 1;
 
   ${props => props.theme.media.tabletHorizontal`
-    font-size: ${props => props.theme.size.typography[300]};
+    font-size: ${props => props.theme.size.layout[350]};
   `}
 
   ${props => props.theme.media.phone`
-    font-size: ${props => props.theme.size.typography[400]};
+    font-size: ${props => props.theme.size.layout[450]};
   `}
 `
 
