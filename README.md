@@ -1,7 +1,7 @@
 # 🐻 goldilocks design
-building software that's just right
+thoughts on the web
 
-# 🤖 hack
+# 🤖 run it!
 1. clone
 2. `yarn install`
 3. `yarn start`
