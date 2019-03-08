@@ -24,6 +24,11 @@ const Layout = styled.div`
     grid-template-columns: ${props => props.theme.size.layout[500]} auto ${props => props.theme.size.layout[500]};
     grid-template-rows: ${props => props.theme.size.layout[500]} auto ${props => props.theme.size.layout[500]};
   `}
+
+${props => props.theme.media.phone`
+    grid-template-columns: 0 auto 0;
+    grid-template-rows: 0 auto 0;
+  `}
 `
 
 export default props => {
