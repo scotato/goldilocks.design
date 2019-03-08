@@ -23,10 +23,12 @@ const getChargerPositionTablet = props => {
   } else {
     return `${props.theme.size.layout[400]}`
   }
+  return 0
 }
 
 const Charger = styled(ChargerSVG)`
   display: block;
+  margin: 0 auto;
   width: ${props => props.theme.size.layout[400]};
   transform: translateY(${getChargerPosition});
   transition: transform .2s ease-out;
@@ -40,6 +42,7 @@ const Charger = styled(ChargerSVG)`
 
 const ChargerContainer = styled(ButtonBase)`
   position: relative;
+  display: block;
   width: ${props => props.theme.size.layout[500]};
   height: ${props => props.theme.size.layout[400]};
   grid-area: layout-body-margin-bottom;
