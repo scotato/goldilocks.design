@@ -49,7 +49,7 @@ const ChargerContainer = styled(ButtonBase)`
 
   ${props => props.theme.media.tabletHorizontal`
     width: ${props => props.theme.size.layout[600]};
-    height: ${props => props.theme.size.layout[500]}
+    height: ${props => props.theme.size.layout[500]};
   `}
 
   &:before {
