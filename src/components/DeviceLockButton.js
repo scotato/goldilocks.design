@@ -9,18 +9,25 @@ import { ButtonBase } from './Button'
 const LockButton = styled(ButtonBase).attrs({
   children: <LockButtonSVG />
 })`
+  display: block;
+  position: relative;
   grid-area: layout-body-margin-right;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-items: flex-start;
+  align-self: flex-start;
+  margin-top: ${props => props.theme.size.layout[500]};
+  padding-top: ${props => props.theme.size.layout[300]};
+  padding-bottom: ${props => props.theme.size.layout[300]};
+  padding-right: ${props => props.theme.size.layout[300]};
+  width: ${props => props.theme.size.layout[350]};
 
   ${props => props.theme.media.tabletHorizontal`
-    
+    margin-top: ${props => props.theme.size.layout[450]};
+    padding-top: ${props => props.theme.size.layout[450]};
+    padding-bottom: ${props => props.theme.size.layout[450]};
+    padding-right: ${props => props.theme.size.layout[450]};
+    width: ${props => props.theme.size.layout[500]};
   `}
 
   svg {
-    /* margin-right: auto; */
-    width: ${props => props.theme.size.layout[300]};
     transform: translateX(${props => props.isMouseDown ? -2 : 0}px);
     transition: transform .2s ease-out;
     will-change: transform;
@@ -36,6 +43,19 @@ const LockButton = styled(ButtonBase).attrs({
       : props.theme.colors.black[200]
     };
   }
+
+  /* &:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    height: ${props => props.theme.size.layout[600]};
+    top: 0;
+    left: 0;
+
+    ${props => props.theme.media.tabletHorizontal`
+    // width: ${props => props.theme.size.layout[600]};
+      height: ${props => props.theme.size.layout[500]};
+  `} */
 `
 
 export default () => {
