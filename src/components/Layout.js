@@ -14,8 +14,8 @@ const Layout = styled.div`
   grid-template-columns: auto ${props => props.theme.size.layout[900]} auto;
   grid-template-rows: ${props => props.theme.size.layout[400]} auto ${props => props.theme.size.layout[400]};
   grid-template-areas:
-    ". . ."
-    ". layout-body ."
+    ". layout-body-margin-top ."
+    "layout-body-margin-left layout-body layout-body-margin-right"
     ". layout-body-margin-bottom .";
   min-height: 100vh;
   width: 100vw;

@@ -9,24 +9,18 @@ import { ButtonBase } from './Button'
 const LockButton = styled(ButtonBase).attrs({
   children: <LockButtonSVG />
 })`
-  position: absolute;
-  margin-right: ${props => props.theme.size.layout[300]};
-  padding: ${props => props.theme.size.layout[200]};
-  padding-left: 0;
-  top: ${props => props.theme.size.layout[550]};
-  right: ${props => props.theme.size.layout[550]};
-  width: ${props => props.theme.size.layout[300]};
-  /* grid-area: layout-body-margin-bottom; */
+  grid-area: layout-body-margin-right;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-items: flex-start;
 
   ${props => props.theme.media.tabletHorizontal`
-    margin-right: ${props => props.theme.size.layout[200]};
-    padding: ${props => props.theme.size.layout[300]};
-    top: ${props => props.theme.size.layout[650]};
-    right: ${props => props.theme.size.layout[100]};
-    width: ${props => props.theme.size.layout[400]};
+    
   `}
 
   svg {
+    /* margin-right: auto; */
+    width: ${props => props.theme.size.layout[300]};
     transform: translateX(${props => props.isMouseDown ? -2 : 0}px);
     transition: transform .2s ease-out;
     will-change: transform;
