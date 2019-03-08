@@ -20,11 +20,16 @@ const LockButton = styled(ButtonBase).attrs({
   width: ${props => props.theme.size.layout[350]};
 
   ${props => props.theme.media.tabletHorizontal`
-    margin-top: ${props => props.theme.size.layout[450]};
-    padding-top: ${props => props.theme.size.layout[450]};
-    padding-bottom: ${props => props.theme.size.layout[450]};
+    margin-top: ${props => props.theme.size.layout[500]};
+    padding-top: ${props => props.theme.size.layout[500]};
+    padding-bottom: ${props => props.theme.size.layout[500]};
     padding-right: ${props => props.theme.size.layout[450]};
     width: ${props => props.theme.size.layout[500]};
+  `}
+
+  ${props => props.theme.media.phone`
+    margin-top: ${props => props.theme.size.layout[600]};
+    padding-right: ${props => props.theme.size.layout[400]};
   `}
 
   svg {

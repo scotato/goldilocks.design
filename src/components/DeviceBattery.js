@@ -13,7 +13,7 @@ const Battery = styled.div`
   `}
 
   ${props => props.theme.media.phone`
-    height: ${props => props.theme.size.layout[500]};
+    height: ${props => props.theme.size.layout[550]};
   `}
 `
 

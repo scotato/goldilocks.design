@@ -17,7 +17,7 @@ const Network = styled.div`
   `}
 
   ${props => props.theme.media.phone`
-    height: ${props => props.theme.size.layout[450]};
+    height: ${props => props.theme.size.layout[500]};
     font-size: ${props => props.theme.size.typography[500]};
     font-weight: 600;
   `}

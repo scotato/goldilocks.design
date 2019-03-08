@@ -24,6 +24,14 @@ const Device = styled.div`
   border-radius: ${props => props.theme.size.layout[400]};
   will-change: border-top, background-color, box-shadow;
   transition: border-top .2s ease-out, background-color .2s ease-out, box-shadow .2s ease-out;
+
+  ${props => props.theme.media.tabletHorizontal`
+    border-radius: ${props => props.theme.size.layout[500]};
+  `}
+
+  ${props => props.theme.media.phone`
+    border-radius: ${props => props.theme.size.layout[550]};
+  `}
 `
 
 const LockLogo = styled(Logo)`
@@ -45,10 +53,12 @@ const DeviceHeader = styled.header`
   text-transform: uppercase;
 
   ${props => props.theme.media.tabletHorizontal`
+    padding: ${props => `${props.theme.size.layout[400]} ${props.theme.size.layout[450]}`};
     grid-template-rows: ${props => props.theme.size.layout[500]};
   `}
 
   ${props => props.theme.media.phone`
+    padding: ${props => props.theme.size.layout[500]};
     grid-template-rows: ${props => props.theme.size.layout[550]};
   `}
 `
