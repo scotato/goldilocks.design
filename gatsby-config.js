@@ -3,8 +3,8 @@ require('dotenv').config()
 module.exports = {
   siteMetadata: {
     title: `goldilocks design`,
-    titleAlt: `goldilocks design - building software that's just right`,
-    description: `building software that's just right`,
+    titleAlt: `goldilocks design - thoughts on the web`,
+    description: `thoughts on the web`,
     author: `@scotato`,
     twitter: '@scotato',
     siteUrl: 'https://goldilocks.design', // https://www.gatsbyjs.org/docs/path-prefix
