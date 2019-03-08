@@ -108,13 +108,14 @@ const CardTitle = styled.h2`
   margin: 0;
   grid-area: title;
   align-self: end;
-  font-weight: 500;
   line-height: 1;
-  font-size: ${props => props.theme.size.layout[350]};
   color: ${props => props.theme.colors.black[700]};
+  font-size: ${props => props.theme.size.layout[350]};
+  font-weight: 400;
 
   ${props => props.theme.media.tabletHorizontal`
     font-size: ${props => props.theme.size.layout[400]};
+    font-weight: 500;
   `}
 
   ${props => props.theme.media.phone`

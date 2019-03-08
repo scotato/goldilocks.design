@@ -18,17 +18,19 @@ const TimeString = props => {
 const Time = styled.span.attrs({
   children: props => <TimeString format={props.format} />
 })`
-  font-size: ${props => props.theme.size.typography[props.fontSize || 500]};
+  font-size: ${props => props.theme.size.layout[props.fontSize || 500]};
+  font-weight: 300;
 
   ${props => props.theme.media.tabletHorizontal`
-    font-size: ${props => props.theme.size.typography[
-      props.fontSize ? props.fontSize + 100 : 600
+    font-size: ${props => props.theme.size.layout[
+      props.fontSize ? props.fontSize + 50 : 600
     ]};
+    font-weight: 400;
   `}
 
   ${props => props.theme.media.phone`
-    font-size: ${props => props.theme.size.typography[
-      props.fontSize ? props.fontSize + 200 : 700
+    font-size: ${props => props.theme.size.layout[
+      props.fontSize ? props.fontSize + 150 : 700
     ]};
   `}
 `
@@ -41,7 +43,7 @@ const timeSizes = {
 
 const dateSizes = {
   sm: 100,
-  md: 200,
+  md: 350,
   lg: 500
 }
 
