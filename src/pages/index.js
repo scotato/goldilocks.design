@@ -40,7 +40,7 @@ const notifications = [{
   },
   title: 'goldilocks design',
   detail: 'v1.0.0',
-  date: '03/06/2019 14:30',
+  date: '03/08/2019 14:33',
   to: 'https://github.com/scotato/goldilocks.design',
 }]
 
