@@ -24,10 +24,6 @@ const Notification = styled(Card)`
   `}
 
   ${props => props.theme.media.tabletVertical`
-    width: ${props => props.theme.size.layout[900]};
-  `}
-
-  ${props => props.theme.media.phone`
     width: 100%;
   `}
 `

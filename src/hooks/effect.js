@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useDevice } from './'
+import { useDevice, useView } from './'
 
 export const useDeviceEffect = () => {
   const [{ batteryLevel, ...device }, setDevice] = useDevice()
@@ -24,4 +24,23 @@ export const useDeviceEffect = () => {
     }, 1000)
     return () => clearInterval(batteryInterval)
   })
+}
+
+export const useViewEffect = () => {
+  const [{ width, height}, setView] = useView()
+  const isBrowser = typeof window !== 'undefined'
+
+  if (isBrowser) {
+    !width && setView.width(window.innerWidth)
+    !height && setView.height(window.innerHeight)
+
+    useEffect(() => {
+      const onResize = () => {
+        setView.width(window.innerWidth)
+        setView.height(window.innerHeight)
+      }
+      window.addEventListener('resize', onResize)
+      return () => window.removeEventListener('resize', onResize)
+    })  
+  }
 }

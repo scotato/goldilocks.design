@@ -5,5 +5,6 @@ import size from './size'
 export default windowSize => ({
   size: size(windowSize),
   colors,
-  media
+  media,
+  window: windowSize
 })

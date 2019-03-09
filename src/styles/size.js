@@ -22,8 +22,7 @@ const layout = base => getScale(base, 2, 1)
   .map(val => `${val}px`)
   .reduce(flatten(50), {}) // {50: 2px, 100: 4px, ...}
 
-export default windowSize => {
-  const { width, height } = windowSize
+export default ({ width, height }) => {
   const typographyRatio = 20 / 1280
   const layoutRatio = 2 / 1280
   
@@ -31,7 +30,6 @@ export default windowSize => {
     typography,
     layout: layout(layoutRatio * width), // pin scale to view width
     typographyBase: `${typographyRatio * width}px`, // pin base to view width
-    window: windowSize,
     isLandscape: width > height,
     isPortrait: height > width
   }

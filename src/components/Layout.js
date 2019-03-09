@@ -1,11 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { StaticQuery, graphql } from 'gatsby'
 import { ThemeProvider } from 'styled-components'
-import WindowSize from "@reach/window-size"
 
-import { usePage } from '../hooks'
-import getTheme from '../styles/theme'
+import { useTheme, usePage, useView, useViewEffect } from '../hooks'
 import SEO from './SEO'
 import GlobalStyle from '../styles/global-style'
 
@@ -33,42 +30,26 @@ ${props => props.theme.media.phone`
 
 export default props => {
   const [{ id, title, color, colorWeight }, setPage] = usePage()
-  props.page && (props.page.id !== id) && setPage.page(props.page)
+  const [{ width, height }, setView] = useView()
+  const [theme] = useTheme()
+  const shouldSetWidth = theme.window.height !== height
+  const shouldSetHeight = theme.window.width !== width
+  const shouldSetPage = props.page && (props.page.id !== id)
+  shouldSetWidth && setView.width(width)
+  shouldSetHeight && setView.height(height)
+  shouldSetPage && setPage.page(props.page)
+  
+  useViewEffect()
 
   return (
-    <StaticQuery
-      query={graphql`
-        query SiteTitleQuery {
-          site {
-            siteMetadata {
-              title
-            }
-          }
-        }
-      `}
-      render={data => (
-        <WindowSize>
-          {size => {
-            const theme = getTheme(size)
-
-            return (
-              <ThemeProvider theme={theme}>
-              <>
-                <GlobalStyle bodyBg={theme.colors[color][colorWeight]} />
-                <SEO title={
-                  title
-                  ? `${title} - ${data.site.siteMetadata.title}`
-                  : data.site.siteMetadata.title
-                } />
-                <Layout>
-                  {props.children}
-                </Layout>
-              </>
-            </ThemeProvider>
-            )
-          }}
-        </WindowSize>
-      )}
-    />
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyle bodyBg={theme.colors[color][colorWeight]} />
+        <SEO title={title} />
+        <Layout>
+          {props.children}
+        </Layout>
+      </>
+    </ThemeProvider>
   )
 }

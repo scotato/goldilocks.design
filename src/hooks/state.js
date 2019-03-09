@@ -1,4 +1,5 @@
 import createPersistedState from 'use-persisted-state'
+import getTheme from '../styles/theme'
 
 const useSettingsIsDarkModeState = createPersistedState('settings.isDarkMode')
 
@@ -72,5 +73,28 @@ export const useDevice = () => {
         setBatteryLevel(device.batteryLevel || batteryLevel)
       }
     }
+  ]
+}
+
+const useViewWidthState = createPersistedState('view.width')
+const useViewHeightState = createPersistedState('view.height')
+
+export const useView = () => {
+  const [width, setWidth] = useViewWidthState(1280)
+  const [height, setHeight] = useViewHeightState(720)
+
+  return [{
+    width,
+    height,
+  }, {
+    width: val => setWidth(val),
+    height: val => setHeight(val),
+  }]
+}
+
+export const useTheme = () => {
+  const [view] = useView()
+  return [
+    getTheme(view)
   ]
 }
