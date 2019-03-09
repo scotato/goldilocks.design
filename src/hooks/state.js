@@ -1,5 +1,4 @@
 import createPersistedState from 'use-persisted-state'
-import getTheme from '../styles/theme'
 
 const useSettingsIsDarkModeState = createPersistedState('settings.isDarkMode')
 
@@ -90,11 +89,4 @@ export const useView = () => {
     width: val => setWidth(val),
     height: val => setHeight(val),
   }]
-}
-
-export const useTheme = () => {
-  const [view] = useView()
-  return [
-    getTheme(view)
-  ]
 }

@@ -27,20 +27,19 @@ export const useDeviceEffect = () => {
 }
 
 export const useViewEffect = () => {
-  const [{ width, height}, setView] = useView()
-  const isBrowser = typeof window !== 'undefined'
-
-  if (isBrowser) {
-    !width && setView.width(window.innerWidth)
-    !height && setView.height(window.innerHeight)
-
-    useEffect(() => {
-      const onResize = () => {
-        setView.width(window.innerWidth)
-        setView.height(window.innerHeight)
-      }
-      window.addEventListener('resize', onResize)
-      return () => window.removeEventListener('resize', onResize)
-    })  
+  const [{ width, height }, setView] = useView()
+  
+  const setViewIfChanged = () => {
+    const shouldSetWidth = width !== window.innerWidth
+    const shouldSetHeight = height !== window.innerHeight
+    shouldSetWidth && setView.width(window.innerWidth)
+    shouldSetHeight && setView.height(window.innerHeight)
   }
+
+  setViewIfChanged()
+
+  useEffect(() => {
+    window.addEventListener('resize', setViewIfChanged)
+    return () => window.removeEventListener('resize', setViewIfChanged)
+  })  
 }

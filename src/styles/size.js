@@ -22,10 +22,10 @@ const layout = base => getScale(base, 2, 1)
   .map(val => `${val}px`)
   .reduce(flatten(50), {}) // {50: 2px, 100: 4px, ...}
 
-export default ({ width, height }) => {
+export default ({ width = 1280, height = 720 }) => {
   const typographyRatio = 20 / 1280
   const layoutRatio = 2 / 1280
-  
+
   return {
     typography,
     layout: layout(layoutRatio * width), // pin scale to view width

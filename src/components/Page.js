@@ -1,18 +1,19 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 
-import { useTheme, usePage, useView, useViewEffect } from '../hooks'
+import { usePage, useView, useViewEffect } from '../hooks'
 import GlobalStyle from '../styles/global-style'
+import getTheme from '../styles/theme'
 import Layout from './Layout'
 import Device from './Device'
 import SEO from './SEO'
 
 const Page = props => {
   const [{ id, title, color, colorWeight }, setPage] = usePage()
-  const [theme] = useTheme()
+  const theme = props.theme || getTheme()
   const shouldSetPage = props.data.page.id !== id
   shouldSetPage && setPage.page(props.data.page)
-  
+
   return (
     <ThemeProvider theme={theme}>
       <>
@@ -29,15 +30,11 @@ const Page = props => {
 }
 
 export const PageBrowser = ({children, ...props}) => {
-  const [{ width, height }, setView] = useView()
-  const shouldSetWidth = width !== window.innerWidth
-  const shouldSetHeight = height !== window.innerHeight
-  shouldSetWidth && setView.width(window.innerWidth)
-  shouldSetHeight && setView.height(window.innerHeight)  
+  const [view] = useView()
   useViewEffect()
-  console.log(width, height, shouldSetWidth)
+
   return (
-    <Page {...props}>
+    <Page theme={getTheme(view)} {...props}>
       {children}
     </Page> 
   )
