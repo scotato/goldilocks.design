@@ -2,8 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 
-import Layout from '../components/Layout'
-import Device from '../components/Device'
 import { TimeClockDate } from '../components/Time'
 import Card from '../components/Card'
 import { AppBadge } from '../components/AppIcon'
@@ -66,21 +64,17 @@ const LockScreenTime = styled(TimeClockDate)`
   `}
 `
 
-export default props => (
-  <Layout page={props.data.page}>
-    <Device footer>
-      <LockScreen hasNotifications={notifications.length}>
-        <LockScreenTime size={notifications.length ? 'md' : 'lg'} />
-        {notifications.map(notification => (
-          <Notification
-            {...notification}
-            key={notification.title}
-            badge={<AppBadge {...notification.badge}/>}
-          />
-        ))}
-      </LockScreen>
-    </Device>
-  </Layout>
+export default () => (
+  <LockScreen hasNotifications={notifications.length}>
+    <LockScreenTime size={notifications.length ? 'md' : 'lg'} />
+    {notifications.map(notification => (
+      <Notification
+        {...notification}
+        key={notification.title}
+        badge={<AppBadge {...notification.badge}/>}
+      />
+    ))}
+  </LockScreen>
 )
 
 export const query = graphql`

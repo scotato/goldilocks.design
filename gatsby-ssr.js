@@ -1,4 +1,7 @@
+import React from 'react'
 import { ServerStyleSheet } from 'styled-components'
+
+import Page from './src/components/Page'
 
 export const replaceRenderer = ({
   setHeadComponents,
@@ -8,3 +11,7 @@ export const replaceRenderer = ({
   const styleElement = sheet.getStyleElement()
   setHeadComponents(styleElement)
 }
+
+export const wrapPageElement = ({ element, props }) => (
+  <Page {...props}>{element}</Page>
+)
