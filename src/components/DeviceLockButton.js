@@ -48,19 +48,6 @@ const LockButton = styled(ButtonBase).attrs({
       : props.theme.colors.black[200]
     };
   }
-
-  /* &:before {
-    content: " ";
-    display: block;
-    position: absolute;
-    height: ${props => props.theme.size.layout[600]};
-    top: 0;
-    left: 0;
-
-    ${props => props.theme.media.tabletHorizontal`
-    // width: ${props => props.theme.size.layout[600]};
-      height: ${props => props.theme.size.layout[500]};
-  `} */
 `
 
 export default () => {
