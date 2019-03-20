@@ -38,7 +38,7 @@ const GlobalStyle = createGlobalStyle`
   blockquote {
     padding: 2em;
     color: ${props => props.theme.colors.black[600]};
-    background-color: ${props => props.theme.colors.black[100]};
+    background-color: ${props => props.theme.colors.black[200]};
     border-radius: 2em;
 
     p:last-child {

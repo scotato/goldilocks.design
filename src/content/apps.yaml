@@ -1,0 +1,6 @@
+- id: blog
+  icon: fa-book-open
+  slug: blog
+  title: Blog
+  color: yellow
+  colorWeight: 500
