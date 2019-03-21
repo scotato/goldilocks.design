@@ -1,44 +1,71 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
+
+import Message from './Message'
+import { BlobAnimated } from './Blob'
 
 const Banner = styled.section`
   position: relative;
+  display: grid;
+  margin-bottom: -${props => props.theme.size.layout[600]};
+  grid-template-rows: auto ${props => props.theme.size.layout[600]};
+  grid-template-areas:
+    "banner-body"
+    "banner-blob";
+  min-height: 100vh;
+  z-index: 1;
+  grid-area: banner;
+`
+
+const BannerBody = styled.div`
   display: flex;
-  margin: 0;
-  width: 100vw;
-  padding: 0 12.5vw;
-  height: 80vh;
+  padding: 0 ${props => props.theme.size.layout[600]};
+  padding-top: ${props => props.theme.size.layout[500]};
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  ${props => props.type === 'post' && css`
-    padding: 0 20vw;
-  `}
+  grid-area: banner-body;
+  background-color: ${props => props.theme.colors.yellow[500]};
 `
 
 const BannerTitle = styled.h1`
-  margin: 0;
+  position: relative;
   font-weight: 800;
   text-align: center;
   line-height: 1;
   user-select: none;
-  letter-spacing: -0.025em;
-  font-size: 20vh;
+  letter-spacing: -0.0125em;
+  font-size: ${props => props.theme.size.layout[600]};
   color: ${props => props.theme.colors.black[900]};
-
-  ${props => props.type === 'post' && css`
-    font-size: 15vh;    
-    line-height: 0.9;
-    letter-spacing: -0.0125em;
-  `}
 `
 
-export default ({ type, title, children, ...props }) => (
-  <Banner type={type} {...props}>
-    <BannerTitle type={type}>
-      {title}
-    </BannerTitle>
-    {children}
+const Blob = styled(BlobAnimated).attrs({
+  color: props => props.theme.colors.yellow[500] 
+})`
+`
+const BannerAccent = styled.div`
+  transform: rotate(180deg);
+  overflow: hidden;
+  grid-area: banner-blob;
+`
+const BannerMessage = styled(Message)`
+  margin-top: ${props => props.theme.size.layout[400]};
+`
+
+export default ({ title, children, author, intro, introLink, ...props }) => (
+  <Banner {...props}>
+    <BannerBody>
+      <BannerTitle>
+        {title}
+      </BannerTitle>
+      <BannerMessage
+        author={author}
+        children={intro}
+        to={introLink}
+        />
+    </BannerBody>
+    <BannerAccent>
+      <Blob />
+    </BannerAccent>
   </Banner>
 )

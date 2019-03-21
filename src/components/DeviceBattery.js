@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useDevice } from '../hooks'
 import { IndicatorBattery } from './Indicator'
 import { IconBolt } from './Icon'
 
@@ -32,9 +33,13 @@ const Bolt = styled(IconBolt)`
   `}
 `
 
-export default props => (
-  <Battery title={`Battery Level: ${props.level}%`}>
-    <Bolt isActive={props.isCharging} />
-    <IndicatorBattery level={Math.floor(props.level * 6 / 100)} />
-  </Battery>
-)
+export default props => {
+  const [{ isCharging, batteryLevel }] = useDevice()
+
+  return (
+    <Battery title={`Battery Level: ${batteryLevel}%`}>
+      <Bolt isActive={isCharging} />
+      <IndicatorBattery level={Math.floor(batteryLevel * 6 / 100)} />
+    </Battery>
+  )
+}

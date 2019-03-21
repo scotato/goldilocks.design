@@ -8,7 +8,6 @@ const gooey = keyframes`
 
   50% {
     transform: translateX(-50vw) scale(2, 1);
-
   }
 
   100% {
@@ -18,8 +17,8 @@ const gooey = keyframes`
 
 const Blob = styled(BlobLine)`
   width: 200vw;
-  height: 100%;
   user-select: none;
+  height: ${props => props.theme.size.layout[600]};
 
   path {
     fill: ${props => props.color};
@@ -31,8 +30,6 @@ const Blob = styled(BlobLine)`
 export const BlobAnimated = styled(Blob)`
   animation: ${gooey} 12s linear infinite;
   transform-origin: bottom;
-  bottom: 0;
-  left: 0;
 `
 
 export default Blob

@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 
-import Layout from '../components/Layout'
-import Device from '../components/Device'
 import AppIcon from '../components/AppIcon'
 
 const Apps = styled.div`
@@ -22,26 +20,22 @@ const Apps = styled.div`
   justify-content: center;
 `
 
-const HomePage = ({data: { page, apps }}) => (
-  <Layout page={page}>
-    <Device page={page} footer>
-      <Apps>
-        {apps.edges.map(edge => {
-          const app = edge.node
-          return (
-            <AppIcon
-              key={app.id}
-              title={app.title}
-              icon={app.icon}
-              to={app.slug}
-              color={app.color}
-              colorWeight={app.colorWeight}
-            />
-          )
-        })}
-      </Apps>
-    </Device>
-  </Layout>
+const HomePage = props => (
+  <Apps>
+    {props.data.apps.edges.map(edge => {
+      const app = edge.node
+      return (
+        <AppIcon
+          key={app.id}
+          title={app.title}
+          icon={app.icon}
+          to={app.slug}
+          color={app.color}
+          colorWeight={app.colorWeight}
+        />
+      )
+    })}
+  </Apps>
 )
 
 HomePage.propTypes = {

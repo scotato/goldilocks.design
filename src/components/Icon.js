@@ -24,6 +24,10 @@ import Plus from '../content/icons/plus.svg'
 import Plug from '../content/icons/plug.svg'
 import Api from '../content/icons/api.svg'
 import Goldilocks from '../content/brand/goldilocks-logo-knot-yellow.svg'
+import GoldilocksWhite from '../content/brand/goldilocks-logo-knot-white.svg'
+import GoldilocksDark from '../content/brand/goldilocks-logo-knot-dark.svg'
+import GoldilocksBlack from '../content/brand/goldilocks-logo-knot-black.svg'
+import GoldilocksSolid from '../content/brand/goldilocks-logo-knot-black-solid.svg'
 
 const fillContainer = css`
   height: 100%;
@@ -38,6 +42,10 @@ const icon = css`
 `
 
 export const IconGoldilocks = styled(Goldilocks)`${fillContainer}`
+export const IconGoldilocksWhite = styled(GoldilocksWhite)`${fillContainer}`
+export const IconGoldilocksDark = styled(GoldilocksDark)`${fillContainer}`
+export const IconGoldilocksBlack = styled(GoldilocksBlack)`${fillContainer}`
+export const IconGoldilocksSolid = styled(GoldilocksSolid)`${fillContainer}`
 export const IconBattery = styled(Battery)`${icon}`
 export const IconCellular = styled(Cellular)`${icon}`
 export const IconLock = styled(Lock)`${icon}`
@@ -64,6 +72,10 @@ export const IconFaGithub = styled(FaGithub)`${icon}`
 
 const icons = {
   goldilocks: IconGoldilocks,
+  'goldilocks-white': IconGoldilocksWhite,
+  'goldilocks-dark': IconGoldilocksDark,
+  'goldilocks-black': IconGoldilocksBlack,
+  'goldilocks-solid': IconGoldilocksSolid,
   battery: IconBattery,
   cellular: IconCellular,
   lock: IconLock,

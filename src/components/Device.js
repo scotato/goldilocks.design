@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSettings, usePage, useDevice, useDeviceEffect } from '../hooks'
+import { useSettings, useDevice, useDeviceEffect } from '../hooks'
 import styled from 'styled-components'
 import { Link } from "gatsby"
 
@@ -13,9 +13,9 @@ import Logo from '../components/Logo'
 
 const Device = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   grid-area: layout-body;
-  position: relative;
   background-color: ${props => props.isOff || props.isDarkMode
     ? props.theme.colors.black[900] 
     : props.theme.colors.black[100]
@@ -24,6 +24,7 @@ const Device = styled.div`
   border-radius: ${props => props.theme.size.layout[400]};
   will-change: border-top, background-color, box-shadow;
   transition: border-top .2s ease-out, background-color .2s ease-out, box-shadow .2s ease-out;
+  z-index: 2;
 
   ${props => props.theme.media.tabletHorizontal`
     border-radius: ${props => props.theme.size.layout[500]};
@@ -79,19 +80,6 @@ const DeviceHeaderAction = styled.div`
   justify-self: end;
 `
 
-const DeviceBody = styled.main`
-  display: flex;
-  padding: ${props => `${props.theme.size.layout[400]}`} ${props => `${props.theme.size.layout[500]}`};
-  align-items: stretch;
-  justify-content: stretch;
-  flex-direction: column;
-  flex-grow: 1;
-`
-
-const DeviceFooter = styled.footer`
-  min-height: ${props => props.theme.size.layout[450]};
-`
-
 const DeviceNav = styled(Link)`
   display: inline-flex;
   align-items: center;
@@ -109,46 +97,51 @@ const DeviceNav = styled(Link)`
   }
 `
 
-export default ({
-  children,
-  headerNav,
-  headerIcon,
-  headerAction,
-  footer,
-  shouldShowNav
-}) => {
+const DeviceBody = styled.main`
+  display: flex;
+  padding: ${props => `${props.theme.size.layout[400]}`} ${props => `${props.theme.size.layout[500]}`};
+  align-items: stretch;
+  justify-content: stretch;
+  flex-direction: column;
+  flex-grow: 1;
+`
+
+const DeviceFooter = styled.footer`
+  min-height: ${props => props.theme.size.layout[450]};
+`
+
+export default props => {
+  const { children, navTitle, navTo, detail, backgroundIsFlipped, icon, footer, page } = props
   const [{ isDarkMode }] = useSettings()
-  const [{ title, icon, color, colorWeight }] = usePage()
-  const [{ isOff, isCharging, batteryLevel }, setDevice] = useDevice()
-  const hasHeader = !!(headerNav || headerIcon || headerAction || icon)
+  const [{ isOff }, setDevice] = useDevice()
+  const hasHeader = !!(navTitle || detail || icon || page.icon)
   const hasFooter = !!footer
   useDeviceEffect()
 
   return (
     <>
-      <Background color={color} colorWeight={colorWeight} />
+      <Background {...page} isFlipped={backgroundIsFlipped} />
       <LockButton />
-      {!headerAction && <Charger />}
+      {!detail && <Charger />}
       <Device isOff={isOff} isDarkMode={isDarkMode}>
         {!isOff && hasHeader && (
           <DeviceHeader isDarkMode={isDarkMode}>
-            <DeviceHeaderNav>{shouldShowNav
+            <DeviceHeaderNav>
+              {navTitle
               ? (
-              <DeviceNav to='/home'>
-                <Icon name='chevron-left' />
-                {title}
-              </DeviceNav>
+                <DeviceNav to={navTo}>
+                  <Icon name='chevron-left' />
+                  {navTitle}
+                </DeviceNav>
               )
-              : <Network />
-            }</DeviceHeaderNav>
-            <DeviceHeaderIcon>{headerIcon
-              ? headerIcon
-              : <Icon name={icon} />
-            }</DeviceHeaderIcon>
-            <DeviceHeaderAction>{headerAction
-              ? headerAction
-              : <Battery isCharging={isCharging} level={batteryLevel} />
-            }</DeviceHeaderAction>
+              : <Network />}
+            </DeviceHeaderNav>
+            <DeviceHeaderIcon>
+              <Icon name={icon || page.icon} />
+            </DeviceHeaderIcon>
+            <DeviceHeaderAction>
+              {detail || <Battery /> }
+            </DeviceHeaderAction>
           </DeviceHeader>
         )}
         <DeviceBody>

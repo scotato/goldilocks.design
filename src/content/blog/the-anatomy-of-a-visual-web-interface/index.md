@@ -1,6 +1,6 @@
 ---
-title: Visual Web Interfaces
-intro: let's start with the basics
+title: Lorem Ipsum Dolor Sit Amet
+intro: lorem ipsum dolor sit amet
 introLink: https://www.w3schools.com
 author: scotato
 published: '2019-01-11'

@@ -11,8 +11,9 @@ const Background = styled.div`
   justify-content: flex-end;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
   border-top: ${props => props.theme.size.layout[100]} solid ${props => props.isOff || props.isDarkMode
     ? props.theme.colors.black[800] 
     : props.theme.colors[props.color][props.colorWeight]
@@ -23,6 +24,8 @@ const Background = styled.div`
   };
   will-change: border-top, background-color;
   transition: border-top .2s ease-out, background-color .2s ease-out;
+  z-index: 0;
+  transform: rotate(${props => props.isFlipped ? 180 : 0}deg);
 `
 
 const BackgroundBlob = styled(BlobAnimated).attrs({
@@ -41,7 +44,8 @@ export default props => {
     color,
     colorWeight,
     isDarkMode,
-    isOff
+    isOff,
+    isFlipped: props.isFlipped
   }
 
   return (

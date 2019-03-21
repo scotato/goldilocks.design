@@ -19,12 +19,12 @@ const usePageTitleState = createPersistedState('page.title')
 const usePageColorState = createPersistedState('page.color')
 const usePageColorWeightState = createPersistedState('page.colorWeight')
 
-export const usePage = () => {
-  const [id, setId] = usePageIdState('home')
-  const [icon, setIcon] = usePageIconState('goldilocks')
-  const [title, setTitle] = usePageTitleState('goldilocks')
-  const [color, setColor] = usePageColorState('black')
-  const [colorWeight, setColorWeight] = usePageColorWeightState(500)
+export const usePage = (page = {}) => {
+  const [id, setId] = usePageIdState(page.id || 'home')
+  const [icon, setIcon] = usePageIconState(page.icon || 'goldilocks')
+  const [title, setTitle] = usePageTitleState(page.title || 'goldilocks')
+  const [color, setColor] = usePageColorState(page.color || 'black')
+  const [colorWeight, setColorWeight] = usePageColorWeightState(page.colorWeight || 500)
 
   return [{
     id,
@@ -38,12 +38,12 @@ export const usePage = () => {
       title: val => setId(val),
       color: val => setId(val),
       colorWeight: val => setId(val),
-      page: page => {
-        setId(page.id || id)
-        setIcon(page.icon || icon)
-        setTitle(page.title || title)
-        setColor(page.color || color)
-        setColorWeight(page.colorWeight || colorWeight)
+      page: props => {
+        setId(props.id || id)
+        setIcon(props.icon || icon)
+        setTitle(props.title || title)
+        setColor(props.color || color)
+        setColorWeight(props.colorWeight || colorWeight)
       }
     }
   ]

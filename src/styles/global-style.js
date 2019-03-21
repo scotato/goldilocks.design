@@ -35,6 +35,27 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  h1 {
+    font-size: ${props => props.theme.size.layout[500]};
+    line-height: 1;
+  }
+
+  h2 {
+    font-size: ${props => props.theme.size.layout[450]};
+  }
+
+  h3 {
+    font-size: ${props => props.theme.size.layout[400]};
+  }
+
+  h4 {
+    font-size: ${props => props.theme.size.layout[350]};
+  }
+
+  h5 {
+    font-size: ${props => props.theme.size.layout[300]};
+  }
+
   blockquote {
     padding: 2em;
     color: ${props => props.theme.colors.black[600]};
