@@ -73,7 +73,7 @@ export default props => {
       colorWeight: 500,
     },
     title: latestPost.frontmatter.title,
-    detail: latestPost.frontmatter.intro,
+    detail: `${latestPost.timeToRead} minute read`,
     date: latestPost.frontmatter.published,
     to: latestPost.fields.slug,
   }]

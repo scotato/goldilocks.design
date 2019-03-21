@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+
+import Link from './Link'
 
 export const ButtonBase = styled.button`
   display: flex;  

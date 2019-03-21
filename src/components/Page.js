@@ -17,7 +17,6 @@ const Page = props => {
   const theme = props.theme || getTheme()
   const shouldSetPage = page.id !== id
   shouldSetPage && setPage.page(page)
-  console.log('id', id, page.id)
 
   return (
     <ThemeProvider theme={theme}>
@@ -30,7 +29,7 @@ const Page = props => {
             page={page}
             navTitle={!navBlacklist.includes(id) && (post ? 'Blog' : 'Home')}
             navTo={post ? '/blog' : '/home'}
-            detail={post && moment(post.frontmatter.published).format('MMMM D, YYYY')}
+            detail={post && moment(post.frontmatter.published).format('MMM D, YYYY')}
             backgroundIsFlipped={!!post}
           >
             {props.children}

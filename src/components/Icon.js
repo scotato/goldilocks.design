@@ -15,6 +15,7 @@ import FaMusic from '../content/icons/fa-music.svg'
 import FaPlay from '../content/icons/fa-play.svg'
 import FaCog from '../content/icons/fa-cog.svg'
 import FaGithub from '../content/icons/fa-github.svg'
+import FaTwitter from '../content/icons/fa-twitter.svg'
 import FaLink from '../content/icons/fa-link.svg'
 import ChevronLeft from '../content/icons/chevron-left.svg'
 import List from '../content/icons/list.svg'
@@ -31,6 +32,7 @@ import GoldilocksSolid from '../content/brand/goldilocks-logo-knot-black-solid.s
 
 const fillContainer = css`
   height: 100%;
+  max-width: 100%;
 `
 
 const icon = css`
@@ -69,6 +71,7 @@ export const IconFaPlay = styled(FaPlay)`${icon}`
 export const IconFaCog = styled(FaCog)`${icon}`
 export const IconFaLink = styled(FaLink)`${icon}`
 export const IconFaGithub = styled(FaGithub)`${icon}`
+export const IconFaTwitter = styled(FaTwitter)`${icon}`
 
 const icons = {
   goldilocks: IconGoldilocks,
@@ -99,6 +102,7 @@ const icons = {
   'fa-cog': IconFaCog,
   'fa-link': IconFaLink,
   'fa-github': IconFaGithub,
+  'fa-twitter': IconFaTwitter,
 }
 
 export default ({name, ...props}) => {

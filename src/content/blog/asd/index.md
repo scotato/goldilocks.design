@@ -3,7 +3,8 @@ title: Visual Web Interfaces
 intro: let's start with the basics
 author: scotato
 published: '2019-01-11'
-twitter: '1095771958732574720'
+twitter: 'https://twitter.com/scotato/status/1095771958732574720'
+github: 'https://twitter.com/scotato/status/1095771958732574720'
 badge: the-anatomy-of-a-visual-web-interface-banner.png
 ---
 

@@ -47,7 +47,7 @@ const DeviceHeader = styled.header`
   display: grid;
   padding: ${props => `${props.theme.size.layout[300]} ${props.theme.size.layout[400]}`};
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: ${props => props.theme.size.layout[450]};
+  grid-template-rows: ${props => props.theme.size.layout[500]};
   color: ${props => props.isDarkMode
     ? props.theme.colors.black[700]
     : props.theme.colors.black[400]};
@@ -70,7 +70,8 @@ const DeviceHeaderNav = styled.nav`
 `
 
 const DeviceHeaderIcon = styled.div`
-  text-align: center;
+  margin: 0 auto;
+  width: ${props => props.theme.size.layout[500]};
 `
 
 const DeviceHeaderAction = styled.div`

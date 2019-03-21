@@ -65,6 +65,8 @@ export const query = graphql`
       author
       title
       intro
+      twitter
+      github
       published
       badge {
         childImageSharp {

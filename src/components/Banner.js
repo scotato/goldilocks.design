@@ -52,7 +52,7 @@ const BannerMessage = styled(Message)`
   margin-top: ${props => props.theme.size.layout[400]};
 `
 
-export default ({ title, children, author, intro, introLink, ...props }) => (
+export default ({ title, children, author, intro, twitter, ...props }) => (
   <Banner {...props}>
     <BannerBody>
       <BannerTitle>
@@ -61,8 +61,8 @@ export default ({ title, children, author, intro, introLink, ...props }) => (
       <BannerMessage
         author={author}
         children={intro}
-        to={introLink}
-        />
+        to={twitter}
+      />
     </BannerBody>
     <BannerAccent>
       <Blob />

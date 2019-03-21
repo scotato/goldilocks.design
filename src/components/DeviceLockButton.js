@@ -14,8 +14,8 @@ const LockButton = styled(ButtonBase).attrs({
   grid-area: layout-body-margin-right;
   align-self: flex-start;
   margin-top: ${props => props.theme.size.layout[500]};
-  padding-top: ${props => props.theme.size.layout[300]};
-  padding-bottom: ${props => props.theme.size.layout[300]};
+  padding-top: ${props => props.theme.size.layout[400]};
+  padding-bottom: ${props => props.theme.size.layout[400]};
   padding-right: ${props => props.theme.size.layout[300]};
   width: ${props => props.theme.size.layout[350]};
 

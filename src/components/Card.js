@@ -164,7 +164,7 @@ const getTimestamp = date => {
   return isThisWeek
     ? then.fromNow()
     : isThisYear
-      ? then.format('MMMM d')
+      ? then.format('MMMM D')
       : then.format('MMM YYYY')
 }
 
