@@ -55,6 +55,28 @@ BlogPage.propTypes = {
 
 export default BlogPage
 
+export const query = graphql`
+  fragment Post on MarkdownRemark {
+    fields {
+      slug
+    }
+    timeToRead
+    frontmatter {
+      author
+      title
+      intro
+      published
+      badge {
+        childImageSharp {
+          fluid(maxWidth: 900) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+`
+
 export const pageQuery = graphql`
   query {
     page: appsYaml(id: { eq: "blog" }) {
@@ -64,27 +86,11 @@ export const pageQuery = graphql`
         sort: { fields: [frontmatter___published], order: DESC }
         limit: 1000
       ) {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          timeToRead
-          frontmatter {
-            author
-            title
-            intro
-            published
-            badge {
-              childImageSharp {
-                fluid(maxWidth: 900) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
+        edges {
+          node {
+            ...Post
           }
         }
-      }
     }
   }
 `

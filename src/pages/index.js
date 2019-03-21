@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
+import moment from 'moment'
 
 import { TimeClockDate } from '../components/Time'
 import Card from '../components/Card'
@@ -25,18 +26,6 @@ const Notification = styled(Card)`
     width: 100%;
   `}
 `
-
-const notifications = [{
-  badge: {
-    icon: 'fa-pencil-ruler',
-    color: 'blue',
-    colorWeight: 500,
-  },
-  title: 'goldilocks design',
-  detail: 'v1.0.0',
-  date: '03/08/2019 14:33',
-  to: 'https://github.com/scotato/goldilocks.design',
-}]
 
 const LockScreenTime = styled(TimeClockDate)`
   color: ${props => props.theme.colors.black[500]};
@@ -64,18 +53,44 @@ const LockScreenTime = styled(TimeClockDate)`
   `}
 `
 
-export default () => (
-  <LockScreen hasNotifications={notifications.length}>
-    <LockScreenTime size={notifications.length ? 'md' : 'lg'} />
-    {notifications.map(notification => (
-      <Notification
-        {...notification}
-        key={notification.title}
-        badge={<AppBadge {...notification.badge}/>}
-      />
-    ))}
-  </LockScreen>
-)
+export default props => {
+  const byDate = (a, b) => moment(b.date).diff(moment(a.date))
+  const latestPost = props.data.latestPost.edges[0].node
+  const notifications = [{
+    badge: {
+      icon: 'fa-pencil-ruler',
+      color: 'blue',
+      colorWeight: 500,
+    },
+    title: 'goldilocks design',
+    detail: 'v1.0.0',
+    date: '03/08/2019 14:33',
+    to: 'https://github.com/scotato/goldilocks.design',
+  }, {
+    badge: {
+      icon: 'fa-book-open',
+      color: 'yellow',
+      colorWeight: 500,
+    },
+    title: latestPost.frontmatter.title,
+    detail: latestPost.frontmatter.intro,
+    date: latestPost.frontmatter.published,
+    to: latestPost.fields.slug,
+  }]
+  
+  return (
+    <LockScreen hasNotifications={notifications.length}>
+      <LockScreenTime size={notifications.length ? 'md' : 'lg'} />
+      {notifications.sort(byDate).map(notification => (
+        <Notification
+          {...notification}
+          key={notification.title}
+          badge={<AppBadge {...notification.badge}/>}
+        />
+      ))}
+    </LockScreen>
+  )
+}
 
 export const query = graphql`
   fragment ScreenInfo on ScreensYaml {
@@ -91,6 +106,16 @@ export const pageQuery = graphql`
   query {
     page: screensYaml(id: { eq: "lock" }) {
       ...ScreenInfo
+    }
+    latestPost: allMarkdownRemark(
+        sort: { fields: [frontmatter___published], order: DESC }
+        limit: 1
+      ) {
+      edges {
+        node {
+          ...Post
+        }
+      }
     }
   }
 `
