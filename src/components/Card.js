@@ -32,10 +32,12 @@ moment.locale('en', {
 const Card = styled(Link)`
   display: flex;
   flex-direction: column;
-  margin: ${props => props.theme.size.layout[200]};
+  margin: ${props => props.theme.size.layout[250]};
   background-color: ${props => props.theme.colors.black[200]};
-  border-radius: ${props => props.theme.size.layout[400]};
-  border-bottom: ${props => props.theme.size.layout[100]} solid ${props => props.theme.colors.black[300]};
+  border-radius: ${props => props.theme.size.layout[900]};
+  /* border-radius: ${props => props.theme.size.layout[400]}; */
+  /* border-bottom: ${props => props.theme.size.layout[100]} solid ${props => props.theme.colors.black[300]}; */
+  /* box-shadow: 0 ${props => props.theme.size.layout[100]} ${props => props.theme.size.layout[300]} rgba(0, 0, 0, ${props => props.isOff || props.isDarkMode ? 0.15 : 0.05}); */
   overflow: hidden;
   color: inherit;
 
@@ -63,7 +65,7 @@ const CardDetails = styled.div`
   grid-template-areas: 
     "badge title title"
     "badge detail timestamp";
-  padding: ${props => props.theme.size.layout[300]};
+  padding: ${props => props.theme.size.layout[250]};
   padding-right: ${props => props.theme.size.layout[400]};
   align-items: center;
 
@@ -94,6 +96,8 @@ const CardBadge = styled.div`
   display: flex;
   grid-area: badge;
   height: ${props => props.theme.size.layout[500]};
+  border-radius: ${props => props.theme.size.layout[900]};
+  overflow: hidden;
 
   ${props => props.theme.media.tabletHorizontal`
     height: ${props => props.theme.size.layout[600]};
@@ -109,9 +113,9 @@ const CardTitle = styled.h2`
   grid-area: title;
   align-self: end;
   line-height: 1;
-  color: ${props => props.theme.colors.black[700]};
+  color: ${props => props.theme.colors.black[800]};
   font-size: ${props => props.theme.size.layout[350]};
-  font-weight: 400;
+  font-weight: 600;
 
   ${props => props.theme.media.tabletHorizontal`
     font-size: ${props => props.theme.size.layout[400]};
@@ -126,8 +130,10 @@ const CardTitle = styled.h2`
 const CardDetail = styled.span`
   grid-area: detail;
   align-self: baseline;
-  color: ${props => props.theme.colors.black[500]};
+  color: ${props => props.theme.colors.black[600]};
   font-size: ${props => props.theme.size.layout[250]};
+  font-weight: 500;
+  text-transform: uppercase;
   line-height: 1;
 
   ${props => props.theme.media.tabletHorizontal`
@@ -143,8 +149,10 @@ const CardTimestamp = styled.span`
   grid-area: timestamp;
   justify-self: flex-end;
   align-self: baseline;
-  color: ${props => props.theme.colors.black[500]};
+  color: ${props => props.theme.colors.black[600]};
   font-size: ${props => props.theme.size.layout[250]};
+  font-weight: 500;
+  text-transform: uppercase;
   line-height: 1;
 
   ${props => props.theme.media.tabletHorizontal`

@@ -27,11 +27,7 @@ const BlogPage = ({ data: { posts }}) => (
     {posts.edges.map(post => (
       <Post
         key={post.node.frontmatter.published}
-        hero={true && <PostImg fluid={post.node.frontmatter.badge.childImageSharp.fluid} />}
-        badge={true
-          ? <Avatar />
-          : <PostImg fluid={post.node.frontmatter.badge.childImageSharp.fluid} />
-        }
+        badge={<PostImg fluid={post.node.frontmatter.badge.childImageSharp.fluid} />}
         title={post.node.frontmatter.title}
         detail={`${post.node.timeToRead} min read`}
         date={post.node.frontmatter.published}
