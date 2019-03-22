@@ -20,7 +20,7 @@ const Pager = styled.nav`
 const Button = styled(ButtonLink)`
   padding: ${props => props.theme.size.layout[200]};
   color: ${props => props.theme.colors.black[100]};
-  background-color: ${props => props.theme.colors[props.bg][500]};
+  background-color: ${props => props.theme.colors[props.color][props.colorWeight || 500]};
 
   &:hover {
     color: ${props => props.theme.colors.black[100]};
@@ -31,7 +31,7 @@ const ActionIcon = styled(Icon)`
   margin: 0 auto;
 `
 
-const ActionButton = ({icon, title, ...props}) => (
+const ActionButton = ({icon, ...props}) => (
   <Button {...props}>
     <ActionIcon name={icon} />
   </Button>
@@ -41,6 +41,7 @@ export default ({ data, pageContext }) => {
   const next = pageContext.next || pageContext.previous
   const toGithub = `https://github.com/scotato/goldilocks.design/blob/master/src/content${pageContext.slug}index.md`
   const toTwitter = `https://twitter.com/scotato/status/${data.post.frontmatter.twitter}`
+  
   return (
     <>
       <Post dangerouslySetInnerHTML={{ __html: data.post.html }} />
@@ -48,21 +49,22 @@ export default ({ data, pageContext }) => {
         <ActionButton
           to={toTwitter}
           icon="fa-twitter"
-          bg="blue"
+          color="blue"
           title="twitter"
           rel="twitter"
         />
         <ActionButton
           to={toGithub}
           icon="fa-github"
-          bg="black"
+          color="black"
+          colorWeight={900}
           title="github"
           rel="github"
         />
         <ActionButton
           to={next.fields.slug}
           icon="fa-book-open"
-          bg="yellow"
+          color="yellow"
           title="next article"
           rel="next"
         />
