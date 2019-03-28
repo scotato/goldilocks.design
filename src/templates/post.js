@@ -49,7 +49,7 @@ export default ({ data, pageContext }) => {
           to={toTwitter}
           icon="fa-twitter"
           color="blue"
-          title="twitter"
+          title="feedback on twitter"
           rel="twitter"
         />
         <ActionButton
@@ -57,14 +57,14 @@ export default ({ data, pageContext }) => {
           icon="fa-github"
           color="black"
           colorWeight={900}
-          title="github"
+          title="edit on github"
           rel="github"
         />
         <ActionButton
           to="/blog"
           icon="fa-book-open"
           color="yellow"
-          title="next article"
+          title="more from the blog"
           rel="next"
         />
       </Pager>

@@ -57,8 +57,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   blockquote {
-    padding: 2em;
-    color: ${props => props.theme.colors.black[600]};
+    margin: ${props => props.theme.size.layout[500]} 0 ;
+    padding: ${props => props.theme.size.layout[300]} ${props => props.theme.size.layout[400]};
+    color: ${props => props.theme.colors.black[700]};
     background-color: ${props => props.theme.colors.black[200]};
     border-radius: 2em;
 
