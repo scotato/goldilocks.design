@@ -5,7 +5,6 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 import Card from '../components/Card'
-import Avatar from '../components/Avatar'
 
 const Posts = styled.div`
   display: grid;

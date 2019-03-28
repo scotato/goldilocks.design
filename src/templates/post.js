@@ -38,7 +38,6 @@ const ActionButton = ({icon, ...props}) => (
 )
 
 export default ({ data, pageContext }) => {
-  const next = pageContext.next || pageContext.previous
   const toGithub = `https://github.com/scotato/goldilocks.design/blob/master/src/content${pageContext.slug}index.md`
   const toTwitter = `https://twitter.com/scotato/status/${data.post.frontmatter.twitter}`
   
@@ -62,7 +61,7 @@ export default ({ data, pageContext }) => {
           rel="github"
         />
         <ActionButton
-          to={next.fields.slug}
+          to="/blog"
           icon="fa-book-open"
           color="yellow"
           title="next article"
