@@ -12,7 +12,14 @@ const Network = styled.div`
 
   ${props => props.theme.media.tabletHorizontal`
     height: ${props => props.theme.size.layout[400]};
-    font-size: ${props => props.theme.size.typography[400]};
+    font-size: ${props => props.theme.size.typography[350]};
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  `}
+
+  ${props => props.theme.media.tabletVertical`
+    height: ${props => props.theme.size.layout[400]};
+    font-size: ${props => props.theme.size.typography[350]};
     font-weight: 600;
     letter-spacing: -0.025em;
   `}

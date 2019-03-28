@@ -14,12 +14,12 @@ const Layout = styled.div`
 
   ${props => props.theme.media.tabletHorizontal`
     grid-template-columns: ${props => props.theme.size.layout[500]} auto ${props => props.theme.size.layout[500]};
-    grid-template-rows: auto ${props => props.theme.size.layout[500]} auto ${props => props.theme.size.layout[500]};
+    grid-template-rows: ${props => props.hasBanner && "auto"} ${props => props.theme.size.layout[300]} auto ${props => props.theme.size.layout[300]};
   `}
 
 ${props => props.theme.media.phone`
     grid-template-columns: ${props => props.theme.size.layout[500]} auto ${props => props.theme.size.layout[500]};
-    grid-template-rows: auto ${props => props.theme.size.layout[500]} auto ${props => props.theme.size.layout[500]};
+    grid-template-rows: ${props => props.hasBanner && "auto"} ${props => props.theme.size.layout[300]} auto ${props => props.theme.size.layout[300]};
   `}
 `
 

@@ -30,11 +30,21 @@ const Button = styled(ButtonBase).attrs({
 export const ButtonLink = styled(Link)`
   display: flex;
   padding: 0.75em 1.5em;
-  border-radius: ${props => props.theme.size.layout[400]};
+  border-radius: ${props => props.theme.size.layout[500]};
   align-items: center;
   background-color: ${props => props.theme.colors.primary};
   font-weight: 500;
   height: ${props => props.theme.size.layout[500]};
+
+  ${props => props.theme.media.tabletVertical`
+    height: ${props => props.theme.size.layout[550]};
+    border-radius: ${props => props.theme.size.layout[550]};
+  `}
+
+  ${props => props.theme.media.phone`
+    height: ${props => props.theme.size.layout[650]};
+    border-radius: ${props => props.theme.size.layout[550]};
+  `}
 
   &:hover {
     color: inherit;

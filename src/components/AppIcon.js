@@ -30,6 +30,14 @@ const AppTitle = styled.span`
   text-transform: uppercase;
   line-height: 1;
   text-align: center;
+
+  ${props => props.theme.media.tabletVertical`
+    font-size: ${props => props.theme.size.layout[400]};
+  `}
+
+  ${props => props.theme.media.phone`
+    font-size: ${props => props.theme.size.layout[500]};
+  `}
 `
 
 const AppIcon = styled(Link)`
@@ -37,8 +45,6 @@ const AppIcon = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* margin: ${props => props.theme.size.layout[300]} ${props => props.theme.size.layout[400]}; */
-  /* width: ${props => props.theme.size.layout[600]}; */
   
   svg {
     width: 100%;

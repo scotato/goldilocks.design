@@ -9,9 +9,17 @@ import Card from '../components/Card'
 const Posts = styled.div`
   display: grid;
   margin: 0 auto;
-  grid-template-columns: ${props => props.displayMode === 'grid' ? '1fr 1fr' : '1fr'};
-  grid-row-gap: ${props => props.displayMode === 'card' ? props.theme.size.layout[300] : 0};
-  width: ${props => props.displayMode === 'grid' ? '100%' : props.theme.size.layout[800]};
+  grid-template-columns: 1fr;
+  grid-row-gap: ${props => props.theme.size.layout[300]};
+  width: ${props => props.theme.size.layout[800]};
+  
+  ${props => props.theme.media.tabletHorizontal`
+    width: ${props => props.theme.size.layout[850]};
+  `}
+
+  ${props => props.theme.media.tabletVertical`
+    width: 100%;
+  `}
 `
 
 const Post = styled(Card)`

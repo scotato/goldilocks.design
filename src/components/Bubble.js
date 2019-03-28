@@ -13,9 +13,12 @@ const getTextColor = props => isPrimary(
   props.theme.colors.black[900],
 )
 
-const Bubble = styled.div`
+const Bubble = styled.p`
+  display: flex;
   position: relative;
-  padding: 0.7rem 1.25rem;
+  padding: 0.5em 1.25em;
+  margin-bottom: 0;
+  align-items: center;
   border-radius: 24px;
   background-color: ${getBackgroundColor};
   color: ${getTextColor};
@@ -23,6 +26,10 @@ const Bubble = styled.div`
   line-height: 1.25;
   will-change: border-radius;
   transition: border-radius 0.1s ease-out;
+
+  ${props => props.theme.media.phone`
+    padding: 0.8em 1.25em;
+  `}
 `
 
 export default Bubble

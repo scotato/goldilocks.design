@@ -18,6 +18,14 @@ const Apps = styled.div`
   justify-self: center;
   align-items: center;
   justify-content: center;
+
+  ${props => props.theme.media.tabletVertical`
+    grid-auto-columns: 40%;
+  `}
+
+  ${props => props.theme.media.phone`
+    grid-auto-columns: 50%;
+  `}
 `
 
 const HomePage = props => (

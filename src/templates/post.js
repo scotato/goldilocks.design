@@ -7,6 +7,18 @@ import Icon from '../components/Icon'
 
 const Post = styled.article`
   padding: ${props => props.theme.size.layout[400]} ${props => props.theme.size.layout[550]};
+
+  ${props => props.theme.media.tabletHorizontal`
+    padding: ${props => `${props.theme.size.layout[400]} ${props.theme.size.layout[450]}`};
+  `}
+
+  ${props => props.theme.media.tabletVertical`
+    padding: ${props.theme.size.layout[300]};
+  `}
+
+  ${props => props.theme.media.phone`
+    padding: 0;
+  `}
 `
 
 const Pager = styled.nav`
@@ -15,6 +27,24 @@ const Pager = styled.nav`
   padding: ${props => props.theme.size.layout[400]} ${props => props.theme.size.layout[550]};
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: ${props => props.theme.size.layout[400]};
+  grid-row-gap: ${props => props.theme.size.layout[400]};
+
+  ${props => props.theme.media.tabletHorizontal`
+    padding: ${props => `${props.theme.size.layout[400]} ${props.theme.size.layout[450]}`};
+  `}
+
+  ${props => props.theme.media.tabletVertical`
+    margin-bottom: ${props => props.theme.size.layout[300]};
+    padding: ${props.theme.size.layout[300]};
+    grid-template-columns: 1fr;
+  `}
+
+  ${props => props.theme.media.phone`    
+    margin-top: ${props => props.theme.size.layout[500]};
+    margin-bottom: ${props => props.theme.size.layout[400]};
+    padding: 0;
+    grid-row-gap: ${props => props.theme.size.layout[450]};
+  `}
 `
 
 const Button = styled(ButtonLink)`

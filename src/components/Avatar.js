@@ -4,12 +4,11 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 
 const Avatar = styled(Img).attrs({
-  style: {
-    width: '100%',
-    height: '100%'
-  }
+  width: '100%',
+  height: '100%'
 })`
   border-radius: 50%;
+  overflow: hidden;
 `
 
 export default props => {

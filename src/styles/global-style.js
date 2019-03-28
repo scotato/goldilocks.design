@@ -29,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6 {
     margin-top: 3.2rem;
+    line-height: 1.1;
 
     &:first-child {
       margin-top: 0;
@@ -38,10 +39,31 @@ const GlobalStyle = createGlobalStyle`
   h1 {
     font-size: ${props => props.theme.size.layout[500]};
     line-height: 1;
+
+    ${props => props.theme.media.tabletHorizontal`
+      font-size: ${props => props.theme.size.layout[550]};
+    `}
+
+    ${props => props.theme.media.tabletVertical`
+      font-size: ${props => props.theme.size.layout[600]};
+    `}
+
+    ${props => props.theme.media.phone`
+      font-size: ${props => props.theme.size.layout[650]};
+    `}
   }
 
   h2 {
     font-size: ${props => props.theme.size.layout[450]};
+
+    ${props => props.theme.media.tabletVertical`
+      font-size: ${props => props.theme.size.layout[500]};
+    `}
+
+    ${props => props.theme.media.phone`
+      margin-top: ${props => props.theme.size.layout[600]};
+      font-size: ${props => props.theme.size.layout[550]};
+    `}
   }
 
   h3 {
@@ -54,6 +76,20 @@ const GlobalStyle = createGlobalStyle`
 
   h5 {
     font-size: ${props => props.theme.size.layout[300]};
+  }
+
+  p {
+    ${props => props.theme.media.tabletHorizontal`
+      font-size: ${props => props.theme.size.layout[350]};
+    `}
+
+    ${props => props.theme.media.tabletVertical`
+      font-size: ${props => props.theme.size.layout[400]};
+    `}
+
+    ${props => props.theme.media.phone`
+      font-size: ${props => props.theme.size.layout[500]};
+    `}
   }
 
   blockquote {

@@ -35,21 +35,8 @@ const Card = styled(Link)`
   margin: ${props => props.theme.size.layout[250]};
   background-color: ${props => props.theme.colors.black[200]};
   border-radius: ${props => props.theme.size.layout[900]};
-  /* border-radius: ${props => props.theme.size.layout[400]}; */
-  /* border-bottom: ${props => props.theme.size.layout[100]} solid ${props => props.theme.colors.black[300]}; */
-  /* box-shadow: 0 ${props => props.theme.size.layout[100]} ${props => props.theme.size.layout[300]} rgba(0, 0, 0, ${props => props.isOff || props.isDarkMode ? 0.15 : 0.05}); */
   overflow: hidden;
   color: inherit;
-
-  ${props => props.theme.media.tabletHorizontal`
-    border-radius: ${props => props.theme.size.layout[500]};
-    border-width: ${props => props.theme.size.layout[150]};
-  `}
-
-  ${props => props.theme.media.phone`
-    border-radius: ${props => props.theme.size.layout[550]};
-    border-width: ${props => props.theme.size.layout[200]};
-  `}
 
   &:hover {
     color: inherit;
@@ -70,6 +57,14 @@ const CardDetails = styled.div`
   align-items: center;
 
   ${props => props.theme.media.tabletHorizontal`
+    grid-template-columns: ${props => props.theme.size.layout[550]} auto auto;
+    grid-column-gap: ${props => props.theme.size.layout[400]};
+    grid-row-gap: ${props => props.theme.size.layout[300]};
+    padding: ${props => props.theme.size.layout[350]};
+    padding-right: ${props => props.theme.size.layout[450]};
+  `}
+
+  ${props => props.theme.media.tabletVertical`
     grid-template-columns: ${props => props.theme.size.layout[600]} auto auto;
     grid-column-gap: ${props => props.theme.size.layout[400]};
     grid-row-gap: ${props => props.theme.size.layout[300]};
@@ -96,15 +91,22 @@ const CardBadge = styled.div`
   display: flex;
   grid-area: badge;
   height: ${props => props.theme.size.layout[500]};
-  border-radius: ${props => props.theme.size.layout[900]};
+  border-radius: ${props => props.theme.size.layout[500]};
   overflow: hidden;
 
   ${props => props.theme.media.tabletHorizontal`
+    height: ${props => props.theme.size.layout[550]};
+    border-radius: ${props => props.theme.size.layout[550]};
+  `}
+
+  ${props => props.theme.media.tabletVertical`
     height: ${props => props.theme.size.layout[600]};
+    border-radius: ${props => props.theme.size.layout[600]};
   `}
 
   ${props => props.theme.media.phone`
     height: ${props => props.theme.size.layout[650]};
+    border-radius: ${props => props.theme.size.layout[650]};
   `}
 `
 

@@ -15,6 +15,11 @@ const Banner = styled.section`
   min-height: 100vh;
   z-index: 1;
   grid-area: banner;
+
+  ${props => props.theme.media.phone`
+    margin-bottom: -${props => props.theme.size.layout[650]};
+    grid-template-rows: auto ${props => props.theme.size.layout[650]};
+  `}
 `
 
 const BannerBody = styled.div`
@@ -37,6 +42,14 @@ const BannerTitle = styled.h1`
   letter-spacing: -0.0125em;
   font-size: ${props => props.theme.size.layout[600]};
   color: ${props => props.theme.colors.black[900]};
+
+  ${props => props.theme.media.tabletVertical`
+    font-size: ${props => props.theme.size.layout[650]};
+  `}
+
+  ${props => props.theme.media.phone`
+    font-size: ${props => props.theme.size.layout[700]};
+  `}
 `
 
 const Blob = styled(BlobAnimated).attrs({

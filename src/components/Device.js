@@ -52,15 +52,26 @@ const DeviceHeader = styled.header`
     ? props.theme.colors.black[700]
     : props.theme.colors.black[500]};
   text-transform: uppercase;
+  font-size: ${props => props.theme.size.layout[350]};
 
-  ${props => props.theme.media.tabletHorizontal`
+  ${props => props.theme.media.tabletVertical`
     padding: ${props => `${props.theme.size.layout[400]} ${props.theme.size.layout[450]}`};
     grid-template-rows: ${props => props.theme.size.layout[500]};
+    font-size: ${props => props.theme.size.layout[400]};
+    font-weight: 600;
+  `}
+
+${props => props.theme.media.tabletHorizontal`
+    padding: ${props => `${props.theme.size.layout[400]} ${props.theme.size.layout[450]}`};
+    grid-template-rows: ${props => props.theme.size.layout[500]};
+    font-size: ${props => props.theme.size.layout[400]};
+    font-weight: 600;
   `}
 
   ${props => props.theme.media.phone`
-    padding: ${props => props.theme.size.layout[500]};
-    grid-template-rows: ${props => props.theme.size.layout[550]};
+    padding: ${props => props.theme.size.layout[450]};
+    grid-template-rows: ${props => props.theme.size.layout[600]};
+    font-size: ${props => props.theme.size.layout[450]};
   `}
 `
 
@@ -72,6 +83,18 @@ const DeviceHeaderNav = styled.nav`
 const DeviceHeaderIcon = styled.div`
   margin: 0 auto;
   width: ${props => props.theme.size.layout[450]};
+
+  ${props => props.theme.media.tabletHorizontal`
+    width: ${props => props.theme.size.layout[500]};
+  `}
+
+  ${props => props.theme.media.tabletVertical`
+    width: ${props => props.theme.size.layout[550]};
+  `}
+
+  ${props => props.theme.media.phone`
+    width: ${props => props.theme.size.layout[600]};
+  `}
 `
 
 const DeviceHeaderAction = styled.div`
@@ -88,6 +111,14 @@ const DeviceNav = styled(Link)`
   line-height: 1;
   text-transform: uppercase;
   height: ${props => props.theme.size.layout[350]};
+
+  ${props => props.theme.media.tabletHorizontal`
+    height: ${props => props.theme.size.layout[400]};
+  `}
+
+  ${props => props.theme.media.phone`
+    height: ${props => props.theme.size.layout[500]};
+  `}
 
   &:hover {
     color: inherit;
