@@ -23,8 +23,13 @@ module.exports = {
         name: `content`,
       },
     },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-external-links`]
+      }
+    },
     `gatsby-transformer-yaml`,
-    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
