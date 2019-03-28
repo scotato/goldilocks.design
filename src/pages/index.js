@@ -63,8 +63,8 @@ export default props => {
       colorWeight: 500,
     },
     title: 'goldilocks design',
-    detail: 'v1.0.0',
-    date: '03/08/2019 14:33',
+    detail: 'v1.1.0',
+    date: '03/28/2019 18:25',
     to: 'https://github.com/scotato/goldilocks.design',
   }, {
     badge: {
