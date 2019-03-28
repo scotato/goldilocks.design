@@ -50,7 +50,7 @@ const DeviceHeader = styled.header`
   grid-template-rows: ${props => props.theme.size.layout[500]};
   color: ${props => props.isDarkMode
     ? props.theme.colors.black[700]
-    : props.theme.colors.black[400]};
+    : props.theme.colors.black[500]};
   text-transform: uppercase;
 
   ${props => props.theme.media.tabletHorizontal`
@@ -71,7 +71,7 @@ const DeviceHeaderNav = styled.nav`
 
 const DeviceHeaderIcon = styled.div`
   margin: 0 auto;
-  width: ${props => props.theme.size.layout[500]};
+  width: ${props => props.theme.size.layout[450]};
 `
 
 const DeviceHeaderAction = styled.div`
