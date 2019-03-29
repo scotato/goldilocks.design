@@ -16,7 +16,7 @@ I wanted to create a space where I can share what I'm doing, and how I'm doing i
 The initial focus of this blog will be to document the design & development process of [goldilocks.design](https://goldilocks.design), and the technology used to make it happen.
 
 ## Modern Web Tech
-As a web designer and engineer, I'm primarily concerned with user interface and user experience. The applications I build are constructed with [JavaScript, API's and Markup](https://jamstack.org/). This website is designed in [Figma](http://figma.com/), written in [React](http://reactjs.org/), built by [Gatsby](https://www.gatsbyjs.org/), hosted on [Github](https://github.com/scotato/goldilocks.design), and deployed by [Netlify](https://www.netlify.com/).
+As a web designer and engineer, I'm primarily concerned with user interface and user experience. The applications I build are constructed with [JavaScript, API's and Markup](https://jamstack.org/). This website is designed in [Figma](http://figma.com/), written in [React](http://reactjs.org/), built with [Gatsby](https://www.gatsbyjs.org/), hosted on [Github](https://github.com/scotato/goldilocks.design), and deployed by [Netlify](https://www.netlify.com/).
 
 ## Feedback & Collaboration
 As I develop features and integrate with third party services, i'll be [sharing the source](https://github.com/scotato/goldilocks.design) on GitHub and soliciting feedback through [Twitter](https://twitter.com/scotato).
