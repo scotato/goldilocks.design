@@ -5,22 +5,22 @@ const GlobalStyle = createGlobalStyle`
   ${props =>
     reboot({
       black: props.theme.colors.black[900],
-      // fontFamilyBase:
-      //   '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
-      // fontFamilyMonospace:
-      //   'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+      fontFamilyBase:
+        'Open Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+      fontFamilyMonospace:
+        'Source Code Pro, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
       fontSizeBase: props.theme.size.typographyBase,
-      // fontWeightBase: 400,
+      fontWeightBase: 400,
       lineHeightBase: 1.6,
-      // bodyColor: props.theme.colors.black[900],
+      bodyColor: props.theme.colors.black[800],
       bodyBg: props.bodyBg || props.theme.colors.primary,
-      // headingsMarginBottom: '0.5rem',
-      // paragraphMarginBottom: '1rem',
+      headingsMarginBottom: props.theme.size.layout[300],
+      paragraphMarginBottom: props.theme.size.layout[400],
       // labelMarginBottom: '0.5rem',
       // dtFontWeight: 700,
-      // linkColor: props.theme.colors.yellow[500],
+      linkColor: props.theme.colors.blue[500],
       // linkDecoration: 'none',
-      // linkHoverColor: '#0056b3',
+      linkHoverColor: props.theme.colors.blue[500],
       linkHoverDecoration: 'none',
       // tableCellPadding: '0.75rem',
       // textMuted: '#6c757d'
@@ -28,8 +28,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1, h2, h3, h4, h5, h6 {
-    margin-top: 3.2rem;
+    margin-top: ${props => props.theme.size.layout[500]};
     line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: ${props => props.theme.colors.black[900]};
 
     &:first-child {
       margin-top: 0;
@@ -37,7 +39,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-size: ${props => props.theme.size.layout[500]};
+    font-size: ${props => props.theme.size.layout[450]};
     line-height: 1;
 
     ${props => props.theme.media.tabletHorizontal`
@@ -54,40 +56,33 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h2 {
-    font-size: ${props => props.theme.size.layout[450]};
+    font-size: ${props => props.theme.size.layout[400]};
 
     ${props => props.theme.media.tabletVertical`
-      font-size: ${props => props.theme.size.layout[500]};
+      font-size: ${props => props.theme.size.layout[450]};
+      margin-bottom: ${props => props.theme.size.layout[400]};
     `}
 
     ${props => props.theme.media.phone`
-      margin-top: ${props => props.theme.size.layout[600]};
       font-size: ${props => props.theme.size.layout[550]};
+      margin-bottom: ${props => props.theme.size.layout[450]};
     `}
   }
 
-  h3 {
-    font-size: ${props => props.theme.size.layout[400]};
-  }
-
-  h4 {
-    font-size: ${props => props.theme.size.layout[350]};
-  }
-
-  h5 {
-    font-size: ${props => props.theme.size.layout[300]};
-  }
-
   p {
+    letter-spacing: -0.0125em;
+    
     ${props => props.theme.media.tabletHorizontal`
       font-size: ${props => props.theme.size.layout[350]};
     `}
 
     ${props => props.theme.media.tabletVertical`
+      margin-bottom: ${props => props.theme.size.layout[450]};
       font-size: ${props => props.theme.size.layout[400]};
     `}
 
     ${props => props.theme.media.phone`
+      margin-bottom: ${props => props.theme.size.layout[550]};
       font-size: ${props => props.theme.size.layout[500]};
     `}
   }

@@ -55,13 +55,16 @@ const CardDetails = styled.div`
   padding: ${props => props.theme.size.layout[250]};
   padding-right: ${props => props.theme.size.layout[400]};
   align-items: center;
+  color: ${props => props.theme.colors.black[600]};
+  font-size: ${props => props.theme.size.layout[250]};
+  font-weight: 500;
+  line-height: 1;
+  text-transform: uppercase;
 
   ${props => props.theme.media.tabletHorizontal`
-    grid-template-columns: ${props => props.theme.size.layout[550]} auto auto;
-    grid-column-gap: ${props => props.theme.size.layout[400]};
-    grid-row-gap: ${props => props.theme.size.layout[300]};
-    padding: ${props => props.theme.size.layout[350]};
-    padding-right: ${props => props.theme.size.layout[450]};
+    padding: ${props => props.theme.size.layout[300]};
+    padding-right: ${props => props.theme.size.layout[400]};
+    font-size: ${props => props.theme.size.layout[300]};
   `}
 
   ${props => props.theme.media.tabletVertical`
@@ -70,6 +73,7 @@ const CardDetails = styled.div`
     grid-row-gap: ${props => props.theme.size.layout[300]};
     padding: ${props => props.theme.size.layout[350]};
     padding-right: ${props => props.theme.size.layout[450]};
+    font-size: ${props => props.theme.size.layout[350]};
   `}
 
   ${props => props.theme.media.phone`
@@ -78,6 +82,7 @@ const CardDetails = styled.div`
     grid-row-gap: ${props => props.theme.size.layout[350]};
     padding: ${props => props.theme.size.layout[450]};
     padding-right: ${props => props.theme.size.layout[500]};
+    font-size: ${props => props.theme.size.layout[450]};
   `}
 `
 
@@ -93,11 +98,6 @@ const CardBadge = styled.div`
   height: ${props => props.theme.size.layout[500]};
   border-radius: ${props => props.theme.size.layout[500]};
   overflow: hidden;
-
-  ${props => props.theme.media.tabletHorizontal`
-    height: ${props => props.theme.size.layout[550]};
-    border-radius: ${props => props.theme.size.layout[550]};
-  `}
 
   ${props => props.theme.media.tabletVertical`
     height: ${props => props.theme.size.layout[600]};
@@ -118,10 +118,10 @@ const CardTitle = styled.h2`
   color: ${props => props.theme.colors.black[800]};
   font-size: ${props => props.theme.size.layout[350]};
   font-weight: 600;
+  text-transform: initial;
 
-  ${props => props.theme.media.tabletHorizontal`
+  ${props => props.theme.media.tabletVertical`
     font-size: ${props => props.theme.size.layout[400]};
-    font-weight: 500;
   `}
 
   ${props => props.theme.media.phone`
@@ -132,38 +132,12 @@ const CardTitle = styled.h2`
 const CardDetail = styled.span`
   grid-area: detail;
   align-self: baseline;
-  color: ${props => props.theme.colors.black[600]};
-  font-size: ${props => props.theme.size.layout[250]};
-  font-weight: 500;
-  text-transform: uppercase;
-  line-height: 1;
-
-  ${props => props.theme.media.tabletHorizontal`
-    font-size: ${props => props.theme.size.layout[350]};
-  `}
-
-  ${props => props.theme.media.phone`
-    font-size: ${props => props.theme.size.layout[450]};
-  `}
 `
 
 const CardTimestamp = styled.span`
   grid-area: timestamp;
   justify-self: flex-end;
   align-self: baseline;
-  color: ${props => props.theme.colors.black[600]};
-  font-size: ${props => props.theme.size.layout[250]};
-  font-weight: 500;
-  text-transform: uppercase;
-  line-height: 1;
-
-  ${props => props.theme.media.tabletHorizontal`
-    font-size: ${props => props.theme.size.layout[350]};
-  `}
-
-  ${props => props.theme.media.phone`
-    font-size: ${props => props.theme.size.layout[450]};
-  `}
 `
 
 const getTimestamp = date => {

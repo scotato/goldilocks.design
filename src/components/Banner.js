@@ -12,13 +12,18 @@ const Banner = styled.section`
   grid-template-areas:
     "banner-body"
     "banner-blob";
-  min-height: 100vh;
+  height: 100vh;
   z-index: 1;
   grid-area: banner;
 
-  ${props => props.theme.media.phone`
+  ${props => props.theme.media.tabletHorizontal`
     margin-bottom: -${props => props.theme.size.layout[650]};
     grid-template-rows: auto ${props => props.theme.size.layout[650]};
+  `}
+
+  ${props => props.theme.media.phone`
+    margin-bottom: -${props => props.theme.size.layout[700]};
+    grid-template-rows: auto ${props => props.theme.size.layout[700]};
   `}
 `
 
@@ -35,11 +40,11 @@ const BannerBody = styled.div`
 
 const BannerTitle = styled.h1`
   position: relative;
-  font-weight: 800;
+  font-weight: 900;
   text-align: center;
   line-height: 1;
   user-select: none;
-  letter-spacing: -0.0125em;
+  letter-spacing: -0.0375em;
   font-size: ${props => props.theme.size.layout[600]};
   color: ${props => props.theme.colors.black[900]};
 

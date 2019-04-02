@@ -27,6 +27,10 @@ const Device = styled.div`
   z-index: 2;
 
   ${props => props.theme.media.tabletHorizontal`
+    border-radius: ${props => props.theme.size.layout[450]};
+  `}
+
+  ${props => props.theme.media.tabletVertical`
     border-radius: ${props => props.theme.size.layout[500]};
   `}
 
@@ -54,14 +58,7 @@ const DeviceHeader = styled.header`
   text-transform: uppercase;
   font-size: ${props => props.theme.size.layout[350]};
 
-  ${props => props.theme.media.tabletVertical`
-    padding: ${props => `${props.theme.size.layout[400]} ${props.theme.size.layout[450]}`};
-    grid-template-rows: ${props => props.theme.size.layout[500]};
-    font-size: ${props => props.theme.size.layout[400]};
-    font-weight: 600;
-  `}
-
-${props => props.theme.media.tabletHorizontal`
+  ${props => props.theme.media.tabletHorizontal`
     padding: ${props => `${props.theme.size.layout[400]} ${props.theme.size.layout[450]}`};
     grid-template-rows: ${props => props.theme.size.layout[500]};
     font-size: ${props => props.theme.size.layout[400]};
@@ -131,7 +128,7 @@ const DeviceNav = styled(Link)`
 
 const DeviceBody = styled.main`
   display: flex;
-  padding: ${props => `${props.theme.size.layout[400]}`} ${props => `${props.theme.size.layout[500]}`};
+  padding: ${props => `${props.theme.size.layout[350]}`} ${props => `${props.theme.size.layout[450]}`};
   align-items: stretch;
   justify-content: stretch;
   flex-direction: column;

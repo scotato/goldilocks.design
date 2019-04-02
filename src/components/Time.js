@@ -25,7 +25,6 @@ const Time = styled.span.attrs({
     font-size: ${props => props.theme.size.layout[
       props.fontSize ? props.fontSize + 50 : 600
     ]};
-    font-weight: 400;
   `}
 
   ${props => props.theme.media.phone`

@@ -2,7 +2,7 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import moment from 'moment'
 
-import { usePage, useView, useViewEffect } from '../hooks'
+import { useView, useViewEffect } from '../hooks'
 import GlobalStyle from '../styles/global-style'
 import getTheme from '../styles/theme'
 import Layout from './Layout'
@@ -12,11 +12,9 @@ import Banner from './Banner'
 
 const Page = props => {
   const { page, post } = props.data
-  const [{ id, title, color, colorWeight }, setPage] = usePage(page)
+  const { id, title, color, colorWeight } = page
   const navBlacklist = ['lock', '404', 'home']
   const theme = props.theme || getTheme()
-  const shouldSetPage = page.id !== id
-  shouldSetPage && setPage.page(page)
 
   return (
     <ThemeProvider theme={theme}>
@@ -29,7 +27,7 @@ const Page = props => {
             page={page}
             navTitle={!navBlacklist.includes(id) && (post ? 'Blog' : 'Home')}
             navTo={post ? '/blog' : '/home'}
-            detail={post && moment(post.frontmatter.published).format('MMM D, YYYY')}
+            detail={post && moment(post.frontmatter.date).format('MMM D, YYYY')}
             backgroundIsFlipped={!!post}
             footer={id === 'home'}
           >

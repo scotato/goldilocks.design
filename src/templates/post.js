@@ -13,11 +13,11 @@ const Post = styled.article`
   `}
 
   ${props => props.theme.media.tabletVertical`
-    padding: ${props.theme.size.layout[300]};
+    padding: ${props.theme.size.layout[450]};
   `}
 
   ${props => props.theme.media.phone`
-    padding: 0;
+    padding: ${props.theme.size.layout[400]};
   `}
 `
 
@@ -34,15 +34,15 @@ const Pager = styled.nav`
   `}
 
   ${props => props.theme.media.tabletVertical`
-    margin-bottom: ${props => props.theme.size.layout[300]};
-    padding: ${props.theme.size.layout[300]};
+    margin-bottom: ${props => props.theme.size.layout[450]};
+    padding: ${props.theme.size.layout[450]};
     grid-template-columns: 1fr;
   `}
 
   ${props => props.theme.media.phone`    
     margin-top: ${props => props.theme.size.layout[500]};
-    margin-bottom: ${props => props.theme.size.layout[400]};
-    padding: 0;
+    margin-bottom: ${props => props.theme.size.layout[450]};
+    padding: 0 ${props.theme.size.layout[400]};
     grid-row-gap: ${props => props.theme.size.layout[450]};
   `}
 `
@@ -115,7 +115,7 @@ export const pageQuery = graphql`
       frontmatter {
         author
         title
-        published
+        date
         intro
         twitter
         github

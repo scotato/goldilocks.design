@@ -8,13 +8,28 @@ import Link from './Link'
 
 const Message = styled.div`
   display: grid;
-  grid-template-columns: 48px ${props => props.bubbleWidth || 'auto'};
+  grid-template-columns: ${props => props.theme.size.layout[450]} ${props => props.bubbleWidth || 'auto'};
   grid-template-rows: auto auto;
-  grid-column-gap: 8px;
+  grid-column-gap: ${props => props.theme.size.layout[200]};
   grid-template-areas: 
     "avatar bubbles"
     ". timestamp";
   justify-content: start;
+
+  ${props => props.theme.media.tabletHorizontal`
+    grid-template-columns: ${props => props.theme.size.layout[500]} ${props => props.bubbleWidth || 'auto'};
+    grid-column-gap: ${props => props.theme.size.layout[250]};
+  `}
+
+  ${props => props.theme.media.tabletVertical`
+    grid-template-columns: ${props => props.theme.size.layout[550]} ${props => props.bubbleWidth || 'auto'};
+    grid-column-gap: ${props => props.theme.size.layout[300]};
+  `}
+
+  ${props => props.theme.media.phone`
+    grid-template-columns: ${props => props.theme.size.layout[650]} ${props => props.bubbleWidth || 'auto'};
+    grid-column-gap: ${props => props.theme.size.layout[400]};
+  `}
 `
 
 export const Messages = styled.div`
@@ -38,13 +53,43 @@ const bubbles = css`
   }
 
   > *:first-child {
-    border-top-left-radius: 24px;
-    border-top-right-radius: 24px;
+    border-top-left-radius: ${props => props.theme.size.layout[350]};
+    border-top-right-radius: ${props => props.theme.size.layout[350]};
+
+    ${props => props.theme.media.tabletHorizontal`
+      border-top-left-radius: ${props => props.theme.size.layout[500]};
+      border-top-right-radius: ${props => props.theme.size.layout[500]};
+    `}
+
+    ${props => props.theme.media.tabletVertical`
+      border-top-left-radius: ${props => props.theme.size.layout[550]};
+      border-top-right-radius: ${props => props.theme.size.layout[550]};
+    `}
+
+    ${props => props.theme.media.phone`
+      border-top-left-radius: ${props => props.theme.size.layout[650]};
+      border-top-right-radius: ${props => props.theme.size.layout[650]};
+    `}
   }
 
   > *:last-child {
-    border-bottom-left-radius: 24px;
-    border-bottom-right-radius: 24px;
+    border-bottom-left-radius: ${props => props.theme.size.layout[350]};
+    border-bottom-right-radius: ${props => props.theme.size.layout[350]};
+
+    ${props => props.theme.media.tabletHorizontal`
+      border-bottom-left-radius: ${props => props.theme.size.layout[500]};
+      border-bottom-right-radius: ${props => props.theme.size.layout[500]};
+    `}
+
+    ${props => props.theme.media.tabletVertical`
+      border-bottom-left-radius: ${props => props.theme.size.layout[550]};
+      border-bottom-right-radius: ${props => props.theme.size.layout[550]};
+    `}
+
+    ${props => props.theme.media.phone`
+      border-bottom-left-radius: ${props => props.theme.size.layout[650]};
+      border-bottom-right-radius: ${props => props.theme.size.layout[650]};
+    `}
   }
 `
 
@@ -61,8 +106,6 @@ const Bubbles = props => props.to
   : <BubbleGroup {...props} />
 
 const MessageAvatarLink = styled.a`
-  width: 48px;
-  height: 48px;
   align-self: flex-end;
   grid-area: avatar;
 `

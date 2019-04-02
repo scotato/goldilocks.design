@@ -74,7 +74,7 @@ export default props => {
     },
     title: latestPost.frontmatter.title,
     detail: `${latestPost.timeToRead} minute read`,
-    date: latestPost.frontmatter.published,
+    date: latestPost.frontmatter.date,
     to: latestPost.fields.slug,
   }]
   
@@ -85,7 +85,7 @@ export default props => {
         <Notification
           {...notification}
           key={notification.title}
-          badge={<AppBadge {...notification.badge}/>}
+          badge={<AppBadge isCircle {...notification.badge}/>}
         />
       ))}
     </LockScreen>
@@ -108,7 +108,7 @@ export const pageQuery = graphql`
       ...ScreenInfo
     }
     latestPost: allMarkdownRemark(
-        sort: { fields: [frontmatter___published], order: DESC }
+        sort: { fields: [frontmatter___date], order: DESC }
         limit: 1
       ) {
       edges {

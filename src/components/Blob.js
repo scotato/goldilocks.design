@@ -20,8 +20,12 @@ const Blob = styled(BlobLine)`
   user-select: none;
   height: ${props => props.theme.size.layout[600]};
   
-  ${props => props.theme.media.phone`
+  ${props => props.theme.media.tabletHorizontal`
     height: ${props => props.theme.size.layout[650]};
+  `}
+
+${props => props.theme.media.phone`
+    height: ${props => props.theme.size.layout[700]};
   `}
 
   background-color: ${props => props.color};

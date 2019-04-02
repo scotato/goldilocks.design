@@ -5,39 +5,36 @@ import { IndicatorCellular, IndicatorWifi } from './Indicator'
 const Network = styled.div`
   display: flex;
   align-items: center;
+  color: ${props => props.theme.colors.black[400]};
   height: ${props => props.theme.size.layout[350]};
-  font-size: ${props => props.theme.size.typography[300]};
-  line-height: 1;
+  font-size: ${props => props.theme.size.layout[350]};
+  font-weight: 400;
   user-select: none;
 
   ${props => props.theme.media.tabletHorizontal`
-    height: ${props => props.theme.size.layout[400]};
-    font-size: ${props => props.theme.size.typography[350]};
     font-weight: 600;
-    letter-spacing: -0.025em;
-  `}
-
-  ${props => props.theme.media.tabletVertical`
     height: ${props => props.theme.size.layout[400]};
-    font-size: ${props => props.theme.size.typography[350]};
-    font-weight: 600;
-    letter-spacing: -0.025em;
+    font-size: ${props => props.theme.size.layout[400]};
   `}
 
   ${props => props.theme.media.phone`
-    height: ${props => props.theme.size.layout[450]};
-    font-size: ${props => props.theme.size.layout[450]};
-    letter-spacing: -0.05em;
+    height: ${props => props.theme.size.layout[500]};
+    font-size: ${props => props.theme.size.layout[500]};
   `}
 `
 
 const NetworkTitle = styled.span`
-  margin-left: ${props => props.theme.size.layout[50]};
-  margin-right: ${props => props.theme.size.layout[100]};
+  margin-left: ${props => props.theme.size.layout[100]};
+  margin-right: ${props => props.theme.size.layout[150]};
+  line-height: 1;
+  letter-spacing: -0.025em;
+`
 
-  ${props => props.theme.media.phone`
-    margin-right: ${props => props.theme.size.layout[150]};
-  `}
+const NetworkIndicatorCellular = styled(IndicatorCellular)`
+  transform: scale(1.25);
+`
+const NetworkIndicatorWifi = styled(IndicatorWifi)`
+  transform: scale(1.25);
 `
 
 export default props => {
@@ -55,9 +52,9 @@ export default props => {
 
   return (
     <Network>
-      <IndicatorCellular level={cellularLevel} />
+      <NetworkIndicatorCellular level={cellularLevel} />
       <NetworkTitle>GOLDI</NetworkTitle>
-      <IndicatorWifi level={wifiLevel} />
+      <NetworkIndicatorWifi level={wifiLevel} />
     </Network>
   )
 }

@@ -33,11 +33,11 @@ const BlogPage = ({ data: { posts }}) => (
   <Posts>
     {posts.edges.map(post => (
       <Post
-        key={post.node.frontmatter.published}
+        key={post.node.frontmatter.date}
         badge={<PostImg fluid={post.node.frontmatter.badge.childImageSharp.fluid} />}
         title={post.node.frontmatter.title}
         detail={`${post.node.timeToRead} min read`}
-        date={post.node.frontmatter.published}
+        date={post.node.frontmatter.date}
         to={post.node.fields.slug}
       />
     ))}
@@ -70,7 +70,7 @@ export const query = graphql`
       intro
       twitter
       github
-      published
+      date
       badge {
         childImageSharp {
           fluid(maxWidth: 900) {
@@ -88,7 +88,7 @@ export const pageQuery = graphql`
       ...AppInfo
     }
     posts: allMarkdownRemark(
-        sort: { fields: [frontmatter___published], order: DESC }
+        sort: { fields: [frontmatter___date], order: DESC }
         limit: 1000
       ) {
         edges {
