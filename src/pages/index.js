@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import moment from 'moment'
 
-import { TimeClockDate } from '../components/Time'
 import Card from '../components/Card'
 import { AppBadge } from '../components/AppIcon'
 
@@ -11,7 +10,7 @@ const LockScreen = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: ${props => props.hasNotifications ? 'flex-start' : 'center'};
+  justify-content: center;
   min-height: 100%;
 `
 
@@ -24,32 +23,6 @@ const Notification = styled(Card)`
 
   ${props => props.theme.media.tabletVertical`
     width: 100%;
-  `}
-`
-
-const LockScreenTime = styled(TimeClockDate)`
-  color: ${props => props.theme.colors.black[500]};
-  margin-top: -${props => props.size === 'lg'
-    ? 0
-    : props.theme.size[300]
-  };
-  margin-bottom: ${props => props.size === 'lg'
-    ? props.theme.size[300]
-    : props.theme.size[400]
-  };
-
-  ${props => props.theme.media.tabletHorizontal`
-    margin-bottom: ${props.size === 'lg'
-      ? props.theme.size[400]
-      : props.theme.size[500]
-    };
-  `}
-
-  ${props => props.theme.media.phone`
-    margin-bottom: ${props.size === 'lg'
-      ? props.theme.size[500]
-      : props.theme.size[600]
-    };
   `}
 `
 
@@ -79,8 +52,7 @@ export default props => {
   }]
   
   return (
-    <LockScreen hasNotifications={notifications.length}>
-      <LockScreenTime size={notifications.length ? 'md' : 'lg'} />
+    <LockScreen>
       {notifications.sort(byDate).map(notification => (
         <Notification
           {...notification}

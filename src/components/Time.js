@@ -4,20 +4,7 @@ import moment from 'moment'
 
 const getTime = (format = 'h:mm A MMM D') => moment().format(format)
 
-const TimeString = props => {
-  const [time, setTime] = useState(getTime(props.format))
-  
-  useEffect(() => {
-    const timer = setInterval(() => setTime(getTime(props.format)), 1000)
-    return () => clearInterval(timer)
-  })
-
-  return time
-}
-
-const Time = styled.span.attrs({
-  children: props => <TimeString format={props.format} />
-})`
+const Timestamp = styled.span`
   font-size: ${props => props.theme.size[props.fontSize || 500]};
   font-weight: 300;
 
@@ -33,6 +20,19 @@ const Time = styled.span.attrs({
     ]};
   `}
 `
+
+const Time = ({ fontSize, format }) => {
+  const [time, setTime] = useState(getTime(format))
+  
+  useEffect(() => {
+    const timer = setInterval(() =>
+      setTime(getTime(format))
+    , 1000)
+    return () => clearInterval(timer)
+  })
+
+  return <Timestamp fontSize={fontSize}>{time}</Timestamp>
+}
 
 const timeSizes = {
   sm: 200,

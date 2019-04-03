@@ -27,7 +27,7 @@ const Page = props => {
             navTo={post ? '/blog' : '/home'}
             detail={post && moment(post.frontmatter.date).format('MMM D, YYYY')}
             backgroundIsFlipped={!!post}
-            footer={id === 'home'}
+            footer={id === 'home' || id === 'lock'}
           >
             {props.children}
           </Device>

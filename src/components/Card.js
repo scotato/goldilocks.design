@@ -4,31 +4,6 @@ import moment from 'moment'
 
 import Link from './Link'
 
-moment.locale('en', {
-  relativeTime: {
-    future: 'in %s',
-    past: '%s ago',
-    // s:  'seconds',
-    s: '%ds',
-    ss: '%ds',
-    // m:  'a minute',
-    m: '%dm',
-    mm: '%dm',
-    // h:  'an hour',
-    h: '%dh',
-    hh: '%dh',
-    // d:  'a day',
-    d: '%dd',
-    dd: '%dd',
-    // M:  'a month',
-    M: '%dM',
-    MM: '%dM',
-    // y:  'a year',
-    y: '%dY',
-    yy: '%dY'
-  }
-})
-
 const Card = styled(Link)`
   display: flex;
   flex-direction: column;
@@ -166,7 +141,7 @@ export default ({to, hero, badge, title, detail, date, ...props}) => (
       <CardBadge>{badge}</CardBadge>
       <CardTitle>{title}</CardTitle>
       <CardDetail>{detail}</CardDetail>
-      <CardTimestamp>{getTimestamp(date)}</CardTimestamp>
+      <CardTimestamp>{moment(date).format('MMMM D')}</CardTimestamp>
     </CardDetails>
   </Card>
 )

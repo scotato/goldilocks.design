@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSettings, useDevice, useDeviceEffect } from '../hooks'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Link } from "gatsby"
 
 import Network from './DeviceNetwork'
@@ -47,16 +47,15 @@ const LockLogo = styled(Logo)`
   cursor: pointer;
 `
 
-const DeviceHeader = styled.header`
+const detailContainer = css`
   display: grid;
-  padding: ${props => `${props.theme.size[300]} ${props.theme.size[400]}`};
-  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: ${props => props.theme.size[500]};
+  padding: ${props => `${props.theme.size[300]} ${props.theme.size[400]}`};
+  font-size: ${props => props.theme.size[350]};
+  text-transform: uppercase;
   color: ${props => props.isDarkMode
     ? props.theme.colors.black[700]
     : props.theme.colors.black[500]};
-  text-transform: uppercase;
-  font-size: ${props => props.theme.size[350]};
 
   ${props => props.theme.media.tabletHorizontal`
     padding: ${props => `${props.theme.size[400]} ${props.theme.size[450]}`};
@@ -70,6 +69,15 @@ const DeviceHeader = styled.header`
     grid-template-rows: ${props => props.theme.size[600]};
     font-size: ${props => props.theme.size[450]};
   `}
+`
+
+const DeviceHeader = styled.header`
+  ${detailContainer}
+  grid-template-columns: 1fr 1fr 1fr;
+`
+
+const DeviceFooter = styled.footer`
+  ${detailContainer}
 `
 
 const DeviceHeaderNav = styled.nav`
@@ -133,10 +141,6 @@ const DeviceBody = styled.main`
   justify-content: stretch;
   flex-direction: column;
   flex-grow: 1;
-`
-
-const DeviceFooter = styled.footer`
-  min-height: ${props => props.theme.size[450]};
 `
 
 export default props => {
