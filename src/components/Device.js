@@ -157,24 +157,28 @@ export default props => {
       <LockButton />
       {!detail && <Charger />}
       <Device isOff={isOff} isDarkMode={isDarkMode}>
-        {!isOff && hasHeader && (
+        {hasHeader && (
           <DeviceHeader isDarkMode={isDarkMode}>
-            <DeviceHeaderNav>
-              {navTitle
-              ? (
-                <DeviceNav to={navTo}>
-                  <Icon name='chevron-left' />
-                  {navTitle}
-                </DeviceNav>
-              )
-              : <Network />}
-            </DeviceHeaderNav>
-            <DeviceHeaderIcon>
-              <Icon name={icon || page.icon} />
-            </DeviceHeaderIcon>
-            <DeviceHeaderAction>
-              {detail || <Battery /> }
-            </DeviceHeaderAction>
+            {!isOff && (
+              <>
+                <DeviceHeaderNav>
+                  {navTitle
+                  ? (
+                    <DeviceNav to={navTo}>
+                      <Icon name='chevron-left' />
+                      {navTitle}
+                    </DeviceNav>
+                  )
+                  : <Network />}
+                </DeviceHeaderNav>
+                <DeviceHeaderIcon>
+                  <Icon name={icon || page.icon} />
+                </DeviceHeaderIcon>
+                <DeviceHeaderAction>
+                  {detail || <Battery /> }
+                </DeviceHeaderAction>
+              </>
+            )}
           </DeviceHeader>
         )}
         <DeviceBody>
