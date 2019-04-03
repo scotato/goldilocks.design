@@ -2,12 +2,12 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import moment from 'moment'
 
-import GlobalStyle from '../styles/global-style'
-import theme from '../styles/theme'
+import GlobalStyle from '../theme/global-style'
 import Layout from './Layout'
 import Device from './Device'
 import SEO from './SEO'
 import Banner from './Banner'
+import theme from '../theme'
 
 const Page = props => {
   const { page, post } = props.data
