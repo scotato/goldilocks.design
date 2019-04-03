@@ -6,6 +6,7 @@ date: '2019-03-28T21:06:22.497Z'
 twitter: '1095771958732574720'
 github: 'https://github.com/scotato/goldilocks.design/blob/master/src/content/blog/whats-up/whats-up.md'
 badge: whats-up.png
+draft: false
 ---
 
 ## Thoughts on the Web
