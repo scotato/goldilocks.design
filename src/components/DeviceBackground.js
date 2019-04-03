@@ -47,8 +47,6 @@ export default props => {
     isFlipped: props.isFlipped
   }
 
-  console.log('bgprops', backgroundProps)
-
   return (
     <Background {...backgroundProps}>
       <BackgroundBlob {...backgroundProps} />
