@@ -17,7 +17,7 @@ const Button = styled(ButtonBase).attrs({
 })`
   color: ${props => props.color || (props.isActive ? 'white' : props.theme.colors.black[600])};
   background-color: ${props => props.backgroundColor || (props.isActive ? 'dodgerblue' : props.theme.colors.black[200])};
-  border-radius: ${props => props.theme.size.layout[400]};
+  border-radius: ${props => props.theme.size[400]};
   cursor: ${props => props.isActive ? 'default' : 'pointer'};
   transition: box-shadow 0.1s ease-out;
 
@@ -30,20 +30,20 @@ const Button = styled(ButtonBase).attrs({
 export const ButtonLink = styled(Link)`
   display: flex;
   padding: 0.75em 1.5em;
-  border-radius: ${props => props.theme.size.layout[500]};
+  border-radius: ${props => props.theme.size[500]};
   align-items: center;
   background-color: ${props => props.theme.colors.primary};
   font-weight: 500;
-  height: ${props => props.theme.size.layout[500]};
+  height: ${props => props.theme.size[500]};
 
   ${props => props.theme.media.tabletVertical`
-    height: ${props => props.theme.size.layout[550]};
-    border-radius: ${props => props.theme.size.layout[550]};
+    height: ${props => props.theme.size[550]};
+    border-radius: ${props => props.theme.size[550]};
   `}
 
   ${props => props.theme.media.phone`
-    height: ${props => props.theme.size.layout[650]};
-    border-radius: ${props => props.theme.size.layout[550]};
+    height: ${props => props.theme.size[650]};
+    border-radius: ${props => props.theme.size[550]};
   `}
 
   &:hover {

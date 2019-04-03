@@ -14,7 +14,7 @@ const Background = styled.div`
   width: 100vw;
   min-height: 100vh;
   overflow: hidden;
-  border-top: ${props => props.theme.size.layout[100]} solid ${props => props.isOff || props.isDarkMode
+  border-top: ${props => props.theme.size[100]} solid ${props => props.isOff || props.isDarkMode
     ? props.theme.colors.black[800] 
     : props.theme.colors[props.color][props.colorWeight]
   };
@@ -33,7 +33,7 @@ const BackgroundBlob = styled(BlobAnimated).attrs({
     ? props.theme.colors.black[800] 
     : props.theme.colors[props.color][props.colorWeight]
 })`
-  height: ${props => props.theme.size.layout[600]};
+  height: ${props => props.theme.size[600]};
 `
 
 export default props => {

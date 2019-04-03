@@ -2,9 +2,8 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import moment from 'moment'
 
-import { useView, useViewEffect } from '../hooks'
 import GlobalStyle from '../styles/global-style'
-import getTheme from '../styles/theme'
+import theme from '../styles/theme'
 import Layout from './Layout'
 import Device from './Device'
 import SEO from './SEO'
@@ -14,7 +13,6 @@ const Page = props => {
   const { page, post } = props.data
   const { id, title, color, colorWeight } = page
   const navBlacklist = ['lock', '404', 'home']
-  const theme = props.theme || getTheme()
 
   return (
     <ThemeProvider theme={theme}>
@@ -36,17 +34,6 @@ const Page = props => {
         </Layout>
       </>
     </ThemeProvider>
-  )
-}
-
-export const PageBrowser = ({children, ...props}) => {
-  const [view] = useView()
-  useViewEffect()
-
-  return (
-    <Page theme={getTheme(view)} {...props}>
-      {children}
-    </Page> 
   )
 }
 

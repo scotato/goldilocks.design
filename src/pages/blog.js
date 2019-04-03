@@ -10,11 +10,11 @@ const Posts = styled.div`
   display: grid;
   margin: 0 auto;
   grid-template-columns: 1fr;
-  grid-row-gap: ${props => props.theme.size.layout[300]};
-  width: ${props => props.theme.size.layout[800]};
+  grid-row-gap: ${props => props.theme.size[300]};
+  width: ${props => props.theme.size[800]};
   
   ${props => props.theme.media.tabletHorizontal`
-    width: ${props => props.theme.size.layout[850]};
+    width: ${props => props.theme.size[850]};
   `}
 
   ${props => props.theme.media.tabletVertical`

@@ -11,7 +11,7 @@ const Badge = styled.div`
   align-items: center;
   color: ${props => props.theme.colors.black[100]};
   width: 100%;
-  border-radius: ${props => props.isCircle ? props.theme.size.layout[900] : '30%'};
+  border-radius: ${props => props.isCircle ? props.theme.size[900] : '30%'};
   background-color: ${props => props.theme.colors[props.color][props.colorWeight]};
   transform: scale(${props => props.isMouseDown ? 0.975 : 1});
   transition: transform .1s ease-out;
@@ -24,19 +24,18 @@ const Badge = styled.div`
 `
 
 const AppTitle = styled.span`
-  margin-top: ${props => props.theme.size.layout[300]};
+  margin-top: ${props => props.theme.size[300]};
   color:  ${props => props.theme.colors.black[500]};
-  font-size:  ${props => props.theme.size.typography[300]};
   text-transform: uppercase;
   line-height: 1;
   text-align: center;
 
   ${props => props.theme.media.tabletVertical`
-    font-size: ${props => props.theme.size.layout[400]};
+    font-size: ${props => props.theme.size[400]};
   `}
 
   ${props => props.theme.media.phone`
-    font-size: ${props => props.theme.size.layout[500]};
+    font-size: ${props => props.theme.size[500]};
   `}
 `
 
@@ -60,13 +59,13 @@ const AppNotification = styled.span`
   display: ${props => props.children ? 'flex' : 'none'};
   justify-content: center;
   align-items: center;
-  top: -${props => props.theme.size.layout[400]};
-  right: -${props => props.theme.size.layout[400]};
+  top: -${props => props.theme.size[400]};
+  right: -${props => props.theme.size[400]};
   color: ${props => props.theme.colors.black[100]};
   background-color: ${props => props.theme.colors.red[500]};
-  width: ${props => props.theme.size.layout[500]};
-  height: ${props => props.theme.size.layout[500]};
-  border: ${props => props.theme.size.layout[200]} solid ${props => props.theme.colors.black[100]};
+  width: ${props => props.theme.size[500]};
+  height: ${props => props.theme.size[500]};
+  border: ${props => props.theme.size[200]} solid ${props => props.theme.colors.black[100]};
   font-weight: 700;
   border-radius: 100%;
 `

@@ -18,14 +18,14 @@ const gooey = keyframes`
 const Blob = styled(BlobLine)`
   width: 200vw;
   user-select: none;
-  height: ${props => props.theme.size.layout[600]};
+  height: ${props => props.theme.size[600]};
   
   ${props => props.theme.media.tabletHorizontal`
-    height: ${props => props.theme.size.layout[650]};
+    height: ${props => props.theme.size[650]};
   `}
 
 ${props => props.theme.media.phone`
-    height: ${props => props.theme.size.layout[700]};
+    height: ${props => props.theme.size[700]};
   `}
 
   background-color: ${props => props.color};

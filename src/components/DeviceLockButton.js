@@ -13,23 +13,23 @@ const LockButton = styled(ButtonBase).attrs({
   position: relative;
   grid-area: layout-body-margin-right;
   align-self: flex-start;
-  margin-top: ${props => props.theme.size.layout[500]};
-  padding-top: ${props => props.theme.size.layout[400]};
-  padding-bottom: ${props => props.theme.size.layout[400]};
-  padding-right: ${props => props.theme.size.layout[300]};
-  width: ${props => props.theme.size.layout[350]};
+  margin-top: ${props => props.theme.size[500]};
+  padding-top: ${props => props.theme.size[400]};
+  padding-bottom: ${props => props.theme.size[400]};
+  padding-right: ${props => props.theme.size[300]};
+  width: ${props => props.theme.size[350]};
 
   ${props => props.theme.media.tabletHorizontal`
-    margin-top: ${props => props.theme.size.layout[500]};
-    padding-top: ${props => props.theme.size.layout[500]};
-    padding-bottom: ${props => props.theme.size.layout[500]};
-    padding-right: ${props => props.theme.size.layout[450]};
-    width: ${props => props.theme.size.layout[500]};
+    margin-top: ${props => props.theme.size[500]};
+    padding-top: ${props => props.theme.size[500]};
+    padding-bottom: ${props => props.theme.size[500]};
+    padding-right: ${props => props.theme.size[450]};
+    width: ${props => props.theme.size[500]};
   `}
 
   ${props => props.theme.media.phone`
-    margin-top: ${props => props.theme.size.layout[600]};
-    padding-right: ${props => props.theme.size.layout[400]};
+    margin-top: ${props => props.theme.size[600]};
+    padding-right: ${props => props.theme.size[400]};
   `}
 
   svg {

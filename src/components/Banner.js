@@ -7,8 +7,8 @@ import { BlobAnimated } from './Blob'
 const Banner = styled.section`
   position: relative;
   display: grid;
-  margin-bottom: -${props => props.theme.size.layout[600]};
-  grid-template-rows: auto ${props => props.theme.size.layout[600]};
+  margin-bottom: -${props => props.theme.size[600]};
+  grid-template-rows: auto ${props => props.theme.size[600]};
   grid-template-areas:
     "banner-body"
     "banner-blob";
@@ -17,20 +17,20 @@ const Banner = styled.section`
   grid-area: banner;
 
   ${props => props.theme.media.tabletHorizontal`
-    margin-bottom: -${props => props.theme.size.layout[650]};
-    grid-template-rows: auto ${props => props.theme.size.layout[650]};
+    margin-bottom: -${props => props.theme.size[650]};
+    grid-template-rows: auto ${props => props.theme.size[650]};
   `}
 
   ${props => props.theme.media.phone`
-    margin-bottom: -${props => props.theme.size.layout[700]};
-    grid-template-rows: auto ${props => props.theme.size.layout[700]};
+    margin-bottom: -${props => props.theme.size[700]};
+    grid-template-rows: auto ${props => props.theme.size[700]};
   `}
 `
 
 const BannerBody = styled.div`
   display: flex;
-  padding: 0 ${props => props.theme.size.layout[600]};
-  padding-top: ${props => props.theme.size.layout[500]};
+  padding: 0 ${props => props.theme.size[600]};
+  padding-top: ${props => props.theme.size[500]};
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -45,15 +45,15 @@ const BannerTitle = styled.h1`
   line-height: 1;
   user-select: none;
   letter-spacing: -0.0375em;
-  font-size: ${props => props.theme.size.layout[600]};
+  font-size: ${props => props.theme.size[600]};
   color: ${props => props.theme.colors.black[900]};
 
   ${props => props.theme.media.tabletVertical`
-    font-size: ${props => props.theme.size.layout[650]};
+    font-size: ${props => props.theme.size[650]};
   `}
 
   ${props => props.theme.media.phone`
-    font-size: ${props => props.theme.size.layout[700]};
+    font-size: ${props => props.theme.size[700]};
   `}
 `
 
@@ -67,7 +67,7 @@ const BannerAccent = styled.div`
   grid-area: banner-blob;
 `
 const BannerMessage = styled(Message)`
-  margin-top: ${props => props.theme.size.layout[400]};
+  margin-top: ${props => props.theme.size[400]};
 `
 
 export default ({ title, children, author, intro, twitter, ...props }) => (

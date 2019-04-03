@@ -7,34 +7,34 @@ import ChargerSVG from '../content/brand/device-charger.svg'
 
 const getChargerPosition = props => {
   if (props.isOff) {
-    return `${props.theme.size.layout[400]}`
+    return `${props.theme.size[400]}`
   } else if (props.isCharging) {
-    return `-${props.theme.size.layout[350]}`
+    return `-${props.theme.size[350]}`
   } else {
-    return `${props.theme.size.layout[300]}`
+    return `${props.theme.size[300]}`
   }
 }
 
 const getChargerPositionTablet = props => {
   if (props.isOff) {
-    return `${props.theme.size.layout[500]}`
+    return `${props.theme.size[500]}`
   } else if (props.isCharging) {
-    return `-${props.theme.size.layout[450]}`
+    return `-${props.theme.size[450]}`
   } else {
-    return `${props.theme.size.layout[400]}`
+    return `${props.theme.size[400]}`
   }
 }
 
 const Charger = styled(ChargerSVG)`
   display: block;
   margin: 0 auto;
-  width: ${props => props.theme.size.layout[400]};
+  width: ${props => props.theme.size[400]};
   transform: translateY(${getChargerPosition});
   transition: transform .2s ease-out;
   will-change: transform;
 
   ${props => props.theme.media.tabletHorizontal`
-    width: ${props => props.theme.size.layout[500]};
+    width: ${props => props.theme.size[500]};
     transform: translateY(${getChargerPositionTablet});
   `}
 `
@@ -42,30 +42,30 @@ const Charger = styled(ChargerSVG)`
 const ChargerContainer = styled(ButtonBase)`
   position: relative;
   display: block;
-  width: ${props => props.theme.size.layout[500]};
-  height: ${props => props.theme.size.layout[400]};
+  width: ${props => props.theme.size[500]};
+  height: ${props => props.theme.size[400]};
   grid-area: layout-body-margin-bottom;
   justify-self: center;
   overflow: hidden;
   cursor: pointer;
 
   ${props => props.theme.media.tabletHorizontal`
-    width: ${props => props.theme.size.layout[600]};
-    height: ${props => props.theme.size.layout[500]};
+    width: ${props => props.theme.size[600]};
+    height: ${props => props.theme.size[500]};
   `}
 
   &:before {
     content: " ";
     display: block;
     position: absolute;
-    width: ${props => props.theme.size.layout[500]};
-    height: ${props => props.theme.size.layout[500]};
+    width: ${props => props.theme.size[500]};
+    height: ${props => props.theme.size[500]};
     top: 0;
     left: 0;
 
     ${props => props.theme.media.tabletHorizontal`
-    width: ${props => props.theme.size.layout[600]};
-    height: ${props => props.theme.size.layout[500]};
+    width: ${props => props.theme.size[600]};
+    height: ${props => props.theme.size[500]};
   `}
   }
 `

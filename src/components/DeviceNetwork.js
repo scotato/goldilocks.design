@@ -6,26 +6,26 @@ const Network = styled.div`
   display: flex;
   align-items: center;
   color: ${props => props.theme.colors.black[400]};
-  height: ${props => props.theme.size.layout[350]};
-  font-size: ${props => props.theme.size.layout[350]};
+  height: ${props => props.theme.size[350]};
+  font-size: ${props => props.theme.size[350]};
   font-weight: 400;
   user-select: none;
 
   ${props => props.theme.media.tabletHorizontal`
     font-weight: 600;
-    height: ${props => props.theme.size.layout[400]};
-    font-size: ${props => props.theme.size.layout[400]};
+    height: ${props => props.theme.size[400]};
+    font-size: ${props => props.theme.size[400]};
   `}
 
   ${props => props.theme.media.phone`
-    height: ${props => props.theme.size.layout[500]};
-    font-size: ${props => props.theme.size.layout[500]};
+    height: ${props => props.theme.size[500]};
+    font-size: ${props => props.theme.size[500]};
   `}
 `
 
 const NetworkTitle = styled.span`
-  margin-left: ${props => props.theme.size.layout[100]};
-  margin-right: ${props => props.theme.size.layout[150]};
+  margin-left: ${props => props.theme.size[100]};
+  margin-right: ${props => props.theme.size[150]};
   line-height: 1;
   letter-spacing: -0.025em;
 `

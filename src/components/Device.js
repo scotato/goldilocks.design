@@ -20,55 +20,55 @@ const Device = styled.div`
     ? props.theme.colors.black[900] 
     : props.theme.colors.black[100]
   };
-  box-shadow: 0 ${props => props.theme.size.layout[200]} ${props => props.theme.size.layout[400]} rgba(0, 0, 0, ${props => props.isOff || props.isDarkMode ? 0.15 : 0.075});
-  border-radius: ${props => props.theme.size.layout[400]};
+  box-shadow: 0 ${props => props.theme.size[200]} ${props => props.theme.size[400]} rgba(0, 0, 0, ${props => props.isOff || props.isDarkMode ? 0.15 : 0.075});
+  border-radius: ${props => props.theme.size[400]};
   will-change: border-top, background-color, box-shadow;
   transition: border-top .2s ease-out, background-color .2s ease-out, box-shadow .2s ease-out;
   z-index: 2;
 
   ${props => props.theme.media.tabletHorizontal`
-    border-radius: ${props => props.theme.size.layout[450]};
+    border-radius: ${props => props.theme.size[450]};
   `}
 
   ${props => props.theme.media.tabletVertical`
-    border-radius: ${props => props.theme.size.layout[500]};
+    border-radius: ${props => props.theme.size[500]};
   `}
 
   ${props => props.theme.media.phone`
-    border-radius: ${props => props.theme.size.layout[550]};
+    border-radius: ${props => props.theme.size[550]};
   `}
 `
 
 const LockLogo = styled(Logo)`
   position: relative;
   grid-area: layout-body;
-  width: ${props => props.theme.size.layout[700]};
+  width: ${props => props.theme.size[700]};
   margin: auto;
   cursor: pointer;
 `
 
 const DeviceHeader = styled.header`
   display: grid;
-  padding: ${props => `${props.theme.size.layout[300]} ${props.theme.size.layout[400]}`};
+  padding: ${props => `${props.theme.size[300]} ${props.theme.size[400]}`};
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: ${props => props.theme.size.layout[500]};
+  grid-template-rows: ${props => props.theme.size[500]};
   color: ${props => props.isDarkMode
     ? props.theme.colors.black[700]
     : props.theme.colors.black[500]};
   text-transform: uppercase;
-  font-size: ${props => props.theme.size.layout[350]};
+  font-size: ${props => props.theme.size[350]};
 
   ${props => props.theme.media.tabletHorizontal`
-    padding: ${props => `${props.theme.size.layout[400]} ${props.theme.size.layout[450]}`};
-    grid-template-rows: ${props => props.theme.size.layout[500]};
-    font-size: ${props => props.theme.size.layout[400]};
+    padding: ${props => `${props.theme.size[400]} ${props.theme.size[450]}`};
+    grid-template-rows: ${props => props.theme.size[500]};
+    font-size: ${props => props.theme.size[400]};
     font-weight: 600;
   `}
 
   ${props => props.theme.media.phone`
-    padding: ${props => props.theme.size.layout[450]};
-    grid-template-rows: ${props => props.theme.size.layout[600]};
-    font-size: ${props => props.theme.size.layout[450]};
+    padding: ${props => props.theme.size[450]};
+    grid-template-rows: ${props => props.theme.size[600]};
+    font-size: ${props => props.theme.size[450]};
   `}
 `
 
@@ -79,18 +79,18 @@ const DeviceHeaderNav = styled.nav`
 
 const DeviceHeaderIcon = styled.div`
   margin: 0 auto;
-  width: ${props => props.theme.size.layout[450]};
+  width: ${props => props.theme.size[450]};
 
   ${props => props.theme.media.tabletHorizontal`
-    width: ${props => props.theme.size.layout[500]};
+    width: ${props => props.theme.size[500]};
   `}
 
   ${props => props.theme.media.tabletVertical`
-    width: ${props => props.theme.size.layout[550]};
+    width: ${props => props.theme.size[550]};
   `}
 
   ${props => props.theme.media.phone`
-    width: ${props => props.theme.size.layout[600]};
+    width: ${props => props.theme.size[600]};
   `}
 `
 
@@ -107,14 +107,14 @@ const DeviceNav = styled(Link)`
   color: inherit;
   line-height: 1;
   text-transform: uppercase;
-  height: ${props => props.theme.size.layout[350]};
+  height: ${props => props.theme.size[350]};
 
   ${props => props.theme.media.tabletHorizontal`
-    height: ${props => props.theme.size.layout[400]};
+    height: ${props => props.theme.size[400]};
   `}
 
   ${props => props.theme.media.phone`
-    height: ${props => props.theme.size.layout[500]};
+    height: ${props => props.theme.size[500]};
   `}
 
   &:hover {
@@ -122,13 +122,13 @@ const DeviceNav = styled(Link)`
   }
 
   svg {
-    margin-right: ${props => props.theme.size.layout[200]};
+    margin-right: ${props => props.theme.size[200]};
   }
 `
 
 const DeviceBody = styled.main`
   display: flex;
-  padding: ${props => `${props.theme.size.layout[350]}`} ${props => `${props.theme.size.layout[450]}`};
+  padding: ${props => `${props.theme.size[350]}`} ${props => `${props.theme.size[450]}`};
   align-items: stretch;
   justify-content: stretch;
   flex-direction: column;
@@ -136,7 +136,7 @@ const DeviceBody = styled.main`
 `
 
 const DeviceFooter = styled.footer`
-  min-height: ${props => props.theme.size.layout[450]};
+  min-height: ${props => props.theme.size[450]};
 `
 
 export default props => {

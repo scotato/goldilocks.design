@@ -1,26 +1,25 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+// import ReactDOM from 'react-dom'
 
-import { PageBrowser } from './src/components/Page'
+import Page from './src/components/Page'
 
 export const wrapPageElement = ({ props, element }) => (
-  <PageBrowser {...props}>
-    {console.log("wrapping page")}
+  <Page {...props}>
     {element}
-  </PageBrowser>
+  </Page>
 )
 
-export const onClientEntry = () => {
-  console.log("We've started!")
-}
+// export const onClientEntry = () => {
+//   console.log("We've started!")
+// }
 
-export const onInitialClientRender = () => {
-  console.log("ReactDOM.render has executed")
-}
+// export const onInitialClientRender = () => {
+//   console.log("ReactDOM.render has executed")
+// }
 
-export const replaceHydrateFunction = () => {
-  return (element, container, callback) => {
-    console.log("rendering!")
-    ReactDOM.render(element, container, callback)
-  }
-}
+// export const replaceHydrateFunction = () => {
+//   return (element, container, callback) => {
+//     console.log("rendering!")
+//     ReactDOM.render(element, container, callback)
+//   }
+// }

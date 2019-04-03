@@ -16,10 +16,10 @@ const LockScreen = styled.div`
 `
 
 const Notification = styled(Card)`
-  width: ${props => props.theme.size.layout[800]};
+  width: ${props => props.theme.size[800]};
   
   ${props => props.theme.media.tabletHorizontal`
-    width: ${props => props.theme.size.layout[850]};
+    width: ${props => props.theme.size[850]};
   `}
 
   ${props => props.theme.media.tabletVertical`
@@ -31,24 +31,24 @@ const LockScreenTime = styled(TimeClockDate)`
   color: ${props => props.theme.colors.black[500]};
   margin-top: -${props => props.size === 'lg'
     ? 0
-    : props.theme.size.layout[300]
+    : props.theme.size[300]
   };
   margin-bottom: ${props => props.size === 'lg'
-    ? props.theme.size.layout[300]
-    : props.theme.size.layout[400]
+    ? props.theme.size[300]
+    : props.theme.size[400]
   };
 
   ${props => props.theme.media.tabletHorizontal`
     margin-bottom: ${props.size === 'lg'
-      ? props.theme.size.layout[400]
-      : props.theme.size.layout[500]
+      ? props.theme.size[400]
+      : props.theme.size[500]
     };
   `}
 
   ${props => props.theme.media.phone`
     margin-bottom: ${props.size === 'lg'
-      ? props.theme.size.layout[500]
-      : props.theme.size.layout[600]
+      ? props.theme.size[500]
+      : props.theme.size[600]
     };
   `}
 `

@@ -6,49 +6,49 @@ import { ButtonLink } from '../components/Button'
 import Icon from '../components/Icon'
 
 const Post = styled.article`
-  padding: ${props => props.theme.size.layout[400]} ${props => props.theme.size.layout[550]};
+  padding: ${props => props.theme.size[400]} ${props => props.theme.size[550]};
 
   ${props => props.theme.media.tabletHorizontal`
-    padding: ${props => `${props.theme.size.layout[400]} ${props.theme.size.layout[450]}`};
+    padding: ${props => `${props.theme.size[400]} ${props.theme.size[450]}`};
   `}
 
   ${props => props.theme.media.tabletVertical`
-    padding: ${props.theme.size.layout[450]};
+    padding: ${props.theme.size[450]};
   `}
 
   ${props => props.theme.media.phone`
-    padding: ${props.theme.size.layout[400]};
+    padding: ${props.theme.size[400]};
   `}
 `
 
 const Pager = styled.nav`
   display: grid;
-  margin-bottom: ${props => props.theme.size.layout[200]};
-  padding: ${props => props.theme.size.layout[400]} ${props => props.theme.size.layout[550]};
+  margin-bottom: ${props => props.theme.size[200]};
+  padding: ${props => props.theme.size[400]} ${props => props.theme.size[550]};
   grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: ${props => props.theme.size.layout[400]};
-  grid-row-gap: ${props => props.theme.size.layout[400]};
+  grid-column-gap: ${props => props.theme.size[400]};
+  grid-row-gap: ${props => props.theme.size[400]};
 
   ${props => props.theme.media.tabletHorizontal`
-    padding: ${props => `${props.theme.size.layout[400]} ${props.theme.size.layout[450]}`};
+    padding: ${props => `${props.theme.size[400]} ${props.theme.size[450]}`};
   `}
 
   ${props => props.theme.media.tabletVertical`
-    margin-bottom: ${props => props.theme.size.layout[450]};
-    padding: ${props.theme.size.layout[450]};
+    margin-bottom: ${props => props.theme.size[450]};
+    padding: ${props.theme.size[450]};
     grid-template-columns: 1fr;
   `}
 
   ${props => props.theme.media.phone`    
-    margin-top: ${props => props.theme.size.layout[500]};
-    margin-bottom: ${props => props.theme.size.layout[450]};
-    padding: 0 ${props.theme.size.layout[400]};
-    grid-row-gap: ${props => props.theme.size.layout[450]};
+    margin-top: ${props => props.theme.size[500]};
+    margin-bottom: ${props => props.theme.size[450]};
+    padding: 0 ${props.theme.size[400]};
+    grid-row-gap: ${props => props.theme.size[450]};
   `}
 `
 
 const Button = styled(ButtonLink)`
-  padding: ${props => props.theme.size.layout[200]};
+  padding: ${props => props.theme.size[200]};
   color: ${props => props.theme.colors.black[100]};
   background-color: ${props => props.theme.colors[props.color][props.colorWeight || 500]};
 

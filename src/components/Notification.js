@@ -31,21 +31,21 @@ moment.locale('en', {
 
 const Notification = styled(Link)`
   display: grid;
-  grid-template-columns: ${props => props.theme.size.layout[500]} auto auto;
+  grid-template-columns: ${props => props.theme.size[500]} auto auto;
   grid-template-rows: auto auto;
-  grid-column-gap: ${props => props.theme.size.layout[300]};
-  grid-row-gap: ${props => props.theme.size.layout[150]};
+  grid-column-gap: ${props => props.theme.size[300]};
+  grid-row-gap: ${props => props.theme.size[150]};
   grid-template-areas: 
     "badge title title"
     "badge detail timestamp";
-  padding: ${props => props.theme.size.layout[300]};
-  padding-right: ${props => props.theme.size.layout[350]};
-  margin: ${props => props.theme.size.layout[200]};
+  padding: ${props => props.theme.size[300]};
+  padding-right: ${props => props.theme.size[350]};
+  margin: ${props => props.theme.size[200]};
   align-items: center;
-  width: ${props => props.theme.size.layout[800]};
+  width: ${props => props.theme.size[800]};
   background-color: ${props => props.theme.colors.black[200]};
-  border-radius: ${props => props.theme.size.layout[400]};
-  border-bottom: ${props => props.theme.size.layout[100]} solid ${props => props.theme.colors.black[300]};
+  border-radius: ${props => props.theme.size[400]};
+  border-bottom: ${props => props.theme.size[100]} solid ${props => props.theme.colors.black[300]};
   color: inherit;
 
   &:hover {
@@ -56,8 +56,8 @@ const Notification = styled(Link)`
 const NotificationBadge = styled.div`
   display: flex;
   grid-area: badge;
-  min-height: ${props => props.theme.size.layout[500]};
-  border-radius: ${props => props.theme.size.layout[300]};
+  min-height: ${props => props.theme.size[500]};
+  border-radius: ${props => props.theme.size[300]};
   /* justify-content: stretch;
   align-items: stretch; */
   overflow: hidden;
@@ -77,7 +77,7 @@ const NotificationDetail = styled.span`
   align-self: baseline;
   text-transform: uppercase;
   color: ${props => props.theme.colors.black[500]};
-  font-size: ${props => props.theme.size.typography[200]};
+  font-size: ${props => props.theme.size[200]};
   line-height: 1;
 `
 
@@ -86,7 +86,7 @@ const NotificationTimestamp = styled.span`
   justify-self: flex-end;
   align-self: baseline;
   color: ${props => props.theme.colors.black[500]};
-  font-size: ${props => props.theme.size.typography[200]};
+  font-size: ${props => props.theme.size[200]};
   line-height: 1;
 `
 
