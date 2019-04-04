@@ -24,7 +24,7 @@ const PageFooter = props => {
 
 const Page = props => {
   const { page, post } = props.data
-  const { id, title, color, colorWeight } = page
+  const { id, color, colorWeight } = page
   const navBlacklist = ['lock', '404', 'home']
   const hasBanner = !!post
 
@@ -32,7 +32,7 @@ const Page = props => {
     <ThemeProvider theme={theme}>
       <>
         <GlobalStyle bodyBg={theme.colors[color][colorWeight]} />
-        <SEO title={title} description={post && post.excerpt} />
+        <SEO title={post && post.frontmatter.title} description={post && `${post.timeToRead} minute read`} />
         <Layout hasBanner={hasBanner}>
           {post && <Banner {...post.frontmatter} />}
           <Device

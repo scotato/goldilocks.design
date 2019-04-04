@@ -3,89 +3,88 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-function SEO({ description, lang, meta, keywords, title }) {
-  return (
-    <StaticQuery
-      query={detailsQuery}
-      render={data => {
-        const metaDescription =
-          description || data.site.siteMetadata.description
-        return (
-          <Helmet
-            htmlAttributes={{
-              lang,
-            }}
-            title={data.site.siteMetadata.title}
-            // titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-            meta={[
-              {
-                name: `description`,
-                content: metaDescription,
-              },
-              {
-                property: `image`,
-                content: data.site.siteMetadata.shareImage,
-              },
-              {
-                property: `og:title`,
-                content: data.site.siteMetadata.title,
-              },
-              {
-                property: `og:description`,
-                content: data.site.siteMetadata.description,
-              },
-              {
-                property: `og:image`,
-                content: data.site.siteMetadata.shareImage,
-              },
-              {
-                property: `og:image:width`,
-                content: data.site.siteMetadata.shareImageWidth,
-              },
-              {
-                property: `og:image:height`,
-                content: data.site.siteMetadata.shareImageHeight,
-              },
-              {
-                property: `og:type`,
-                content: `website`,
-              },
-              {
-                name: `twitter:card`,
-                content: `summary_large_image`,
-              },
-              {
-                name: `twitter:creator`,
-                content: data.site.siteMetadata.author,
-              },
-              {
-                name: `twitter:title`,
-                content: data.site.siteMetadata.title,
-              },
-              {
-                name: `twitter:description`,
-                content: data.site.siteMetadata.description,
-              },
-              {
-                name: `twitter:image`,
-                content: data.site.siteMetadata.shareImage,
-              },
-            ]
-              .concat(
-                keywords.length > 0
-                  ? {
-                      name: `keywords`,
-                      content: keywords.join(`, `),
-                    }
-                  : []
-              )
-              .concat(meta)}
-          />
-        )
-      }}
-    />
-  )
-}
+const SEO = ({ lang, meta, keywords, title, description }) => (
+  <StaticQuery
+    query={detailsQuery}
+    render={data => {
+      const shareTitle = title || data.site.siteMetadata.title
+      const shareDescription = description || data.site.siteMetadata.description
+
+      return (
+        <Helmet
+          htmlAttributes={{
+            lang,
+          }}
+          title={data.site.siteMetadata.title}
+          // titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+          meta={[
+            {
+              name: `description`,
+              content: data.site.siteMetadata.description,
+            },
+            {
+              property: `image`,
+              content: data.site.siteMetadata.shareImage,
+            },
+            {
+              property: `og:title`,
+              content: shareTitle,
+            },
+            {
+              property: `og:description`,
+              content: shareDescription,
+            },
+            {
+              property: `og:image`,
+              content: data.site.siteMetadata.shareImage,
+            },
+            {
+              property: `og:image:width`,
+              content: data.site.siteMetadata.shareImageWidth,
+            },
+            {
+              property: `og:image:height`,
+              content: data.site.siteMetadata.shareImageHeight,
+            },
+            {
+              property: `og:type`,
+              content: `website`,
+            },
+            {
+              name: `twitter:card`,
+              content: `summary_large_image`,
+            },
+            {
+              name: `twitter:creator`,
+              content: data.site.siteMetadata.author,
+            },
+            {
+              name: `twitter:title`,
+              content: shareTitle,
+            },
+            {
+              name: `twitter:description`,
+              content: shareDescription,
+            },
+            {
+              name: `twitter:image`,
+              content: data.site.siteMetadata.shareImage,
+            },
+          ]
+            .concat(
+              keywords.length > 0
+                ? {
+                    name: `keywords`,
+                    content: keywords.join(`, `),
+                  }
+                : []
+            )
+            .concat(meta)}
+        />
+      )
+    }}
+  />
+)
 
 SEO.defaultProps = {
   lang: `en`,
