@@ -76,7 +76,7 @@ export default ({ data }) => (
       <Action
         to={`https://twitter.com/scotato/status/${data.post.frontmatter.twitter}`}
         icon="fa-comment"
-        color="blue"
+        color="green"
         title="Feedback on Twitter"
         rel="twitter"
       />
