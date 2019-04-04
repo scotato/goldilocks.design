@@ -3,7 +3,7 @@ title: What's Up?
 intro: the sky, and this blog
 author: scotato
 date: '2019-03-28T21:06:22.497Z'
-twitter: '1095771958732574720'
+twitter: '1113927603654746113'
 github: 'https://github.com/scotato/goldilocks.design/blob/master/src/content/blog/whats-up/whats-up.md'
 badge: whats-up.png
 draft: false
