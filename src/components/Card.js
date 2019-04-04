@@ -115,18 +115,6 @@ const CardTimestamp = styled.span`
   align-self: baseline;
 `
 
-const getTimestamp = date => {
-  const now = moment()
-  const then = moment(date)
-  const isThisWeek = now.diff(then, 'weeks') === 0
-  const isThisYear = now.diff(then, 'years') === 0
-  return isThisWeek
-    ? then.fromNow()
-    : isThisYear
-      ? then.format('MMMM D')
-      : then.format('MMM YYYY')
-}
-
 export const Cards = styled.div`
   display: flex;
   flex-direction: column;

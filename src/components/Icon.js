@@ -24,6 +24,7 @@ import Card from '../content/icons/card.svg'
 import Plus from '../content/icons/plus.svg'
 import Plug from '../content/icons/plug.svg'
 import Api from '../content/icons/api.svg'
+import RSS from '../content/icons/rss.svg'
 import Goldilocks from '../content/brand/goldilocks-logo-knot-yellow.svg'
 import GoldilocksWhite from '../content/brand/goldilocks-logo-knot-white.svg'
 import GoldilocksDark from '../content/brand/goldilocks-logo-knot-dark.svg'
@@ -61,6 +62,7 @@ export const IconCard = styled(Card)`${icon}`
 export const IconPlus = styled(Plus)`${icon}`
 export const IconPlug = styled(Plug)`${icon}`
 export const IconApi = styled(Api)`${icon}`
+export const IconRSS = styled(RSS)`${icon}`
 export const IconFaBell = styled(FaBell)`${icon}`
 export const IconFaBookOpen = styled(FaBookOpen)`${icon}`
 export const IconFaBracketsCurly = styled(FaBracketsCurly)`${icon}`
@@ -91,6 +93,7 @@ const icons = {
   plus: IconPlus,
   plug: IconPlug,
   api: IconApi,
+  rss: IconRSS,
   'chevron-left': IconChevronLeft,
   'fa-book-open': IconFaBookOpen,
   'fa-bell': IconFaBell,

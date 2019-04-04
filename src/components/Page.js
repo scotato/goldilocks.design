@@ -7,7 +7,20 @@ import Layout from './Layout'
 import Device from './Device'
 import SEO from './SEO'
 import Banner from './Banner'
+import Social from './Social'
 import theme from '../theme'
+
+const PageFooter = props => {
+  switch (props.id) {
+    case 'home':
+    case 'blog':
+    return <Social />
+    case 'lock':
+      return true
+    default:
+      return false
+  }
+}
 
 const Page = props => {
   const { page, post } = props.data
@@ -27,7 +40,7 @@ const Page = props => {
             navTo={post ? '/blog' : '/home'}
             detail={post && moment(post.frontmatter.date).format('MMM D, YYYY')}
             backgroundIsFlipped={!!post}
-            footer={id === 'home' || id === 'lock'}
+            footer={<PageFooter id={id} />}
           >
             {props.children}
           </Device>

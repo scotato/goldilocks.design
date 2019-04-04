@@ -23,9 +23,8 @@ const Post = styled.article`
 
 const Pager = styled.nav`
   display: grid;
-  margin-bottom: ${props => props.theme.size[200]};
-  padding: ${props => props.theme.size[400]} ${props => props.theme.size[550]};
-  grid-template-columns: 1fr 1fr 1fr;
+  margin: 0 ${props => props.theme.size[550]};
+  grid-template-columns: 1fr 1fr;
   grid-column-gap: ${props => props.theme.size[400]};
   grid-row-gap: ${props => props.theme.size[400]};
 
@@ -67,40 +66,27 @@ const ActionButton = ({icon, ...props}) => (
   </Button>
 )
 
-export default ({ data, pageContext }) => {
-  const toGithub = `https://github.com/scotato/goldilocks.design/blob/master/src/content${pageContext.slug}index.md`
-  const toTwitter = `https://twitter.com/scotato/status/${data.post.frontmatter.twitter}`
-  
-  return (
-    <>
-      <Post dangerouslySetInnerHTML={{ __html: data.post.html }} />
-      <Pager>
-        <ActionButton
-          to={toTwitter}
-          icon="fa-twitter"
-          color="blue"
-          title="feedback on twitter"
-          rel="twitter"
-        />
-        <ActionButton
-          to={toGithub}
-          icon="fa-github"
-          color="black"
-          colorWeight={900}
-          title="edit on github"
-          rel="github"
-        />
-        <ActionButton
-          to="/blog"
-          icon="fa-book-open"
-          color="yellow"
-          title="more from the blog"
-          rel="next"
-        />
-      </Pager>
-    </>
-  )
-}
+export default ({ data }) => (
+  <>
+    <Post dangerouslySetInnerHTML={{ __html: data.post.html }} />
+    <Pager>
+      <ActionButton
+        to={`https://twitter.com/scotato/status/${data.post.frontmatter.twitter}`}
+        icon="fa-twitter"
+        color="blue"
+        title="feedback"
+        rel="twitter"
+      />
+      <ActionButton
+        to="/blog"
+        icon="fa-book-open"
+        color="yellow"
+        title="more"
+        rel="next"
+      />
+    </Pager>
+  </>
+)
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
