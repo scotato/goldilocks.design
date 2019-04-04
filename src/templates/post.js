@@ -21,7 +21,7 @@ const Post = styled.article`
   `}
 `
 
-const Pager = styled.nav`
+const Actions = styled.nav`
   display: grid;
   margin: 0 ${props => props.theme.size[550]};
   grid-template-columns: 1fr 1fr;
@@ -46,10 +46,12 @@ const Pager = styled.nav`
   `}
 `
 
-const Button = styled(ButtonLink)`
+const ActionButton = styled(ButtonLink)`
   padding: ${props => props.theme.size[200]};
   color: ${props => props.theme.colors.black[100]};
   background-color: ${props => props.theme.colors[props.color][props.colorWeight || 500]};
+  text-transform: uppercase;
+  font-weight: 900;
 
   &:hover {
     color: ${props => props.theme.colors.black[100]};
@@ -58,33 +60,34 @@ const Button = styled(ButtonLink)`
 
 const ActionIcon = styled(Icon)`
   margin: 0 auto;
+  /* width: ${props => props.theme.size[400]}; */
 `
 
-const ActionButton = ({icon, ...props}) => (
-  <Button {...props}>
+const Action = ({icon, ...props}) => (
+  <ActionButton {...props}>
     <ActionIcon name={icon} />
-  </Button>
+  </ActionButton>
 )
 
 export default ({ data }) => (
   <>
     <Post dangerouslySetInnerHTML={{ __html: data.post.html }} />
-    <Pager>
-      <ActionButton
+    <Actions>
+      <Action
         to={`https://twitter.com/scotato/status/${data.post.frontmatter.twitter}`}
-        icon="fa-twitter"
+        icon="fa-comment"
         color="blue"
-        title="feedback"
+        title="Feedback on Twitter"
         rel="twitter"
       />
-      <ActionButton
+      <Action
         to="/blog"
         icon="fa-book-open"
         color="yellow"
-        title="more"
+        title="More Blog Posts"
         rel="next"
       />
-    </Pager>
+    </Actions>
   </>
 )
 
