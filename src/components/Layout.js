@@ -9,7 +9,7 @@ const Layout = styled.div`
     ". layout-body-margin-top ."
     "layout-body-margin-left layout-body layout-body-margin-right"
     ". layout-body-margin-bottom .";
-  min-height: 100vh;
+  min-height: 100%;
   max-width: 100vw;
 
   ${props => props.theme.media.tabletHorizontal`

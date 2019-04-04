@@ -26,20 +26,21 @@ const Page = props => {
   const { page, post } = props.data
   const { id, title, color, colorWeight } = page
   const navBlacklist = ['lock', '404', 'home']
+  const hasBanner = !!post
 
   return (
     <ThemeProvider theme={theme}>
       <>
         <GlobalStyle bodyBg={theme.colors[color][colorWeight]} />
         <SEO title={title} description={post && post.excerpt} />
-        <Layout hasBanner={!!post}>
+        <Layout hasBanner={hasBanner}>
           {post && <Banner {...post.frontmatter} />}
           <Device
             page={page}
             navTitle={!navBlacklist.includes(id) && (post ? 'Blog' : 'Home')}
             navTo={post ? '/blog' : '/home'}
             detail={post && moment(post.frontmatter.date).format('MMM D, YYYY')}
-            backgroundIsFlipped={!!post}
+            hasBanner={hasBanner}
             footer={<PageFooter id={id} />}
           >
             {props.children}

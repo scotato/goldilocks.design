@@ -7,7 +7,7 @@ import Network from './DeviceNetwork'
 import Battery from './DeviceBattery'
 import Charger from './DeviceCharger'
 import LockButton from './DeviceLockButton'
-import Background from './DeviceBackground'
+import DeviceBlob from './DeviceBlob'
 import Icon from '../components/Icon'
 import Logo from '../components/Logo'
 
@@ -39,12 +39,41 @@ const Device = styled.div`
   `}
 `
 
+const DeviceBackground = styled.div`
+  grid-row-start: layout-body-margin-top;
+  grid-row-end: layout-body-margin-bottom;
+  grid-column-start: layout-body-margin-left;
+  grid-column-end: layout-body-margin-right;
+  background-color: ${props => props.isOff || props.isDarkMode
+    ? props.theme.colors.black[900] 
+    : props.theme.colors.black[100]
+  };
+  border-top: ${props => props.theme.size[100]} solid ${props => props.isOff || props.isDarkMode
+    ? props.theme.colors.black[800] 
+    : props.theme.colors[props.color][props.colorWeight]
+  };
+  border-bottom: ${props => props.theme.size[100]} solid ${props => props.isOff || props.isDarkMode
+    ? props.theme.colors.black[800] 
+    : props.theme.colors[props.color][props.colorWeight]
+  };
+  will-change: border-top, background-color;
+  transition: border-top .2s ease-out, background-color .2s ease-out;
+
+${props => props.theme.media.tabletHorizontal`
+    border-width: ${props.theme.size[200]};
+  `}
+`
+
 const LockLogo = styled(Logo)`
   position: relative;
   grid-area: layout-body;
   width: ${props => props.theme.size[700]};
   margin: auto;
   cursor: pointer;
+
+  ${props => props.theme.media.tabletVertical`
+    width: ${props => props.theme.size[750]};
+  `}
 `
 
 const detailContainer = css`
@@ -134,7 +163,7 @@ const DeviceBody = styled.main`
 `
 
 export default props => {
-  const { children, navTitle, navTo, detail, backgroundIsFlipped, icon, footer, page } = props
+  const { children, navTitle, navTo, detail, hasBanner, icon, footer, page } = props
   const [{ isDarkMode }] = useSettings()
   const [{ isOff }, setDevice] = useDevice()
   const hasHeader = !!(navTitle || detail || icon || page.icon)
@@ -143,7 +172,8 @@ export default props => {
 
   return (
     <>
-      <Background {...page} isFlipped={backgroundIsFlipped} />
+      <DeviceBlob {...page} isFlipped={hasBanner} />
+      <DeviceBackground isOff={isOff} {...page} />
       <LockButton />
       {!detail && <Charger />}
       <Device isOff={isOff} isDarkMode={isDarkMode}>

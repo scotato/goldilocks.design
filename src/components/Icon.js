@@ -44,7 +44,6 @@ const icon = css`
 `
 
 const logo = css`
-  padding: ${props => props.theme.size[200]};
   ${fillContainer}
 `
 

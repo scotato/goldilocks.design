@@ -18,6 +18,15 @@ const SocialLink = styled(Link)`
   &:hover {
     color: ${props => props.theme.colors.black[400]};
   }
+
+  ${props => props.theme.media.tabletHorizontal`
+    width: ${props.theme.size[450]};
+  `}
+
+  ${props => props.theme.media.phone`
+    margin: 0 ${props => props.theme.size[350]};
+    width: ${props.theme.size[550]};
+  `}
 `
 
 export default () => (

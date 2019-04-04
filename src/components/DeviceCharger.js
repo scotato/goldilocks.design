@@ -46,7 +46,7 @@ const ChargerContainer = styled(ButtonBase)`
   height: ${props => props.theme.size[400]};
   grid-area: layout-body-margin-bottom;
   justify-self: center;
-  overflow: hidden;
+  /* overflow: hidden; */
   cursor: pointer;
 
   ${props => props.theme.media.tabletHorizontal`

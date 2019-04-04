@@ -29,18 +29,16 @@ const Actions = styled.nav`
   grid-row-gap: ${props => props.theme.size[400]};
 
   ${props => props.theme.media.tabletHorizontal`
-    padding: ${props => `${props.theme.size[400]} ${props.theme.size[450]}`};
+    margin: 0 ${props => props.theme.size[450]};
   `}
 
   ${props => props.theme.media.tabletVertical`
-    margin-bottom: ${props => props.theme.size[450]};
-    padding: ${props.theme.size[450]};
-    grid-template-columns: 1fr;
+    margin: 0 ${props => props.theme.size[450]};
   `}
 
   ${props => props.theme.media.phone`    
-    margin-top: ${props => props.theme.size[500]};
-    margin-bottom: ${props => props.theme.size[450]};
+    margin: 0;
+    grid-template-columns: 1fr;
     padding: 0 ${props.theme.size[400]};
     grid-row-gap: ${props => props.theme.size[450]};
   `}
@@ -60,7 +58,6 @@ const ActionButton = styled(ButtonLink)`
 
 const ActionIcon = styled(Icon)`
   margin: 0 auto;
-  /* width: ${props => props.theme.size[400]}; */
 `
 
 const Action = ({icon, ...props}) => (

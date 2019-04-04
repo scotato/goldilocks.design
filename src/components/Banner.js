@@ -4,26 +4,25 @@ import styled from 'styled-components'
 import Message from './Message'
 import { BlobAnimated } from './Blob'
 
+
 const Banner = styled.section`
   position: relative;
-  display: grid;
+  display: flex;
   margin-bottom: -${props => props.theme.size[600]};
-  grid-template-rows: auto ${props => props.theme.size[600]};
-  grid-template-areas:
-    "banner-body"
-    "banner-blob";
-  height: 100vh;
+  flex-direction: column;
+  width: 100vw;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
   z-index: 1;
   grid-area: banner;
+  background-color: transparent;
 
   ${props => props.theme.media.tabletHorizontal`
     margin-bottom: -${props => props.theme.size[650]};
-    grid-template-rows: auto ${props => props.theme.size[650]};
   `}
 
   ${props => props.theme.media.phone`
     margin-bottom: -${props => props.theme.size[700]};
-    grid-template-rows: auto ${props => props.theme.size[700]};
   `}
 `
 
@@ -34,8 +33,7 @@ const BannerBody = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  grid-area: banner-body;
-  background-color: ${props => props.theme.colors.yellow[500]};
+  flex-grow: 1;
 `
 
 const BannerTitle = styled.h1`
@@ -64,7 +62,6 @@ const Blob = styled(BlobAnimated).attrs({
 const BannerAccent = styled.div`
   transform: rotate(180deg);
   overflow: hidden;
-  grid-area: banner-blob;
 `
 const BannerMessage = styled(Message)`
   margin-top: ${props => props.theme.size[400]};
