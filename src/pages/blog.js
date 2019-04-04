@@ -8,18 +8,21 @@ import Card from '../components/Card'
 
 const Posts = styled.div`
   display: grid;
-  margin: 0 auto;
+  margin: auto;
   grid-template-columns: 1fr;
   grid-row-gap: ${props => props.theme.size[300]};
   width: ${props => props.theme.size[800]};
-  height: 100%;
-  align-items: center;
   
   ${props => props.theme.media.tabletHorizontal`
     width: ${props => props.theme.size[850]};
   `}
 
   ${props => props.theme.media.tabletVertical`
+    margin: 0 auto;
+    width: ${props => props.theme.size[900]};
+  `}
+
+  ${props => props.theme.media.phone`
     width: 100%;
   `}
 `
@@ -29,6 +32,9 @@ const Post = styled(Card)`
 `
 const PostImg = styled(Img)`
   flex: 1;
+  z-index: 0;
+  border-radius: 50%;
+  overflow: hidden;
 `
 
 const BlogPage = ({ data: { posts }}) => (
