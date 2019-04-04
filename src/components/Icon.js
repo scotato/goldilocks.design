@@ -32,7 +32,6 @@ import GoldilocksBlack from '../content/brand/goldilocks-logo-knot-black.svg'
 import GoldilocksSolid from '../content/brand/goldilocks-logo-knot-black-solid.svg'
 
 const fillContainer = css`
-  width: 100%;
   height: 100%;
 `
 

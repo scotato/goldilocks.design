@@ -83,10 +83,11 @@ const DeviceFooter = styled.footer`
 const DeviceHeaderNav = styled.nav`
   display: flex;
   align-items: center;
+  justify-content: flex-start;
 `
 
 const DeviceHeaderIcon = styled(Icon)`
-  /* padding: ${props => props.theme.size[100]}; */
+  place-self: center;
 `
 
 const DeviceHeaderAction = styled.div`
@@ -121,6 +122,8 @@ const DeviceNav = styled(Link)`
   }
 `
 
+const DeviceNavIcon = styled(Icon)``
+
 const DeviceBody = styled.main`
   display: flex;
   padding: ${props => `${props.theme.size[350]}`} ${props => `${props.theme.size[450]}`};
@@ -152,7 +155,7 @@ export default props => {
                   {navTitle
                   ? (
                     <DeviceNav to={navTo}>
-                      <Icon name='chevron-left' />
+                      <DeviceNavIcon name='chevron-left' />
                       {navTitle}
                     </DeviceNav>
                   )
