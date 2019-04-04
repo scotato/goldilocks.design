@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
-import moment from 'moment'
 
 import Card from '../components/Card'
 import { AppBadge } from '../components/AppIcon'
@@ -26,43 +25,27 @@ const Notification = styled(Card)`
   `}
 `
 
-export default props => {
-  const byDate = (a, b) => moment(b.date).diff(moment(a.date))
-  const latestPost = props.data.latestPost.edges[0].node
-  const notifications = [{
-    badge: {
-      icon: 'fa-pencil-ruler',
-      color: 'blue',
-      colorWeight: 500,
-    },
-    title: 'goldilocks design',
-    detail: 'v1.2.0',
-    date: '04/03/2019 13:22',
-    to: 'https://github.com/scotato/goldilocks.design',
-  }, {
-    badge: {
-      icon: 'fa-book-open',
-      color: 'yellow',
-      colorWeight: 500,
-    },
-    title: latestPost.frontmatter.title,
-    detail: `${latestPost.timeToRead} minute read`,
-    date: latestPost.frontmatter.date,
-    to: latestPost.fields.slug,
-  }]
-  
-  return (
-    <LockScreen>
-      {notifications.sort(byDate).map(notification => (
-        <Notification
-          {...notification}
-          key={notification.title}
-          badge={<AppBadge isCircle {...notification.badge}/>}
-        />
-      ))}
-    </LockScreen>
-  )
-}
+export default props => (
+  <LockScreen>
+    {props.data.posts.edges.map(({node: post}) => (
+      <Notification
+        key={post.title}
+        title={post.frontmatter.title}
+        detail={`${post.timeToRead} minute read`}
+        date={post.frontmatter.date}
+        to={post.fields.slug}
+        badge={
+          <AppBadge
+            icon='fa-book-open'
+            color='yellow'
+            colorWeight={500}
+            isCircle
+          />
+        }
+      />
+    ))}
+  </LockScreen>
+)
 
 export const query = graphql`
   fragment ScreenInfo on ScreensYaml {
@@ -79,9 +62,9 @@ export const pageQuery = graphql`
     page: screensYaml(id: { eq: "lock" }) {
       ...ScreenInfo
     }
-    latestPost: allMarkdownRemark(
+    posts: allMarkdownRemark(
         sort: { fields: [frontmatter___date], order: DESC }
-        limit: 1
+        limit: 3
       ) {
       edges {
         node {

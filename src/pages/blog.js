@@ -12,6 +12,8 @@ const Posts = styled.div`
   grid-template-columns: 1fr;
   grid-row-gap: ${props => props.theme.size[300]};
   width: ${props => props.theme.size[800]};
+  height: 100%;
+  align-items: center;
   
   ${props => props.theme.media.tabletHorizontal`
     width: ${props => props.theme.size[850]};

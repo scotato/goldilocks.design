@@ -85,21 +85,8 @@ const DeviceHeaderNav = styled.nav`
   align-items: center;
 `
 
-const DeviceHeaderIcon = styled.div`
-  margin: 0 auto;
-  width: ${props => props.theme.size[450]};
-
-  ${props => props.theme.media.tabletHorizontal`
-    width: ${props => props.theme.size[500]};
-  `}
-
-  ${props => props.theme.media.tabletVertical`
-    width: ${props => props.theme.size[550]};
-  `}
-
-  ${props => props.theme.media.phone`
-    width: ${props => props.theme.size[600]};
-  `}
+const DeviceHeaderIcon = styled(Icon)`
+  /* padding: ${props => props.theme.size[100]}; */
 `
 
 const DeviceHeaderAction = styled.div`
@@ -171,9 +158,7 @@ export default props => {
                   )
                   : <Network />}
                 </DeviceHeaderNav>
-                <DeviceHeaderIcon>
-                  <Icon name={icon || page.icon} />
-                </DeviceHeaderIcon>
+                <DeviceHeaderIcon name={icon || page.icon} />
                 <DeviceHeaderAction>
                   {detail || <Battery /> }
                 </DeviceHeaderAction>

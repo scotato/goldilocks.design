@@ -32,23 +32,28 @@ import GoldilocksBlack from '../content/brand/goldilocks-logo-knot-black.svg'
 import GoldilocksSolid from '../content/brand/goldilocks-logo-knot-black-solid.svg'
 
 const fillContainer = css`
+  width: 100%;
   height: 100%;
-  max-width: 100%;
 `
 
 const icon = css`
- ${fillContainer}
+  ${fillContainer}
 
   path, circle {
     fill: currentColor;
   }
 `
 
-export const IconGoldilocks = styled(Goldilocks)`${fillContainer}`
-export const IconGoldilocksWhite = styled(GoldilocksWhite)`${fillContainer}`
-export const IconGoldilocksDark = styled(GoldilocksDark)`${fillContainer}`
-export const IconGoldilocksBlack = styled(GoldilocksBlack)`${fillContainer}`
-export const IconGoldilocksSolid = styled(GoldilocksSolid)`${fillContainer}`
+const logo = css`
+  padding: ${props => props.theme.size[200]};
+  ${fillContainer}
+`
+
+export const IconGoldilocks = styled(Goldilocks)`${logo}`
+export const IconGoldilocksWhite = styled(GoldilocksWhite)`${logo}`
+export const IconGoldilocksDark = styled(GoldilocksDark)`${logo}`
+export const IconGoldilocksBlack = styled(GoldilocksBlack)`${logo}`
+export const IconGoldilocksSolid = styled(GoldilocksSolid)`${logo}`
 export const IconBattery = styled(Battery)`${icon}`
 export const IconCellular = styled(Cellular)`${icon}`
 export const IconLock = styled(Lock)`${icon}`

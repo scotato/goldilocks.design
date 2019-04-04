@@ -7,11 +7,7 @@ import { IconBolt } from './Icon'
 const Battery = styled.div`
   display: flex;
   align-items: center;
-  height: ${props => props.theme.size[400]};
-
-  ${props => props.theme.media.tabletHorizontal`
-    height: ${props => props.theme.size[450]};
-  `}
+  height: ${props => props.theme.size[450]};
 
   ${props => props.theme.media.phone`
     height: ${props => props.theme.size[550]};
@@ -19,14 +15,10 @@ const Battery = styled.div`
 `
 
 const Bolt = styled(IconBolt)`
-  height: ${props => props.theme.size[350]};
+  height: ${props => props.theme.size[400]};
   transform: scale(${props => props.isActive ? 1 : 0});
   transition: transform .2s ease-out;
   will-change: transform;
-
-  ${props => props.theme.media.tabletHorizontal`
-    height: ${props => props.theme.size[400]};
-  `}
 
   ${props => props.theme.media.phone`
     height: ${props => props.theme.size[450]};
