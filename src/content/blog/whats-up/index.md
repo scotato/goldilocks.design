@@ -18,7 +18,7 @@ The initial focus of this blog will be to share the design & development process
 When it comes to building on the web, I'm primarily concerned with interfaces and experiences. The applications I build are constructed with [JavaScript, API's and Markup](https://jamstack.org/). This website is designed in [Figma](http://figma.com/), written in [React](http://reactjs.org/), built with [Gatsby](https://www.gatsbyjs.org/), hosted on [Github](https://github.com/scotato/goldilocks.design), and deployed by [Netlify](https://www.netlify.com/).
 
 ## Feedback & Updates
-As I develop this site, i'll be [sharing the source](https://github.com/scotato/goldilocks.design) on GitHub and soliciting feedback through [Twitter](https://twitter.com/scotato). I'm not a big fan of email so I won't bother with the newsletter signup, catch me on Twitter or follow the [RSS](https://goldilocks.design/rss.xml)!
+As I develop this site, i'll be [sharing the source](https://github.com/scotato/goldilocks.design) on GitHub and soliciting feedback through [Twitter](https://twitter.com/scotato). I'm not a big fan of email so no newsletter here, catch me on Twitter or follow the [RSS](https://goldilocks.design/rss.xml)!
 
 ## Sponsors
 This post was brought to you by photons, electrons, fiber, copper & radio waves.
