@@ -27,8 +27,10 @@ const getChargerPositionTablet = props => {
 
 const Charger = styled(ChargerSVG)`
   display: block;
+  /* position: absolute; */
   margin: 0 auto;
   width: ${props => props.theme.size[400]};
+  /* height: 100%; */
   transform: translateY(${getChargerPosition});
   transition: transform .2s ease-out;
   will-change: transform;
@@ -40,13 +42,12 @@ const Charger = styled(ChargerSVG)`
 `
 
 const ChargerContainer = styled(ButtonBase)`
-  position: relative;
   display: block;
-  width: ${props => props.theme.size[500]};
+  position: relative;
   height: ${props => props.theme.size[400]};
   grid-area: layout-body-margin-bottom;
   justify-self: center;
-  /* overflow: hidden; */
+  overflow: hidden;
   cursor: pointer;
 
   ${props => props.theme.media.tabletHorizontal`
