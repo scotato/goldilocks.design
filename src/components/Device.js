@@ -169,6 +169,7 @@ export default props => {
   const hasHeader = !!(navTitle || detail || icon || page.icon)
   const hasFooter = !!footer
   useDeviceEffect()
+  console.log(footer)
 
   return (
     <>

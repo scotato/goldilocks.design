@@ -1,34 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
 import { graphql } from 'gatsby'
 
-import Card from '../components/Card'
+import Card, { Cards } from '../components/Card'
 import { AppBadge } from '../components/AppIcon'
 
-const LockScreen = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100%;
-`
-
-const Notification = styled(Card)`
-  width: ${props => props.theme.size[800]};
-  
-  ${props => props.theme.media.tabletHorizontal`
-    width: ${props => props.theme.size[850]};
-  `}
-
-  ${props => props.theme.media.tabletVertical`
-    width: 100%;
-  `}
-`
-
 export default props => (
-  <LockScreen>
+  <Cards>
     {props.data.posts.edges.map(({node: post}) => (
-      <Notification
+      <Card
         key={post.title}
         title={post.frontmatter.title}
         detail={`${post.timeToRead} minute read`}
@@ -44,7 +23,7 @@ export default props => (
         }
       />
     ))}
-  </LockScreen>
+  </Cards>
 )
 
 export const query = graphql`

@@ -73,6 +73,10 @@ const CardBadge = styled.div`
   height: ${props => props.theme.size[500]};
   border-radius: ${props => props.theme.size[500]};
   overflow: hidden;
+  
+  .gatsby-image-wrapper {
+    flex: 1;
+  }
 
   ${props => props.theme.media.tabletVertical`
     height: ${props => props.theme.size[600]};
@@ -116,10 +120,24 @@ const CardTimestamp = styled.span`
 `
 
 export const Cards = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  align-self: center;
+  display: grid;
+  margin: auto;
+  grid-template-columns: 1fr;
+  grid-row-gap: ${props => props.theme.size[300]};
+  width: ${props => props.theme.size[800]};
+
+  ${props => props.theme.media.tabletHorizontal`
+    width: ${props => props.theme.size[850]};
+  `}
+
+  ${props => props.theme.media.tabletVertical`
+    margin: 0 auto;
+    width: ${props => props.theme.size[900]};
+  `}
+
+  ${props => props.theme.media.phone`
+    width: 100%;
+  `}
 `
 
 export default ({to, hero, badge, title, detail, date, ...props}) => (

@@ -1,47 +1,24 @@
 import React from 'react'
-import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
-import Card from '../components/Card'
-import { AppBadge } from '../components/AppIcon'
+import Card, { Cards } from '../components/Card'
 
-const Projects = styled.div`
-  display: grid;
-  margin: 0 auto;
-  width: ${props => props.theme.size[800]};
-  grid-row-gap: ${props => props.theme.size[300]};
-`
-
-const Project = styled(Card)`
-  flex: 1;
-`
-const ProjectImg = styled(Img)`
-  flex: 1;
-`
-
-const GithubBadge = styled(AppBadge).attrs({
-  icon: 'fa-github',
-  color: 'black',
-  colorWeight: 900
-})``
-
-const ProjectsPage = ({ data: { page, projects, goldilocksDesign }}) => (
-  <Projects>
+const ProjectsPage = ({ data: { projects, goldilocksDesign }}) => (
+  <Cards>
     {console.log(goldilocksDesign)}
     {projects.edges.map(({node: project}) => (
-      <Project
+      <Card
         key={project.dateAdded}
-        hero={<ProjectImg fluid={project.badge.childImageSharp.fluid} />}
-        badge={<GithubBadge />}
+        badge={<Img fluid={project.badge.childImageSharp.fluid} />}
         title={goldilocksDesign.repository.name}
         detail={goldilocksDesign.repository.description}
         date={goldilocksDesign.repository.pushedAt}
         to={goldilocksDesign.repository.url}
       />
     ))}
-  </Projects>
+  </Cards>
 )
 
 ProjectsPage.propTypes = {

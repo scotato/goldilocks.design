@@ -10,15 +10,16 @@ import Banner from './Banner'
 import Social from './Social'
 import theme from '../theme'
 
-const PageFooter = props => {
-  switch (props.id) {
+const PageFooter = id => {
+  switch (id) {
     case 'home':
     case 'blog':
-    return <Social />
+    case 'projects':
+      return <Social />
     case 'lock':
       return true
     default:
-      return false
+      return null
   }
 }
 
@@ -41,7 +42,7 @@ const Page = props => {
             navTo={post ? '/blog' : '/home'}
             detail={post && moment(post.frontmatter.date).format('MMM D, YYYY')}
             hasBanner={hasBanner}
-            footer={<PageFooter id={id} />}
+            footer={PageFooter(id)}
           >
             {props.children}
           </Device>

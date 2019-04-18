@@ -1,55 +1,23 @@
 import React from 'react'
-import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
-import Card from '../components/Card'
-
-const Posts = styled.div`
-  display: grid;
-  margin: auto;
-  grid-template-columns: 1fr;
-  grid-row-gap: ${props => props.theme.size[300]};
-  width: ${props => props.theme.size[800]};
-  
-  ${props => props.theme.media.tabletHorizontal`
-    width: ${props => props.theme.size[850]};
-  `}
-
-  ${props => props.theme.media.tabletVertical`
-    margin: 0 auto;
-    width: ${props => props.theme.size[900]};
-  `}
-
-  ${props => props.theme.media.phone`
-    width: 100%;
-  `}
-`
-
-const Post = styled(Card)`
-  flex: 1;
-`
-const PostImg = styled(Img)`
-  flex: 1;
-  z-index: 0;
-  border-radius: 50%;
-  overflow: hidden;
-`
+import Card, { Cards } from '../components/Card'
 
 const BlogPage = ({ data: { posts }}) => (
-  <Posts>
+  <Cards>
     {posts.edges.map(post => (
-      <Post
+      <Card
         key={post.node.frontmatter.date}
-        badge={<PostImg fluid={post.node.frontmatter.badge.childImageSharp.fluid} />}
+        badge={<Img fluid={post.node.frontmatter.badge.childImageSharp.fluid} />}
         title={post.node.frontmatter.title}
         detail={`${post.node.timeToRead} min read`}
         date={post.node.frontmatter.date}
         to={post.node.fields.slug}
       />
     ))}
-  </Posts>
+  </Cards>
 )
 
 BlogPage.propTypes = {
