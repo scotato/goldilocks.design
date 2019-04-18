@@ -1,0 +1,13 @@
+- id: goldilocks-design
+  title: goldilocks.design
+  description: just right
+  github: goldilocksDesign
+  badge: projects/goldilocks-design-badge.png
+  dateAdded: '2019-02-14'
+  tech: 
+    - react
+    - gatsby
+    - styled-components
+    - graphql
+    - figma
+  app: projects

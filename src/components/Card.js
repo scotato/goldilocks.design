@@ -9,7 +9,7 @@ const Card = styled(Link)`
   flex-direction: column;
   margin: ${props => props.theme.size[250]};
   background-color: ${props => props.theme.colors.black[200]};
-  border-radius: ${props => props.theme.size[900]};
+  border-radius: ${props => props.theme.size[450]};
   overflow: hidden;
   color: inherit;
 

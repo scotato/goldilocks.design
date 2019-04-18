@@ -4,3 +4,9 @@
   title: Blog
   color: yellow
   colorWeight: 500
+- id: projects
+  icon: fa-pencil-ruler
+  slug: projects
+  title: Projects
+  color: blue
+  colorWeight: 500
