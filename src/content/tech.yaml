@@ -1,0 +1,109 @@
+---
+title: HTML5
+description: HTML is the most basic building block of the Web. It defines the meaning and structure of web content. 
+url: https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
+urlSource: 
+badge: html5-logo.png
+category: language
+tech: 
+date: 2019-02-13
+---
+
+---
+title: CSS3
+description: CSS is a stylesheet language used to describe the presentation of a document written in HTML or XML.
+url: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3
+urlSource: 
+badge: css3-logo.png
+category: language
+tech: 
+date: 2019-02-13
+---
+
+---
+title: SVG
+description: SVG is an XML-based markup language for describing two dimensional based vector graphics. SVG is essentially to graphics what HTML is to text.
+url: https://developer.mozilla.org/en-US/docs/Web/SVG
+urlSource: 
+badge: SVG-logo.png
+category: language
+tech: 
+date: 2019-02-13
+---
+
+---
+title: Markdown
+description: Markdown is a lightweight markup language with plain text formatting syntax.
+url: https://daringfireball.net/projects/markdown
+urlSource: 
+badge: markdown-logo.png
+category: language
+tech: 
+date: 2019-02-13
+---
+
+---
+title: Framer
+description: Always interactive, lightning fast design. Where every layout you create is responsive.
+url: http://framer.com/
+urlSource: 
+badge: framer-logo.png
+category: design
+tech: 
+date: 2019-02-13
+---
+
+---
+title: NPM
+description: NPM is the package manager for JavaScript and the world’s largest software registry. 
+url: https://www.npmjs.com/
+urlSource: 
+badge: npm-logo.png
+category: framework
+tech: 
+date: 2019-02-13
+---
+
+---
+title: Github
+description: GitHub is a web-based hosting service for version control using Git.
+url: https://github.com/
+urlSource: 
+badge: github-logo.png
+category: devOps
+tech: 
+date: 2019-02-13
+---
+
+---
+title: Cloud Firestore
+description: Store and sync app data at global scale.
+url: https://firebase.google.com/products/firestore/
+urlSource: 
+badge: googleCloud-logo.png
+category: devOps
+tech: 
+date: 2019-02-13
+---
+
+---
+title: Netlify
+description: Build, deploy, and manage modern web projects. An all-in-one workflow that combines global deployment, continuous integration, and automatic HTTPS.
+url: https://www.netlify.com
+urlSource: 
+badge: netlify-logo.png
+category: devOps
+tech: 
+date: 2019-02-13
+---
+
+---
+title: Netlify Functions
+description: Deploy AWS Lambda functions without configuring API gateways, coordinating deployments, or setting up an AWS account. 
+url: https://www.netlify.com/features/functions
+urlSource: 
+badge: netlifyFunctions-logo.png
+category: devOps
+tech: 
+date: 2019-02-13
+---

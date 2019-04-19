@@ -1,22 +1,33 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import Link from './Link'
 import Icon from './Icon'
 
 const Badge = styled.div`
   display: flex;
-  padding: 15%;
   justify-content: center;
   align-items: center;
   color: ${props => props.theme.colors.black[100]};
   width: 100%;
-  border-radius: ${props => props.isCircle ? props.theme.size[900] : '30%'};
-  background-color: ${props => props.theme.colors[props.color][props.colorWeight]};
   transform: scale(${props => props.isMouseDown ? 0.975 : 1});
   transition: transform .1s ease-out;
   will-change: transform;
   line-height: 1;
+
+  ${props => props.isIcon && css`
+    padding: 15%;
+    border-radius: 30%;
+    background-color: ${props => props.theme.colors[props.color][props.colorWeight]};
+  `}
+
+  ${props => props.isCircle && css`
+    border-radius: ${props.theme.size[900]};
+  `}
+
+  .gatsby-image-wrapper {
+    flex: 1
+  }
 
   svg {
     width: 100%;
@@ -29,6 +40,7 @@ const AppTitle = styled.span`
   text-transform: uppercase;
   line-height: 1;
   text-align: center;
+  font-size: ${props => props.theme.size[300]};
 
   ${props => props.theme.media.tabletVertical`
     font-size: ${props => props.theme.size[400]};
@@ -42,8 +54,11 @@ const AppTitle = styled.span`
 const AppIcon = styled(Link)`
   position: relative;
   display: flex;
+  margin: 0 ${props => props.theme.size[400]} ${props => props.theme.size[300]};
+  padding-top: ${props => props.theme.size[400]};
   flex-direction: column;
   align-items: center;
+  width: ${props => props.theme.size[600]};
   
   svg {
     width: 100%;
@@ -70,8 +85,18 @@ const AppNotification = styled.span`
   border-radius: 100%;
 `
 
+export const Apps = styled.div`
+  display: flex;
+  margin: auto;
+  padding: 0 ${props => props.theme.size[400]};
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  justify-self: center;
+`
+
 export const AppBadge = ({icon, children, ...props}) =>
-  <Badge {...props}>
+  <Badge {...props} isIcon={!!icon}>
     {icon ? <Icon name={icon} /> : children}
   </Badge>
 

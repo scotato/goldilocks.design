@@ -10,6 +10,7 @@ import FaBell from '../content/icons/fa-bell.svg'
 import FaBookOpen from '../content/icons/fa-book-open.svg'
 import FaBracketsCurly from '../content/icons/fa-brackets-curly.svg'
 import FaPencilRuler from '../content/icons/fa-pencil-ruler.svg'
+import FaDraftingCompass from '../content/icons/fa-drafting-compass.svg'
 import FaComment from '../content/icons/fa-comment.svg'
 import FaMusic from '../content/icons/fa-music.svg'
 import FaPlay from '../content/icons/fa-play.svg'
@@ -70,6 +71,7 @@ export const IconFaBell = styled(FaBell)`${icon}`
 export const IconFaBookOpen = styled(FaBookOpen)`${icon}`
 export const IconFaBracketsCurly = styled(FaBracketsCurly)`${icon}`
 export const IconFaPencilRuler = styled(FaPencilRuler)`${icon}`
+export const IconFaDraftingCompass = styled(FaDraftingCompass)`${icon}`
 export const IconFaComment = styled(FaComment)`${icon}`
 export const IconFaMusic = styled(FaMusic)`${icon}`
 export const IconFaPlay = styled(FaPlay)`${icon}`
@@ -102,6 +104,7 @@ const icons = {
   'fa-bell': IconFaBell,
   'fa-brackets-curly': IconFaBracketsCurly,
   'fa-pencil-ruler': IconFaPencilRuler,
+  'fa-drafting-compass': IconFaDraftingCompass,
   'fa-comment': IconFaComment,
   'fa-music': IconFaMusic,
   'fa-play': IconFaPlay,

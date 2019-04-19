@@ -8,5 +8,12 @@
   icon: fa-pencil-ruler
   slug: projects
   title: Projects
+  color: orange
+  colorWeight: 500
+- id: tech
+  icon: fa-drafting-compass
+  slug: tech
+  title: Tech
   color: blue
   colorWeight: 500
+  

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
@@ -7,7 +6,6 @@ import Card, { Cards } from '../components/Card'
 
 const ProjectsPage = ({ data: { projects, goldilocksDesign }}) => (
   <Cards>
-    {console.log(goldilocksDesign)}
     {projects.edges.map(({node: project}) => (
       <Card
         key={project.dateAdded}
@@ -20,18 +18,6 @@ const ProjectsPage = ({ data: { projects, goldilocksDesign }}) => (
     ))}
   </Cards>
 )
-
-ProjectsPage.propTypes = {
-  data: PropTypes.shape({
-    page: PropTypes.object,
-    github: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
-    apps: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
-  }),
-}
 
 export default ProjectsPage
 
@@ -70,35 +56,9 @@ export const pageQuery = graphql`
     }
     goldilocksDesign: github {
       repository(name: "goldilocks.design", owner: "scotato") {
-        releases(last: 1) {
-          edges {
-            node {
-              createdAt
-              description
-              id
-              isDraft
-              isPrerelease
-              name
-              publishedAt
-              resourcePath
-              tag {
-                name
-              }
-              tagName
-              updatedAt
-              url
-            }
-          }
-          totalCount
-        }
-        description
-        homepageUrl
-        id
         name
-        url
-        createdAt
+        description
         pushedAt
-        updatedAt
       }
     }
   }

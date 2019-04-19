@@ -36,6 +36,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
         sort: { fields: [frontmatter___date], order: DESC }
+        filter: { fields: { collection: { ne: "tech" } } }
         limit: 3
       ) {
       edges {

@@ -16,6 +16,8 @@ module.exports = {
   },
   mapping: {
     'MarkdownRemark.fields.app': `AppsYaml`,
+    'MarkdownRemark.frontmatter.tech': `MarkdownRemark.frontmatter.id`,
+    'MarkdownRemark.frontmatter.tech.tech': `MarkdownRemark.frontmatter.id`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -31,6 +33,13 @@ module.exports = {
       options: {
         name: `projects`,
         path: `${__dirname}/src/content/projects`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `tech`,
+        path: `${__dirname}/src/content/tech`,
       },
     },
     {
