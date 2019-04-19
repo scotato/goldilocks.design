@@ -64,6 +64,7 @@ export const pageQuery = graphql`
       ...AppInfo
     }
     posts: allMarkdownRemark(
+        filter: { fields: { collection: { eq: "blog" } } }
         sort: { fields: [frontmatter___date], order: DESC }
         limit: 1000
       ) {

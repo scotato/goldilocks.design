@@ -15,10 +15,24 @@ module.exports = {
     siteLogo: '/images/logo-512.png', // Logo used for SEO, RSS, and App manifest
   },
   mapping: {
-    'ProjectsYaml.app': `AppsYaml`,
+    'MarkdownRemark.frontmatter.app': `AppsYaml`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `blog`,
+        path: `${__dirname}/src/content/blog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `projects`,
+        path: `${__dirname}/src/content/projects`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

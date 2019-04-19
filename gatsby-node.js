@@ -12,6 +12,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) =>
           node {
             fields {
               slug
+              collection
             }
             frontmatter {
               title
@@ -26,8 +27,12 @@ exports.createPages = ({ graphql, actions: { createPage } }) =>
       throw result.errors
     }
 
-    const posts = result.data.allMarkdownRemark.edges
+    const remark = result.data.allMarkdownRemark.edges
+    const posts = remark.filter(({node: post}) => post.fields.collection === 'blog')
+    const projects = remark.filter(({node: project}) => project.fields.collection === 'projects')
     const postTemplate = path.resolve(`src/templates/post.js`)
+    const projectTemplate = path.resolve(`src/templates/project.js`)
+    console.log('posts', JSON.stringify(posts))
 
     posts.forEach((post, index) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
@@ -43,17 +48,32 @@ exports.createPages = ({ graphql, actions: { createPage } }) =>
         }
       })
     })
+
+    projects.forEach(project => {
+      createPage({
+        path: project.node.fields.slug,
+        component: projectTemplate,
+        context: {
+          slug: project.node.fields.slug,
+        }
+      })
+    })
   })
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
-
+  const collection = node => getNode(node.parent).sourceInstanceName
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value: `/${collection(node)}${createFilePath({ node, getNode })}`,
+    })
+
+    createNodeField({
+      name: `collection`,
+      node,
+      value: collection(node),
     })
   }
 }
