@@ -75,5 +75,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value: collection(node),
     })
+
+    createNodeField({
+      name: `app`,
+      node,
+      value: collection(node),
+    })
   }
 }

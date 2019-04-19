@@ -38,6 +38,9 @@ export const query = graphql`
   fragment Post on MarkdownRemark {
     fields {
       slug
+      app {
+        ...AppInfo
+      }
     }
     timeToRead
     frontmatter {

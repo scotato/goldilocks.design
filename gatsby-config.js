@@ -16,6 +16,7 @@ module.exports = {
   },
   mapping: {
     'MarkdownRemark.frontmatter.app': `AppsYaml`,
+    'MarkdownRemark.fields.app': `AppsYaml`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

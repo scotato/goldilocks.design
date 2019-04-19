@@ -13,14 +13,7 @@ export default props => (
         detail={`${post.timeToRead} minute read`}
         date={post.frontmatter.date}
         to={post.fields.slug}
-        badge={
-          <AppBadge
-            icon='fa-book-open'
-            color='yellow'
-            colorWeight={500}
-            isCircle
-          />
-        }
+        badge={<AppBadge {...post.fields.app} isCircle />}
       />
     ))}
   </Cards>
