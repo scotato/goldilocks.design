@@ -98,6 +98,9 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       html
       timeToRead
+      fields {
+        collection
+      }
       frontmatter {
         author
         title

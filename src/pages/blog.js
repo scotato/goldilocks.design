@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
@@ -20,24 +19,13 @@ const BlogPage = ({ data: { posts }}) => (
   </Cards>
 )
 
-BlogPage.propTypes = {
-  data: PropTypes.shape({
-    site: PropTypes.shape(PropTypes.object),
-    page: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
-    apps: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
-  }),
-}
-
 export default BlogPage
 
 export const query = graphql`
   fragment Post on MarkdownRemark {
     fields {
       slug
+      collection
       app {
         ...AppInfo
       }

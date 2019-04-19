@@ -56,7 +56,7 @@ const BannerTitle = styled.h1`
 `
 
 const Blob = styled(BlobAnimated).attrs({
-  color: props => props.theme.colors.yellow[500] 
+  color: props => props.theme.colors[props.color][props.colorWeight]
 })`
 `
 const BannerAccent = styled.div`
@@ -67,7 +67,7 @@ const BannerMessage = styled(Message)`
   margin-top: ${props => props.theme.size[400]};
 `
 
-export default ({ title, children, author, intro, twitter, ...props }) => (
+export default ({ title, children, author, intro, twitter, page, ...props }) => (
   <Banner {...props}>
     <BannerBody>
       <BannerTitle>
@@ -80,7 +80,7 @@ export default ({ title, children, author, intro, twitter, ...props }) => (
       />
     </BannerBody>
     <BannerAccent>
-      <Blob />
+      <Blob {...page} />
     </BannerAccent>
   </Banner>
 )

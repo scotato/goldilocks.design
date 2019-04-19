@@ -24,24 +24,24 @@ const PageFooter = id => {
 }
 
 const Page = props => {
-  const { page, post } = props.data
+  const { page, post, project } = props.data
   const { id, color, colorWeight } = page
   const navBlacklist = ['lock', '404', 'home']
-  const hasBanner = !!post
+  const banner = post || project
 
   return (
     <ThemeProvider theme={theme}>
       <>
         <GlobalStyle bodyBg={theme.colors[color][colorWeight]} />
-        <SEO title={post && post.frontmatter.title} description={post && `${post.timeToRead} minute read`} />
-        <Layout hasBanner={hasBanner}>
-          {post && <Banner {...post.frontmatter} />}
+        <SEO title={banner && banner.frontmatter.title} description={banner && `${banner.timeToRead} minute read`} />
+        <Layout hasBanner={!!banner}>
+          {banner && <Banner page={page} {...banner.frontmatter} />}
           <Device
             page={page}
-            navTitle={!navBlacklist.includes(id) && (post ? 'Blog' : 'Home')}
-            navTo={post ? '/blog' : '/home'}
-            detail={post && moment(post.frontmatter.date).format('MMM D, YYYY')}
-            hasBanner={hasBanner}
+            navTitle={!navBlacklist.includes(id) && (banner ? banner.fields.collection : 'Home')}
+            navTo={banner ? `/${banner.fields.collection}` : '/home'}
+            detail={banner && moment(banner.frontmatter.date).format('MMM D, YYYY')}
+            hasBanner={!!banner}
             footer={PageFooter(id)}
           >
             {props.children}

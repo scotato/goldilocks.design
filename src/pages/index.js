@@ -6,14 +6,14 @@ import { AppBadge } from '../components/AppIcon'
 
 export default props => (
   <Cards>
-    {props.data.posts.edges.map(({node: post}) => (
+    {props.data.allMarkdownRemark.edges.map(({ node }) => (
       <Card
-        key={post.title}
-        title={post.frontmatter.title}
-        detail={`${post.timeToRead} minute read`}
-        date={post.frontmatter.date}
-        to={post.fields.slug}
-        badge={<AppBadge {...post.fields.app} isCircle />}
+        key={node.title}
+        title={node.frontmatter.title}
+        detail={node.frontmatter.description || `${node.timeToRead} min read`}
+        date={node.frontmatter.date}
+        to={node.fields.slug}
+        badge={<AppBadge {...node.fields.app} isCircle />}
       />
     ))}
   </Cards>
@@ -34,13 +34,25 @@ export const pageQuery = graphql`
     page: screensYaml(id: { eq: "lock" }) {
       ...ScreenInfo
     }
-    posts: allMarkdownRemark(
+    allMarkdownRemark(
         sort: { fields: [frontmatter___date], order: DESC }
         limit: 3
       ) {
       edges {
         node {
-          ...Post
+          timeToRead
+          fields {
+            slug
+            collection
+            app {
+              ...AppInfo
+            }
+          }
+          frontmatter {
+            title
+            description
+            date
+          }
         }
       }
     }

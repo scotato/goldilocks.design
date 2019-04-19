@@ -15,7 +15,6 @@ module.exports = {
     siteLogo: '/images/logo-512.png', // Logo used for SEO, RSS, and App manifest
   },
   mapping: {
-    'MarkdownRemark.frontmatter.app': `AppsYaml`,
     'MarkdownRemark.fields.app': `AppsYaml`,
   },
   plugins: [
@@ -37,8 +36,29 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/content`,
-        name: `content`,
+        name: `brand`,
+        path: `${__dirname}/src/content/brand`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `icons`,
+        path: `${__dirname}/src/content/icons`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `apps`,
+        path: `${__dirname}/src/content/apps.yaml`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `screens`,
+        path: `${__dirname}/src/content/screens.yaml`,
       },
     },
     {

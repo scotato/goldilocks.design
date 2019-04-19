@@ -32,7 +32,6 @@ exports.createPages = ({ graphql, actions: { createPage } }) =>
     const projects = remark.filter(({node: project}) => project.fields.collection === 'projects')
     const postTemplate = path.resolve(`src/templates/post.js`)
     const projectTemplate = path.resolve(`src/templates/project.js`)
-    console.log('posts', JSON.stringify(posts))
 
     posts.forEach((post, index) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
