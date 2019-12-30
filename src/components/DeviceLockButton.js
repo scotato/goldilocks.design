@@ -63,6 +63,7 @@ export default () => {
       onMouseDown={() => setIsMouseDown(true)}
       onMouseOut={() => setIsMouseDown(false)}
       onMouseUp={() => setIsMouseDown(false)}
+      onBlur={() => setIsMouseDown(false)}
       onClick={() => {
         setDevice.isOff(!isOff)
         !isOff && navigate('/')

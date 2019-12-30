@@ -108,6 +108,7 @@ export default ({color = 'black', colorWeight = 200, title, icon, to, notificati
       to={to}
       onMouseDown={() => setIsMouseDown(true)}
       onMouseOut={() => setIsMouseDown(false)}
+      onBlur={() => setIsMouseDown(false)}
       {...props}
     >
       <AppBadge
