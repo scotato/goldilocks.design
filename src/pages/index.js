@@ -1,28 +1,30 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Card, { Cards } from '../components/Card'
-import { AppBadge } from '../components/AppIcon'
+import AppIcon, { Apps } from '../components/AppIcon'
 
-export default props => (
-  <Cards>
-    {props.data.allMarkdownRemark.edges.map(({ node }) => (
-      <Card
-        key={node.title}
-        title={node.frontmatter.title}
-        detail={node.frontmatter.description || `${node.timeToRead} min read`}
-        date={node.frontmatter.date}
-        to={node.fields.slug}
-        badge={<AppBadge {...node.fields.app} isCircle />}
+const HomePage = props => (
+  <Apps>
+    {props.data.apps.edges.map(({node: app}) => (
+      <AppIcon
+        key={app.id}
+        title={app.title}
+        icon={app.icon}
+        to={app.slug}
+        color={app.color}
+        colorWeight={app.colorWeight}
       />
     ))}
-  </Cards>
+  </Apps>
 )
 
+export default HomePage
+
 export const query = graphql`
-  fragment ScreenInfo on ScreensYaml {
+  fragment AppInfo on AppsYaml {
     id
     icon
+    slug
     title
     color
     colorWeight
@@ -31,29 +33,13 @@ export const query = graphql`
 
 export const pageQuery = graphql`
   query {
-    page: screensYaml(id: { eq: "lock" }) {
+    page: screensYaml(id: { eq: "home" }) {
       ...ScreenInfo
     }
-    allMarkdownRemark(
-        sort: { fields: [frontmatter___date], order: DESC }
-        filter: { fields: { collection: { ne: "tech" } } }
-        limit: 3
-      ) {
+    apps: allAppsYaml {
       edges {
         node {
-          timeToRead
-          fields {
-            slug
-            collection
-            app {
-              ...AppInfo
-            }
-          }
-          frontmatter {
-            title
-            description
-            date
-          }
+          ...AppInfo
         }
       }
     }

@@ -15,6 +15,7 @@ const PageFooter = id => {
     case 'home':
     case 'blog':
     case 'projects':
+    case 'feed':
       return <Social />
     case 'lock':
     case 'tech':
@@ -27,7 +28,7 @@ const PageFooter = id => {
 const Page = props => {
   const { page, post, project, tech } = props.data
   const { id, color, colorWeight } = page
-  const navBlacklist = ['lock', '404', 'home']
+  const navBlacklist = ['lock', 'home']
   const banner = post || project
   const subpage = post || project || tech
 
@@ -41,7 +42,7 @@ const Page = props => {
           <Device
             page={page}
             navTitle={!navBlacklist.includes(id) && (subpage ? subpage.fields.collection : 'Home')}
-            navTo={subpage ? `/${subpage.fields.collection}` : '/home'}
+            navTo={subpage ? `/${subpage.fields.collection}` : '/'}
             detail={banner && moment(banner.frontmatter.date).format('MMM D, YYYY')}
             hasBanner={!!banner}
             footer={PageFooter(id)}

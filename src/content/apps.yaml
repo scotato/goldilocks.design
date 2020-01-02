@@ -1,3 +1,9 @@
+- id: feed
+  icon: fa-bell
+  slug: feed
+  title: Feed
+  color: red
+  colorWeight: 500
 - id: blog
   icon: fa-book-open
   slug: blog
