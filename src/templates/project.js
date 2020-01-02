@@ -69,7 +69,7 @@ const Action = ({icon, ...props}) => (
 export default ({ data }) => (
   <>
     <Project dangerouslySetInnerHTML={{ __html: data.project.html }} />
-    <Actions>
+    {/* <Actions>
       <Action
         to={`https://twitter.com/scotato/status/${data.project.frontmatter.twitter}`}
         icon="fa-comment"
@@ -84,7 +84,7 @@ export default ({ data }) => (
         title="More Projects"
         rel="next"
       />
-    </Actions>
+    </Actions> */}
   </>
 )
 
@@ -110,5 +110,13 @@ export const pageQuery = graphql`
         github
       }
     }
+    # github: github {
+    #   repository(name: "goldilocks.design", owner: "scotato") {
+    #     name
+    #     description
+    #     createdAt
+    #     pushedAt
+    #   }
+    # }
   }
 `

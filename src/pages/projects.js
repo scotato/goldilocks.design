@@ -4,15 +4,15 @@ import Img from 'gatsby-image'
 
 import Card, { Cards } from '../components/Card'
 
-const ProjectsPage = ({ data: { projects, goldilocksDesign }}) => (
+const ProjectsPage = ({ data: { projects }}) => (
   <Cards>
     {projects.edges.map(({node: project}) => (
       <Card
         key={project.dateAdded}
         badge={<Img fluid={project.frontmatter.badge.childImageSharp.fluid} />}
-        title={goldilocksDesign.repository.name}
-        detail={goldilocksDesign.repository.description}
-        date={goldilocksDesign.repository.pushedAt}
+        title={project.frontmatter.title}
+        detail={project.frontmatter.description}
+        date={project.frontmatter.createdAt}
         to={project.fields.slug}
       />
     ))}
@@ -27,6 +27,9 @@ export const query = graphql`
       slug
     }
     frontmatter {
+      title
+      description
+      createdAt
       badge {
         childImageSharp {
           fluid(maxWidth: 900) {
@@ -53,13 +56,6 @@ export const pageQuery = graphql`
             ...Project
           }
         }
-    }
-    goldilocksDesign: github {
-      repository(name: "goldilocks.design", owner: "scotato") {
-        name
-        description
-        pushedAt
-      }
     }
   }
 `
