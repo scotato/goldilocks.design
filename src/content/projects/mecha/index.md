@@ -5,7 +5,6 @@ intro: find great software tech talks
 author: scotato
 website: https://mecha.video
 github: https://github.com/scotato/mecha
-twitter: '0'
 badge: mecha-badge.png
 date: '2018-03-29'
 addedAt: '2020-01-02'
