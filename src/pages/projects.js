@@ -1,22 +1,40 @@
 import React from 'react'
+import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
-import Card, { Cards } from '../components/Card'
+import { Apps } from '../components/AppIcon'
+import Link from '../components/Link'
+
+const ProjectBadge = styled(Link)`
+  width: ${props => props.theme.size[600]};
+  margin: ${props => props.theme.size[250]} ${props => props.theme.size[200]};
+  color: ${props => props.theme.colors.black[500]};
+  font-size: ${props => props.theme.size[300]};
+  text-align: center;
+  line-height: 1.25;
+
+  &:hover {
+    color: ${props => props.theme.colors.black[500]};
+  }
+`
+
+const ProjectBadgeImage = styled(Img)`
+  margin-bottom: ${props => props.theme.size[250]};
+  width: ${props => props.theme.size[600]};
+  height: ${props => props.theme.size[600]};
+  border-radius: ${props => props.theme.size[400]};
+`
 
 const ProjectsPage = ({ data: { projects }}) => (
-  <Cards>
+  <Apps>
     {projects.edges.map(({node: project}) => (
-      <Card
-        key={project.dateAdded}
-        badge={<Img fluid={project.frontmatter.badge.childImageSharp.fluid} />}
-        title={project.frontmatter.title}
-        detail={project.frontmatter.description}
-        date={project.frontmatter.createdAt}
-        to={project.fields.slug}
-      />
+      <ProjectBadge to={project.fields.slug} key={project.title}>
+        <ProjectBadgeImage fluid={project.frontmatter.badge.childImageSharp.fluid} />
+        {project.frontmatter.title}
+      </ProjectBadge>
     ))}
-  </Cards>
+  </Apps>
 )
 
 export default ProjectsPage
@@ -28,8 +46,6 @@ export const query = graphql`
     }
     frontmatter {
       title
-      description
-      createdAt
       badge {
         childImageSharp {
           fluid(maxWidth: 900) {

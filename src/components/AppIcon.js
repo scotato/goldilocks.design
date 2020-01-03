@@ -16,8 +16,8 @@ const Badge = styled.div`
   line-height: 1;
 
   ${props => props.isIcon && css`
-    padding: 15%;
-    border-radius: 30%;
+    padding: ${props.theme.size[300]};
+    border-radius: ${props.theme.size[400]};
     background-color: ${props => props.theme.colors[props.color][props.colorWeight]};
   `}
 
@@ -38,7 +38,7 @@ const AppTitle = styled.span`
   margin-top: ${props => props.theme.size[300]};
   color:  ${props => props.theme.colors.black[500]};
   text-transform: uppercase;
-  line-height: 1;
+  line-height: 1.25;
   text-align: center;
   font-size: ${props => props.theme.size[300]};
 
