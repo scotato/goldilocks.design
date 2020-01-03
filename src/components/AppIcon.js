@@ -19,6 +19,16 @@ const Badge = styled.div`
     padding: ${props.theme.size[300]};
     border-radius: ${props.theme.size[400]};
     background-color: ${props => props.theme.colors[props.color][props.colorWeight]};
+
+    ${props => props.theme.media.tabletVertical`
+      padding: ${props.theme.size[350]};
+      border-radius: ${props.theme.size[450]};
+    `}
+
+    ${props => props.theme.media.phone`
+      padding: ${props.theme.size[450]};
+      border-radius: ${props.theme.size[550]};
+    `}
   `}
 
   ${props => props.isCircle && css`
@@ -47,14 +57,14 @@ const AppTitle = styled.span`
   `}
 
   ${props => props.theme.media.phone`
-    font-size: ${props => props.theme.size[500]};
+    font-size: ${props => props.theme.size[450]};
   `}
 `
 
 const AppIcon = styled(Link)`
   position: relative;
   display: flex;
-  margin: 0 ${props => props.theme.size[400]} ${props => props.theme.size[300]};
+  margin: ${props => props.theme.size[400]} ${props => props.theme.size[300]};
   padding-top: ${props => props.theme.size[400]};
   flex-direction: column;
   align-items: center;
@@ -67,6 +77,15 @@ const AppIcon = styled(Link)`
   &:hover {
     color: inherit;
   }
+
+  ${props => props.theme.media.tabletVertical`
+    width: ${props => props.theme.size[650]};
+  `}
+
+  ${props => props.theme.media.phone`
+    margin: ${props => props.theme.size[350]} ${props => props.theme.size[450]};
+    width: ${props => props.theme.size[750]};
+  `}
 `
 
 const AppNotification = styled.span`
