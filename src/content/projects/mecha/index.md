@@ -13,6 +13,7 @@ createdAt: '2018-03-29'
 updatedAt: '2018-04-27'
 phase: production
 commits: 206
+isWebsiteActive: true
 isProjectActive: true
 isProjectPublic: true
 isSourcePublic: false

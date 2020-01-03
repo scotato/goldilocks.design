@@ -76,7 +76,7 @@ export default ({ title, children, author, intro, twitter, page, ...props }) => 
       <BannerMessage
         author={author}
         children={intro}
-        to={`https://twitter.com/scotato/status/${twitter}`}
+        to={twitter && `https://twitter.com/scotato/status/${twitter}`}
       />
     </BannerBody>
     <BannerAccent>

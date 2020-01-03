@@ -11,9 +11,10 @@ createdAt: '2019-12-07'
 updatedAt: '2019-12-25'
 phase: development
 commits: 192
+isWebsiteActive: true
 isProjectActive: true
 isProjectPublic: true
-isSourcePublic: false
+isSourcePublic: true
 tech: 
   - react
   - browser-extensions

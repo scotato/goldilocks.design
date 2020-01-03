@@ -5,7 +5,6 @@ intro: manage and find new recipes
 author: scotato
 website: https://cookwithnoodle.com
 github: https://github.com/scotato/noodle
-twitter: '0'
 badge: noodle-badge.png
 date: '2019-08-13'
 addedAt: '2020-01-02'

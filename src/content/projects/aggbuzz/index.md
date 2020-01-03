@@ -15,8 +15,7 @@ commits: 712
 isProjectActive: false
 isProjectPublic: true
 isSourcePublic: false
-gallery:
-  - aggbuzz-badge.png
+isWebsiteActive: true
 tech: 
   - react
 ---

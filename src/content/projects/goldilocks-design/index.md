@@ -3,8 +3,8 @@ title: goldilocks design
 description: thoughts on the web
 intro: i made this
 author: scotato
-website: https://cookwithnoodle.com
-github: https://github.com/scotato/noodle
+website: https://goldilocks.design
+github: https://github.com/scotato/goldilocks.design
 twitter: '1095771958732574720'
 badge: goldilocks-design-badge.png
 date: '2019-02-14'
@@ -13,6 +13,7 @@ createdAt: '2019-02-14'
 updatedAt: '2020-01-02'
 phase: production
 commits: 248
+isWebsiteActive: true
 isProjectActive: true
 isProjectPublic: true
 isSourcePublic: true

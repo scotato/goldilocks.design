@@ -19,5 +19,5 @@ tech:
   - js
 ---
 
-## Get Cookin'
+## Just the Link
 Tranche is a browser extension that uses a keyboard shortcut to copy a clean querystring free URL of the current page to share with others.
