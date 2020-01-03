@@ -64,7 +64,7 @@ export const pageQuery = graphql`
     }
     projects: allMarkdownRemark(
         filter: { fields: { collection: { eq: "projects" } } }
-        sort: { fields: [frontmatter___date], order: DESC }
+        sort: { fields: [frontmatter___updatedAt, frontmatter___commits], order: DESC }
         limit: 1000
       ) {
         edges {
