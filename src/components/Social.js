@@ -39,7 +39,7 @@ export default () => (
       <Icon name="fa-github" />
     </SocialLink>
 
-    <SocialLink title="RSS Feed" to="/rss.xml" target="_blank">
+    <SocialLink title="RSS Feed" to="https://goldilocks.design/rss.xml">
       <Icon name="rss" />
     </SocialLink>
   </Social>
