@@ -2,7 +2,7 @@
   "name": "goldilocks-design",
   "private": true,
   "description": "thoughts on the web",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "author": "scott <scott@goldilocks.design>",
   "dependencies": {
     "gatsby": "2.18.17",
