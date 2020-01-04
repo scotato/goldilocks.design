@@ -67,8 +67,8 @@ const bubbles = css`
     `}
 
     ${props => props.theme.media.phone`
-      border-top-left-radius: ${props => props.theme.size[650]};
-      border-top-right-radius: ${props => props.theme.size[650]};
+      border-top-left-radius: ${props => props.theme.size[550]};
+      border-top-right-radius: ${props => props.theme.size[550]};
     `}
   }
 
@@ -87,8 +87,8 @@ const bubbles = css`
     `}
 
     ${props => props.theme.media.phone`
-      border-bottom-left-radius: ${props => props.theme.size[650]};
-      border-bottom-right-radius: ${props => props.theme.size[650]};
+      border-bottom-left-radius: ${props => props.theme.size[550]};
+      border-bottom-right-radius: ${props => props.theme.size[550]};
     `}
   }
 `
@@ -106,7 +106,7 @@ const Bubbles = props => props.to
   : <BubbleGroup {...props} />
 
 const MessageAvatarLink = styled.a`
-  align-self: flex-end;
+  /* align-self: flex-end; */
   grid-area: avatar;
 `
 

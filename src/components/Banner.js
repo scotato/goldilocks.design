@@ -34,6 +34,10 @@ const BannerBody = styled.div`
   align-items: center;
   justify-content: center;
   flex-grow: 1;
+
+  ${props => props.theme.media.phone`
+      padding: 0 ${props => props.theme.size[500]};
+  `}
 `
 
 const BannerTitle = styled.h1`
@@ -51,7 +55,8 @@ const BannerTitle = styled.h1`
   `}
 
   ${props => props.theme.media.phone`
-    font-size: ${props => props.theme.size[700]};
+    margin-bottom: ${props => props.theme.size[500]};
+    font-size: ${props => props.theme.size[650]};
   `}
 `
 

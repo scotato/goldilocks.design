@@ -40,7 +40,7 @@ const Bubble = styled.p`
   `}
 
   ${props => props.theme.media.phone`
-    padding: ${props => props.theme.size[500]} ${props => props.theme.size[550]};
+    padding: ${props => props.theme.size[400]} ${props => props.theme.size[500]};
     min-height: ${props => props.theme.size[650]};
     border-radius: ${props => props.theme.size[650]};
   `}
