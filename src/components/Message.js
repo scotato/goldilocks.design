@@ -106,7 +106,6 @@ const Bubbles = props => props.to
   : <BubbleGroup {...props} />
 
 const MessageAvatarLink = styled.a`
-  /* align-self: flex-end; */
   grid-area: avatar;
 `
 
