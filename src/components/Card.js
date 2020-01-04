@@ -16,6 +16,14 @@ const Card = styled(Link)`
   &:hover {
     color: inherit;
   }
+
+  ${props => props.theme.media.tabletVertical`
+    border-radius: ${props => props.theme.size[550]};
+  `}
+
+  ${props => props.theme.media.phone`
+    border-radius: ${props => props.theme.size[600]};
+  `}
 `
 
 const CardDetails = styled.div`
@@ -43,7 +51,7 @@ const CardDetails = styled.div`
   `}
 
   ${props => props.theme.media.tabletVertical`
-    grid-template-columns: ${props => props.theme.size[600]} auto auto;
+    grid-template-columns: ${props => props.theme.size[550]} auto auto;
     grid-column-gap: ${props => props.theme.size[400]};
     grid-row-gap: ${props => props.theme.size[300]};
     padding: ${props => props.theme.size[350]};
@@ -52,7 +60,7 @@ const CardDetails = styled.div`
   `}
 
   ${props => props.theme.media.phone`
-    grid-template-columns: ${props => props.theme.size[650]} auto auto;
+    grid-template-columns: ${props => props.theme.size[600]} auto auto;
     grid-column-gap: ${props => props.theme.size[450]};
     grid-row-gap: ${props => props.theme.size[350]};
     padding: ${props => props.theme.size[450]};
@@ -79,13 +87,13 @@ const CardBadge = styled.div`
   }
 
   ${props => props.theme.media.tabletVertical`
-    height: ${props => props.theme.size[600]};
-    border-radius: ${props => props.theme.size[600]};
+    height: ${props => props.theme.size[550]};
+    border-radius: ${props => props.theme.size[550]};
   `}
 
   ${props => props.theme.media.phone`
-    height: ${props => props.theme.size[650]};
-    border-radius: ${props => props.theme.size[650]};
+    height: ${props => props.theme.size[600]};
+    border-radius: ${props => props.theme.size[600]};
   `}
 `
 
@@ -111,6 +119,13 @@ const CardTitle = styled.h2`
 const CardDetail = styled.span`
   grid-area: detail;
   align-self: baseline;
+
+  ${props => props.theme.media.phone`
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  `}
 `
 
 const CardTimestamp = styled.span`

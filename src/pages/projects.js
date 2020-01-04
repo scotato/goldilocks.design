@@ -17,6 +17,18 @@ const ProjectBadge = styled(Link)`
   &:hover {
     color: ${props => props.theme.colors.black[500]};
   }
+
+  ${props => props.theme.media.tabletVertical`
+    margin: ${props => props.theme.size[350]} ${props => props.theme.size[400]};
+    width: ${props => props.theme.size[650]};
+    font-size: ${props => props.theme.size[350]};
+  `}
+
+  ${props => props.theme.media.phone`
+    margin: ${props => props.theme.size[350]} ${props => props.theme.size[350]};
+    width: ${props => props.theme.size[700]};
+    font-size: ${props => props.theme.size[400]};
+  `}
 `
 
 const ProjectBadgeImage = styled(Img)`
@@ -24,6 +36,18 @@ const ProjectBadgeImage = styled(Img)`
   width: ${props => props.theme.size[600]};
   height: ${props => props.theme.size[600]};
   border-radius: ${props => props.theme.size[400]};
+
+  ${props => props.theme.media.tabletVertical`
+    width: ${props => props.theme.size[650]};
+    height: ${props => props.theme.size[650]};
+    border-radius: ${props.theme.size[450]};
+  `}
+
+  ${props => props.theme.media.phone`
+    width: ${props => props.theme.size[700]};
+    height: ${props => props.theme.size[700]};
+    border-radius: ${props.theme.size[500]};
+  `}
 `
 
 const ProjectsPage = ({ data: { projects }}) => (

@@ -33,6 +33,14 @@ const Badge = styled.div`
 
   ${props => props.isCircle && css`
     border-radius: ${props.theme.size[900]};
+
+    ${props => props.theme.media.tabletVertical`
+      padding: ${props.theme.size[300]};
+    `}
+
+    ${props => props.theme.media.phone`
+      padding: ${props.theme.size[350]};
+    `}
   `}
 
   .gatsby-image-wrapper {
