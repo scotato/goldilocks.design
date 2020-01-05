@@ -172,10 +172,6 @@ export default props => {
 
   return (
     <>
-      <DeviceBlob {...page} isFlipped={hasBanner} />
-      <DeviceBackground isOff={isOff} {...page} />
-      <LockButton />
-      {!detail && <Charger />}
       <Device isOff={isOff} isDarkMode={isDarkMode}>
         {hasHeader && (
           <DeviceHeader isDarkMode={isDarkMode}>
@@ -210,6 +206,10 @@ export default props => {
           </DeviceFooter>
         )}
       </Device>
+      <DeviceBlob {...page} isFlipped={hasBanner} />
+      <DeviceBackground isOff={isOff} {...page} />
+      <LockButton />
+      {!detail && <Charger />}
     </>
   )
 }
