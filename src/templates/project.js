@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
  
 import { ButtonLink } from '../components/Button'
 import Icon from '../components/Icon'
+import Gallery from '../components/Gallery'
 
 const Project = styled.article`
   padding: ${props => props.theme.size[400]} ${props => props.theme.size[550]};
@@ -87,6 +88,7 @@ export default ({ data }) => {
   const project = data.project.frontmatter
   const {
     title,
+    gallery,
     twitter,
     github,
     website,
@@ -97,6 +99,7 @@ export default ({ data }) => {
   return (
     <>
       <Project dangerouslySetInnerHTML={{ __html: data.project.html }} />
+      {gallery && <Gallery images={gallery} />}
       <Actions>
         {website && isWebsiteActive && (
           <Action
@@ -149,6 +152,16 @@ export const pageQuery = graphql`
       frontmatter {
         author
         title
+        gallery {
+          description
+          img {
+            childImageSharp {
+              fluid(maxWidth: 1280) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
         date
         intro
         twitter
@@ -159,13 +172,5 @@ export const pageQuery = graphql`
         isWebsiteActive
       }
     }
-    # github: github {
-    #   repository(name: "goldilocks.design", owner: "scotato") {
-    #     name
-    #     description
-    #     createdAt
-    #     pushedAt
-    #   }
-    # }
   }
 `

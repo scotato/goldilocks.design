@@ -20,7 +20,15 @@ module.exports = {
     'MarkdownRemark.frontmatter.tech.tech': `MarkdownRemark.frontmatter.id`
   },
   plugins: [
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-external-links`]
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -70,15 +78,7 @@ module.exports = {
         path: `${__dirname}/src/content/screens.yaml`,
       },
     },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [`gatsby-remark-external-links`]
-      }
-    },
     `gatsby-transformer-yaml`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
     {
       resolve: 'gatsby-plugin-react-svg',
