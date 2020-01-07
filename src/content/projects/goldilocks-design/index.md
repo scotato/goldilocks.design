@@ -17,6 +17,15 @@ isWebsiteActive: true
 isProjectActive: true
 isProjectPublic: true
 isSourcePublic: true
+gallery:
+  - description: Home
+    img: gallery/Screen Shot 2020-01-07 at 1.08.01 PM.png
+  - description: Projects
+    img: gallery/Screen Shot 2020-01-07 at 1.08.05 PM.png
+  - description: Blog
+    img: gallery/Screen Shot 2020-01-07 at 1.08.36 PM.png
+  - description: Project
+    img: gallery/Screen Shot 2020-01-07 at 1.08.40 PM.png
 tech: 
   - react
   - gatsby
