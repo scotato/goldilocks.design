@@ -88,6 +88,7 @@ export default ({ data }) => {
   const project = data.project.frontmatter
   const {
     title,
+    galleryIsPhone,
     gallery,
     twitter,
     github,
@@ -99,7 +100,7 @@ export default ({ data }) => {
   return (
     <>
       <Project dangerouslySetInnerHTML={{ __html: data.project.html }} />
-      {gallery && <Gallery images={gallery} />}
+      {gallery && <Gallery images={gallery} isPhone={galleryIsPhone} />}
       <Actions>
         {website && isWebsiteActive && (
           <Action
@@ -152,6 +153,7 @@ export const pageQuery = graphql`
       frontmatter {
         author
         title
+        galleryIsPhone
         gallery {
           description
           img {

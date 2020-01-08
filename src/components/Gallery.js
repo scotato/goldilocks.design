@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Slider from 'react-slick'
 import Img from 'gatsby-image'
 import 'slick-carousel/slick/slick.css'
@@ -13,20 +13,45 @@ const Device = styled.div`
   background-color: ${props => props.theme.colors.black[200]};
   border: ${props => props.theme.size[200]} solid ${props => props.theme.colors.black[200]};
   box-sizing: content-box;
-  width: Calc(${props => props.theme.size[850]} + ${props => props.theme.size[600]});
+  ${props => props.isPhone ? css`
+    width: ${props => props.theme.size[750]};
+  ` : css`
+    width: Calc(${props => props.theme.size[850]} + ${props => props.theme.size[600]});
+  `}
 
   ${props => props.theme.media.tabletHorizontal`
     margin-bottom:  ${props => props.theme.size[600]};
-    width: ${props => props.theme.size[900]};
+    
+    ${props => props.isPhone ? css`
+      width: ${props => props.theme.size[750]};
+    ` : css`
+      width: ${props => props.theme.size[900]};
+    `}
+  `}
+
+${props => props.theme.media.tabletVertical`
+    margin-bottom:  ${props => props.theme.size[600]};
+    
+    ${props => props.isPhone ? css`
+      width: ${props => props.theme.size[800]};
+    ` : css`
+      width: ${props => props.theme.size[900]};
+    `}
   `}
 
   ${props => props.theme.media.phone`
     margin-bottom:  ${props => props.theme.size[650]};
+    width: ${props => props.theme.size[900]};
+    border-radius: ${props => props.theme.size[450]};
   `}
 
   .slick-list {
     border-radius: ${props => props.theme.size[300]};
     overflow: hidden;
+
+    ${props => props.theme.media.phone`
+      border-radius: ${props => props.theme.size[450]};
+    `}
   }
 
   .slick-slide > div {
