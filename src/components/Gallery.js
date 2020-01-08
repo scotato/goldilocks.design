@@ -1,47 +1,27 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import Slider from 'react-slick'
 import Img from 'gatsby-image'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-const deviceDimensions = css`
-  width: ${props => props.theme.size[850]};
-`
-
-const deviceOverlayElement = css`
-  position: absolute;
-  display: block;
-  margin: 0 auto;
-  width: 50%;
-  left: 25%;
-  content: " ";
-  height: 8px;
-  background-color: ${props => props.theme.colors.black.darkest};
-  /* border-radius: 8px; */
-  pointer-events: none;
-  z-index: 100;
-`
-
 const Device = styled.div`
   position: relative;
-  margin: ${props => props.theme.size[200]} auto ${props => props.theme.size[450]};
-  background-color: ${props => props.theme.colors.black[200]};
+  margin: auto;
+  margin-bottom:  ${props => props.theme.size[550]};
   border-radius: ${props => props.theme.size[350]};
-  border: 8px solid ${props => props.theme.colors.black[200]};
+  background-color: ${props => props.theme.colors.black[200]};
+  border: ${props => props.theme.size[200]} solid ${props => props.theme.colors.black[200]};
   box-sizing: content-box;
-  /* box-shadow: 0px 4px 4px rgba(0,0,0,0.125); */
-  ${deviceDimensions}
+  width: Calc(${props => props.theme.size[850]} + ${props => props.theme.size[600]});
 
-  &:before {
-    ${deviceOverlayElement}
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    top: 0;
-  }
+  ${props => props.theme.media.tabletHorizontal`
+    margin-bottom:  ${props => props.theme.size[600]};
+    width: ${props => props.theme.size[900]};
+  `}
 
   ${props => props.theme.media.phone`
-    margin-top: 0;
+    margin-bottom:  ${props => props.theme.size[650]};
   `}
 
   .slick-list {
@@ -54,14 +34,30 @@ const Device = styled.div`
   }
 
   .slick-dots {
-    bottom: -48px;
+    bottom: -${props => props.theme.size[450]};
+
+    ${props => props.theme.media.tabletHorizontal`
+      bottom: -${props => props.theme.size[500]};
+    `}
+
+    ${props => props.theme.media.phone`
+      bottom: -${props => props.theme.size[550]};
+    `}
     
     li,
     li.slick-active {
       button:before {
         color: ${props => props.theme.colors.black.darker};
-        font-size: 12px;
+        font-size: ${props => props.theme.size[250]};
         transition: color .2s ease-out, opacity .2s ease-out;
+
+        ${props => props.theme.media.tabletHorizontal`
+          font-size: ${props => props.theme.size[300]};
+        `}
+
+        ${props => props.theme.media.phone`
+          font-size: ${props => props.theme.size[400]};
+        `}
       }
 
       button:focus:before {
@@ -76,7 +72,7 @@ const Device = styled.div`
 `
 
 const Image = styled(Img)`
-  ${deviceDimensions}
+  width: 100%;
 `
 
 export const Gallery = ({ children, ...props}) => (
