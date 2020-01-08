@@ -15,6 +15,15 @@ isWebsiteActive: true
 isProjectActive: true
 isProjectPublic: true
 isSourcePublic: true
+gallery:
+  - description: '11:50'
+    img: gallery/Screen Shot 2019-12-30 at 11.50.37 AM.png
+  - description: '8:30'
+    img: gallery/Screen Shot 2020-01-08 at 8.30.41 AM.png
+  - description: Visualize 1
+    img: gallery/Screen Shot 2019-12-30 at 11.50.50 AM.png
+  - description: Visualize 2
+    img: gallery/Screen Shot 2019-12-30 at 11.50.53 AM.png
 tech: 
   - react
   - browser-extensions
