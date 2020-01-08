@@ -21,4 +21,4 @@ tech:
 ---
 
 ## Let's Watch
-A social platform to make video commenting / reactions fun.
+A social platform to make video commenting / reactions fun. Built with [Ben](https://twitter.com/btbright).
