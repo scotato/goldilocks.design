@@ -14,6 +14,13 @@ commits: 28
 isProjectActive: false
 isProjectPublic: true
 isSourcePublic: true
+gallery:
+  - description: Small
+    img: gallery/Screen Shot 2018-12-06 at 10.36.19 PM.png
+  - description: Medium
+    img: gallery/Screen Shot 2018-12-06 at 10.36.14 PM.png
+  - description: Large
+    img: gallery/Screen Shot 2018-12-06 at 10.34.49 PM.png
 tech: 
   - react
 ---
