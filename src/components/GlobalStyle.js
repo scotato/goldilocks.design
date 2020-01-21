@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
         '-apple-system, BlinkMacSystemFont, Open Sans, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
       fontFamilyMonospace:
         'Source Code Pro, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
-      fontSizeBase: `${20 / 1280 * 100}vw`,
+      fontSizeBase: props.theme.size[600],
       fontWeightBase: 400,
       lineHeightBase: 1.6,
       bodyColor: props.theme.grayscale[900],

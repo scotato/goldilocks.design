@@ -1,15 +1,18 @@
 import { css } from 'styled-components'
 
-const breakpoints = {
-  tabletHorizontal: 1024,
-  tabletVertical: 768,
-  phone: 576
+const device = {
+  desktopLarge: "1440px",
+  desktop: "1280px",
+  tabletHorizontal: "1024px",
+  tabletVertical: "768px",
+  phone: "414px",
+  phoneSmall: "375px"
 }
 
 // Iterate through the sizes and create a media template
-const media = Object.keys(breakpoints).reduce((acc, label) => {
+const media =  Object.keys(device).reduce((acc, label) => {
   acc[label] = (...args) => css`
-    @media (max-width: ${breakpoints[label] / 16}em) {
+    @media (max-width: ${device[label]}) {
       ${css(...args)}
     }
   `
@@ -17,16 +20,28 @@ const media = Object.keys(breakpoints).reduce((acc, label) => {
   return acc
 }, {})
 
+media["landscape"] = (...args) => css`
+  @media (orientation:landscape) {
+    ${css(...args)}
+  }
+`
+
+media["portrait"] = (...args) => css`
+  @media (orientation:portrait) {
+    ${css(...args)}
+  }
+`
+
 const grayscale = {
-  100: 'hsl(60, 25%, 98%)', // #FCFCFA
-  200: 'hsl(48, 16%, 94%)', // #F2F1ED
-  300: 'hsl(47, 20%, 91%)', // #EDEBE4
-  400: 'hsl(47, 14%, 87%)', // #E3E1DA
-  500: 'hsl(46, 13%, 81%)', // #D4D1C7
-  600: 'hsl(51, 7%, 65%)', // #ADABA0
-  700: 'hsl(50, 3%, 46%)', // #797873
-  800: 'hsl(60, 2%, 31%)', // #52524E
-  900: 'hsl(40, 3%, 19%)', // #333230
+  100: 'hsl(200, 10%, 97.5% )', 
+  200: 'hsl(200, 10%, 95% )', 
+  300: 'hsl(200, 10%, 90% )', 
+  400: 'hsl(200, 10%, 80% )', 
+  500: 'hsl(200, 10%, 50% )', 
+  600: 'hsl(200, 10%, 40% )', 
+  700: 'hsl(200, 10%, 30% )', 
+  800: 'hsl(200, 10%, 15% )',
+  900: 'hsl(200, 10%, 2.5% )' 
 }
 
 const color = {
@@ -48,21 +63,21 @@ color.danger = color.red
 color.default = grayscale[500]
 
 const size = {
-  100: 2,
-  200: 4,
-  300: 8,
-  400: 12,
-  500: 16,
-  600: 20,
-  700: 32,
-  800: 48,
-  900: 64
+  100: '2px',
+  200: '4px',
+  300: '8px',
+  400: '12px',
+  500: '16px',
+  600: '20px',
+  700: '32px',
+  800: '48px',
+  900: '64px'
 }
-
 
 export default {
   size,
   grayscale,
   color,
-  media
+  media,
+  device
 }

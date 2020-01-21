@@ -8,20 +8,10 @@ import theme from '../theme'
 
 const Layout = styled.div`
   display: grid;
-  grid-template-columns: ${props => props.theme.size[600]} auto ${props => props.theme.size[600]};
-  grid-template-rows: ${props => props.hasBanner && "auto"} ${props => props.theme.size[400]} auto ${props => props.theme.size[400]};
-  grid-template-areas:
-    ${props => props.hasBanner && `"banner banner banner"`}
-    ". layout-body-margin-top ."
-    "layout-body-margin-left layout-body layout-body-margin-right"
-    ". layout-body-margin-bottom .";
+  margin: 0 auto;
+  padding: ${props => props.theme.size[700]};
   min-height: 100%;
-  max-width: 100vw;
-
-  ${props => props.theme.media.tabletHorizontal`
-    grid-template-columns: ${props => props.theme.size[500]} auto ${props => props.theme.size[500]};
-    grid-template-rows: ${props => props.hasBanner && "auto"} ${props => props.theme.size[500]} auto ${props => props.theme.size[500]};
-  `}
+  max-width: ${props => props.theme.device.desktopLarge};
 `
 
 export default props => {
