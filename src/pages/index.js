@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
 const HomePage = props => (
-  <Layout data={props.data}>
+  <Layout data={props.data} title="Goldilocks Design">
     {props.data.apps.edges.map(({node: app}) => app.title)}
   </Layout>
 )
