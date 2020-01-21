@@ -1,21 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-
-import AppIcon, { Apps } from '../components/AppIcon'
+import Layout from '../components/Layout'
 
 const HomePage = props => (
-  <Apps>
-    {props.data.apps.edges.map(({node: app}) => (
-      <AppIcon
-        key={app.id}
-        title={app.title}
-        icon={app.icon}
-        to={app.slug}
-        color={app.color}
-        colorWeight={app.colorWeight}
-      />
-    ))}
-  </Apps>
+  <Layout data={props.data}>
+    {props.data.apps.edges.map(({node: app}) => app.title)}
+  </Layout>
 )
 
 export default HomePage

@@ -1,23 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
-
-import AppIcon, { Apps } from '../components/AppIcon'
 
 const TechPage = ({ data: { technology }}) => (
-  <Apps>
-    {technology.edges.map(post => (
-      <AppIcon
-        key={post.node.frontmatter.date}
-        title={post.node.frontmatter.title}
-        detail={post.node.frontmatter.description}
-        date={post.node.frontmatter.date}
-        to={post.node.fields.slug}
-      >
-        <Img fluid={post.node.frontmatter.badge.childImageSharp.fluid} />
-      </AppIcon>
-    ))}
-  </Apps>
+  <div>
+    {technology.edges.map(post => post.node.frontmatter.title)}
+  </div>
 )
 
 export default TechPage

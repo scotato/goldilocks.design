@@ -1,22 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
-
-import Card, { Cards } from '../components/Card'
 
 const BlogPage = ({ data: { posts }}) => (
-  <Cards>
-    {posts.edges.map(post => (
-      <Card
-        key={post.node.frontmatter.date}
-        badge={<Img fluid={post.node.frontmatter.badge.childImageSharp.fluid} />}
-        title={post.node.frontmatter.title}
-        detail={`${post.node.timeToRead} min read`}
-        date={post.node.frontmatter.date}
-        to={post.node.fields.slug}
-      />
-    ))}
-  </Cards>
+  <div>
+    {posts.edges.map(post => post.node.frontmatter.title)}
+  </div>
 )
 
 export default BlogPage

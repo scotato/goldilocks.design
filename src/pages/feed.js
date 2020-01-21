@@ -1,22 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Card, { Cards } from '../components/Card'
-import { AppBadge } from '../components/AppIcon'
-
 export default props => (
-  <Cards>
-    {props.data.allMarkdownRemark.edges.map(({ node }) => (
-      <Card
-        key={node.title}
-        title={node.frontmatter.title}
-        detail={node.frontmatter.description || `${node.timeToRead} min read`}
-        date={node.frontmatter.date}
-        to={node.fields.slug}
-        badge={<AppBadge {...node.fields.app} isCircle />}
-      />
-    ))}
-  </Cards>
+  <div>
+    {props.data.allMarkdownRemark.edges.map(({ node }) => node.title)}
+  </div>
 )
 
 export const query = graphql`

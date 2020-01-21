@@ -4,26 +4,21 @@ import reboot from 'styled-reboot'
 const GlobalStyle = createGlobalStyle`
   ${props =>
     reboot({
-      black: props.theme.colors.black[900],
+      black: props.theme.grayscale[900],
       fontFamilyBase:
-        'Open Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+        '-apple-system, BlinkMacSystemFont, Open Sans, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
       fontFamilyMonospace:
         'Source Code Pro, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
       fontSizeBase: `${20 / 1280 * 100}vw`,
       fontWeightBase: 400,
       lineHeightBase: 1.6,
-      bodyColor: props.theme.colors.black[800],
-      bodyBg: props.bodyBg || props.theme.colors.primary,
+      bodyColor: props.theme.grayscale[900],
+      bodyBg: 'white',
       headingsMarginBottom: props.theme.size[300],
       paragraphMarginBottom: props.theme.size[400],
-      // labelMarginBottom: '0.5rem',
-      // dtFontWeight: 700,
-      linkColor: props.theme.colors.blue[500],
-      // linkDecoration: 'none',
-      linkHoverColor: props.theme.colors.blue[500],
+      linkColor: props.theme.color.primary,
+      linkHoverColor: props.theme.color.primary,
       linkHoverDecoration: 'none',
-      // tableCellPadding: '0.75rem',
-      // textMuted: '#6c757d'
     })
   }
 
@@ -34,15 +29,11 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
 
-  body {
-    background-color: ${props => props.bodyBg || props.theme.colors.primary};
-  }
-
   h1, h2, h3, h4, h5, h6 {
     margin-top: ${props => props.theme.size[500]};
     line-height: 1.1;
     letter-spacing: -0.025em;
-    color: ${props => props.theme.colors.black[900]};
+    color: ${props => props.theme.grayscale[900]};
 
     &:first-child {
       margin-top: 0;
@@ -101,8 +92,8 @@ const GlobalStyle = createGlobalStyle`
   blockquote {
     margin: ${props => props.theme.size[500]} 0 ;
     padding: ${props => props.theme.size[300]} ${props => props.theme.size[400]};
-    color: ${props => props.theme.colors.black[700]};
-    background-color: ${props => props.theme.colors.black[200]};
+    color: ${props => props.theme.grayscale[700]};
+    background-color: ${props => props.theme.grayscale[200]};
     border-radius: 2em;
 
     p:last-child {
@@ -111,4 +102,4 @@ const GlobalStyle = createGlobalStyle`
   }
 `
  
-export default GlobalStyle;
+export default GlobalStyle
