@@ -1,21 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Coffee from '../emoji/twemoji-2615.svg'
-import Tea from '../emoji/twemoji-1f375.svg'
-import Soda from '../emoji/twemoji-1f964.svg'
-import LightningBolt from '../emoji/twemoji-26a1.svg'
+import Bell from '../emoji/twemoji-1f514.svg'
+import Thought from '../emoji/twemoji-1f4ad.svg'
+import Heart from '../emoji/twemoji-2764.svg'
+import Clover from '../emoji/twemoji-1f340.svg'
 
 const EmojiSwitch = props => {
   switch (props.name) {
-    case "coffee":
-      return <Coffee />
-    case "tea":
-        return <Tea />
-    case "soda":
-        return <Soda />
-    case "lightning-bolt":
-        return <LightningBolt />
+    case "bell":
+      return <Bell />
+    case "thought":
+        return <Thought />
+    case "heart":
+        return <Heart />
+    case "clover":
+        return <Clover />
     default:
       return null
   }

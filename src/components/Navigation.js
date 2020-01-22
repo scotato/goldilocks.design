@@ -3,26 +3,32 @@ import styled from 'styled-components'
 import NavigationRow from './NavigationRow'
 
 const Navigation = styled.nav`
-  background-color: ${props => props.theme.grayscale[100]};
+  background-color: ${props => props.theme.grayscale[200]};
   border-radius: ${props => props.theme.size[500]};
 `
 
 const items = [{
-  path: '/blog',
-  emoji: 'coffee',
-  title: 'Blog',
+  path: '/feed',
+  emoji: 'bell',
+  title: 'Feed',
   subtitle: '',
   detail: ''
 }, {
   path: '/projects',
-  emoji: 'coffee',
+  emoji: 'clover',
   title: 'Projects',
   subtitle: '',
   detail: ''
 }, {
   path: '/tech',
-  emoji: 'coffee',
+  emoji: 'heart',
   title: 'Tech',
+  subtitle: '',
+  detail: ''
+}, {
+  path: '/blog',
+  emoji: 'thought',
+  title: 'Blog',
   subtitle: '',
   detail: ''
 }]

@@ -19,7 +19,7 @@ const NavigationRow = styled(Link)`
   text-decoration: none;
   cursor: pointer;
   border-top: ${props => props.theme.size[100]} solid transparent;
-  border-bottom: ${props => props.theme.size[100]} solid ${props => props.theme.grayscale[200]};
+  border-bottom: ${props => props.theme.size[100]} solid ${props => props.theme.grayscale[300]};
 
   &:last-child {
     border-bottom: 0;
