@@ -32,6 +32,20 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `icons`,
+        path: `${__dirname}/src/icons`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `emoji`,
+        path: `${__dirname}/src/emoji`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `blog`,
         path: `${__dirname}/src/content/blog`,
       },
@@ -48,13 +62,6 @@ module.exports = {
       options: {
         name: `tech`,
         path: `${__dirname}/src/content/tech`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `icons`,
-        path: `${__dirname}/src/content/icons`,
       },
     },
     {
@@ -77,7 +84,7 @@ module.exports = {
       resolve: 'gatsby-plugin-react-svg',
       options: {
           rule: {
-            include: /brand|icons/
+            include: /icons|emoji/
           }
       }
     },

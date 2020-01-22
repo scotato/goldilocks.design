@@ -15,8 +15,8 @@ export const ButtonBase = styled.button`
 const Button = styled(ButtonBase).attrs({
   disabled: props => props.isActive
 })`
-  color: ${props => props.color || (props.isActive ? 'white' : props.theme.colors.black[600])};
-  background-color: ${props => props.backgroundColor || (props.isActive ? 'dodgerblue' : props.theme.colors.black[200])};
+  color: ${props => props.color || (props.isActive ? 'white' : props.theme.grayscale[600])};
+  background-color: ${props => props.backgroundColor || (props.isActive ? 'dodgerblue' : props.theme.grayscale[200])};
   border-radius: ${props => props.theme.size[400]};
   cursor: ${props => props.isActive ? 'default' : 'pointer'};
   transition: box-shadow 0.1s ease-out;
@@ -32,7 +32,7 @@ export const ButtonLink = styled(Link)`
   padding: 0.75em 1.5em;
   border-radius: ${props => props.theme.size[500]};
   align-items: center;
-  background-color: ${props => props.theme.colors.primary};
+  background-color: ${props => props.theme.color.primary};
   font-weight: 500;
   height: ${props => props.theme.size[500]};
 

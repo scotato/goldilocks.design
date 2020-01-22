@@ -10,8 +10,8 @@ const Device = styled.div`
   margin: auto;
   margin-bottom:  ${props => props.theme.size[550]};
   border-radius: ${props => props.theme.size[350]};
-  background-color: ${props => props.theme.colors.black[200]};
-  border: ${props => props.theme.size[200]} solid ${props => props.theme.colors.black[200]};
+  background-color: ${props => props.theme.grayscale[200]};
+  border: ${props => props.theme.size[200]} solid ${props => props.theme.grayscale[200]};
   box-sizing: content-box;
   ${props => props.isPhone ? css`
     width: ${props => props.theme.size[750]};
@@ -72,7 +72,7 @@ ${props => props.theme.media.tabletVertical`
     li,
     li.slick-active {
       button:before {
-        color: ${props => props.theme.colors.black.darker};
+        color: ${props => props.theme.grayscale.darker};
         font-size: ${props => props.theme.size[250]};
         transition: color .2s ease-out, opacity .2s ease-out;
 
@@ -86,12 +86,12 @@ ${props => props.theme.media.tabletVertical`
       }
 
       button:focus:before {
-        color: ${props => props.theme.colors.black.darker};
+        color: ${props => props.theme.grayscale.darker};
       }
     }
 
     li button:focus:before {
-      color: ${props => props.theme.colors.black.lighter};
+      color: ${props => props.theme.grayscale.lighter};
     }
   }
 `

@@ -1,102 +1,50 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
-import Battery from '../icons/battery.svg'
-import Cellular from '../icons/cellular.svg'
-import Lock from '../icons/lock.svg'
-import Wifi from '../icons/wifi.svg'
-import Bolt from '../icons/bolt.svg'
-import Home from '../icons/home.svg'
-import FaBell from '../icons/fa-bell.svg'
-import FaBookOpen from '../icons/fa-book-open.svg'
-import FaBracketsCurly from '../icons/fa-brackets-curly.svg'
-import FaPencilRuler from '../icons/fa-pencil-ruler.svg'
-import FaDraftingCompass from '../icons/fa-drafting-compass.svg'
-import FaComment from '../icons/fa-comment.svg'
-import FaMusic from '../icons/fa-music.svg'
-import FaPlay from '../icons/fa-play.svg'
-import FaCog from '../icons/fa-cog.svg'
-import FaGithub from '../icons/fa-github.svg'
-import FaTwitter from '../icons/fa-twitter.svg'
-import FaLink from '../icons/fa-link.svg'
+import styled from 'styled-components'
 import ChevronLeft from '../icons/chevron-left.svg'
-import List from '../icons/list.svg'
-import Grid from '../icons/grid.svg'
-import Card from '../icons/card.svg'
-import Plus from '../icons/plus.svg'
-import Plug from '../icons/plug.svg'
-import Api from '../icons/api.svg'
+import ChevronRight from '../icons/chevron-right.svg'
+import Github from '../icons/github.svg'
+import Twitter from '../icons/twitter.svg'
+import Wikipedia from '../icons/wikipedia.svg'
 import RSS from '../icons/rss.svg'
 
-const fillContainer = css`
-  height: 100%;
-`
+const IconSwitch = props => {
+  switch (props.name) {
+    case "chevron-left":
+      return <ChevronLeft />
+    case "chevron-right":
+        return <ChevronRight />
+    case "github":
+      return <Github />
+    case "twitter":
+        return <Twitter />
+    case "wikipedia":
+      return <Wikipedia />
+    case "rss":
+      return <RSS />
+    default:
+      return null
+  }
+}
 
-const icon = css`
-  ${fillContainer}
+const Icon = styled.div`
+  display: grid;
+  width: ${props => props.theme.size[props.size]};
+  height: ${props => props.theme.size[props.size]};
+  place-items: center;
+  line-height: 1;
 
-  path, circle {
-    fill: currentColor;
+  .fa-secondary {
+    opacity: 0.5;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
   }
 `
 
-export const IconBattery = styled(Battery)`${icon}`
-export const IconCellular = styled(Cellular)`${icon}`
-export const IconLock = styled(Lock)`${icon}`
-export const IconWifi = styled(Wifi)`${icon}`
-export const IconBolt = styled(Bolt)`${icon}`
-export const IconHome = styled(Home)`${icon}`
-export const IconChevronLeft = styled(ChevronLeft)`${icon}`
-export const IconList = styled(List)`${icon}`
-export const IconGrid = styled(Grid)`${icon}`
-export const IconCard = styled(Card)`${icon}`
-export const IconPlus = styled(Plus)`${icon}`
-export const IconPlug = styled(Plug)`${icon}`
-export const IconApi = styled(Api)`${icon}`
-export const IconRSS = styled(RSS)`${icon}`
-export const IconFaBell = styled(FaBell)`${icon}`
-export const IconFaBookOpen = styled(FaBookOpen)`${icon}`
-export const IconFaBracketsCurly = styled(FaBracketsCurly)`${icon}`
-export const IconFaPencilRuler = styled(FaPencilRuler)`${icon}`
-export const IconFaDraftingCompass = styled(FaDraftingCompass)`${icon}`
-export const IconFaComment = styled(FaComment)`${icon}`
-export const IconFaMusic = styled(FaMusic)`${icon}`
-export const IconFaPlay = styled(FaPlay)`${icon}`
-export const IconFaCog = styled(FaCog)`${icon}`
-export const IconFaLink = styled(FaLink)`${icon}`
-export const IconFaGithub = styled(FaGithub)`${icon}`
-export const IconFaTwitter = styled(FaTwitter)`${icon}`
-
-const icons = {
-  battery: IconBattery,
-  cellular: IconCellular,
-  lock: IconLock,
-  wifi: IconWifi,
-  bolt: IconBolt,
-  home: IconHome,
-  list: IconList,
-  grid: IconGrid,
-  card: IconCard,
-  plus: IconPlus,
-  plug: IconPlug,
-  api: IconApi,
-  rss: IconRSS,
-  'chevron-left': IconChevronLeft,
-  'fa-book-open': IconFaBookOpen,
-  'fa-bell': IconFaBell,
-  'fa-brackets-curly': IconFaBracketsCurly,
-  'fa-pencil-ruler': IconFaPencilRuler,
-  'fa-drafting-compass': IconFaDraftingCompass,
-  'fa-comment': IconFaComment,
-  'fa-music': IconFaMusic,
-  'fa-play': IconFaPlay,
-  'fa-cog': IconFaCog,
-  'fa-link': IconFaLink,
-  'fa-github': IconFaGithub,
-  'fa-twitter': IconFaTwitter,
-}
-
-export default ({name, ...props}) => {
-  const hasIcon = Object.keys(icons).includes(name)
-  const Icon = hasIcon ? icons[name] : IconFaCog
-  return <Icon {...props } />
-}
+export default ({ size = 500, ...props }) => (
+  <Icon size={size}>
+    <IconSwitch name={props.name} />
+  </Icon>
+)

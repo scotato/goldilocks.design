@@ -46,13 +46,13 @@ const Actions = styled.nav`
 
 const ActionButton = styled(ButtonLink)`
   padding: ${props => props.theme.size[200]};
-  color: ${props => props.theme.colors.black[100]};
+  color: ${props => props.theme.grayscale[100]};
   background-color: ${props => props.theme.colors[props.color][props.colorWeight || 500]};
   text-transform: uppercase;
   font-weight: 900;
 
   &:hover {
-    color: ${props => props.theme.colors.black[100]};
+    color: ${props => props.theme.grayscale[100]};
   }
 `
 

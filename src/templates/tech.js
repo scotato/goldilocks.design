@@ -26,7 +26,7 @@ const TechLinks = styled.div`
 
 const TechIcon = styled(Icon)`
   width: ${props => props.theme.size[400]};
-  color: ${props => props.theme.colors.black[500]};
+  color: ${props => props.theme.grayscale[500]};
 `
 
 const TechIconLink = ({icon, to}) => to ? (

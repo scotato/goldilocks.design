@@ -4,7 +4,8 @@ import { ThemeProvider } from 'styled-components'
 
 import GlobalStyle from './GlobalStyle'
 import SEO from './SEO'
-import Link from './Link'
+import Navigation from './Navigation'
+import Social from './Social'
 import theme from '../theme'
 
 const Layout = styled.div`
@@ -15,11 +16,15 @@ const Layout = styled.div`
   grid-template-columns: ${props => props.theme.device.phoneSmall} auto;
 `
 
-const Navigation = styled.nav`
+const Aside = styled.aside`
   display: grid;
   padding: ${props => props.theme.size[700]};
-  grid-template-rows: auto auto auto auto;
+  grid-template-rows: auto 1fr auto;
   grid-row-gap: ${props => props.theme.size[300]};
+`
+
+const AsideTitle = styled.h1`
+  margin-bottom: ${props => props.theme.size[700]};
 `
 
 const Body = styled.main`
@@ -38,12 +43,11 @@ export default props => {
         <GlobalStyle />
         <SEO title={banner && banner.frontmatter.title} description={banner && `${banner.timeToRead} minute read`} />
         
-        <Navigation>
-          <h1>{props.title}</h1>
-          <Link to="/blog">Blog</Link>
-          <Link to="/projects">Projects</Link>
-          <Link to="/tech">Tech</Link>
-        </Navigation>
+        <Aside>
+          <AsideTitle>{props.title}</AsideTitle>
+          <Navigation />
+          <Social />
+        </Aside>
         
         <Body>
           {props.children}

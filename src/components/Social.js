@@ -6,41 +6,32 @@ import Icon from '../components/Icon'
 
 const Social = styled.div`
   display: flex;
+  margin-top: ${props => props.theme.size[500]};
   justify-content: center;
   align-items: center;
 `
 
 const SocialLink = styled(Link)`
-  margin: 0 ${props => props.theme.size[250]};
-  width: ${props => props.theme.size[400]};
-  color: ${props => props.theme.colors.black[400]};
+  padding: ${props => props.theme.size[300]};
+  color: ${props => props.theme.grayscale[300]};
 
   &:hover {
-    color: ${props => props.theme.colors.black[400]};
+    color: ${props => props.theme.grayscale[300]};
   }
-
-  ${props => props.theme.media.tabletHorizontal`
-    width: ${props.theme.size[450]};
-  `}
-
-  ${props => props.theme.media.phone`
-    margin: 0 ${props => props.theme.size[350]};
-    width: ${props.theme.size[550]};
-  `}
 `
 
 export default () => (
   <Social>
     <SocialLink title="Twitter Feed" to="https://twitter.com/scotato">
-      <Icon name="fa-twitter" />
+      <Icon name="twitter" size={600} />
     </SocialLink>
 
     <SocialLink title="Github Source" to="https://github.com/scotato/goldilocks.design">
-      <Icon name="fa-github" />
+      <Icon name="github" size={600} />
     </SocialLink>
 
     <SocialLink title="RSS Feed" to="https://goldilocks.design/rss.xml">
-      <Icon name="rss" />
+      <Icon name="rss" size={600} />
     </SocialLink>
   </Social>
 )
