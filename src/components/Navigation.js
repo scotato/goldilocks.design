@@ -9,26 +9,26 @@ const Navigation = styled.nav`
 
 const items = [{
   path: '/feed',
-  emoji: 'bell',
+  icon: 'bells',
   title: 'Feed',
   subtitle: '',
   detail: ''
 }, {
   path: '/projects',
-  emoji: 'clover',
+  icon: 'computer-classic',
   title: 'Projects',
   subtitle: '',
   detail: ''
 }, {
-  path: '/tech',
-  emoji: 'heart',
-  title: 'Tech',
+  path: '/blog',
+  icon: 'typewriter',
+  title: 'Blog',
   subtitle: '',
   detail: ''
 }, {
-  path: '/blog',
-  emoji: 'thought',
-  title: 'Blog',
+  path: '/tech',
+  icon: 'window',
+  title: 'Tech',
   subtitle: '',
   detail: ''
 }]
@@ -38,7 +38,7 @@ export default () => (
     {items.map(item => (
       <NavigationRow
         key={item.path}
-        emoji={item.emoji}
+        icon={item.icon}
         title={item.title}
         subtitle={item.subtitle}
         detail={item.detail}

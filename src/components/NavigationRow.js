@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from './Link'
-import Emoji from "./Emoji"
 import Icon from "./Icon"
 
 const NavigationRow = styled(Link)`
@@ -13,8 +12,8 @@ const NavigationRow = styled(Link)`
   grid-template-columns: ${props => props.theme.size[700]} auto auto ${props => props.theme.size[600]};
   grid-template-rows: ${props => props.theme.size[500]} ${props => props.theme.size[400]};
   grid-template-areas: 
-    "emoji title detail icon"
-    "emoji subtitle detail icon";
+    "icon title detail chevron"
+    "icon subtitle detail chevron";
   color: inherit;
   text-decoration: none;
   cursor: pointer;
@@ -50,18 +49,18 @@ const Detail = styled.strong`
 
 const IconRight = styled.div`
   display: grid;
-  grid-area: icon;
+  grid-area: chevron;
   color: ${props => props.theme.grayscale[400]};
   place-items: center;
 `
 
-const NavigationEmoji = styled(Emoji)`
-  grid-area: emoji;
+const NavigationIcon = styled(Icon)`
+  grid-area: icon;
 `
 
 export default props => (
   <NavigationRow to={props.to} onClick={props.onClick}>
-    <NavigationEmoji name={props.emoji} size={700} />
+    <NavigationIcon name={props.icon} size={700} />
     <Title>{props.title}</Title>
     <Subtitle>{props.subtitle}</Subtitle>
     <Detail>{props.detail}</Detail>
