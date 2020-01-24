@@ -5,6 +5,7 @@ import Bell from '../emoji/twemoji-1f514.svg'
 import Thought from '../emoji/twemoji-1f4ad.svg'
 import Heart from '../emoji/twemoji-2764.svg'
 import Clover from '../emoji/twemoji-1f340.svg'
+import FingersCrossed from '../emoji/twemoji-1f91e.svg'
 
 const EmojiSwitch = props => {
   switch (props.name) {
@@ -16,6 +17,8 @@ const EmojiSwitch = props => {
         return <Heart />
     case "clover":
         return <Clover />
+    case "fingers-crossed":
+      return <FingersCrossed />
     default:
       return null
   }

@@ -5,24 +5,19 @@ import Icon from "./Icon"
 
 const NavigationRow = styled(Link)`
   display: grid;
+  margin-bottom: ${props => props.theme.size[500]};
   padding: ${props => props.theme.size[500]};
   align-items: center;
   grid-column-gap: ${props => props.theme.size[400]};
   grid-row-gap: ${props => props.theme.size[200]};
-  grid-template-columns: ${props => props.theme.size[700]} auto auto ${props => props.theme.size[600]};
-  grid-template-rows: ${props => props.theme.size[500]} ${props => props.theme.size[400]};
+  grid-template-columns: ${props => props.theme.size[700]} auto  ${props => props.theme.size[600]};
   grid-template-areas: 
-    "icon title detail chevron"
-    "icon subtitle detail chevron";
+    "icon title chevron";
+  background-color: ${props => props.theme.grayscale[200]};
+  border-radius: ${props => props.theme.size[500]};
   color: inherit;
   text-decoration: none;
   cursor: pointer;
-  border-top: ${props => props.theme.size[100]} solid transparent;
-  border-bottom: ${props => props.theme.size[100]} solid ${props => props.theme.grayscale[300]};
-
-  &:last-child {
-    border-bottom: 0;
-  }
 
   &:hover {
     color: inherit;
@@ -31,20 +26,7 @@ const NavigationRow = styled(Link)`
 
 const Title = styled.div`
   grid-area: title;
-  font-size: ${props => props.theme.size[500]};
-`
-
-const Subtitle = styled.div`
-  grid-area: subtitle;
-  font-size: ${props => props.theme.size[400]};
-  color: ${props => props.theme.grayscale[500]};
-`
-
-const Detail = styled.strong`
-  grid-area: detail;
-  justify-self: end;
-  font-size: ${props => props.theme.size[400]};
-  color: ${props => props.theme.color.success};
+  font-size: ${props => props.theme.size[600]};
 `
 
 const IconRight = styled.div`
@@ -56,14 +38,13 @@ const IconRight = styled.div`
 
 const NavigationIcon = styled(Icon)`
   grid-area: icon;
+  color: ${props => props.theme.color[props.color]};
 `
 
 export default props => (
   <NavigationRow to={props.to} onClick={props.onClick}>
-    <NavigationIcon name={props.icon} size={700} />
+    <NavigationIcon name={props.icon} size={700} color={props.color} />
     <Title>{props.title}</Title>
-    <Subtitle>{props.subtitle}</Subtitle>
-    <Detail>{props.detail}</Detail>
     <IconRight>
       <Icon name="chevron-right" size={600} />
     </IconRight>

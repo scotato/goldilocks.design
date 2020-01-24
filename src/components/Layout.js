@@ -45,7 +45,7 @@ export default props => {
         <SEO title={banner && banner.frontmatter.title} description={banner && `${banner.timeToRead} minute read`} />
         
         <Aside>
-          <AsideTitle>{props.title}</AsideTitle>
+          <AsideTitle>Goldilocks Design</AsideTitle>
           <Navigation />
           <Social />
         </Aside>

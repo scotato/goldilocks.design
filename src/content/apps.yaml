@@ -1,25 +1,21 @@
-- id: feed
-  icon: fa-bell
-  slug: feed
-  title: Feed
+- id: activity
+  icon: bells
+  slug: /
+  title: Activity
   color: red
-  colorWeight: 500
-- id: blog
-  icon: fa-book-open
-  slug: blog
-  title: Blog
-  color: yellow
-  colorWeight: 500
 - id: projects
-  icon: fa-pencil-ruler
+  icon: computer-classic
   slug: projects
   title: Projects
   color: blue
-  colorWeight: 500
+- id: blog
+  icon: typewriter
+  slug: blog
+  title: Blog
+  color: yellow
 - id: tech
-  icon: fa-drafting-compass
+  icon: window
   slug: tech
   title: Tech
   color: orange
-  colorWeight: 500
   

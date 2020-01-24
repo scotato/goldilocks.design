@@ -55,8 +55,8 @@ const Icon = styled.div`
   }
 `
 
-export default ({ size = 500, ...props }) => (
-  <Icon size={size}>
-    <IconSwitch name={props.name} />
+export default ({ size = 500, name, ...props }) => (
+  <Icon size={size} {...props}>
+    <IconSwitch name={name} />
   </Icon>
 )

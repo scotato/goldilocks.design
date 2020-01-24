@@ -45,13 +45,27 @@ const grayscale = {
 }
 
 const color = {
-  yellow: 'hsl(47, 100%, 69%)',
-  blue: '#1FB4FF',
-  green: '#0BDA73',
-  red: '#FF5252',
-  orange: '#FFA64C',
-  pink: '#F76EE0',
-  purple: '#955FFF'
+  yellow: 'hsl(47, 92.5%, 50%)',
+  yellowLight: 'hsl(47, 100%, 60%)',
+  yellowDark: 'hsl(47, 100%, 40%)',
+  blue: 'hsl(200, 92.5%, 50%)',
+  blueLight: 'hsl(200, 100%, 60%)',
+  blueDark: 'hsl(200, 100%, 40%)',
+  green: 'hsl(150, 92.5%, 50%)',
+  greenLight: 'hsl(150, 90%, 60%)',
+  greenDark: 'hsl(150, 90%, 40%)',
+  red: 'hsl(0, 92.5%, 50%)',
+  redLight: 'hsl(0, 100%, 60%)',
+  redDark: 'hsl(0, 100%, 40%)',
+  orange: 'hsl(30, 92.5%, 50%)',
+  orangeLight: 'hsl(30, 100%, 60%)',
+  orangeDark: 'hsl(30, 100%, 40%)',
+  pink: 'hsl(310, 92.5%, 50%)',
+  pinkLight: 'hsl(310, 90%, 60%)',
+  pinkDark: 'hsl(310, 90%, 40%)',
+  purple: 'hsl(260, 92.5%, 50%)',
+  purpleLight: 'hsl(260, 100%, 60%)',
+  purpleDark: 'hsl(260, 100%, 40%)'
 }
 
 color.primary = color.blue
