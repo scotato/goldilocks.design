@@ -28,6 +28,7 @@ export default () => {
           icon={item.icon}
           color={item.color}
           title={item.title}
+          badge="8"
           to={item.slug}
         />
       ))}

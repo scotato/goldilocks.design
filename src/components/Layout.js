@@ -34,15 +34,11 @@ const Body = styled.main`
   border-radius: ${props => props.theme.size[700]};
 `
 
-export default props => {
-  const { post, project } = props.data
-  const banner = post || project
-
-  return (
+export default props => (
     <ThemeProvider theme={theme}>
       <Layout>
         <GlobalStyle />
-        <SEO title={banner && banner.frontmatter.title} description={banner && `${banner.timeToRead} minute read`} />
+        <SEO />
         
         <Aside>
           <AsideTitle>Goldilocks Design</AsideTitle>
@@ -56,4 +52,3 @@ export default props => {
       </Layout>
     </ThemeProvider>
   )
-}

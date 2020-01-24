@@ -1,10 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
 
 const BlogPage = ({ data: { posts }}) => (
-  <div>
+  <Layout>
     {posts.edges.map(post => post.node.frontmatter.title)}
-  </div>
+  </Layout>
 )
 
 export default BlogPage

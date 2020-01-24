@@ -10,9 +10,9 @@ const NavigationRow = styled(Link)`
   align-items: center;
   grid-column-gap: ${props => props.theme.size[400]};
   grid-row-gap: ${props => props.theme.size[200]};
-  grid-template-columns: ${props => props.theme.size[700]} auto  ${props => props.theme.size[600]};
+  grid-template-columns: ${props => props.theme.size[700]} auto  ${props => props.theme.size[700]};
   grid-template-areas: 
-    "icon title chevron";
+    "icon title badge";
   background-color: ${props => props.theme.grayscale[200]};
   border-radius: ${props => props.theme.size[500]};
   color: inherit;
@@ -29,10 +29,13 @@ const Title = styled.div`
   font-size: ${props => props.theme.size[600]};
 `
 
-const IconRight = styled.div`
+const Badge = styled.div`
   display: grid;
-  grid-area: chevron;
-  color: ${props => props.theme.grayscale[400]};
+  grid-area: badge;
+  color: ${props => props.theme.grayscale[500]};
+  background-color: ${props => props.theme.grayscale[300]};
+  border-radius: ${props => props.theme.size[600]};
+  align-self: stretch;
   place-items: center;
 `
 
@@ -45,8 +48,6 @@ export default props => (
   <NavigationRow to={props.to} onClick={props.onClick}>
     <NavigationIcon name={props.icon} size={700} color={props.color} />
     <Title>{props.title}</Title>
-    <IconRight>
-      <Icon name="chevron-right" size={600} />
-    </IconRight>
+    <Badge>{props.badge}</Badge>
   </NavigationRow>
 )
