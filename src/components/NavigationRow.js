@@ -15,12 +15,32 @@ const NavigationRow = styled(Link)`
     "icon title badge";
   background-color: ${props => props.theme.grayscale[200]};
   border-radius: ${props => props.theme.size[500]};
-  color: inherit;
+  color: ${props => props.theme.grayscale[600]};
   text-decoration: none;
   cursor: pointer;
 
   &:hover {
-    color: inherit;
+    color: ${props => props.theme.grayscale[600]};
+  }
+
+  &.active {
+    color: white;
+    background-color: ${props => props.theme.color[props.color]};
+    font-weight: 600;
+
+    &:hover {
+      color: white;
+    }
+
+    svg {
+      color: white;
+    }
+
+    .badge {
+      /* color: ${props => props.theme.grayscale[500]}; */
+      color: ${props => props.theme.color[`${props.color}Light`]};
+      background-color: ${props => props.theme.color[`${props.color}Dark`]};
+    }
   }
 `
 
@@ -45,9 +65,9 @@ const NavigationIcon = styled(Icon)`
 `
 
 export default props => (
-  <NavigationRow to={props.to} onClick={props.onClick}>
+  <NavigationRow to={props.to} color={props.color} onClick={props.onClick}>
     <NavigationIcon name={props.icon} size={700} color={props.color} />
     <Title>{props.title}</Title>
-    <Badge>{props.badge}</Badge>
+    <Badge className="badge">{props.badge}</Badge>
   </NavigationRow>
 )

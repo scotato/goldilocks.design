@@ -21,7 +21,6 @@ const Aside = styled.aside`
   padding: ${props => props.theme.size[700]};
   grid-template-rows: auto 1fr auto;
   grid-row-gap: ${props => props.theme.size[300]};
-  background-color: ${props => props.theme.grayscale[100]};
 `
 
 const AsideTitle = styled.h1`
@@ -31,7 +30,7 @@ const AsideTitle = styled.h1`
 const Body = styled.main`
   display: grid;
   padding: ${props => props.theme.size[700]};
-  border-radius: ${props => props.theme.size[700]};
+  background-color: white;
 `
 
 export default props => (

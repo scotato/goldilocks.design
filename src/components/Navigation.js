@@ -5,7 +5,7 @@ import NavigationRow from './NavigationRow'
 
 const Navigation = styled.nav``
 
-export default () => {
+export default props => {
   const data = useStaticQuery(graphql`
     query AppsQuery {
       apps: allAppsYaml {
@@ -28,8 +28,8 @@ export default () => {
           icon={item.icon}
           color={item.color}
           title={item.title}
-          badge="8"
           to={item.slug}
+          badge="8"
         />
       ))}
     </Navigation>

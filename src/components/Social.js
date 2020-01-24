@@ -12,7 +12,7 @@ const Social = styled.div`
 `
 
 const SocialLink = styled(Link)`
-  padding: ${props => props.theme.size[300]};
+  padding: ${props => props.theme.size[400]};
   color: ${props => props.theme.grayscale[300]};
 
   &:hover {
@@ -23,15 +23,15 @@ const SocialLink = styled(Link)`
 export default () => (
   <Social>
     <SocialLink title="Twitter Feed" to="https://twitter.com/scotato">
-      <Icon name="twitter" size={600} />
+      <Icon name="twitter" size={700} />
     </SocialLink>
 
     <SocialLink title="Github Source" to="https://github.com/scotato/goldilocks.design">
-      <Icon name="github" size={600} />
+      <Icon name="github" size={700} />
     </SocialLink>
 
     <SocialLink title="RSS Feed" to="https://goldilocks.design/rss.xml">
-      <Icon name="rss" size={600} />
+      <Icon name="rss" size={700} />
     </SocialLink>
   </Social>
 )
