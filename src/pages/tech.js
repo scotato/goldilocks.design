@@ -1,11 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
 
 const TechPage = ({ data: { technology }}) => (
-  <Layout>
+  <>
     {technology.edges.map(post => post.node.frontmatter.title)}
-  </Layout>
+  </>
 )
 
 export default TechPage

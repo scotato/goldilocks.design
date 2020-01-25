@@ -2,9 +2,9 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 export default props => (
-  <div>
+  <>
     {props.data.allMarkdownRemark.edges.map(({ node }) => node.title)}
-  </div>
+  </>
 )
 
 export const query = graphql`

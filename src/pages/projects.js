@@ -1,11 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
 
 const ProjectsPage = ({ data: { projects }}) => (
-  <Layout>
+  <>
     {projects.edges.map(({node: project}) => project.frontmatter.title)}
-  </Layout>
+  </>
 )
 
 export default ProjectsPage

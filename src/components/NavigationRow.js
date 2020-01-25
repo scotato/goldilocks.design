@@ -18,6 +18,9 @@ const NavigationRow = styled(Link)`
   color: ${props => props.theme.grayscale[600]};
   text-decoration: none;
   cursor: pointer;
+  will-change: color, background-color;
+  transition: color 0.3s ease-out, background-color 0.3s ease-out;
+  font-weight: 600;
 
   &:hover {
     color: ${props => props.theme.grayscale[600]};
@@ -26,7 +29,6 @@ const NavigationRow = styled(Link)`
   &.active {
     color: white;
     background-color: ${props => props.theme.color[props.color]};
-    font-weight: 600;
 
     &:hover {
       color: white;
@@ -37,7 +39,6 @@ const NavigationRow = styled(Link)`
     }
 
     .badge {
-      /* color: ${props => props.theme.grayscale[500]}; */
       color: ${props => props.theme.color[`${props.color}Light`]};
       background-color: ${props => props.theme.color[`${props.color}Dark`]};
     }
@@ -57,11 +58,16 @@ const Badge = styled.div`
   border-radius: ${props => props.theme.size[600]};
   align-self: stretch;
   place-items: center;
+  will-change: color, background-color;
+  transition: color 0.3s ease-out, background-color 0.3s ease-out;
+
 `
 
 const NavigationIcon = styled(Icon)`
   grid-area: icon;
   color: ${props => props.theme.color[props.color]};
+  will-change: color;
+  transition: color 0.3s ease-out;
 `
 
 export default props => (

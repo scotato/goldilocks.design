@@ -10,9 +10,7 @@ const Title = styled.span`
 `
 
 const HomePage = props => (
-  <Layout data={props.data}>
-    <Title>Activity</Title>
-  </Layout>
+  <Title>Activity</Title>
 )
 
 export default HomePage
