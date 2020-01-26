@@ -8,50 +8,12 @@ import 'slick-carousel/slick/slick-theme.css'
 const Device = styled.div`
   position: relative;
   margin: auto;
-  margin-bottom:  ${props => props.theme.size[550]};
-  border-radius: ${props => props.theme.size[350]};
+  margin-bottom:  ${props => props.theme.size[900]};
   background-color: ${props => props.theme.grayscale[200]};
-  border: ${props => props.theme.size[200]} solid ${props => props.theme.grayscale[200]};
   box-sizing: content-box;
-  ${props => props.isPhone ? css`
-    width: ${props => props.theme.size[750]};
-  ` : css`
-    width: Calc(${props => props.theme.size[850]} + ${props => props.theme.size[600]});
-  `}
-
-  ${props => props.theme.media.tabletHorizontal`
-    margin-bottom:  ${props => props.theme.size[600]};
-    
-    ${props => props.isPhone ? css`
-      width: ${props => props.theme.size[750]};
-    ` : css`
-      width: ${props => props.theme.size[900]};
-    `}
-  `}
-
-${props => props.theme.media.tabletVertical`
-    margin-bottom:  ${props => props.theme.size[600]};
-    
-    ${props => props.isPhone ? css`
-      width: ${props => props.theme.size[800]};
-    ` : css`
-      width: ${props => props.theme.size[900]};
-    `}
-  `}
-
-  ${props => props.theme.media.phone`
-    margin-bottom:  ${props => props.theme.size[650]};
-    width: ${props => props.theme.size[900]};
-    border-radius: ${props => props.theme.size[450]};
-  `}
+  width: 905px;
 
   .slick-list {
-    border-radius: ${props => props.theme.size[300]};
-    overflow: hidden;
-
-    ${props => props.theme.media.phone`
-      border-radius: ${props => props.theme.size[450]};
-    `}
   }
 
   .slick-slide > div {
@@ -73,7 +35,7 @@ ${props => props.theme.media.tabletVertical`
     li.slick-active {
       button:before {
         color: ${props => props.theme.grayscale.darker};
-        font-size: ${props => props.theme.size[250]};
+        font-size: ${props => props.theme.size[300]};
         transition: color .2s ease-out, opacity .2s ease-out;
 
         ${props => props.theme.media.tabletHorizontal`

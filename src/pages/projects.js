@@ -7,12 +7,14 @@ import Link from '../components/Link'
 import Icon from '../components/Icon'
 
 const Projects = styled.div`
-  padding: 0 ${props => props.theme.size[900]};
+  padding: ${props => props.theme.size[900]};
 `
 
 const Project = styled(Link)`
   display: grid;
   margin-bottom: ${props => props.theme.size[500]};
+  margin-left: ${props => props.theme.size[900]};
+  margin-right: ${props => props.theme.size[900]};
   padding: ${props => props.theme.size[500]};
   background-color: ${props => props.theme.grayscale[100]};
   border-radius: ${props => props.theme.size[500]};
@@ -26,6 +28,10 @@ const Project = styled(Link)`
 
   &:hover {
     color: inherit;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
   }
 `
 

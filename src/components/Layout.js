@@ -29,7 +29,6 @@ const AsideTitle = styled.h1`
 
 const Body = styled.main`
   display: grid;
-  padding: ${props => props.theme.size[700]};
   background-color: white;
 `
 
