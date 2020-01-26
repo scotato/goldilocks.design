@@ -19,7 +19,7 @@ const NavigationRow = styled(Link)`
   text-decoration: none;
   cursor: pointer;
   will-change: color, background-color;
-  transition: color 0.3s ease-out, background-color 0.3s ease-out;
+  transition: color 0.2s ease-out, background-color 0.2s ease-out;
   font-weight: 600;
 
   &:hover {
@@ -59,7 +59,7 @@ const Badge = styled.div`
   align-self: stretch;
   place-items: center;
   will-change: color, background-color;
-  transition: color 0.3s ease-out, background-color 0.3s ease-out;
+  transition: color 0.2s ease-out, background-color 0.2s ease-out;
 
 `
 
@@ -67,7 +67,7 @@ const NavigationIcon = styled(Icon)`
   grid-area: icon;
   color: ${props => props.theme.color[props.color]};
   will-change: color;
-  transition: color 0.3s ease-out;
+  transition: color 0.2s ease-out;
 `
 
 export default props => (
