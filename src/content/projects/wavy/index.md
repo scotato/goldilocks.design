@@ -33,7 +33,7 @@ gallery:
     img: gallery/Screen Shot 2018-03-08 at 1.31.59 PM.png
 tech: 
   - react
-  - spotify-web-api
+  - spotify
   - google-firestore
 ---
 

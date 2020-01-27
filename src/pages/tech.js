@@ -14,16 +14,11 @@ const TechIcon = styled(Icon)`
   color: ${props => props.theme.grayscale[300]};
 `
 
-const ConnectionIcon = styled(Icon)`
-  margin-right: ${props => props.theme.size[300]};
-  color: ${props => props.theme.grayscale[300]};
-`
-
 const TechLink = styled(Link)`
   margin: 0 ${props => props.theme.size[300]};
 `
 
-const TechLinks = styled.div`
+const Connections = styled.div`
   display: flex;
   align-items: center;
 `
@@ -38,9 +33,18 @@ const TechBadge = ({className, ...props}) => (
   </div>
 )
 
-const TechBadgeSmall = styled(TechBadge)`
+const TechBadgeLink = styled(Link)`
   margin-right: ${props => props.theme.size[200]};
-  width: ${props => props.theme.size[600]};
+`
+
+const TechBadgeSmall = styled(TechBadge)`
+  width: ${props => props.theme.size[700]};
+  border-radius: ${props => props.theme.size[300]};
+  overflow: hidden;
+
+  .gatsby-image-wrapper {
+    height: ${props => props.theme.size[700]};
+  }
 `
 
 const TechIconLink = ({icon, to}) => to ? (
@@ -49,34 +53,42 @@ const TechIconLink = ({icon, to}) => to ? (
   </TechLink>
 ) : null
 
-const TechPage = ({ data: { technology, posts, projects }}) => (
+const TechPage = ({ data: { technology, projects }}) => (
   <Container>
-    {console.log(posts, projects)}
-    {technology.edges.map(({node: tech}) => (
-      <CardRow
-        key={tech.id}
-        badge={tech.frontmatter.badge.childImageSharp.fluid}
-        title={tech.frontmatter.title}
-        connections={(
-          <TechLinks>
-            {tech.frontmatter.tech && tech.frontmatter.tech.length && <ConnectionIcon name='window' size={600} />}
-            {tech.frontmatter.tech && tech.frontmatter.tech.map(item => (
-              <TechBadgeSmall
-                title={item.frontmatter.title}
-                fluid={item.frontmatter.badge.childImageSharp.fluid}
-              />
-            ))}
-          </TechLinks>
-        )}
-        detail={(
-          <Social>
-            <TechIconLink to={tech.frontmatter.github} icon="github" />
-            <TechIconLink to={tech.frontmatter.docs} icon="book" />
-            <TechIconLink to={tech.frontmatter.website} icon="external-link" />
-          </Social>
-        )}
-      />
-    ))}
+    {technology.edges.map(({node: tech}) => {
+      const connectedProjects = projects.edges
+        ? projects.edges
+          .filter(project => project.node && project.node.frontmatter.tech && project.node.frontmatter.tech
+            .filter(item => item && item.frontmatter && item.frontmatter.id === tech.frontmatter.id).length)
+        : []
+      
+        return (
+        <CardRow
+          key={tech.id}
+          badge={tech.frontmatter.badge.childImageSharp.fluid}
+          title={tech.frontmatter.title}
+          connections={(
+            <Connections>
+              {connectedProjects.length > 0 && connectedProjects.map(item => (
+                <TechBadgeLink to={item.node.fields.slug}>
+                  <TechBadgeSmall
+                    title={item.node.frontmatter.title}
+                    fluid={item.node.frontmatter.badge.childImageSharp.fluid}
+                  />
+                </TechBadgeLink>
+              ))}
+            </Connections>
+          )}
+          detail={(
+            <Social>
+              <TechIconLink to={tech.frontmatter.github} icon="github" />
+              <TechIconLink to={tech.frontmatter.docs} icon="book" />
+              <TechIconLink to={tech.frontmatter.website} icon="external-link" />
+            </Social>
+          )}
+        />
+      )
+    })}
   </Container>
 )
 
@@ -101,15 +113,6 @@ export const pageQuery = graphql`
         edges {
           node {
             ...Project
-          }
-        }
-    }
-    posts: allMarkdownRemark(
-        filter: { fields: { collection: { eq: "blog" } } }
-      ) {
-        edges {
-          node {
-            ...Post
           }
         }
     }

@@ -7,6 +7,10 @@ badge: whats-up.png
 draft: false
 projects:
   - goldilocks-design
+tech:
+  - react
+  - styled-components
+  - figma
 ---
 
 ## Thoughts on the Web

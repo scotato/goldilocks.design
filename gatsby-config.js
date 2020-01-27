@@ -16,9 +16,10 @@ module.exports = {
   },
   mapping: {
     'MarkdownRemark.fields.navigation': `NavigationYaml`,
-    'MarkdownRemark.frontmatter.projects': `MarkdownRemark.frontmatter.id`,
     'MarkdownRemark.frontmatter.tech': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.tech.tech': `MarkdownRemark.frontmatter.id`
+    'MarkdownRemark.frontmatter.tech.tech': `MarkdownRemark.frontmatter.id`,
+    'MarkdownRemark.frontmatter.posts.tech': `MarkdownRemark.frontmatter.id`,
+    'MarkdownRemark.frontmatter.projects.tech': `MarkdownRemark.frontmatter.id`
   },
   plugins: [
     `gatsby-plugin-sharp`,

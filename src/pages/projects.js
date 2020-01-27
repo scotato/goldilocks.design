@@ -36,6 +36,9 @@ export const query = graphql`
           }
         }
       }
+      tech {
+        ...Tech
+      }
     }
   }
 `
