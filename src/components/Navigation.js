@@ -7,7 +7,7 @@ const Navigation = styled.nav``
 
 export default props => {
   const data = useStaticQuery(graphql`
-    query AppsQuery {
+    query NavigationQuery {
       apps: allAppsYaml {
         edges {
           node {
@@ -15,10 +15,53 @@ export default props => {
           }
         }
       }
+      activity: allMarkdownRemark(
+        filter: { fields: { collection: { eq: "activity" } } }
+      ) {
+        edges {
+          node {
+            id
+          }
+        }
+      }
+      projects: allMarkdownRemark(
+        filter: { fields: { collection: { eq: "projects" } } }
+      ) {
+        edges {
+          node {
+            id
+          }
+        }
+      }
+      posts: allMarkdownRemark(
+        filter: { fields: { collection: { eq: "blog" } } }
+      ) {
+        edges {
+          node {
+            id
+          }
+        }
+      }
+      technology: allMarkdownRemark(
+        filter: { fields: { collection: { eq: "tech" } } }
+      ) {
+        edges {
+          node {
+            id
+          }
+        }
+      }
     }
   `)
 
   const items = data.apps.edges.map(({node: app}) => app)
+
+  const badges = {
+    "Activity": data.activity.edges.length,
+    "Projects": data.projects.edges.length,
+    "Blog": data.posts.edges.length,
+    "Tech": data.technology.edges.length
+  }
 
   return (
     <Navigation>
@@ -29,7 +72,7 @@ export default props => {
           color={item.color}
           title={item.title}
           to={item.slug}
-          badge="8"
+          badge={badges[item.title]}
         />
       ))}
     </Navigation>
