@@ -2,9 +2,9 @@
 id: graphql
 title: GraphQL
 description: GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. 
-url: https://graphql.org
-urlSource: https://github.com/graphql/graphql-js
-urlApi: https://facebook.github.io/graphql/
+github: https://github.com/graphql/graphql-js
+docs: https://facebook.github.io/graphql/
+website: https://graphql.org
 badge: graphQL-logo.png
 sticker: graphQL-logo-sticker.png
 category: framework

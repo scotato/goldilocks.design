@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import CardRow, { Container } from '../components/CardRow'
 import Link from '../components/Link'
 import Icon from '../components/Icon'
@@ -13,8 +14,33 @@ const TechIcon = styled(Icon)`
   color: ${props => props.theme.grayscale[300]};
 `
 
+const ConnectionIcon = styled(Icon)`
+  margin-right: ${props => props.theme.size[300]};
+  color: ${props => props.theme.grayscale[300]};
+`
+
 const TechLink = styled(Link)`
   margin: 0 ${props => props.theme.size[300]};
+`
+
+const TechLinks = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const Image = styled(Img)`
+  width: 100%;
+`
+
+const TechBadge = ({className, ...props}) => (
+  <div className={className}>
+    <Image {...props} />
+  </div>
+)
+
+const TechBadgeSmall = styled(TechBadge)`
+  margin-right: ${props => props.theme.size[200]};
+  width: ${props => props.theme.size[600]};
 `
 
 const TechIconLink = ({icon, to}) => to ? (
@@ -30,12 +56,22 @@ const TechPage = ({ data: { technology }}) => (
         key={tech.id}
         badge={tech.frontmatter.badge.childImageSharp.fluid}
         title={tech.frontmatter.title}
-        description={tech.frontmatter.description}
+        connections={(
+          <TechLinks>
+            {tech.frontmatter.tech && tech.frontmatter.tech.length && <ConnectionIcon name='window' size={600} />}
+            {tech.frontmatter.tech && tech.frontmatter.tech.map(item => (
+              <TechBadgeSmall
+                title={item.frontmatter.title}
+                fluid={item.frontmatter.badge.childImageSharp.fluid}
+              />
+            ))}
+          </TechLinks>
+        )}
         detail={(
           <Social>
-            <TechIconLink to={tech.frontmatter.url} icon="window" />
-            <TechIconLink to={tech.frontmatter.urlApi} icon="typewriter" />
-            <TechIconLink to={tech.frontmatter.urlSource} icon="github" />
+            <TechIconLink to={tech.frontmatter.github} icon="github" />
+            <TechIconLink to={tech.frontmatter.docs} icon="book" />
+            <TechIconLink to={tech.frontmatter.website} icon="external-link" />
           </Social>
         )}
       />
@@ -60,3 +96,65 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export const query = graphql`
+  fragment Tech on MarkdownRemark {
+    fields {
+      slug
+      collection
+    }
+    frontmatter {
+      id
+      title
+      description
+      github
+      docs
+      website
+      badge {
+        childImageSharp {
+          fluid(maxWidth: 512) {
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
+          }
+        }
+      }
+      sticker {
+        childImageSharp {
+          fluid(maxWidth: 512) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      date
+      tech {
+        fields {
+          slug
+          collection
+        }
+        frontmatter {
+          id
+          title
+          description
+          github
+          docs
+          website
+          badge {
+            childImageSharp {
+              fluid(maxWidth: 512) {
+                ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              }
+            }
+          }
+          sticker {
+            childImageSharp {
+              fluid(maxWidth: 512) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+          date
+        }
+      }
+    }
+  }
+`
+

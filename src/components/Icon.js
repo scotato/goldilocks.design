@@ -10,6 +10,8 @@ import Bells from '../icons/bells.svg'
 import ComputerClassic from '../icons/computer-classic.svg'
 import Typewriter from '../icons/typewriter.svg'
 import Window from '../icons/window.svg'
+import Book from '../icons/book.svg'
+import ExternalLink from '../icons/external-link.svg'
 
 const IconSwitch = props => {
   switch (props.name) {
@@ -33,6 +35,10 @@ const IconSwitch = props => {
       return <Typewriter />
     case "window":
       return <Window />
+    case "book":
+      return <Book />
+    case "external-link":
+      return <ExternalLink />
     default:
       return null
   }

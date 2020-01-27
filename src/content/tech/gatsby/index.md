@@ -2,9 +2,9 @@
 id: gatsby
 title: Gatsby
 description: Gatsby provides a modern framework for turning content into feature-rich, visually engaging apps and websites. 
-url: https://www.gatsbyjs.org
-urlSource: https://github.com/gatsbyjs/gatsby
-urlApi: https://www.gatsbyjs.org/docs/api-specification/
+github: https://github.com/gatsbyjs/gatsby
+docs: https://www.gatsbyjs.org/docs
+website: https://www.gatsbyjs.org
 badge: gatsby-logo.png
 sticker: gatsby-logo-sticker.png
 category: framework
