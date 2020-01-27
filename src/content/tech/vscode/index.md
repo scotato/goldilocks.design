@@ -6,7 +6,6 @@ github: https://github.com/Microsoft/vscode
 docs: https://code.visualstudio.com/api
 website: https://code.visualstudio.com/
 badge: vsCode-logo.png
-sticker: vsCode-logo-sticker.png
 category: codeEditor
 tech: 
   - git

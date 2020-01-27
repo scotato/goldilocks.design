@@ -6,7 +6,6 @@ github: https://github.com/git/git
 docs: https://git-scm.com/docs
 website: https://git-scm.com/
 badge: git-logo.png
-sticker: git-logo-sticker.png
 category: versionControl
 tech: 
 date: 2019-04-13

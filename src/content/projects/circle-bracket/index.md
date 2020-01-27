@@ -23,6 +23,7 @@ gallery:
     img: gallery/Screen Shot 2018-12-06 at 10.34.49 PM.png
 tech: 
   - react
+  - styled-components
 ---
 
 ## Experimental UI

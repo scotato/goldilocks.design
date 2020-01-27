@@ -17,7 +17,8 @@ isProjectActive: false
 isProjectPublic: true
 isSourcePublic: true
 tech: 
-  - js
+  - react
+  - styled-components
 ---
 
 ## Health Visualization 

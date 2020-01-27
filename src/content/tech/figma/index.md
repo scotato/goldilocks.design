@@ -6,7 +6,6 @@ github: https://github.com/figma
 docs: https://www.figma.com/developers/docs
 website: https://www.figma.com
 badge: figma-logo.png
-sticker: figma-logo-sticker.png
 category: design
 tech: 
 date: 2019-04-12

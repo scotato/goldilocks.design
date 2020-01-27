@@ -6,7 +6,6 @@ github: https://github.com/mozilla
 docs: https://developer.mozilla.org/en-US/docs
 website: https://www.firefox.com
 badge: firefox-logo.png
-sticker: firefox-logo-sticker.png
 category: browser
 tech: 
   - javascript

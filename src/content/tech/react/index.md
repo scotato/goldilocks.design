@@ -6,7 +6,6 @@ github: https://github.com/facebook/react
 docs: https://reactjs.org/docs
 website: https://reactjs.org
 badge: react-logo.png
-sticker: react-logo-sticker.png
 category: framework
 tech: 
   - javascript

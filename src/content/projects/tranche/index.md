@@ -15,8 +15,8 @@ isProjectActive: true
 isProjectPublic: true
 isSourcePublic: true
 tech: 
-  - browser-extensions
   - js
+  - firefox
 ---
 
 ## Just the Link

@@ -5,6 +5,8 @@ createdAt: '2019-03-28T21:06:22.497Z'
 twitter: '1113927603654746113'
 badge: whats-up.png
 draft: false
+projects:
+  - goldilocks-design
 ---
 
 ## Thoughts on the Web

@@ -6,7 +6,6 @@ github: https://github.com/webpack/webpack
 docs: https://webpack.js.org/api
 website: https://webpack.js.org
 badge: webpack-logo.png
-sticker: webpack-logo-sticker.png
 category: framework
 tech: 
   - javascript

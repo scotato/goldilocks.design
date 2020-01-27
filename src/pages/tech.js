@@ -49,8 +49,9 @@ const TechIconLink = ({icon, to}) => to ? (
   </TechLink>
 ) : null
 
-const TechPage = ({ data: { technology }}) => (
+const TechPage = ({ data: { technology, posts, projects }}) => (
   <Container>
+    {console.log(posts, projects)}
     {technology.edges.map(({node: tech}) => (
       <CardRow
         key={tech.id}
@@ -94,6 +95,24 @@ export const pageQuery = graphql`
           }
         }
     }
+    projects: allMarkdownRemark(
+        filter: { fields: { collection: { eq: "projects" } } }
+      ) {
+        edges {
+          node {
+            ...Project
+          }
+        }
+    }
+    posts: allMarkdownRemark(
+        filter: { fields: { collection: { eq: "blog" } } }
+      ) {
+        edges {
+          node {
+            ...Post
+          }
+        }
+    }
   }
 `
 
@@ -117,13 +136,6 @@ export const query = graphql`
           }
         }
       }
-      sticker {
-        childImageSharp {
-          fluid(maxWidth: 512) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
       date
       tech {
         fields {
@@ -141,13 +153,6 @@ export const query = graphql`
             childImageSharp {
               fluid(maxWidth: 512) {
                 ...GatsbyImageSharpFluid_withWebp_tracedSVG
-              }
-            }
-          }
-          sticker {
-            childImageSharp {
-              fluid(maxWidth: 512) {
-                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }

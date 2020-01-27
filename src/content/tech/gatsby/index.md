@@ -6,7 +6,6 @@ github: https://github.com/gatsbyjs/gatsby
 docs: https://www.gatsbyjs.org/docs
 website: https://www.gatsbyjs.org
 badge: gatsby-logo.png
-sticker: gatsby-logo-sticker.png
 category: framework
 tech: 
   - javascript

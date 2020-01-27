@@ -11,14 +11,14 @@ const Project = styled.article`
 export default ({ data }) => {
   const project = data.project.frontmatter
   const {
-    title,
+    // title,
     galleryIsPhone,
     gallery,
-    twitter,
-    github,
-    website,
-    isSourcePublic,
-    isWebsiteActive
+    // twitter,
+    // github,
+    // website,
+    // isSourcePublic,
+    // isWebsiteActive
   } = project
 
   return (

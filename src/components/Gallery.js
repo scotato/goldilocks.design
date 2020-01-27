@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import Slider from 'react-slick'
 import Img from 'gatsby-image'
 import 'slick-carousel/slick/slick.css'

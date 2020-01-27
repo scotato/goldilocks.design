@@ -6,7 +6,6 @@ gitub: https://github.com/spotify
 docs: https://developer.spotify.com/documentation/web-api/
 website: https://spotify.com
 badge: spotify-logo.png
-sticker: spotify-logo-sticker.png
 category: browser
 tech: 
 date: 2019-04-09

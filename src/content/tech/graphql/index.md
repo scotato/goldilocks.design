@@ -6,7 +6,6 @@ github: https://github.com/graphql/graphql-js
 docs: https://facebook.github.io/graphql/
 website: https://graphql.org
 badge: graphQL-logo.png
-sticker: graphQL-logo-sticker.png
 category: framework
 tech: 
   - javascript
