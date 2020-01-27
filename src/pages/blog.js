@@ -24,9 +24,6 @@ export const query = graphql`
   fragment Post on MarkdownRemark {
     fields {
       slug
-      app {
-        ...AppInfo
-      }
     }
     timeToRead
     frontmatter {
@@ -46,9 +43,6 @@ export const query = graphql`
 
 export const pageQuery = graphql`
   query {
-    page: appsYaml(id: { eq: "blog" }) {
-      ...AppInfo
-    }
     posts: allMarkdownRemark(
         filter: { fields: { collection: { eq: "blog" } } }
         sort: { fields: [frontmatter___date], order: DESC }

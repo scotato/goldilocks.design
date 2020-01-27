@@ -90,9 +90,6 @@ export default ({ data }) => (
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
-    page: appsYaml(id: { eq: "blog" }) {
-      ...AppInfo
-    }
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)

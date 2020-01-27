@@ -31,9 +31,6 @@ export default ({ data }) => {
 
 export const pageQuery = graphql`
   query ProjectBySlug($slug: String!) {
-    page: appsYaml(id: { eq: "projects" }) {
-      ...AppInfo
-    }
     project: markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)

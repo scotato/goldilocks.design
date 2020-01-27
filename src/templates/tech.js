@@ -94,11 +94,69 @@ export default TechPage
 
 export const pageQuery = graphql`
   query TechBySlug($slug: String!) {
-    page: appsYaml(id: { eq: "tech" }) {
-      ...AppInfo
-    }
     tech: markdownRemark(fields: { slug: { eq: $slug } }) {
       ...Tech
+    }
+  }
+`
+
+export const query = graphql`
+  fragment Tech on MarkdownRemark {
+    fields {
+      slug
+      collection
+    }
+    frontmatter {
+      id
+      title
+      description
+      url
+      urlSource
+      urlApi
+      badge {
+        childImageSharp {
+          fluid(maxWidth: 512) {
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
+          }
+        }
+      }
+      sticker {
+        childImageSharp {
+          fluid(maxWidth: 512) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      date
+      tech {
+        fields {
+          slug
+          collection
+        }
+        frontmatter {
+          id
+          title
+          description
+          url
+          urlSource
+          urlApi
+          badge {
+            childImageSharp {
+              fluid(maxWidth: 512) {
+                ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              }
+            }
+          }
+          sticker {
+            childImageSharp {
+              fluid(maxWidth: 512) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+          date
+        }
+      }
     }
   }
 `

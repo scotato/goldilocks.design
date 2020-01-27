@@ -42,9 +42,6 @@ export const query = graphql`
 
 export const pageQuery = graphql`
   query {
-    page: appsYaml(id: { eq: "projects" }) {
-      ...AppInfo
-    }
     projects: allMarkdownRemark(
         filter: { fields: { collection: { eq: "projects" } } }
         sort: { fields: [frontmatter___updatedAt, frontmatter___commits], order: DESC }

@@ -8,10 +8,10 @@ const Navigation = styled.nav``
 export default props => {
   const data = useStaticQuery(graphql`
     query NavigationQuery {
-      apps: allAppsYaml {
+      navigation: allNavigationYaml {
         edges {
           node {
-            ...AppInfo
+            ...NavigationInfo
           }
         }
       }
@@ -54,7 +54,7 @@ export default props => {
     }
   `)
 
-  const items = data.apps.edges.map(({node: app}) => app)
+  const items = data.navigation.edges.map(({node: navigation}) => navigation)
 
   const badges = {
     "Activity": data.activity.edges.length,
@@ -80,7 +80,7 @@ export default props => {
 }
 
 export const query = graphql`
-  fragment AppInfo on AppsYaml {
+  fragment NavigationInfo on NavigationYaml {
     id
     icon
     slug
