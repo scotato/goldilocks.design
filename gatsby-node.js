@@ -54,6 +54,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) =>
     const remark = result.data.allMarkdownRemark.edges
     const posts = remark.filter(({node: post}) => post.fields.collection === 'blog')
     const projects = remark.filter(({node: project}) => project.fields.collection === 'projects')
+    const technology = remark.filter(({node: tech}) => tech.fields.collection === 'tech')
     const template = name => path.resolve(`src/templates/${name}.js`)
 
     posts.forEach((post, index) => {
@@ -77,6 +78,16 @@ exports.createPages = ({ graphql, actions: { createPage } }) =>
         component: template('project'),
         context: {
           slug: project.node.fields.slug,
+        }
+      })
+    })
+
+    technology.forEach(tech => {
+      createPage({
+        path: tech.node.fields.slug,
+        component: template('tech'),
+        context: {
+          slug: tech.node.fields.slug,
         }
       })
     })
