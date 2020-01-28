@@ -20,8 +20,8 @@ const Badge = styled.span`
 `
 
 export default props => props.badge ? (
-  <TechIndicator color={props.color}>
-    <Icon name={props.icon} size={500} />
+  <TechIndicator title={props.title} color={props.color}>
+    <Icon name={props.icon} size={400} />
     <Badge>{props.badge}</Badge>
   </TechIndicator>
 ) : null

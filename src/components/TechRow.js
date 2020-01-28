@@ -46,6 +46,7 @@ const Title = styled.span`
   grid-area: title;
   font-weight: 700;
   line-height: 1;
+  font-size: ${props => props.theme.size[500]};
 `
 
 const Description = styled.span`
@@ -59,7 +60,9 @@ const Description = styled.span`
 `
 
 const Indicators = styled.span`
+  display: flex;
   grid-area: indicators;
+  align-items: center;
   color: ${props => props.theme.grayscale[500]};
   line-height: 1;
 `
