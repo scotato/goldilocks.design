@@ -14,7 +14,7 @@ const LinkRow = styled(Link)`
   margin-left: ${props => props.theme.size[900]};
   margin-right: ${props => props.theme.size[900]};
   padding: ${props => props.theme.size[500]};
-  background-color: ${props => props.theme.grayscale[100]};
+  background-color: ${props => props.theme.isDarkMode ? props.theme.grayscale[800] : props.theme.grayscale[200]};
   border-radius: ${props => props.theme.size[500]};
   grid-template-areas: 
     "badge title detail arrow"

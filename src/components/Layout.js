@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { ThemeProvider } from 'styled-components'
+import useDarkMode from 'use-dark-mode'
 
 import GlobalStyle from './GlobalStyle'
 import SEO from './SEO'
@@ -29,11 +30,14 @@ const AsideTitle = styled.h1`
 
 const Body = styled.main`
   display: grid;
-  background-color: white;
+  background-color: ${props => props.theme.isDarkMode ? 'black' : 'white'};
 `
 
-export default props => (
-    <ThemeProvider theme={theme}>
+export default props => {
+  const darkMode = useDarkMode()
+
+  return (
+    <ThemeProvider theme={{...theme, isDarkMode: darkMode.value}}>
       <Layout>
         <GlobalStyle />
         <SEO />
@@ -50,3 +54,4 @@ export default props => (
       </Layout>
     </ThemeProvider>
   )
+}
