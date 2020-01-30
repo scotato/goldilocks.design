@@ -31,16 +31,19 @@ const Title = styled.div`
 const Primary = styled.div``
 
 const Secondary = styled.div`
+  display: grid;
   justify-self: flex-end;
+  grid-template-columns: auto auto auto;
+  grid-column-gap: ${props => props.theme.size[400]};
 `
 
 export default props => {
   return (
     <>
       <Header>
-        <Primary />
+        <Primary>{props.primary}</Primary>
         <Title>{props.title}</Title>
-        <Secondary>{props.actions}</Secondary>
+        <Secondary>{props.secondary}</Secondary>
       </Header>
       <Divider />
     </>

@@ -4,18 +4,26 @@ import { graphql } from 'gatsby'
  
 import Header from '../components/Header'
 import Gallery from '../components/Gallery'
+import { Back, LinkIcon } from '../components/Link'
  
 const Project = styled.article`
   margin: 0 ${props => props.theme.size[700]};
   padding: ${props => props.theme.size[900]};
 `
 
-export default ({ data }, ...props) => {
+export default ({ data }) => {
   const project = data.project.frontmatter
 
   return (
     <>
-      <Header title={project.title} {...props} />
+      <Header
+        title={project.title}
+        primary={<Back to='projects'>Projects</Back>}
+        secondary={[
+          <LinkIcon to={project.isSourcePublic && project.github} icon="github" size={600} />,
+          <LinkIcon to={project.isProjectPublic && project.website} icon="external-link" size={600} />
+        ]}
+      />
       <Project>
         {project.gallery && <Gallery images={project.gallery} />}
         <div dangerouslySetInnerHTML={{ __html: data.project.html }} />
@@ -53,8 +61,9 @@ export const pageQuery = graphql`
         twitter
         github
         website
-        isProjectActive
         isSourcePublic
+        isProjectPublic
+        isProjectActive
         isWebsiteActive
         tech {
           ...Tech

@@ -3,16 +3,19 @@ import useDarkMode from 'use-dark-mode'
 import { Container } from '../components/Layout'
 import SettingsRow from '../components/SettingsRow'
 import Header from '../components/Header'
+import { Back } from '../components/Link'
 import Icon from '../components/Icon'
 import Switch from '../components/Switch'
 
-const SettingsPage = props => {
+const SettingsPage = () => {
   const darkMode = useDarkMode(false)
-  console.log(props)
 
   return (
     <>
-      <Header title="Settings" {...props} />
+      <Header
+        title="Settings"
+        primary={<Back to='/' />}
+      />
       <Container>
         <SettingsRow
           badge={<Icon name='moon' size={700} />}

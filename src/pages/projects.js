@@ -4,10 +4,14 @@ import { graphql } from 'gatsby'
 import { Container } from '../components/Layout'
 import LinkRow from '../components/LinkRow'
 import Header from '../components/Header'
+import { Back } from '../components/Link'
 
-const ProjectsPage = ({ data: { projects }, ...props}) => (
+const ProjectsPage = ({ data: { projects } }) => (
   <>
-    <Header title="Projects" {...props} />
+    <Header
+      title="Projects"
+      primary={<Back to='/' />}
+    />
     <Container>
       {projects.edges.map(({node: project}) => (
         <LinkRow

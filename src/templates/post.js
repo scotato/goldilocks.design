@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Header from '../components/Header'
+import { Back } from '../components/Link'
  
 const Post = styled.article`
   margin: 0 ${props => props.theme.size[700]};
@@ -10,7 +11,10 @@ const Post = styled.article`
 
 export default props => (
   <>
-    <Header title={props.data.post.frontmatter.title} {...props} />
+    <Header
+      title={props.data.post.frontmatter.title}
+      primary={<Back to='blog'>Blog</Back>}
+    />
     <Post dangerouslySetInnerHTML={{ __html: props.data.post.html }} />
   </>
 )

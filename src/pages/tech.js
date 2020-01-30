@@ -2,12 +2,16 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Container } from '../components/Layout'
 import Header from '../components/Header'
+import { Back } from '../components/Link'
 import TechRow from '../components/TechRow'
 import TechIndicators from '../components/TechIndicators'
 
-const TechPage = ({ data: { technology }, ...props}) => (
+const TechPage = ({ data: { technology } }) => (
   <>
-    <Header title="Tech" {...props} />
+    <Header
+      title="Tech"
+      primary={<Back to='/' />}
+    />
     <Container>
       {technology.edges.map(({node: tech}) => (
         <TechRow

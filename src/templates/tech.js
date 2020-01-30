@@ -4,8 +4,7 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 import Header from '../components/Header'
-import Link from '../components/Link'
-import Icon from '../components/Icon'
+import { Back, LinkIcon } from '../components/Link'
 
 const Tech = styled.div`
   margin: 0 ${props => props.theme.size[700]};
@@ -22,38 +21,6 @@ const TechHeader = styled.div`
     "badge title"
     "badge description";
 `
-
-const Social = styled.div`
-  display: flex;
-`
-
-// const Connections = styled.div`
-//   display: flex;
-//   align-items: center;
-// `
-
-// const TechBadgeLink = styled(Link)`
-//   margin-right: ${props => props.theme.size[200]};
-// `
-
-const TechIcon = styled(Icon)`
-  /* color: ${props => props.theme.grayscale[500]}; */
-`
-
-const TechLink = styled(Link)`
-  margin: 0 ${props => props.theme.size[300]};
-`
-
-// const TechLinks = styled.div`
-//   display: flex;
-//   align-items: center;
-// `
-
-const TechIconLink = ({icon, to}) => to ? (
-  <TechLink to={to}>
-    <TechIcon name={icon} size={600} />
-  </TechLink>
-) : null
 
 const Image = styled(Img)`
   width: 100%;
@@ -87,39 +54,16 @@ const TechBadgeLarge = styled(TechBadge)`
   }
 `
 
-// const TechBadgeSmall = styled(TechBadge)`
-//   width: ${props => props.theme.size[700]};
-//   border-radius: ${props => props.theme.size[300]};
-//   overflow: hidden;
-
-//   .gatsby-image-wrapper {
-//     height: ${props => props.theme.size[700]};
-//   }
-// `
-
-/* <Connections>
-  {connectedProjects.length > 0 && connectedProjects.map(item => (
-    <TechBadgeLink to={item.node.fields.slug}>
-      <TechBadgeSmall
-        title={item.node.frontmatter.title}
-        fluid={item.node.frontmatter.badge.childImageSharp.fluid}
-      />
-    </TechBadgeLink>
-  ))}
-</Connections> */
-
-const TechPage = ({ data: { tech }, ...props }) => (
+const TechPage = ({ data: { tech } }) => (
   <>
     <Header
       title={tech.frontmatter.title}
-      actions={
-        <Social>
-          <TechIconLink to={tech.frontmatter.github} icon="github" />
-          <TechIconLink to={tech.frontmatter.docs} icon="book" />
-          <TechIconLink to={tech.frontmatter.website} icon="external-link" />
-        </Social>
-      }
-      {...props}
+      primary={<Back to='tech'>Tech</Back>}
+      secondary={[
+        <LinkIcon to={tech.frontmatter.github} icon="github" size={600} />,
+        <LinkIcon to={tech.frontmatter.docs} icon="book" size={600} />,
+        <LinkIcon to={tech.frontmatter.website} icon="external-link" size={600} />
+      ]}
     />
     <Tech>
       <TechHeader>
@@ -130,17 +74,6 @@ const TechPage = ({ data: { tech }, ...props }) => (
         <TechTitle>{tech.frontmatter.title}</TechTitle>
         <TechDescription>{tech.frontmatter.description}</TechDescription>
       </TechHeader>
-
-      {/* <TechLinks>
-        {tech.frontmatter.tech && tech.frontmatter.tech.map(item => (
-          <Link to={item.fields.slug}>
-            <TechBadgeSmall
-              title={item.frontmatter.title}
-              fluid={item.frontmatter.badge.childImageSharp.fluid}
-            />
-          </Link>
-        ))}
-      </TechLinks> */}
     </Tech>
   </>
 )
