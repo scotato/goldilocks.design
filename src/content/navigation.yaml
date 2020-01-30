@@ -1,8 +1,3 @@
-- id: activity
-  icon: bells
-  slug: /
-  title: Activity
-  color: red
 - id: projects
   icon: computer-classic
   slug: projects
@@ -18,4 +13,9 @@
   slug: tech
   title: Tech
   color: orange
+- id: settings
+  icon: cogs
+  slug: settings
+  title: Settings
+  color: default
   

@@ -50,7 +50,9 @@ const Title = styled.div`
   font-size: ${props => props.theme.size[600]};
 `
 
-const Badge = styled.div`
+const Badge = styled.div.attrs({
+  className: 'badge'
+})`
   display: grid;
   grid-area: badge;
   color: ${props => props.theme.isDarkMode ? props.theme.grayscale[800] : props.theme.grayscale[500]};
@@ -60,8 +62,9 @@ const Badge = styled.div`
   place-items: center;
   will-change: color, background-color;
   transition: color 0.2s ease-out, background-color 0.2s ease-out;
-
 `
+
+const BadgeOptional = props => props.children ? <Badge {...props} /> : null
 
 const NavigationIcon = styled(Icon)`
   grid-area: icon;
@@ -74,6 +77,6 @@ export default props => (
   <NavigationRow to={props.to} color={props.color} onClick={props.onClick}>
     <NavigationIcon name={props.icon} size={700} color={props.color} />
     <Title>{props.title}</Title>
-    <Badge className="badge">{props.badge}</Badge>
+    <BadgeOptional>{props.badge}</BadgeOptional>
   </NavigationRow>
 )

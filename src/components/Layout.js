@@ -20,17 +20,13 @@ const Layout = styled.div`
 const Aside = styled.aside`
   display: grid;
   padding: ${props => props.theme.size[700]};
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: 1fr auto;
   grid-row-gap: ${props => props.theme.size[300]};
 `
 
-const AsideTitle = styled.h1`
-  margin-bottom: ${props => props.theme.size[700]};
-`
-
 const Body = styled.main`
-  display: grid;
-  background-color: ${props => props.theme.isDarkMode ? 'black' : 'white'};
+  padding: ${props => props.theme.size[900]};
+  background-color: ${props => props.theme.isDarkMode ? props.theme.grayscale[900] : 'white'};
 `
 
 export default props => {
@@ -43,7 +39,6 @@ export default props => {
         <SEO />
         
         <Aside>
-          <AsideTitle>Goldilocks Design</AsideTitle>
           <Navigation />
           <Social />
         </Aside>

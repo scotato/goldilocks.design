@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
       fontWeightBase: 400,
       lineHeightBase: 1.6,
       bodyColor: theme.isDarkMode ? theme.grayscale[100] : theme.grayscale[900],
-      bodyBg: theme.isDarkMode ? theme.grayscale[900] : theme.grayscale[100],
+      bodyBg: theme.isDarkMode ? 'black' : theme.grayscale[100],
       headingsMarginBottom: theme.size[300],
       paragraphMarginBottom: theme.size[400],
       linkColor: theme.color.info,

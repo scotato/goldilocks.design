@@ -5,14 +5,12 @@ import Link from './Link'
 import Icon from './Icon'
 
 export const Container = styled.div`
-  padding: ${props => props.theme.size[900]};
+  padding: 0 ${props => props.theme.size[900]};
 `
 
 const LinkRow = styled(Link)`
   display: grid;
-  margin-bottom: ${props => props.theme.size[500]};
-  margin-left: ${props => props.theme.size[900]};
-  margin-right: ${props => props.theme.size[900]};
+  margin: ${props => props.theme.size[500]} 0;
   padding: ${props => props.theme.size[500]};
   background-color: ${props => props.theme.isDarkMode ? props.theme.grayscale[800] : props.theme.grayscale[200]};
   border-radius: ${props => props.theme.size[500]};

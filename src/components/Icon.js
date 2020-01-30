@@ -12,6 +12,9 @@ import Typewriter from '../icons/typewriter.svg'
 import Window from '../icons/window.svg'
 import Book from '../icons/book.svg'
 import ExternalLink from '../icons/external-link.svg'
+import Cogs from '../icons/cogs.svg'
+import Moon from '../icons/moon.svg'
+import MoonStars from '../icons/moon-stars.svg'
 
 const IconSwitch = props => {
   switch (props.name) {
@@ -39,6 +42,12 @@ const IconSwitch = props => {
       return <Book />
     case "external-link":
       return <ExternalLink />
+    case "cogs":
+      return <Cogs />
+    case "moon":
+      return <Moon />
+    case "moon-stars":
+      return <MoonStars />
     default:
       return null
   }
@@ -50,6 +59,8 @@ const Icon = styled.div`
   height: ${props => props.theme.size[props.size]};
   place-items: center;
   line-height: 1;
+  will-change: color;
+  transition: color 0.2s ease-out;
 
   .fa-secondary {
     opacity: 0.5;
