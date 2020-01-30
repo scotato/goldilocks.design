@@ -19,7 +19,7 @@ const BackLink = styled(LinkGatsby)`
 `
 
 export const Back = props =>
-  <BackLink to={props.to} replace>
+  <BackLink to={props.to}>
     <Icon name="chevron-left" /> {props.children || 'Back'}
   </BackLink>
 
