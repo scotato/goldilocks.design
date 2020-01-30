@@ -42,7 +42,7 @@ const grayscale = {
   700: 'hsl(200, 10%, 30%)', 
   800: 'hsl(200, 10%, 15%)',
   900: 'hsl(200, 10%, 5%)',
-  hex: '#73848c'
+  hex: '#c7ced1'
 }
 
 const color = {
@@ -55,7 +55,7 @@ const color = {
   green: 'hsl(150, 92.5%, 50%)',
   greenLight: 'hsl(150, 90%, 60%)',
   greenDark: 'hsl(150, 90%, 40%)',
-  greenHex: '#0AF580',
+  greenHex: '#0AE678',
   red: 'hsl(0, 92.5%, 50%)',
   redLight: 'hsl(0, 100%, 60%)',
   redDark: 'hsl(0, 100%, 40%)',

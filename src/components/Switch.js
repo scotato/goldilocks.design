@@ -7,10 +7,10 @@ export default props => {
 
   return (
     <Switch
-      width={64}
+      width={52}
       height={32}
       handleDiameter={28}
-      onColor={color.green.hex}
+      onColor={color.greenHex}
       offColor={grayscale.hex}
       activeBoxShadow={`0 0 ${size[100]} ${size[100]} ${color.info}`}
       checkedIcon={false}

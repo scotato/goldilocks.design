@@ -29,6 +29,7 @@ const SettingsRow = styled.div`
 
 const Badge = styled.div`
   grid-area: badge;
+  color: ${props => props.theme.isDarkMode ? props.theme.grayscale[400] : props.theme.grayscale[400]};
 `
 
 const Title = styled.span`
