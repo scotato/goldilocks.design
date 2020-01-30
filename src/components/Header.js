@@ -10,11 +10,15 @@ const Header = styled.header`
   background-color: ${props => props.theme.isDarkMode ? 'rgba(0, 0, 0, 0.25)' : 'rgba(255, 255, 255, 0.25)'};
   backdrop-filter: blur(64px);
   top: 0;
-  left: ${props => props.theme.device.phoneSmall};
-  right: 0;
+  width: 100%;
+  max-width: ${props => `calc(${props.theme.device.desktopLarge} - ${props.theme.device.phoneSmall})`};
   z-index: 2;
   line-height: 1;
   align-items: center;
+
+  ${props => props.theme.media.desktopLarge`
+    max-width: ${props => `calc(100% - ${props.theme.device.phoneSmall})`};
+  `}
 `
 
 const Divider = styled.div`

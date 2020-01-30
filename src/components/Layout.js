@@ -25,6 +25,7 @@ const Aside = styled.aside`
 `
 
 const Body = styled.main`
+  position: relative;
   background-color: ${props => props.theme.isDarkMode ? props.theme.grayscale[900] : 'white'};
 `
 
