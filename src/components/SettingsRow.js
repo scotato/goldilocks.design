@@ -1,10 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export const Container = styled.div`
-  padding: 0 ${props => props.theme.size[900]};
-`
-
 const SettingsRow = styled.div`
   display: grid;
   margin: ${props => props.theme.size[500]} 0;
@@ -29,7 +25,7 @@ const SettingsRow = styled.div`
 
 const Badge = styled.div`
   grid-area: badge;
-  color: ${props => props.theme.isDarkMode ? props.theme.grayscale[400] : props.theme.grayscale[400]};
+  color: ${props => props.theme.grayscale[400]};
 `
 
 const Title = styled.span`

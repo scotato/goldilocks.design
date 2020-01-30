@@ -1,21 +1,26 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import TechRow, { Container } from '../components/TechRow'
+import { Container } from '../components/Layout'
+import Header from '../components/Header'
+import TechRow from '../components/TechRow'
 import TechIndicators from '../components/TechIndicators'
 
-const TechPage = ({ data: { technology }}) => (
-  <Container>
-    {technology.edges.map(({node: tech}) => (
-      <TechRow
-        to={tech.fields.slug}
-        key={tech.fields.slug}
-        badge={tech.frontmatter.badge.childImageSharp.fluid}
-        title={tech.frontmatter.title}
-        description={tech.frontmatter.description}
-        indicators={<TechIndicators id={tech.frontmatter.id} />}
-      />
-    ))}
-  </Container>
+const TechPage = ({ data: { technology }, ...props}) => (
+  <>
+    <Header title="Tech" {...props} />
+    <Container>
+      {technology.edges.map(({node: tech}) => (
+        <TechRow
+          to={tech.fields.slug}
+          key={tech.fields.slug}
+          badge={tech.frontmatter.badge.childImageSharp.fluid}
+          title={tech.frontmatter.title}
+          description={tech.frontmatter.description}
+          indicators={<TechIndicators id={tech.frontmatter.id} />}
+        />
+      ))}
+    </Container>
+  </>
 )
 
 export default TechPage

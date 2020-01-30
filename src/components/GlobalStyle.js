@@ -23,8 +23,14 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1, h2, h3, h4, h5, h6 {
+    margin-top: 2em;
+    margin-bottom: 0.25em;
     font-weight: 700;
     line-height: 1;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   h1 {

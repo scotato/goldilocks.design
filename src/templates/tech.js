@@ -3,16 +3,24 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
+import Header from '../components/Header'
 import Link from '../components/Link'
 import Icon from '../components/Icon'
 
 const Tech = styled.div`
+  margin: 0 ${props => props.theme.size[700]};
+  padding: ${props => props.theme.size[900]};
+`
+
+const TechHeader = styled.div`
   display: grid;
-  margin: auto;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: ${props => props.theme.size[900]} auto;
+  grid-template-rows: ${props => props.theme.size[700]} auto;
   grid-column-gap: ${props => props.theme.size[500]};
-  width: ${props => props.theme.size[850]};
-  align-items: center;
+  grid-row-gap: ${props => props.theme.size[200]};
+  grid-template-areas:
+    "badge title"
+    "badge description";
 `
 
 const Social = styled.div`
@@ -29,21 +37,21 @@ const Social = styled.div`
 // `
 
 const TechIcon = styled(Icon)`
-  color: ${props => props.theme.grayscale[300]};
+  /* color: ${props => props.theme.grayscale[500]}; */
 `
 
 const TechLink = styled(Link)`
   margin: 0 ${props => props.theme.size[300]};
 `
 
-const TechLinks = styled.div`
-  display: flex;
-  align-items: center;
-`
+// const TechLinks = styled.div`
+//   display: flex;
+//   align-items: center;
+// `
 
 const TechIconLink = ({icon, to}) => to ? (
   <TechLink to={to}>
-    <TechIcon name={icon} />
+    <TechIcon name={icon} size={600} />
   </TechLink>
 ) : null
 
@@ -51,11 +59,16 @@ const Image = styled(Img)`
   width: 100%;
 `
 
-const TechHeader = styled.header`
-  display: flex;
+const TechTitle = styled.h1`
+  margin: 0;
+  font-size: ${props => props.theme.size[700]};
+  grid-area: title;
 `
 
-const TechHeaderTitle = styled.h1``
+const TechDescription = styled.p`
+  margin: 0;
+  grid-area: description;
+`
 
 const TechBadge = ({className, ...props}) => (
   <div className={className}>
@@ -63,15 +76,26 @@ const TechBadge = ({className, ...props}) => (
   </div>
 )
 
-const TechBadgeSmall = styled(TechBadge)`
-  width: ${props => props.theme.size[700]};
-  border-radius: ${props => props.theme.size[300]};
-  overflow: hidden;
+const TechBadgeLarge = styled(TechBadge)`
+  width: ${props => props.theme.size[900]};
+  grid-area: badge;
 
   .gatsby-image-wrapper {
-    height: ${props => props.theme.size[700]};
+    height: ${props => props.theme.size[900]};
+    border-radius: ${props => props.theme.size[300]};
+    overflow: hidden;
   }
 `
+
+// const TechBadgeSmall = styled(TechBadge)`
+//   width: ${props => props.theme.size[700]};
+//   border-radius: ${props => props.theme.size[300]};
+//   overflow: hidden;
+
+//   .gatsby-image-wrapper {
+//     height: ${props => props.theme.size[700]};
+//   }
+// `
 
 /* <Connections>
   {connectedProjects.length > 0 && connectedProjects.map(item => (
@@ -84,23 +108,30 @@ const TechBadgeSmall = styled(TechBadge)`
   ))}
 </Connections> */
 
-const TechPage = ({ data: { tech }}) => (
-  <Tech>
-    <TechBadge
+const TechPage = ({ data: { tech }, ...props }) => (
+  <>
+    <Header
       title={tech.frontmatter.title}
-      fluid={tech.frontmatter.badge.childImageSharp.fluid}
-    />
-    <div>
-      <TechHeader>
-        <TechHeaderTitle>{tech.frontmatter.title}</TechHeaderTitle>
+      actions={
         <Social>
           <TechIconLink to={tech.frontmatter.github} icon="github" />
           <TechIconLink to={tech.frontmatter.docs} icon="book" />
           <TechIconLink to={tech.frontmatter.website} icon="external-link" />
         </Social>
+      }
+      {...props}
+    />
+    <Tech>
+      <TechHeader>
+        <TechBadgeLarge
+          title={tech.frontmatter.title}
+          fluid={tech.frontmatter.badge.childImageSharp.fluid}
+        />
+        <TechTitle>{tech.frontmatter.title}</TechTitle>
+        <TechDescription>{tech.frontmatter.description}</TechDescription>
       </TechHeader>
-      <p>{tech.frontmatter.description}</p>
-      <TechLinks>
+
+      {/* <TechLinks>
         {tech.frontmatter.tech && tech.frontmatter.tech.map(item => (
           <Link to={item.fields.slug}>
             <TechBadgeSmall
@@ -109,9 +140,9 @@ const TechPage = ({ data: { tech }}) => (
             />
           </Link>
         ))}
-      </TechLinks>
-    </div>
-  </Tech>
+      </TechLinks> */}
+    </Tech>
+  </>
 )
 
 export default TechPage

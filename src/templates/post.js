@@ -1,13 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
+import Header from '../components/Header'
  
 const Post = styled.article`
+  margin: 0 ${props => props.theme.size[700]};
   padding: ${props => props.theme.size[900]};
 `
 
 export default props => (
-  <Post dangerouslySetInnerHTML={{ __html: props.data.post.html }} />
+  <>
+    <Header title={props.data.post.frontmatter.title} {...props} />
+    <Post dangerouslySetInnerHTML={{ __html: props.data.post.html }} />
+  </>
 )
 
 export const pageQuery = graphql`

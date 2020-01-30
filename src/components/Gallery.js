@@ -8,43 +8,31 @@ import 'slick-carousel/slick/slick-theme.css'
 const Device = styled.div`
   position: relative;
   margin: auto;
-  margin-bottom:  ${props => props.theme.size[900]};
-  background-color: ${props => props.theme.grayscale[200]};
+  margin-bottom: ${props => props.theme.size[900]};
+  padding-bottom: ${props => props.theme.size[700]};
   box-sizing: content-box;
-  width: 905px;
+  width: 713px;
 
-  .slick-list {
+  .slick-slide {
+    padding: 0 ${props => props.theme.size[400]};
   }
 
   .slick-slide > div {
     display: flex;
+    border-radius: ${props => props.theme.size[500]};
+    border: ${props => props.theme.size[100]} solid ${props => props.theme.grayscale[200]};
+    overflow: hidden;
   }
 
   .slick-dots {
-    bottom: -${props => props.theme.size[450]};
-
-    ${props => props.theme.media.tabletHorizontal`
-      bottom: -${props => props.theme.size[500]};
-    `}
-
-    ${props => props.theme.media.phone`
-      bottom: -${props => props.theme.size[550]};
-    `}
+    bottom: -${props => props.theme.size[800]};
     
     li,
     li.slick-active {
       button:before {
         color: ${props => props.theme.grayscale.darker};
-        font-size: ${props => props.theme.size[300]};
+        font-size: ${props => props.theme.size[400]};
         transition: color .2s ease-out, opacity .2s ease-out;
-
-        ${props => props.theme.media.tabletHorizontal`
-          font-size: ${props => props.theme.size[300]};
-        `}
-
-        ${props => props.theme.media.phone`
-          font-size: ${props => props.theme.size[400]};
-        `}
       }
 
       button:focus:before {
@@ -67,9 +55,8 @@ export const Gallery = ({ children, ...props}) => (
     <Slider
       dots={true}
       arrows={false}
-      infinite={true}
       speed={500}
-      slidesToShow={1}
+      slidesToShow={2}
       slidesToScroll={1}
     >
       {children}

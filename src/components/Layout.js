@@ -25,8 +25,12 @@ const Aside = styled.aside`
 `
 
 const Body = styled.main`
-  padding: ${props => props.theme.size[900]};
   background-color: ${props => props.theme.isDarkMode ? props.theme.grayscale[900] : 'white'};
+`
+
+export const Container = styled.div`
+  margin: 0 ${props => props.theme.size[900]};
+  padding: ${props => props.theme.size[700]} ${props => props.theme.size[900]};
 `
 
 export default props => {

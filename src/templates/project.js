@@ -2,30 +2,25 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
  
+import Header from '../components/Header'
 import Gallery from '../components/Gallery'
-
+ 
 const Project = styled.article`
+  margin: 0 ${props => props.theme.size[700]};
   padding: ${props => props.theme.size[900]};
 `
 
-export default ({ data }) => {
+export default ({ data }, ...props) => {
   const project = data.project.frontmatter
-  const {
-    // title,
-    galleryIsPhone,
-    gallery,
-    // twitter,
-    // github,
-    // website,
-    // isSourcePublic,
-    // isWebsiteActive
-  } = project
 
   return (
     <>
-      {gallery && <Gallery images={gallery} isPhone={galleryIsPhone} />}
-      <Project dangerouslySetInnerHTML={{ __html: data.project.html }} />
-    </>
+      <Header title={project.title} {...props} />
+      <Project>
+        {project.gallery && <Gallery images={project.gallery} />}
+        <div dangerouslySetInnerHTML={{ __html: data.project.html }} />
+      </Project>
+  </>
   )
 } 
 

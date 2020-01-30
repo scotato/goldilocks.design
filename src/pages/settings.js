@@ -1,20 +1,26 @@
 import React from 'react'
 import useDarkMode from 'use-dark-mode'
-import SettingsRow, { Container } from '../components/SettingsRow'
+import { Container } from '../components/Layout'
+import SettingsRow from '../components/SettingsRow'
+import Header from '../components/Header'
 import Icon from '../components/Icon'
 import Switch from '../components/Switch'
 
-const SettingsPage = () => {
+const SettingsPage = props => {
   const darkMode = useDarkMode(false)
+  console.log(props)
 
   return (
-    <Container>
-      <SettingsRow
-        badge={<Icon name='moon' size={700} />}
-        title="Dark Mode"
-        action={<Switch onChange={darkMode.toggle} checked={darkMode.value}/>}
-      />
-    </Container>
+    <>
+      <Header title="Settings" {...props} />
+      <Container>
+        <SettingsRow
+          badge={<Icon name='moon' size={700} />}
+          title="Dark Mode"
+          action={<Switch onChange={darkMode.toggle} checked={darkMode.value}/>}
+        />
+      </Container>
+    </>
   )
 } 
 

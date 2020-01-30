@@ -1,21 +1,26 @@
 import React from 'react'
 import moment from 'moment'
 import { graphql } from 'gatsby'
-import LinkRow, { Container } from '../components/LinkRow'
+import { Container } from '../components/Layout'
+import LinkRow from '../components/LinkRow'
+import Header from '../components/Header'
 
-const ProjectsPage = ({ data: { projects }}) => (
-  <Container>
-    {projects.edges.map(({node: project}) => (
-      <LinkRow
-        to={project.fields.slug}
-        key={project.fields.slug}
-        badge={project.frontmatter.badge.childImageSharp.fluid}
-        title={project.frontmatter.title}
-        description={project.frontmatter.description}
-        detail={moment(project.frontmatter.createdAt).format("MMM YYYY")}
-      />
-    ))}
-  </Container>
+const ProjectsPage = ({ data: { projects }, ...props}) => (
+  <>
+    <Header title="Projects" {...props} />
+    <Container>
+      {projects.edges.map(({node: project}) => (
+        <LinkRow
+          to={project.fields.slug}
+          key={project.fields.slug}
+          badge={project.frontmatter.badge.childImageSharp.fluid}
+          title={project.frontmatter.title}
+          description={project.frontmatter.description}
+          detail={moment(project.frontmatter.createdAt).format("MMM YYYY")}
+        />
+      ))}
+    </Container>
+  </>
 )
 
 export default ProjectsPage

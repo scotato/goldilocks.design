@@ -1,10 +1,14 @@
 import React from 'react'
 import moment from 'moment'
 import { graphql } from 'gatsby'
-import LinkRow, { Container } from '../components/LinkRow'
+import { Container } from '../components/Layout'
+import LinkRow from '../components/LinkRow'
+import Header from '../components/Header'
 
-const BlogPage = ({ data: { posts }}) => (
-  <Container>
+const BlogPage = ({ data: { posts }, ...props}) => (
+  <>
+    <Header title="Blog" {...props} />
+    <Container>
     {posts.edges.map(({node: post}) => (
       <LinkRow
         to={post.fields.slug}
@@ -15,7 +19,8 @@ const BlogPage = ({ data: { posts }}) => (
         detail={moment(post.frontmatter.createdAt).format("MMM YYYY")}
       />
     ))}
-  </Container>
+    </Container>
+  </>
 )
 
 export default BlogPage
