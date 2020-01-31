@@ -11,21 +11,26 @@ import theme from '../theme'
 
 const Layout = styled.div`
   display: grid;
+  position: relative;
   margin: 0 auto;
   min-height: 100%;
   max-width: ${props => props.theme.device.desktopLarge};
-  grid-template-columns: ${props => props.theme.device.phoneSmall} auto;
 `
 
 const Aside = styled.aside`
   display: grid;
+  position: fixed;
   padding: ${props => props.theme.size[700]};
   grid-template-rows: 1fr auto;
   grid-row-gap: ${props => props.theme.size[300]};
+  width: ${props => props.theme.device.phoneSmall};
+  min-height: 100vh;
+  z-index: 2;
 `
 
 const Body = styled.main`
   position: relative;
+  margin-left: ${props => props.theme.device.phoneSmall};
   background-color: ${props => props.theme.isDarkMode ? props.theme.grayscale[900] : 'white'};
 `
 

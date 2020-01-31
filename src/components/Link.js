@@ -10,7 +10,7 @@ const BackLink = styled(LinkGatsby)`
   display: grid;
   grid-template-columns: auto 1fr;
   grid-column-gap: ${props => props.theme.size[300]};
-  align-items: baseline;
+  align-items: center;
   font-weight: 500;
 
   svg {
