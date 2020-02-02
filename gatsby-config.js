@@ -16,10 +16,15 @@ module.exports = {
   },
   mapping: {
     'MarkdownRemark.fields.navigation': `NavigationYaml`,
-    'MarkdownRemark.frontmatter.tech': `MarkdownRemark.frontmatter.id`,
+    'MarkdownRemark.frontmatter.tech.projects': `MarkdownRemark.frontmatter.id`,
+    'MarkdownRemark.frontmatter.posts.projects': `MarkdownRemark.frontmatter.id`,
+    'MarkdownRemark.frontmatter.projects.projects': `MarkdownRemark.frontmatter.id`,
     'MarkdownRemark.frontmatter.tech.tech': `MarkdownRemark.frontmatter.id`,
     'MarkdownRemark.frontmatter.posts.tech': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.projects.tech': `MarkdownRemark.frontmatter.id`
+    'MarkdownRemark.frontmatter.projects.tech': `MarkdownRemark.frontmatter.id`,
+    'MarkdownRemark.frontmatter.tech.blog': `MarkdownRemark.frontmatter.id`,
+    'MarkdownRemark.frontmatter.posts.blog': `MarkdownRemark.frontmatter.id`,
+    'MarkdownRemark.frontmatter.projects.blog': `MarkdownRemark.frontmatter.id`
   },
   plugins: [
     `gatsby-plugin-sharp`,
@@ -166,21 +171,21 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Source Sans Pro`,
-            variants: [`200`,`200i`, `300`,`300i`, `400`, `400i`, `600`, `600i`, `700`, `700i`, `900`, `900i`]
-          },
-          {
-            family: `Source Code Pro`,
-            variants: [`200`, `300`, `400`, `500`, `600`, `700`, `900`]
-          },
-        ],
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-prefetch-google-fonts`,
+    //   options: {
+    //     fonts: [
+    //       {
+    //         family: `Source Sans Pro`,
+    //         variants: [`200`,`200i`, `300`,`300i`, `400`, `400i`, `600`, `600i`, `700`, `700i`, `900`, `900i`]
+    //       },
+    //       {
+    //         family: `Source Code Pro`,
+    //         variants: [`200`, `300`, `400`, `500`, `600`, `700`, `900`]
+    //       },
+    //     ],
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
