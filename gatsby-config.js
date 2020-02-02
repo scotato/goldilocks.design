@@ -16,6 +16,9 @@ module.exports = {
   },
   mapping: {
     'MarkdownRemark.fields.navigation': `NavigationYaml`,
+    'MarkdownRemark.frontmatter.projects': `MarkdownRemark.frontmatter.id`,
+    'MarkdownRemark.frontmatter.tech': `MarkdownRemark.frontmatter.id`,
+    'MarkdownRemark.frontmatter.blog': `MarkdownRemark.frontmatter.id`,
     'MarkdownRemark.frontmatter.tech.projects': `MarkdownRemark.frontmatter.id`,
     'MarkdownRemark.frontmatter.posts.projects': `MarkdownRemark.frontmatter.id`,
     'MarkdownRemark.frontmatter.projects.projects': `MarkdownRemark.frontmatter.id`,
