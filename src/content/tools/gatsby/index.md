@@ -7,6 +7,8 @@ docs: https://www.gatsbyjs.org/docs
 website: https://www.gatsbyjs.org
 badge: gatsby-logo.png
 category: framework
+projects:
+  - goldilocks-design
 tools: 
   - javascript
   - react

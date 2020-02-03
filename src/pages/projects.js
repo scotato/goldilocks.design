@@ -45,9 +45,7 @@ export const query = graphql`
           }
         }
       }
-      tools {
-        ...Tool
-      }
+      tools
     }
   }
 `

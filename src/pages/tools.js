@@ -6,6 +6,12 @@ import { Back } from '../components/Link'
 import ToolsRow from '../components/ToolsRow'
 import ToolsIndicators from '../components/ToolsIndicators'
 
+const getIndicators = ({ projects, posts, tools }) => ({
+  projectCount: projects ? projects.length : 0,
+  postCount: posts ? posts.length : 0,
+  toolCount: tools ? tools.length : 0,
+})
+
 const ToolsPage = ({ data: { tools } }) => (
   <>
     <Header
@@ -13,14 +19,14 @@ const ToolsPage = ({ data: { tools } }) => (
       primary={<Back to='/' />}
     />
     <Container>
-      {tools.edges.map(({node: tools}) => (
+      {tools.edges.map(({node: tool}) => (
         <ToolsRow
-          to={tools.fields.slug}
-          key={tools.fields.slug}
-          badge={tools.frontmatter.badge.childImageSharp.fluid}
-          title={tools.frontmatter.title}
-          description={tools.frontmatter.description}
-          indicators={<ToolsIndicators id={tools.frontmatter.id} />}
+          to={tool.fields.slug}
+          key={tool.fields.slug}
+          badge={tool.frontmatter.badge.childImageSharp.fluid}
+          title={tool.frontmatter.title}
+          description={tool.frontmatter.description}
+          indicators={<ToolsIndicators {...getIndicators(tool.frontmatter)} />}
         />
       ))}
     </Container>
@@ -67,29 +73,9 @@ export const query = graphql`
         }
       }
       date
-      tools {
-        fields {
-          slug
-          collection
-        }
-        frontmatter {
-          id
-          title
-          description
-          github
-          docs
-          website
-          version
-          badge {
-            childImageSharp {
-              fluid(maxWidth: 512) {
-                ...GatsbyImageSharpFluid_withWebp_tracedSVG
-              }
-            }
-          }
-          date
-        }
-      }
+      projects
+      posts
+      tools
     }
   }
 `

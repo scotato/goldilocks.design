@@ -44,20 +44,6 @@ module.exports = {
       }
     ]
   },
-  mapping: {
-    'MarkdownRemark.frontmatter.projects': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.tools': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.posts': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.tools.projects': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.posts.projects': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.projects.projects': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.tools.tools': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.posts.tools': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.projects.tools': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.tools.posts': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.posts.posts': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.projects.posts': `MarkdownRemark.frontmatter.id`
-  },
   plugins: [
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,

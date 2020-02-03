@@ -7,6 +7,8 @@ docs: https://facebook.github.io/graphql/
 website: https://graphql.org
 badge: graphQL-logo.png
 category: framework
+projects:
+  - goldilocks-design
 tools: 
   - javascript
   - react

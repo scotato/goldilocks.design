@@ -7,6 +7,11 @@ docs: https://developer.spotify.com/documentation/web-api/
 website: https://spotify.com
 badge: spotify-logo.png
 category: browser
+projects:
+  - wavy
+  - augmented-albums
 tools: 
+  - javascript
+  - node
 date: 2019-04-09
 ---
