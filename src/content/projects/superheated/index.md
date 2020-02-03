@@ -14,7 +14,7 @@ commits: 25
 isProjectActive: false
 isProjectPublic: true
 isSourcePublic: false
-tech: 
+tools: 
   - node-js
   - express
   - ejs

@@ -17,15 +17,15 @@ module.exports = {
   mapping: {
     'MarkdownRemark.fields.navigation': `NavigationYaml`,
     'MarkdownRemark.frontmatter.projects': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.tech': `MarkdownRemark.frontmatter.id`,
+    'MarkdownRemark.frontmatter.tools': `MarkdownRemark.frontmatter.id`,
     'MarkdownRemark.frontmatter.posts': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.tech.projects': `MarkdownRemark.frontmatter.id`,
+    'MarkdownRemark.frontmatter.tools.projects': `MarkdownRemark.frontmatter.id`,
     'MarkdownRemark.frontmatter.posts.projects': `MarkdownRemark.frontmatter.id`,
     'MarkdownRemark.frontmatter.projects.projects': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.tech.tech': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.posts.tech': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.projects.tech': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.tech.posts': `MarkdownRemark.frontmatter.id`,
+    'MarkdownRemark.frontmatter.tools.tools': `MarkdownRemark.frontmatter.id`,
+    'MarkdownRemark.frontmatter.posts.tools': `MarkdownRemark.frontmatter.id`,
+    'MarkdownRemark.frontmatter.projects.tools': `MarkdownRemark.frontmatter.id`,
+    'MarkdownRemark.frontmatter.tools.posts': `MarkdownRemark.frontmatter.id`,
     'MarkdownRemark.frontmatter.posts.posts': `MarkdownRemark.frontmatter.id`,
     'MarkdownRemark.frontmatter.projects.posts': `MarkdownRemark.frontmatter.id`
   },
@@ -71,8 +71,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `tech`,
-        path: `${__dirname}/src/content/tech`,
+        name: `tools`,
+        path: `${__dirname}/src/content/tools`,
       },
     },
     {

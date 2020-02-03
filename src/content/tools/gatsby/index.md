@@ -7,7 +7,7 @@ docs: https://www.gatsbyjs.org/docs
 website: https://www.gatsbyjs.org
 badge: gatsby-logo.png
 category: framework
-tech: 
+tools: 
   - javascript
   - react
   - graphql

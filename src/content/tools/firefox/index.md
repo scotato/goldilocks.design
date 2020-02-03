@@ -7,7 +7,7 @@ docs: https://developer.mozilla.org/en-US/docs
 website: https://www.firefox.com
 badge: firefox-logo.png
 category: browser
-tech: 
+tools: 
   - javascript
 date: 2019-04-10
 ---

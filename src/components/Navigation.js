@@ -42,8 +42,8 @@ export default props => {
           }
         }
       }
-      technology: allMarkdownRemark(
-        filter: { fields: { collection: { eq: "tech" } } }
+      tools: allMarkdownRemark(
+        filter: { fields: { collection: { eq: "tools" } } }
       ) {
         edges {
           node {
@@ -60,7 +60,7 @@ export default props => {
     "Activity": data.activity.edges.length,
     "Projects": data.projects.edges.length,
     "Posts": data.posts.edges.length,
-    "Tech": data.technology.edges.length
+    "Tools": data.tools.edges.length
   }
 
   return (

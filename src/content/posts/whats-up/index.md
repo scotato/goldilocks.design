@@ -7,7 +7,7 @@ badge: whats-up.png
 draft: false
 projects:
   - goldilocks-design
-tech:
+tools:
   - react
   - styled-components
   - figma
@@ -16,9 +16,9 @@ tech:
 ## Thoughts on the Web
 Hey, what's up? My name is Scott, online I'm [@scotato](https://twitter.com/scotato). I design and engineer modern web applications. This is a place where I can show you what I'm up to.
 
-The initial focus of this posts will be to share the design & development process of [goldilocks.design](https://goldilocks.design), and the technology used to make it happen. I assume you're some kind of web expert so I won't get too detailed with the tech.
+The initial focus of this posts will be to share the design & development process of [goldilocks.design](https://goldilocks.design), and the tools used to make it happen. I assume you're some kind of web expert so I won't get too detailed with the tools.
 
-## Technology
+## Tools
 When it comes to building on the web, I'm primarily concerned with interfaces and experiences. The applications I build are constructed with [JavaScript, API's and Markup](https://jamstack.org/). This website is designed in [Figma](http://figma.com/), written in [React](http://reactjs.org/), built with [Gatsby](https://www.gatsbyjs.org/), hosted on [Github](https://github.com/scotato/goldilocks.design), and deployed by [Netlify](https://www.netlify.com/).
 
 ## Feedback & Updates

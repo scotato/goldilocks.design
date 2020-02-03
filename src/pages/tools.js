@@ -3,42 +3,42 @@ import { graphql } from 'gatsby'
 import { Container } from '../components/Layout'
 import Header from '../components/Header'
 import { Back } from '../components/Link'
-import TechRow from '../components/TechRow'
-import TechIndicators from '../components/TechIndicators'
+import ToolsRow from '../components/ToolsRow'
+import ToolsIndicators from '../components/ToolsIndicators'
 
-const TechPage = ({ data: { technology } }) => (
+const ToolsPage = ({ data: { tools } }) => (
   <>
     <Header
-      title="Tech"
+      title="Tools"
       primary={<Back to='/' />}
     />
     <Container>
-      {technology.edges.map(({node: tech}) => (
-        <TechRow
-          to={tech.fields.slug}
-          key={tech.fields.slug}
-          badge={tech.frontmatter.badge.childImageSharp.fluid}
-          title={tech.frontmatter.title}
-          description={tech.frontmatter.description}
-          indicators={<TechIndicators id={tech.frontmatter.id} />}
+      {tools.edges.map(({node: tools}) => (
+        <ToolsRow
+          to={tools.fields.slug}
+          key={tools.fields.slug}
+          badge={tools.frontmatter.badge.childImageSharp.fluid}
+          title={tools.frontmatter.title}
+          description={tools.frontmatter.description}
+          indicators={<ToolsIndicators id={tools.frontmatter.id} />}
         />
       ))}
     </Container>
   </>
 )
 
-export default TechPage
+export default ToolsPage
 
 export const pageQuery = graphql`
   query {
-    technology: allMarkdownRemark(
-        filter: { fields: { collection: { eq: "tech" } } }
+    tools: allMarkdownRemark(
+        filter: { fields: { collection: { eq: "tools" } } }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
         edges {
           node {
             id
-            ...Tech
+            ...Tool
           }
         }
     }
@@ -46,7 +46,7 @@ export const pageQuery = graphql`
 `
 
 export const query = graphql`
-  fragment Tech on MarkdownRemark {
+  fragment Tool on MarkdownRemark {
     fields {
       slug
       collection
@@ -67,7 +67,7 @@ export const query = graphql`
         }
       }
       date
-      tech {
+      tools {
         fields {
           slug
           collection

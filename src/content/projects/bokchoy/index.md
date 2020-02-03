@@ -22,7 +22,7 @@ gallery:
     img: gallery/Screen Shot 2020-01-08 at 8.37.25 AM.png
   - description: Recipe
     img: gallery/Screen Shot 2020-01-08 at 8.37.05 AM.png
-tech: 
+tools: 
   - react
   - netlify
   - netlify-functions

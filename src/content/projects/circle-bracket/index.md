@@ -21,7 +21,7 @@ gallery:
     img: gallery/Screen Shot 2018-12-06 at 10.36.14 PM.png
   - description: Large
     img: gallery/Screen Shot 2018-12-06 at 10.34.49 PM.png
-tech: 
+tools: 
   - react
   - styled-components
 ---

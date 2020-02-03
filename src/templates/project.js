@@ -65,8 +65,8 @@ export const pageQuery = graphql`
         isProjectPublic
         isProjectActive
         isWebsiteActive
-        tech {
-          ...Tech
+        tools {
+          ...Tool
         }
       }
     }

@@ -7,6 +7,6 @@ docs: https://git-scm.com/docs
 website: https://git-scm.com/
 badge: git-logo.png
 category: versionControl
-tech: 
+tools: 
 date: 2019-04-13
 ---

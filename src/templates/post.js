@@ -36,8 +36,8 @@ export const pageQuery = graphql`
         intro
         twitter
         github
-        tech {
-          ...Tech
+        tools {
+          ...Tool
         }
       }
     }

@@ -8,7 +8,7 @@ website: https://reactjs.org
 badge: react-logo.png
 category: framework
 version: 16.12.0
-tech: 
+tools: 
   - javascript
 date: 2019-04-18
 ---

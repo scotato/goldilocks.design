@@ -26,7 +26,7 @@ gallery:
     img: gallery/Screen Shot 2020-01-07 at 1.08.36 PM.png
   - description: Project
     img: gallery/Screen Shot 2020-01-07 at 1.08.40 PM.png
-tech: 
+tools: 
   - react
   - gatsby
   - styled-components
@@ -37,7 +37,7 @@ posts:
 ---
 
 ## Thoughts on the Web
-Goldilocks design is an experimental web design posts built with modern web technology.
+Goldilocks design is an experimental web design posts built with modern web tools.
 
-## Technology
+## Tools
 This website is designed in [Figma](http://figma.com/), written in [React](http://reactjs.org/), built with [Gatsby](https://www.gatsbyjs.org/), hosted on [Github](https://github.com/scotato/goldilocks.design), and deployed by [Netlify](https://www.netlify.com/).

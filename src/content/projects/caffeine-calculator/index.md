@@ -16,7 +16,7 @@ isWebsiteActive: true
 isProjectActive: false
 isProjectPublic: true
 isSourcePublic: true
-tech: 
+tools: 
   - react
   - styled-components
 ---

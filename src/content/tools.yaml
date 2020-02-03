@@ -5,7 +5,7 @@ url: https://firebase.google.com/products/firestore/
 urlSource: 
 badge: googleCloud-logo.png
 category: devOps
-tech: 
+tools: 
 date: 2019-02-13
 ---
 
@@ -16,7 +16,7 @@ url: https://www.netlify.com
 urlSource: 
 badge: netlify-logo.png
 category: devOps
-tech: 
+tools: 
 date: 2019-02-13
 ---
 
@@ -27,6 +27,6 @@ url: https://www.netlify.com/features/functions
 urlSource: 
 badge: netlifyFunctions-logo.png
 category: devOps
-tech: 
+tools: 
 date: 2019-02-13
 ---

@@ -7,7 +7,7 @@ docs: https://facebook.github.io/graphql/
 website: https://graphql.org
 badge: graphQL-logo.png
 category: framework
-tech: 
+tools: 
   - javascript
   - react
 date: 2019-04-15

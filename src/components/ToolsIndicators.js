@@ -1,15 +1,15 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
-import TechIndicator from '../components/TechIndicator'
+import ToolIndicator from './ToolIndicator'
 
-const TechIndicators = styled.div`
+const ToolsIndicators = styled.div`
   display: flex;
 `
 
 export default props => {
   const data = useStaticQuery(graphql`
-    query TechIndicatorsQuery {
+    query ToolsIndicatorsQuery {
       navigation: allNavigationYaml {
         edges {
           node {
@@ -35,12 +35,12 @@ export default props => {
           }
         }
       }
-      technology: allMarkdownRemark(
-        filter: { fields: { collection: { eq: "tech" } } }
+      tools: allMarkdownRemark(
+        filter: { fields: { collection: { eq: "tools" } } }
       ) {
         edges {
           node {
-            ...Tech
+            ...Tool
           }
         }
       }
@@ -49,19 +49,19 @@ export default props => {
 
   const projects = data.projects.edges
     ? data.projects.edges
-      .filter(project => project.node && project.node.frontmatter.tech && project.node.frontmatter.tech
+      .filter(project => project.node && project.node.frontmatter.tools && project.node.frontmatter.tools
         .filter(item => item && item.frontmatter && item.frontmatter.id === props.id).length)
     : []
 
   const posts = data.posts.edges
     ? data.posts.edges
-      .filter(post => post.node && post.node.frontmatter.tech && post.node.frontmatter.tech
+      .filter(post => post.node && post.node.frontmatter.tools && post.node.frontmatter.tools
         .filter(item => item && item.frontmatter && item.frontmatter.id === props.id).length)
     : []
 
-  const technology = data.technology.edges
-    ? data.technology.edges
-      .filter(tech => tech.node && tech.node.frontmatter.tech && tech.node.frontmatter.tech
+  const tools = data.tools.edges
+    ? data.tools.edges
+      .filter(tools => tools.node && tools.node.frontmatter.tools && tools.node.frontmatter.tools
         .filter(item => item && item.frontmatter && item.frontmatter.id === props.id).length)
     : []
   
@@ -70,19 +70,19 @@ export default props => {
   const indicators = [
     navigation.find(item => item.id === 'projects'),
     navigation.find(item => item.id === 'posts'),
-    navigation.find(item => item.id === 'tech')
+    navigation.find(item => item.id === 'tools')
   ]
 
   const indicatorData = {
     projects: projects.length,
     posts: posts.length,
-    tech: technology.length
+    tools: tools.length
   }
 
   return (
-    <TechIndicators>
+    <ToolsIndicators>
       {indicators.map(item => (
-        <TechIndicator 
+        <ToolIndicator 
           key={item.id}
           icon={item.icon}
           color={item.color}
@@ -90,6 +90,6 @@ export default props => {
           badge={indicatorData[item.id]}
         />
       ))}
-    </TechIndicators>
+    </ToolsIndicators>
   )
 }

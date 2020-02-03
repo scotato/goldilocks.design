@@ -7,6 +7,6 @@ docs: https://www.figma.com/developers/docs
 website: https://www.figma.com
 badge: figma-logo.png
 category: design
-tech: 
+tools: 
 date: 2019-04-12
 ---

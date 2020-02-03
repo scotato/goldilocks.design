@@ -7,7 +7,7 @@ docs: https://webpack.js.org/api
 website: https://webpack.js.org
 badge: webpack-logo.png
 category: framework
-tech: 
+tools: 
   - javascript
   - node
 date: 2019-04-15

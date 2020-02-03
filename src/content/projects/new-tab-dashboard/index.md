@@ -24,7 +24,7 @@ gallery:
     img: gallery/Screen Shot 2019-12-30 at 11.50.50 AM.png
   - description: Visualize 2
     img: gallery/Screen Shot 2019-12-30 at 11.50.53 AM.png
-tech: 
+tools: 
   - react
   - firefox
 ---

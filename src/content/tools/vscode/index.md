@@ -7,7 +7,7 @@ docs: https://code.visualstudio.com/api
 website: https://code.visualstudio.com/
 badge: vsCode-logo.png
 category: codeEditor
-tech: 
+tools: 
   - git
 date: 2019-04-11
 ---

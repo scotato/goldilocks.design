@@ -31,7 +31,7 @@ gallery:
     img: gallery/Screen Shot 2018-03-07 at 4.54.59 PM.png
   - description: Social
     img: gallery/Screen Shot 2018-03-08 at 1.31.59 PM.png
-tech: 
+tools: 
   - react
   - spotify
   - google-firestore

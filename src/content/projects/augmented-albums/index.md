@@ -14,7 +14,7 @@ commits: 9
 isProjectActive: false
 isProjectPublic: false
 isSourcePublic: false
-tech: 
+tools: 
   - swift
   - ar-kit
   - google-vision

@@ -7,7 +7,7 @@ docs: https://www.styled-components.com/docs
 website: https://www.styled-components.com
 badge: styledComponents-logo.png
 category: framework
-tech: 
+tools: 
   - javascript
   - react
 date: 2019-04-17

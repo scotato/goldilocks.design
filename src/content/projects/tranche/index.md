@@ -14,7 +14,7 @@ commits: 8
 isProjectActive: true
 isProjectPublic: true
 isSourcePublic: true
-tech: 
+tools: 
   - js
   - firefox
 ---

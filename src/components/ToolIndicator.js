@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Icon from './Icon'
 
-const TechIndicator = styled.div`
+const ToolIndicator = styled.div`
   display: flex;
   align-items: center;
   margin-right: ${props => props.theme.size[300]};
@@ -20,8 +20,8 @@ const Badge = styled.span`
 `
 
 export default props => props.badge ? (
-  <TechIndicator title={props.title} color={props.color}>
+  <ToolIndicator title={props.title} color={props.color}>
     <Icon name={props.icon} size={400} />
     <Badge>{props.badge}</Badge>
-  </TechIndicator>
+  </ToolIndicator>
 ) : null

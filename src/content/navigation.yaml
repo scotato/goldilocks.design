@@ -8,10 +8,10 @@
   slug: posts
   title: Posts
   color: yellow
-- id: tech
+- id: tools
   icon: window
-  slug: tech
-  title: Tech
+  slug: tools
+  title: Tools
   color: orange
 - id: settings
   icon: cogs

@@ -16,7 +16,7 @@ isProjectActive: false
 isProjectPublic: true
 isSourcePublic: false
 isWebsiteActive: true
-tech: 
+tools: 
   - react
 ---
 

@@ -27,7 +27,7 @@ gallery:
     img: gallery/DCD08240-75FC-4F99-BF12-1769B234303F_1_102_o.jpeg
   - description: Recipe
     img: gallery/441FDDB7-F4D2-4363-8F62-0D78AAE8D46A_1_102_o.jpeg
-tech: 
+tools: 
   - swift
   - swift-ui
   - icloud

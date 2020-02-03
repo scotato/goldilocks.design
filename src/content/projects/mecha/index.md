@@ -1,7 +1,7 @@
 ---
 title: mecha
-description: tech talks
-intro: find great software tech talks
+description: tools talks
+intro: find great software tools talks
 author: scotato
 website: https://mecha.video
 github: https://github.com/scotato/mecha
@@ -29,11 +29,11 @@ gallery:
     img: gallery/Screen Shot 2018-04-06 at 10.18.56 PM.png
   - description: Branding
     img: gallery/Screen Shot 2018-04-19 at 4.51.00 PM.png
-tech: 
+tools: 
   - react
   - cloud-firestore
   - figma
 ---
 
-## Tech Talks
-Mecha is a web app for finding and watching great software technical talks. Built with [Ben](https://twitter.com/btbright).
+## Tools Talks
+Mecha is a web app for finding and watching great software toolsnical talks. Built with [Ben](https://twitter.com/btbright).

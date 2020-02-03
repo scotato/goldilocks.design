@@ -7,7 +7,7 @@ docs: https://nodejs.org/dist/latest-v12.x/docs
 website: https://nodejs.org
 badge: node-logo.png
 category: framework
-tech: 
+tools: 
   - javascript
 date: 2019-04-14
 ---
