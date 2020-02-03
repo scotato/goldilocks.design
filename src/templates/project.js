@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
  
 import Header from '../components/Header'
 import Gallery from '../components/Gallery'
+import ContentList from '../components/ContentList'
 import { Back, LinkIcon } from '../components/Link'
  
 const Project = styled.article`
@@ -27,6 +28,14 @@ export default ({ data }) => {
       <Project>
         {project.gallery && <Gallery images={project.gallery} />}
         <div dangerouslySetInnerHTML={{ __html: data.project.html }} />
+        
+        <br />
+
+        <ContentList
+          projects={project.projects || []}
+          posts={project.posts || []}
+          tools={project.tools || []}
+        />
       </Project>
   </>
   )
@@ -65,6 +74,8 @@ export const pageQuery = graphql`
         isProjectPublic
         isProjectActive
         isWebsiteActive
+        projects
+        posts
         tools
       }
     }

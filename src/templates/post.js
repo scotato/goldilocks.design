@@ -2,9 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Header from '../components/Header'
+import ContentList from '../components/ContentList'
 import { Back } from '../components/Link'
  
 const Post = styled.article`
+  margin: 0 ${props => props.theme.size[700]};
+  padding: ${props => props.theme.size[900]};
+`
+
+const Content = styled.div`
   margin: 0 ${props => props.theme.size[700]};
   padding: ${props => props.theme.size[900]};
 `
@@ -16,6 +22,14 @@ export default props => (
       primary={<Back to='posts'>Posts</Back>}
     />
     <Post dangerouslySetInnerHTML={{ __html: props.data.post.html }} />
+    
+    <Content>
+      <ContentList
+        projects={props.data.post.frontmatter.projects || []}
+        posts={props.data.post.frontmatter.posts || []}
+        tools={props.data.post.frontmatter.tools || []}
+      />
+    </Content>
   </>
 )
 

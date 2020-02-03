@@ -54,11 +54,11 @@ export default props => {
     .map(tool => tool.node)
     .filter(tool => props.tools.includes(tool.frontmatter.id))
 
-  const getIndicators = ({ projects, posts, tools }) => ({
-    projectCount: projects ? projects.length : 0,
-    postCount: posts ? posts.length : 0,
-    toolCount: tools ? tools.length : 0,
-  })
+    const getIndicators = ({ projects, posts, tools }) => ({
+      projectCount: projects ? projects.length : 0,
+      postCount: posts ? posts.length : 0,
+      toolCount: tools ? tools.length : 0,
+    })
 
   const Projects = props => props.items.length ? (
     <>
