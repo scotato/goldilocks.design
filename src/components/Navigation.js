@@ -34,7 +34,7 @@ export default props => {
         }
       }
       posts: allMarkdownRemark(
-        filter: { fields: { collection: { eq: "blog" } } }
+        filter: { fields: { collection: { eq: "posts" } } }
       ) {
         edges {
           node {
@@ -59,7 +59,7 @@ export default props => {
   const badges = {
     "Activity": data.activity.edges.length,
     "Projects": data.projects.edges.length,
-    "Blog": data.posts.edges.length,
+    "Posts": data.posts.edges.length,
     "Tech": data.technology.edges.length
   }
 

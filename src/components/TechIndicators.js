@@ -27,7 +27,7 @@ export default props => {
         }
       }
       posts: allMarkdownRemark(
-        filter: { fields: { collection: { eq: "blog" } } }
+        filter: { fields: { collection: { eq: "posts" } } }
       ) {
         edges {
           node {
@@ -69,13 +69,13 @@ export default props => {
   
   const indicators = [
     navigation.find(item => item.id === 'projects'),
-    navigation.find(item => item.id === 'blog'),
+    navigation.find(item => item.id === 'posts'),
     navigation.find(item => item.id === 'tech')
   ]
 
   const indicatorData = {
     projects: projects.length,
-    blog: posts.length,
+    posts: posts.length,
     tech: technology.length
   }
 

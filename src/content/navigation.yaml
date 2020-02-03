@@ -3,10 +3,10 @@
   slug: projects
   title: Projects
   color: blue
-- id: blog
+- id: posts
   icon: typewriter
-  slug: blog
-  title: Blog
+  slug: posts
+  title: Posts
   color: yellow
 - id: tech
   icon: window

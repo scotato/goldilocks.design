@@ -13,14 +13,14 @@ export default props => (
   <>
     <Header
       title={props.data.post.frontmatter.title}
-      primary={<Back to='blog'>Blog</Back>}
+      primary={<Back to='posts'>Posts</Back>}
     />
     <Post dangerouslySetInnerHTML={{ __html: props.data.post.html }} />
   </>
 )
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query PostsPostBySlug($slug: String!) {
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)

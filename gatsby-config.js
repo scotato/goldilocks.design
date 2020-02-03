@@ -18,16 +18,16 @@ module.exports = {
     'MarkdownRemark.fields.navigation': `NavigationYaml`,
     'MarkdownRemark.frontmatter.projects': `MarkdownRemark.frontmatter.id`,
     'MarkdownRemark.frontmatter.tech': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.blog': `MarkdownRemark.frontmatter.id`,
+    'MarkdownRemark.frontmatter.posts': `MarkdownRemark.frontmatter.id`,
     'MarkdownRemark.frontmatter.tech.projects': `MarkdownRemark.frontmatter.id`,
     'MarkdownRemark.frontmatter.posts.projects': `MarkdownRemark.frontmatter.id`,
     'MarkdownRemark.frontmatter.projects.projects': `MarkdownRemark.frontmatter.id`,
     'MarkdownRemark.frontmatter.tech.tech': `MarkdownRemark.frontmatter.id`,
     'MarkdownRemark.frontmatter.posts.tech': `MarkdownRemark.frontmatter.id`,
     'MarkdownRemark.frontmatter.projects.tech': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.tech.blog': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.posts.blog': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.projects.blog': `MarkdownRemark.frontmatter.id`
+    'MarkdownRemark.frontmatter.tech.posts': `MarkdownRemark.frontmatter.id`,
+    'MarkdownRemark.frontmatter.posts.posts': `MarkdownRemark.frontmatter.id`,
+    'MarkdownRemark.frontmatter.projects.posts': `MarkdownRemark.frontmatter.id`
   },
   plugins: [
     `gatsby-plugin-sharp`,
@@ -57,8 +57,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `blog`,
-        path: `${__dirname}/src/content/blog`,
+        name: `posts`,
+        path: `${__dirname}/src/content/posts`,
       },
     },
     {
@@ -132,24 +132,24 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, blog } }) => {
-              return blog.edges.map(edge => {
+            serialize: ({ query: { site, posts } }) => {
+              return posts.edges.map(edge => {
                 return Object.assign({}, edge.node.childMarkdownRemark.frontmatter, {
                   description: edge.node.childMarkdownRemark.excerpt,
                   date: edge.node.childMarkdownRemark.frontmatter.date,
-                  url: `${site.siteMetadata.siteUrl}/blog/${edge.node.childMarkdownRemark.fields.slug}`,
-                  guid: `${site.siteMetadata.siteUrl}/blog/${edge.node.childMarkdownRemark.fields.slug}`,
+                  url: `${site.siteMetadata.siteUrl}/posts/${edge.node.childMarkdownRemark.fields.slug}`,
+                  guid: `${site.siteMetadata.siteUrl}/posts/${edge.node.childMarkdownRemark.fields.slug}`,
                   custom_elements: [{ "content:encoded": edge.node.childMarkdownRemark.html }],
                 })
               })
             },
             query: `
               {
-                blog: allFile(
+                posts: allFile(
                   sort: { order: DESC, fields: [childMarkdownRemark___frontmatter___date] },
                   filter: {
                     internal: {mediaType: {eq: "text/markdown"}}, 
-                    sourceInstanceName: {eq: "blog"}
+                    sourceInstanceName: {eq: "posts"}
                   }
                 ) {
                   edges {

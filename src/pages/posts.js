@@ -6,10 +6,10 @@ import LinkRow from '../components/LinkRow'
 import Header from '../components/Header'
 import { Back } from '../components/Link'
 
-const BlogPage = ({ data: { posts } }) => (
+const PostsPage = ({ data: { posts } }) => (
   <>
     <Header
-      title="Blog"
+      title="Posts"
       primary={<Back to='/' />}
     />
     <Container>
@@ -27,7 +27,7 @@ const BlogPage = ({ data: { posts } }) => (
   </>
 )
 
-export default BlogPage
+export default PostsPage
 
 export const query = graphql`
   fragment Post on MarkdownRemark {
@@ -56,7 +56,7 @@ export const query = graphql`
 export const pageQuery = graphql`
   query {
     posts: allMarkdownRemark(
-        filter: { fields: { collection: { eq: "blog" } } }
+        filter: { fields: { collection: { eq: "posts" } } }
         sort: { fields: [frontmatter___date], order: DESC }
         limit: 1000
       ) {
