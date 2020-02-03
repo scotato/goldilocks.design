@@ -1,4 +1,5 @@
 ---
+id: goldilocks-design
 title: goldilocks design
 description: thoughts on the web
 intro: i made this

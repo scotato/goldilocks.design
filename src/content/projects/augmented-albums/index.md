@@ -1,4 +1,5 @@
 ---
+id: augmented-albums
 title: augmented albums
 description: see your music
 intro: an augmented reality wrapper for physical albums

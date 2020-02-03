@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 import Header from '../components/Header'
+import ContentList from '../components/ContentList'
 import { Back, LinkIcon } from '../components/Link'
 
 const Tool = styled.div`
@@ -13,6 +14,7 @@ const Tool = styled.div`
 
 const ToolHeader = styled.div`
   display: grid;
+  margin-bottom: ${props => props.theme.size[900]};
   grid-template-columns: ${props => props.theme.size[900]} auto;
   grid-template-rows: ${props => props.theme.size[700]} auto;
   grid-column-gap: ${props => props.theme.size[500]};
@@ -74,6 +76,12 @@ const ToolPage = ({ data: { tool } }) => (
         <ToolTitle>{tool.frontmatter.title}</ToolTitle>
         <ToolDescription>{tool.frontmatter.description}</ToolDescription>
       </ToolHeader>
+      
+      <ContentList
+        projects={tool.frontmatter.projects || []}
+        posts={tool.frontmatter.posts || []}
+        tools={tool.frontmatter.tools || []}
+      />
     </Tool>
   </>
 )

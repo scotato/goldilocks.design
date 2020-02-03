@@ -31,11 +31,13 @@ export default PostsPage
 
 export const query = graphql`
   fragment Post on MarkdownRemark {
+    id
     fields {
       slug
     }
     timeToRead
     frontmatter {
+      id
       author
       title
       createdAt
@@ -46,6 +48,8 @@ export const query = graphql`
           }
         }
       }
+      projects
+      posts
       tools
     }
   }

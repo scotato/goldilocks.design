@@ -1,4 +1,5 @@
 ---
+id: caffeine-calculator
 title: caffeine calculator
 description: calculate how long it takes caffeine to leave your system
 intro: visualize how long it takes caffeine to leave your system

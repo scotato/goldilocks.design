@@ -43,7 +43,6 @@ export const pageQuery = graphql`
       ) {
         edges {
           node {
-            id
             ...Tool
           }
         }
@@ -53,6 +52,7 @@ export const pageQuery = graphql`
 
 export const query = graphql`
   fragment Tool on MarkdownRemark {
+    id
     fields {
       slug
       collection

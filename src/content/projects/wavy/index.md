@@ -1,4 +1,5 @@
 ---
+id: wavy
 title: wavy
 description: a web client for Spotify
 intro: organize, share and play music from spotify

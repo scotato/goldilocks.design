@@ -1,4 +1,5 @@
 ---
+id: tranche
 title: tranche
 description: share clean urls
 intro: share clean urls

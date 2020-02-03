@@ -1,4 +1,5 @@
 ---
+id: whats-up
 title: What's Up?
 author: scotato
 createdAt: '2019-03-28T21:06:22.497Z'

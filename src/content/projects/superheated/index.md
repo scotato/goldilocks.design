@@ -1,4 +1,5 @@
 ---
+id: superheated
 title: superheated
 description: find games to play with your friends on steam
 intro: find games to play with your friends on steam

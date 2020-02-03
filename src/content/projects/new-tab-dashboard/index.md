@@ -1,4 +1,5 @@
 ---
+id: new-tab-dashboard
 title: new tab dashboard
 description: time and color
 intro: a simple new tab screen for your browser

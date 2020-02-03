@@ -1,4 +1,5 @@
 ---
+id: noodle
 title: noodle
 description: get cookin
 intro: manage and find new recipes

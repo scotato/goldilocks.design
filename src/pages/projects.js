@@ -31,10 +31,12 @@ export default ProjectsPage
 
 export const query = graphql`
   fragment Project on MarkdownRemark {
+    id
     fields {
       slug
     }
     frontmatter {
+      id
       title
       description
       createdAt
@@ -45,6 +47,8 @@ export const query = graphql`
           }
         }
       }
+      projects
+      posts
       tools
     }
   }

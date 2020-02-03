@@ -1,4 +1,5 @@
 ---
+id: circle-bracket
 title: circle bracket
 description: a circular tournament bracket
 intro: a design experiment to create a circular tournament bracket
