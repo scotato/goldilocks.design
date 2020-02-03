@@ -38,7 +38,7 @@ const Secondary = styled.div`
   display: grid;
   justify-self: flex-end;
   grid-template-columns: auto auto auto;
-  grid-column-gap: ${props => props.theme.size[400]};
+  grid-column-gap: ${props => props.theme.size[500]};
 `
 
 export default props => {
