@@ -8,19 +8,14 @@ const Navigation = styled.nav``
 export default props => {
   const data = useStaticQuery(graphql`
     query NavigationQuery {
-      navigation: allNavigationYaml {
-        edges {
-          node {
-            ...NavigationInfo
-          }
-        }
-      }
-      activity: allMarkdownRemark(
-        filter: { fields: { collection: { eq: "activity" } } }
-      ) {
-        edges {
-          node {
+      site {
+        siteMetadata {
+          content {
             id
+            icon
+            slug
+            title
+            color
           }
         }
       }
@@ -54,10 +49,7 @@ export default props => {
     }
   `)
 
-  const items = data.navigation.edges.map(({node: navigation}) => navigation)
-
   const badges = {
-    "Activity": data.activity.edges.length,
     "Projects": data.projects.edges.length,
     "Posts": data.posts.edges.length,
     "Tools": data.tools.edges.length
@@ -65,9 +57,9 @@ export default props => {
 
   return (
     <Navigation>
-      {items.map(item => (
+      {data.site.siteMetadata.content.map(item => (
         <NavigationRow
-          key={item.path}
+          key={item.id}
           icon={item.icon}
           color={item.color}
           title={item.title}
@@ -78,13 +70,3 @@ export default props => {
     </Navigation>
   )
 }
-
-export const query = graphql`
-  fragment NavigationInfo on NavigationYaml {
-    id
-    icon
-    slug
-    title
-    color
-  }
-`

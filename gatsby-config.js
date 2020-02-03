@@ -13,9 +13,38 @@ module.exports = {
     shareImageWidth: 900, // Change to the width of your default share image
     shareImageHeight: 600, // Change to the height of your default share image
     siteLogo: '/images/logo-512.png', // Logo used for SEO, RSS, and App manifest
+    content:[
+      {
+        id: 'projects',
+        icon: 'computer-classic',
+        slug: 'projects',
+        title: 'Projects',
+        color: 'blue'
+      },
+      {
+        id: 'posts',
+        icon: 'typewriter',
+        slug: 'posts',
+        title: 'Posts',
+        color: 'yellow'
+      },
+      {
+        id: 'tools',
+        icon: 'window',
+        slug: 'tools',
+        title: 'Tools',
+        color: 'orange'
+      },
+      {
+        id: 'settings',
+        icon: 'cogs',
+        slug: 'settings',
+        title: 'Settings',
+        color: 'default'
+      }
+    ]
   },
   mapping: {
-    'MarkdownRemark.fields.navigation': `NavigationYaml`,
     'MarkdownRemark.frontmatter.projects': `MarkdownRemark.frontmatter.id`,
     'MarkdownRemark.frontmatter.tools': `MarkdownRemark.frontmatter.id`,
     'MarkdownRemark.frontmatter.posts': `MarkdownRemark.frontmatter.id`,
@@ -73,13 +102,6 @@ module.exports = {
       options: {
         name: `tools`,
         path: `${__dirname}/src/content/tools`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `navigation`,
-        path: `${__dirname}/src/content/navigation.yaml`,
       },
     },
     `gatsby-transformer-yaml`,

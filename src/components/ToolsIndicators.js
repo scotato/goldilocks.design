@@ -10,10 +10,14 @@ const ToolsIndicators = styled.div`
 export default props => {
   const data = useStaticQuery(graphql`
     query ToolsIndicatorsQuery {
-      navigation: allNavigationYaml {
-        edges {
-          node {
-            ...NavigationInfo
+      site {
+        siteMetadata {
+          content {
+            id
+            icon
+            slug
+            title
+            color
           }
         }
       }
@@ -65,12 +69,12 @@ export default props => {
         .filter(item => item && item.frontmatter && item.frontmatter.id === props.id).length)
     : []
   
-  const navigation = data.navigation.edges.map(item => item.node)
+  const { content } = data.site.siteMetadata
   
   const indicators = [
-    navigation.find(item => item.id === 'projects'),
-    navigation.find(item => item.id === 'posts'),
-    navigation.find(item => item.id === 'tools')
+    content.find(item => item.id === 'projects'),
+    content.find(item => item.id === 'posts'),
+    content.find(item => item.id === 'tools')
   ]
 
   const indicatorData = {
