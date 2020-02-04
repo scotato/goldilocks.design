@@ -8,6 +8,7 @@ website: https://bokchoy.netlify.com
 github: https://github.com/scotato/bokchoy
 twitter: '1172308843100954624'
 badge: bokchoy-badge.png
+logo: bokchoy-logo.png
 date: '2019-09-12'
 addedAt: '2020-01-02'
 createdAt: '2019-09-12'

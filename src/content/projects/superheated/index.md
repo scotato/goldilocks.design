@@ -6,6 +6,7 @@ intro: find games to play with your friends on steam
 author: scotato
 github: https://github.com/scotato/superheated
 badge: superheated-badge.png
+logo: superheated-logo.png
 date: '2015-03-19'
 addedAt: '2020-01-02'
 createdAt: '2015-03-19'

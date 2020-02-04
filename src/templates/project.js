@@ -32,6 +32,7 @@ export default ({ data }) => {
         <br />
 
         <ContentList
+          title={project.title}
           projects={project.projects || []}
           posts={project.posts || []}
           tools={project.tools || []}

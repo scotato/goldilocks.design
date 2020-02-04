@@ -8,6 +8,7 @@ website: https://goldilocks.design
 github: https://github.com/scotato/goldilocks.design
 twitter: '1095771958732574720'
 badge: goldilocks-design-badge.png
+logo: goldilocks-design-logo.png
 date: '2019-02-14'
 addedAt: '2020-01-02'
 createdAt: '2019-02-14'

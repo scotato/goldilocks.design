@@ -6,6 +6,7 @@ intro: a simple new tab screen for your browser
 author: scotato
 github: https://github.com/scotato/new-tab-dashboard
 badge: new-tab-dashboard-badge.png
+logo: new-tab-dashboard-logo.png
 date: '2019-12-07'
 addedAt: '2020-01-02'
 createdAt: '2019-12-07'

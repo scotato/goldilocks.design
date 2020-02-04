@@ -78,6 +78,7 @@ const ToolPage = ({ data: { tool } }) => (
       </ToolHeader>
       
       <ContentList
+        title={tool.frontmatter.title}
         projects={tool.frontmatter.projects || []}
         posts={tool.frontmatter.posts || []}
         tools={tool.frontmatter.tools || []}

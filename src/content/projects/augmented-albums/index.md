@@ -6,6 +6,7 @@ intro: an augmented reality wrapper for physical albums
 author: scotato
 github: https://github.com/scotato/augmented-albums
 badge: augmented-albums-badge.png
+logo: augmented-albums-logo.png
 date: '2019-05-16'
 addedAt: '2020-01-02'
 createdAt: '2019-05-16'

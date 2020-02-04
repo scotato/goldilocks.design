@@ -6,6 +6,7 @@ intro: a design experiment to create a circular tournament bracket
 author: scotato
 github: https://github.com/scotato/circle-bracket
 badge: circle-bracket-badge.png
+logo: circle-bracket-logo.png
 date: '2018-12-02'
 addedAt: '2020-01-02'
 createdAt: '2018-12-02'

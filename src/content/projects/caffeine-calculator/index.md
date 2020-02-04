@@ -7,6 +7,7 @@ author: scotato
 website: https://caffeine-calculator.goldilocks.design
 github: https://github.com/scotato/caffeine-calculator
 badge: caffeine-calculator-badge.png
+logo: caffeine-calculator-logo.png
 date: '2017-10-17'
 addedAt: '2020-01-02'
 createdAt: '2017-10-17'

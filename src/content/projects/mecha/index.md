@@ -7,6 +7,7 @@ author: scotato
 website: https://mecha.video
 github: https://github.com/scotato/mecha
 badge: mecha-badge.png
+logo: mecha-logo.png
 date: '2018-03-29'
 addedAt: '2020-01-02'
 createdAt: '2018-03-29'

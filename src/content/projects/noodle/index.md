@@ -7,6 +7,7 @@ author: scotato
 website: https://cookwithnoodle.com
 github: https://github.com/scotato/noodle
 badge: noodle-badge.png
+logo: noodle-logo.png
 date: '2019-08-13'
 addedAt: '2020-01-02'
 createdAt: '2019-08-13'

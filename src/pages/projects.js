@@ -13,11 +13,12 @@ const ProjectsPage = ({ data: { projects } }) => (
       primary={<Back to='/' />}
     />
     <Container>
+      {console.log(projects.edges.filter(({node: project}) => !project.frontmatter.logo))}
       {projects.edges.map(({node: project}) => (
         <LinkRow
           to={project.fields.slug}
           key={project.fields.slug}
-          badge={project.frontmatter.badge.childImageSharp.fluid}
+          badge={project.frontmatter.logo.childImageSharp.fluid}
           title={project.frontmatter.title}
           description={project.frontmatter.description}
           detail={moment(project.frontmatter.createdAt).format("MMM YYYY")}
@@ -41,6 +42,13 @@ export const query = graphql`
       description
       createdAt
       badge {
+        childImageSharp {
+          fluid(maxWidth: 900) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      logo {
         childImageSharp {
           fluid(maxWidth: 900) {
             ...GatsbyImageSharpFluid

@@ -25,6 +25,7 @@ export default props => (
     
     <Content>
       <ContentList
+        title={props.data.post.frontmatter.title}
         projects={props.data.post.frontmatter.projects || []}
         posts={props.data.post.frontmatter.posts || []}
         tools={props.data.post.frontmatter.tools || []}

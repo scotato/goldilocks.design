@@ -6,6 +6,7 @@ intro: organize, share and play music from spotify
 author: scotato
 github: https://github.com/scotato/wavy
 badge: wavy-badge.png
+logo: wavy-logo.png
 date: '2017-07-29'
 addedAt: '2020-01-03'
 createdAt: '2017-07-29'
