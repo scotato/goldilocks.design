@@ -3,64 +3,59 @@ import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import moment from 'moment'
 
-import ToolsRow from './ToolsRow'
-import ToolsIndicators from './ToolsIndicators'
-import LinkRow from './LinkRow'
+import LinkRowSmall from './LinkRowSmall'
 
-const ContentList = styled.nav``
+const ContentList = styled.nav`
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-row-gap: ${props => props.theme.size[500]};
+`
 
-const getIndicators = ({ projects, posts, tools }) => ({
-  projectCount: projects ? projects.length : 0,
-  postCount: posts ? posts.length : 0,
-  toolCount: tools ? tools.length : 0,
-})
+const Content = styled.div``
 
 const Projects = props => props.items.length ? (
-  <>
-    <strong>Projects using {props.title}</strong>
+  <Content>
+    <strong>Projects</strong>
     {props.items.map(project => (
-      <LinkRow
+      <LinkRowSmall
         to={project.fields.slug}
         key={project.fields.slug}
-        badge={project.frontmatter.badge.childImageSharp.fluid}
+        badge={project.frontmatter.logo.childImageSharp.fluid}
         title={project.frontmatter.title}
         description={project.frontmatter.description}
         detail={moment(project.frontmatter.createdAt).format("MMM YYYY")}
       />
     ))}
-  </>
+  </Content>
 ) : null
 
 const Posts = props => props.items.length ? (
-  <>
-    <strong>Posts about {props.title}</strong>
+  <Content>
+    <strong>Posts</strong>
     {props.items.map(post => (
-      <LinkRow
+      <LinkRowSmall
         to={post.fields.slug}
         key={post.fields.slug}
         badge={post.frontmatter.badge.childImageSharp.fluid}
         title={post.frontmatter.title}
-        description={`${post.timeToRead} Minute Read`}
         detail={moment(post.frontmatter.createdAt).format("MMM YYYY")}
       />
     ))}
-  </>
+  </Content>
 ) : null
 
 const Tools = props => props.items.length ? (
-  <>
-    <strong>Tools used by {props.title}</strong>
+  <Content>
+    <strong>Tools</strong>
     {props.items.map(tool => (
-      <ToolsRow
+      <LinkRowSmall
         to={tool.fields.slug}
         key={tool.fields.slug}
         badge={tool.frontmatter.badge.childImageSharp.fluid}
         title={tool.frontmatter.title}
-        description={tool.frontmatter.description}
-        indicators={<ToolsIndicators {...getIndicators(tool.frontmatter)} />}
       />
     ))}
-  </>
+  </Content>
 ) : null
 
 export default props => {
