@@ -16,4 +16,4 @@ tools:
 Hey, what's up? My name is Scott, online I'm [@scotato](https://twitter.com/scotato). I design and engineer modern software applications. I built this website to gain experience with advanced web technologies.
 
 ## The Stack
-This website is built with [Gatsby](https://www.gatsbyjs.org/) which is a static site generator for [React](http://reactjs.org/). The source is stored on [Github](https://github.com/scotato/goldilocks.design), and deployed by [Netlify](https://www.netlify.com/).
+This website is built with [Gatsby](https://www.gatsbyjs.org/) which is a static site generator for [React](http://reactjs.org/). The source is stored on [Github](https://github.com/scotato/goldilocks.design) and deployed by [Netlify](https://www.netlify.com/).
