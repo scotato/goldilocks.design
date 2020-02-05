@@ -2,8 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import Slider from 'react-slick'
 import Img from 'gatsby-image'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
 
 const Device = styled.div`
   position: relative;
