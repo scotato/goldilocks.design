@@ -16,45 +16,51 @@ const Content = styled.div``
 const Projects = props => props.items.length ? (
   <Content>
     <strong>Projects</strong>
-    {props.items.map(project => (
-      <LinkRowSmall
-        to={project.fields.slug}
-        key={project.fields.slug}
-        badge={project.frontmatter.logo.childImageSharp.fluid}
-        title={project.frontmatter.title}
-        description={project.frontmatter.description}
-        detail={moment(project.frontmatter.createdAt).format("MMM YYYY")}
-      />
-    ))}
+    <div>
+      {props.items.map(project => (
+        <LinkRowSmall
+          to={project.fields.slug}
+          key={project.fields.slug}
+          badge={project.frontmatter.logo.childImageSharp.fluid}
+          title={project.frontmatter.title}
+          description={project.frontmatter.description}
+          detail={moment(project.frontmatter.createdAt).format("MMM YYYY")}
+        />
+      ))}
+    </div>
   </Content>
 ) : null
 
 const Posts = props => props.items.length ? (
   <Content>
     <strong>Posts</strong>
-    {props.items.map(post => (
-      <LinkRowSmall
-        to={post.fields.slug}
-        key={post.fields.slug}
-        badge={post.frontmatter.badge.childImageSharp.fluid}
-        title={post.frontmatter.title}
-        detail={moment(post.frontmatter.createdAt).format("MMM YYYY")}
-      />
-    ))}
+    <div>
+      {props.items.map(post => (
+        <LinkRowSmall
+          to={post.fields.slug}
+          key={post.fields.slug}
+          badge={post.frontmatter.badge.childImageSharp.fluid}
+          title={post.frontmatter.title}
+          detail={moment(post.frontmatter.createdAt).format("MMM YYYY")}
+        />
+      ))}
+    </div>
   </Content>
 ) : null
 
 const Tools = props => props.items.length ? (
   <Content>
     <strong>Tools</strong>
-    {props.items.map(tool => (
-      <LinkRowSmall
-        to={tool.fields.slug}
-        key={tool.fields.slug}
-        badge={tool.frontmatter.badge.childImageSharp.fluid}
-        title={tool.frontmatter.title}
-      />
-    ))}
+    <div>
+      {props.items.map(tool => (
+        <LinkRowSmall
+          to={tool.fields.slug}
+          key={tool.fields.slug}
+          badge={tool.frontmatter.badge.childImageSharp.fluid}
+          title={tool.frontmatter.title}
+        />
+      ))}
+    </div>
   </Content>
 ) : null
 

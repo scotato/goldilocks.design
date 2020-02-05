@@ -33,7 +33,7 @@ const Badge = styled(Img)`
 
 const Title = styled.span`
   grid-area: title;
-  font-weight: 700;
+  font-weight: 600;
 `
 
 const Detail = styled.span`
