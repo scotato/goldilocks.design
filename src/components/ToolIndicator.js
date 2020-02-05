@@ -7,10 +7,8 @@ const ToolIndicator = styled.div`
   align-items: center;
   margin-right: ${props => props.theme.size[300]};
   font-size: ${props => props.theme.size[500]};
-
-  svg {
-    color: ${props => props.theme.color[props.color]};
-  }
+  font-weight: 600;
+  color: ${props => props.theme.color[props.color]};
 `
 
 const Badge = styled.span`
