@@ -20,7 +20,7 @@ const Device = styled.div`
   .slick-slide > div {
     display: flex;
     border-radius: ${props => props.theme.size[500]};
-    border: ${props => props.theme.size[100]} solid ${props => props.theme.grayscale[200]};
+    border: ${props => props.theme.size[200]} solid ${props => props.theme.isDarkMode ? props.theme.grayscale[800] : props.theme.grayscale[200]};
     overflow: hidden;
   }
 
@@ -30,18 +30,18 @@ const Device = styled.div`
     li,
     li.slick-active {
       button:before {
-        color: ${props => props.theme.grayscale.darker};
+        color: ${props => props.theme.isDarkMode ? props.theme.grayscale[300] : props.theme.grayscale[700]};
         font-size: ${props => props.theme.size[400]};
         transition: color .2s ease-out, opacity .2s ease-out;
       }
 
       button:focus:before {
-        color: ${props => props.theme.grayscale.darker};
+        color: ${props => props.theme.isDarkMode ? props.theme.grayscale[300] : props.theme.grayscale[700]};
       }
     }
 
     li button:focus:before {
-      color: ${props => props.theme.grayscale.lighter};
+      color: ${props => props.theme.isDarkMode ? props.theme.grayscale[700] : props.theme.grayscale[300]};
     }
   }
 `
