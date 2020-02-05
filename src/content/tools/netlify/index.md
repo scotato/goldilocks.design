@@ -12,5 +12,7 @@ projects:
   - caffeine-calculator
   - bokchoy
   - mecha
+posts:
+  - whats-up
 date: 2019-02-13
 ---

@@ -17,6 +17,8 @@ projects:
   - wavy
   - aggbuzz
   - caffeine-calculator
+posts:
+  - whats-up
 tools: 
   - javascript
 date: 2019-04-18

@@ -9,6 +9,8 @@ badge: gatsby-logo.png
 category: framework
 projects:
   - goldilocks-design
+posts:
+  - whats-up
 tools: 
   - javascript
   - react
