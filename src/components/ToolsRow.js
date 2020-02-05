@@ -27,10 +27,6 @@ const LinkRow = styled(Link)`
   &:hover {
     color: inherit;
   }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
 `
 
 const Badge = styled(Img)`
