@@ -39,6 +39,9 @@ const Description = styled.span`
   grid-area: description;
   font-size: ${props => props.theme.size[500]};
   color: ${props => props.theme.grayscale[500]};
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `
 
 const Detail = styled.span`
