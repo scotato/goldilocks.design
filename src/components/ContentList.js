@@ -11,56 +11,52 @@ const ContentList = styled.nav`
   grid-row-gap: ${props => props.theme.size[500]};
 `
 
-const Content = styled.div``
+const Content = styled.div`
+  margin-bottom: ${props => props.theme.size[700]};
+`
 
 const Projects = props => props.items.length ? (
   <Content>
     <strong>Projects</strong>
-    <div>
-      {props.items.map(project => (
-        <LinkRowSmall
-          to={project.fields.slug}
-          key={project.fields.slug}
-          badge={project.frontmatter.logo.childImageSharp.fluid}
-          title={project.frontmatter.title}
-          description={project.frontmatter.description}
-          detail={moment(project.frontmatter.createdAt).format("MMM YYYY")}
-        />
-      ))}
-    </div>
+    {props.items.map(project => (
+      <LinkRowSmall
+        to={project.fields.slug}
+        key={project.fields.slug}
+        badge={project.frontmatter.logo.childImageSharp.fluid}
+        title={project.frontmatter.title}
+        description={project.frontmatter.description}
+        detail={moment(project.frontmatter.createdAt).format("MMM YYYY")}
+      />
+    ))}
   </Content>
 ) : null
 
 const Posts = props => props.items.length ? (
   <Content>
     <strong>Posts</strong>
-    <div>
-      {props.items.map(post => (
-        <LinkRowSmall
-          to={post.fields.slug}
-          key={post.fields.slug}
-          badge={post.frontmatter.badge.childImageSharp.fluid}
-          title={post.frontmatter.title}
-          detail={moment(post.frontmatter.createdAt).format("MMM YYYY")}
-        />
-      ))}
-    </div>
+    {props.items.map(post => (
+      <LinkRowSmall
+        to={post.fields.slug}
+        key={post.fields.slug}
+        badge={post.frontmatter.badge.childImageSharp.fluid}
+        title={post.frontmatter.title}
+        detail={moment(post.frontmatter.createdAt).format("MMM YYYY")}
+      />
+    ))}
   </Content>
 ) : null
 
 const Tools = props => props.items.length ? (
   <Content>
     <strong>Tools</strong>
-    <div>
-      {props.items.map(tool => (
-        <LinkRowSmall
-          to={tool.fields.slug}
-          key={tool.fields.slug}
-          badge={tool.frontmatter.badge.childImageSharp.fluid}
-          title={tool.frontmatter.title}
-        />
-      ))}
-    </div>
+    {props.items.map(tool => (
+      <LinkRowSmall
+        to={tool.fields.slug}
+        key={tool.fields.slug}
+        badge={tool.frontmatter.badge.childImageSharp.fluid}
+        title={tool.frontmatter.title}
+      />
+    ))}
   </Content>
 ) : null
 
