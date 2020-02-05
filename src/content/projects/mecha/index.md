@@ -1,8 +1,7 @@
 ---
 id: mecha
 title: mecha
-description: tech talks
-intro: find great software tech talks
+description: A web app for finding and watching great software technical talks.
 author: scotato
 website: https://mecha.video
 github: https://github.com/scotato/mecha
@@ -38,4 +37,4 @@ tools:
 ---
 
 ## Tech Talks
-Mecha is a web app for finding and watching great software technical talks. Built with [Ben](https://twitter.com/btbright).
+Built with [Ben](https://twitter.com/btbright).

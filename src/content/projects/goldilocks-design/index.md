@@ -1,8 +1,7 @@
 ---
 id: goldilocks-design
 title: goldilocks design
-description: thoughts on the web
-intro: i made this
+description: An experimental software design and engineering blog built with modern web tools.
 author: scotato
 website: https://goldilocks.design
 github: https://github.com/scotato/goldilocks.design
@@ -38,6 +37,3 @@ tools:
 posts:
   - whats-up
 ---
-
-## Thoughts on the Web
-Goldilocks design is an experimental software design and engineering blog built with modern web tools.

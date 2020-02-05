@@ -1,7 +1,7 @@
 ---
 id: aggbuzz
 title: aggbuzz
-description: let's watch
+description: A social platform to make video commenting fun.
 intro: a time based social network for online videos
 author: scotato
 website: http://aggbuzz.com
@@ -23,4 +23,4 @@ tools:
 ---
 
 ## Let's Watch
-A social platform to make video commenting / reactions fun. Built with [Ben](https://twitter.com/btbright).
+Built with [Ben](https://twitter.com/btbright).

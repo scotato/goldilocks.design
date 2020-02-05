@@ -1,8 +1,7 @@
 ---
 id: bokchoy
 title: bokchoy
-description: scrape JSON-LD and metadata from websites
-intro: scrape recipe data from websites
+description: Scrape JSON-LD and metadata from websites.
 author: scotato
 website: https://bokchoy.netlify.com
 github: https://github.com/scotato/bokchoy

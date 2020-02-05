@@ -1,8 +1,7 @@
 ---
 id: wavy
 title: wavy
-description: a web client for Spotify
-intro: organize, share and play music from spotify
+description: A social web client for Spotify.
 author: scotato
 github: https://github.com/scotato/wavy
 badge: wavy-badge.png

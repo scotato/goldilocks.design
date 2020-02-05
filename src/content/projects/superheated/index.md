@@ -1,7 +1,7 @@
 ---
 id: superheated
 title: superheated
-description: find games to play with your friends on steam
+description: A web app to find games to play with your friends on steam.
 intro: find games to play with your friends on steam
 author: scotato
 github: https://github.com/scotato/superheated

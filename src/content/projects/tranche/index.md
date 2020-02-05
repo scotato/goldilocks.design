@@ -1,8 +1,7 @@
 ---
 id: tranche
 title: tranche
-description: share clean urls
-intro: share clean urls
+description: A browser extension to get the url of the current page.
 author: scotato
 github: https://github.com/scotato/tranche
 badge: tranche-badge.png

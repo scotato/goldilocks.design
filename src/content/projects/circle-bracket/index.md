@@ -1,8 +1,7 @@
 ---
 id: circle-bracket
 title: circle bracket
-description: a circular tournament bracket
-intro: a design experiment to create a circular tournament bracket
+description: A circular tournament bracket design experiment.
 author: scotato
 github: https://github.com/scotato/circle-bracket
 badge: circle-bracket-badge.png

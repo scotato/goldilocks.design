@@ -1,8 +1,7 @@
 ---
 id: new-tab-dashboard
 title: new tab dashboard
-description: time and color
-intro: a simple new tab screen for your browser
+description: A browser extension that displays the time and changes color throughout the day.
 author: scotato
 github: https://github.com/scotato/new-tab-dashboard
 badge: new-tab-dashboard-badge.png
@@ -28,8 +27,4 @@ gallery:
     img: gallery/Screen Shot 2019-12-30 at 11.50.53 AM.png
 tools: 
   - react
-  - firefox
 ---
-
-## Time & Color
-A browser extension that displays the time and changes color throughout the day
