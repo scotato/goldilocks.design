@@ -10,17 +10,6 @@ date: 2019-02-13
 ---
 
 ---
-title: Netlify
-description: Build, deploy, and manage modern web projects. An all-in-one workflow that combines global deployment, continuous integration, and automatic HTTPS.
-url: https://www.netlify.com
-urlSource: 
-badge: netlify-logo.png
-category: devOps
-tools: 
-date: 2019-02-13
----
-
----
 title: Netlify Functions
 description: Deploy AWS Lambda functions without configuring API gateways, coordinating deployments, or setting up an AWS account. 
 url: https://www.netlify.com/features/functions
