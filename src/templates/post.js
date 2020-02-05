@@ -6,8 +6,7 @@ import ContentList from '../components/ContentList'
 import { Back } from '../components/Link'
  
 const Post = styled.article`
-  margin: 0 ${props => props.theme.size[700]};
-  padding: ${props => props.theme.size[900]};
+  margin-bottom: ${props => props.theme.size[900]};
 `
 
 const Content = styled.div`
@@ -21,9 +20,10 @@ export default props => (
       title={props.data.post.frontmatter.title}
       primary={<Back to='posts'>Posts</Back>}
     />
-    <Post dangerouslySetInnerHTML={{ __html: props.data.post.html }} />
     
     <Content>
+      <Post dangerouslySetInnerHTML={{ __html: props.data.post.html }} />
+      
       <ContentList
         title={props.data.post.frontmatter.title}
         projects={props.data.post.frontmatter.projects || []}
@@ -51,6 +51,8 @@ export const pageQuery = graphql`
         intro
         twitter
         github
+        projects
+        posts
         tools
       }
     }
