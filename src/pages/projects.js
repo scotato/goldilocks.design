@@ -33,14 +33,27 @@ export default ProjectsPage
 export const query = graphql`
   fragment Project on MarkdownRemark {
     id
+    html
     fields {
       slug
     }
     frontmatter {
       id
+      author
       title
       description
       createdAt
+      galleryIsPhone
+      gallery {
+        description
+        img {
+          childImageSharp {
+            fluid(maxWidth: 1280) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
       badge {
         childImageSharp {
           fluid(maxWidth: 900) {
@@ -55,6 +68,14 @@ export const query = graphql`
           }
         }
       }
+      date
+      twitter
+      github
+      website
+      isSourcePublic
+      isProjectPublic
+      isProjectActive
+      isWebsiteActive
       projects
       posts
       tools

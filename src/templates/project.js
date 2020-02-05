@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
  
 import Header from '../components/Header'
+import ProjectHeader from '../components/ProjectHeader'
 import Gallery from '../components/Gallery'
 import ContentList from '../components/ContentList'
 import { Back, LinkIcon } from '../components/Link'
@@ -26,6 +27,11 @@ export default ({ data }) => {
         ]}
       />
       <Project>
+        <ProjectHeader
+          title={project.title}
+          description={project.description}
+          badge={project.logo.childImageSharp.fluid}
+        />
         {project.gallery && <Gallery images={project.gallery} />}
         <div dangerouslySetInnerHTML={{ __html: data.project.html }} />
         
@@ -45,40 +51,7 @@ export default ({ data }) => {
 export const pageQuery = graphql`
   query ProjectBySlug($slug: String!) {
     project: markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt(pruneLength: 160)
-      html
-      timeToRead
-      fields {
-        collection
-      }
-      frontmatter {
-        author
-        title
-        galleryIsPhone
-        gallery {
-          description
-          img {
-            childImageSharp {
-              fluid(maxWidth: 1280) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-        date
-        intro
-        twitter
-        github
-        website
-        isSourcePublic
-        isProjectPublic
-        isProjectActive
-        isWebsiteActive
-        projects
-        posts
-        tools
-      }
+      ...Project
     }
   }
 `
