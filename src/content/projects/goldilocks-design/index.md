@@ -33,13 +33,11 @@ tools:
   - gatsby
   - styled-components
   - graphql
+  - netlify
   - figma
 posts:
   - whats-up
 ---
 
 ## Thoughts on the Web
-Goldilocks design is an experimental web design posts built with modern web tools.
-
-## Tools
-This website is designed in [Figma](http://figma.com/), written in [React](http://reactjs.org/), built with [Gatsby](https://www.gatsbyjs.org/), hosted on [Github](https://github.com/scotato/goldilocks.design), and deployed by [Netlify](https://www.netlify.com/).
+Goldilocks design is an experimental software design and engineering blog built with modern web tools.
