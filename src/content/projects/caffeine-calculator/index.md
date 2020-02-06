@@ -18,6 +18,11 @@ isWebsiteActive: true
 isProjectActive: false
 isProjectPublic: true
 isSourcePublic: true
+gallery:
+  - description: Dashboard
+    img: gallery/Screen Shot 2020-02-06 at 11.37.05 AM.png
+  - description: Edit
+    img: gallery/Screen Shot 2020-02-06 at 11.37.31 AM.png
 tools: 
   - react
   - create-react-app
