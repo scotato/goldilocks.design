@@ -5,7 +5,7 @@ import Img from 'gatsby-image'
 
 export const Slider = styled(Flickity)`
   position: relative;
-  margin: auto;
+  margin: 0;
   margin-bottom: ${props => props.theme.size[600]};
   width: 100%;
 

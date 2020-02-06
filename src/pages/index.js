@@ -1,19 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Slider } from '../components/Gallery'
-import Card from '../components/Card'
 import Header from '../components/Header'
+import Emoji from '../components/Emoji'
+import Card from '../components/Card'
 import ProjectIndicators from '../components/ProjectIndicators'
 
 const Container = styled.div`
+  display: flex;
   margin: 0 ${props => props.theme.size[700]};
-  padding: 0 ${props => props.theme.size[900]};
-  padding-top: ${props => props.theme.size[700]};
+  padding: 0 ${props => props.theme.size[900]} ${props => props.theme.size[600]};
+  min-height: 100%;
+  align-items: center;
 `
 
 const HomePage = ({ data: { posts, projects } }) => (
   <>
-    <Header title="Goldilocks Design" />
+    <Header title={<Emoji name="fingers-crossed" size={700} />} />
     <Container>
       <Slider>
         {projects.edges.map(({node: project}) => (
