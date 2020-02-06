@@ -1,14 +1,22 @@
 import React from 'react'
-import moment from 'moment'
-import { Container } from '../components/Layout'
+import styled from 'styled-components'
+// import moment from 'moment'
+// import { Container } from '../components/Layout'
 import { Slider } from '../components/Gallery'
 import Card from '../components/Card'
+import Header from '../components/Header'
 import ProjectIndicators from '../components/ProjectIndicators'
+
+const Container = styled.div`
+  margin: 0 ${props => props.theme.size[700]};
+  padding: 0 ${props => props.theme.size[900]};
+  padding-top: ${props => props.theme.size[700]};
+`
 
 const HomePage = ({ data: { posts, projects } }) => (
   <>
+    <Header title="Goldilocks Design" />
     <Container>
-      <strong>Projects</strong>
       <Slider>
         {projects.edges.map(({node: project}) => (
           <Card
@@ -23,19 +31,14 @@ const HomePage = ({ data: { posts, projects } }) => (
         ))}
       </Slider>
 
-      <strong>Posts</strong>
-      <Slider>
-        {posts.edges.map(({node: post}) => (
-          <Card
-            to={post.fields.slug}
-            key={post.fields.slug}
-            card={post.frontmatter.badge.childImageSharp.fluid}
-            title={post.frontmatter.title}
-            description={`${post.timeToRead} Minute Read`}
-            detail={moment(post.frontmatter.createdAt).format("MMM YYYY")}
-          />
-        ))}
-      </Slider>
+      {/* <Card
+        to={post.fields.slug}
+        key={post.fields.slug}
+        card={post.frontmatter.badge.childImageSharp.fluid}
+        title={post.frontmatter.title}
+        description={`${post.timeToRead} Minute Read`}
+        detail={moment(post.frontmatter.createdAt).format("MMM YYYY")}
+      /> */}
     </Container>
   </>
 )
@@ -47,7 +50,7 @@ export const pageQuery = graphql`
     projects: allMarkdownRemark(
       filter: { fields: { collection: { eq: "projects" } } }
       sort: { fields: [frontmatter___updatedAt, frontmatter___commits], order: DESC }
-      limit: 5
+      limit: 3
     ) {
       edges {
         node {
@@ -58,7 +61,7 @@ export const pageQuery = graphql`
     posts: allMarkdownRemark(
       filter: { fields: { collection: { eq: "posts" } } }
       sort: { fields: [frontmatter___updatedAt, frontmatter___commits], order: DESC }
-      limit: 5
+      limit: 3
     ) {
       edges {
         node {

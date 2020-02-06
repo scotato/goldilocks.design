@@ -41,7 +41,7 @@ const Row = styled.div`
 `
 
 const Card = styled(Img)`
-  height: ${props => props.theme.device.phoneSmall};
+  /* max-height: 50vh; */
   grid-area: card;
 `
 
