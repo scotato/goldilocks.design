@@ -10,7 +10,8 @@ date: '2019-05-16'
 addedAt: '2020-01-02'
 createdAt: '2019-05-16'
 updatedAt: '2019-06-26'
-phase: prototype
+version: '0.1.0'
+status: prototype
 commits: 9
 isProjectActive: false
 isProjectPublic: false

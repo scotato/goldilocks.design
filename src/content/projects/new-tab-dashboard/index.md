@@ -10,7 +10,8 @@ date: '2019-12-07'
 addedAt: '2020-01-02'
 createdAt: '2019-12-07'
 updatedAt: '2019-12-25'
-phase: development
+version: '0.1.0'
+status: prototype
 commits: 192
 isWebsiteActive: true
 isProjectActive: true

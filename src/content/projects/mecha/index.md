@@ -11,7 +11,8 @@ date: '2018-03-29'
 addedAt: '2020-01-02'
 createdAt: '2018-03-29'
 updatedAt: '2018-04-27'
-phase: production
+version: '1.0.0'
+status: archived
 commits: 206
 isWebsiteActive: true
 isProjectActive: true

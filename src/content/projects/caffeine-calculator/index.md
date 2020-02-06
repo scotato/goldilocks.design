@@ -11,7 +11,8 @@ date: '2017-10-17'
 addedAt: '2020-01-02'
 createdAt: '2017-10-17'
 updatedAt: '2017-10-17'
-phase: prototype
+version: '1.0.0'
+status: prototype
 commits: 3
 isWebsiteActive: true
 isProjectActive: false

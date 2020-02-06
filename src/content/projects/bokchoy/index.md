@@ -12,7 +12,8 @@ date: '2019-09-12'
 addedAt: '2020-01-02'
 createdAt: '2019-09-12'
 updatedAt: '2019-09-12'
-phase: production
+version: '0.1.0'
+status: prototype
 commits: 17
 isWebsiteActive: true
 isProjectActive: true

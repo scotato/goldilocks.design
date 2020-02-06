@@ -11,7 +11,8 @@ date: '2019-08-13'
 addedAt: '2020-01-02'
 createdAt: '2019-08-13'
 updatedAt: '2019-11-20'
-phase: development
+version: '0.10.0'
+status: development
 commits: 192
 isProjectActive: true
 isProjectPublic: true

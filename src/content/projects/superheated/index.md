@@ -11,7 +11,8 @@ date: '2015-03-19'
 addedAt: '2020-01-02'
 createdAt: '2015-03-19'
 updatedAt: '2015-07-02'
-phase: prototype
+version: '0.1.0'
+status: prototype
 commits: 25
 isProjectActive: false
 isProjectPublic: true

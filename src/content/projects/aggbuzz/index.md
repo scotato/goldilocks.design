@@ -12,7 +12,8 @@ date: '2015-12-07'
 addedAt: '2020-01-02'
 createdAt: '2015-12-07'
 updatedAt: '2017-12-16'
-phase: production
+version: '1.0.0'
+status: archived
 commits: 712
 isProjectActive: false
 isProjectPublic: true
