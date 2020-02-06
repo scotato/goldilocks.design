@@ -65,7 +65,12 @@ export const Gallery = ({ children, ...props}) => (
 export default ({images = [], ...props}) => (
   <Gallery {...props}>
     {images.map((screenshot, i) => (
-      <a key={i} href={screenshot.img.childImageSharp.fluid.src} target="_blank">
+      <a
+        key={i}
+        href={screenshot.img.childImageSharp.fluid.src}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Image
           fluid={screenshot.img.childImageSharp.fluid}
           alt={screenshot.description}
