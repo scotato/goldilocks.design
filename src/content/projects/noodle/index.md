@@ -32,6 +32,6 @@ gallery:
 tools: 
   - swift
   - swift-ui
-  - icloud
+  - cloud-kit
   - figma
 ---
