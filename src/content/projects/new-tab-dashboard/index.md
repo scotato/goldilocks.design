@@ -12,7 +12,7 @@ createdAt: '2019-12-07'
 updatedAt: '2019-12-25'
 version: '0.1.0'
 status: prototype
-commits: 192
+commits: 9
 isWebsiteActive: true
 isProjectActive: true
 isProjectPublic: true

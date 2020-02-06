@@ -10,10 +10,10 @@ logo: caffeine-calculator-logo.png
 date: '2017-10-17'
 addedAt: '2020-01-02'
 createdAt: '2017-10-17'
-updatedAt: '2017-10-17'
-version: '1.0.0'
+updatedAt: '2020-01-20'
+version: '1.1.0'
 status: prototype
-commits: 3
+commits: 70
 isWebsiteActive: true
 isProjectActive: false
 isProjectPublic: true

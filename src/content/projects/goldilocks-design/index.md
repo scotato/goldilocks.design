@@ -11,10 +11,10 @@ logo: goldilocks-design-logo.png
 date: '2019-02-14'
 addedAt: '2020-01-02'
 createdAt: '2019-02-14'
-updatedAt: '2020-01-02'
+updatedAt: '2020-02-06'
 version: '2.0.0'
 status: production
-commits: 248
+commits: 357
 isWebsiteActive: true
 isProjectActive: true
 isProjectPublic: true

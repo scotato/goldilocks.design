@@ -39,7 +39,7 @@ export const pageQuery = graphql`
   query {
     tools: allMarkdownRemark(
         filter: { fields: { collection: { eq: "tools" } } }
-        sort: { fields: [frontmatter___date], order: DESC }
+        sort: { fields: [frontmatter___title], order: ASC }
       ) {
         edges {
           node {
