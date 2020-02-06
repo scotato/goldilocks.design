@@ -7,15 +7,6 @@ const ProjectIndicators = styled.div`
   display: flex;
 `
 
-const getDate = (created, updated) => {
-  const createdFormatted = moment(created).format("MMM YYYY")
-  const updatedFormatted = moment(updated).format("MMM YYYY")
-  const isRange = createdFormatted !== updatedFormatted
-
-  if (isRange) return `${createdFormatted} - ${updatedFormatted}`
-  return createdFormatted
-}
-
 const getStatusIcon = status => {
   switch (status) {
     case 'prototype':
@@ -54,8 +45,8 @@ export default props => {
       <Indicator 
         icon="calendar"
         color="default"
-        title="Timeline"
-        badge={getDate(createdAt, updatedAt)}
+        title={updatedAt ? 'Updated' : 'Created'}
+        badge={moment(updatedAt || createdAt).format("MMM YYYY")}
       />
 
       <Indicator 
