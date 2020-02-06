@@ -25,7 +25,7 @@ const Projects = props => props.items.length ? (
         badge={project.frontmatter.logo.childImageSharp.fluid}
         title={project.frontmatter.title}
         description={project.frontmatter.description}
-        detail={moment(project.frontmatter.createdAt).format("MMM YYYY")}
+        detail={moment(project.frontmatter.updatedAt || project.frontmatter.createdAt).format("MMM YYYY")}
       />
     ))}
   </Content>
@@ -65,6 +65,7 @@ export default props => {
     query ContentListQuery {
       projects: allMarkdownRemark(
         filter: { fields: { collection: { eq: "projects" } } }
+        sort: { fields: [frontmatter___updatedAt, frontmatter___commits], order: DESC }
       ) {
         edges {
           node {
@@ -74,6 +75,7 @@ export default props => {
       }
       posts: allMarkdownRemark(
         filter: { fields: { collection: { eq: "posts" } } }
+        sort: { fields: [frontmatter___updatedAt, frontmatter___commits], order: DESC }
       ) {
         edges {
           node {

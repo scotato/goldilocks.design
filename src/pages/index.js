@@ -1,7 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-// import moment from 'moment'
-// import { Container } from '../components/Layout'
 import { Slider } from '../components/Gallery'
 import Card from '../components/Card'
 import Header from '../components/Header'
@@ -30,15 +28,6 @@ const HomePage = ({ data: { posts, projects } }) => (
           />
         ))}
       </Slider>
-
-      {/* <Card
-        to={post.fields.slug}
-        key={post.fields.slug}
-        card={post.frontmatter.badge.childImageSharp.fluid}
-        title={post.frontmatter.title}
-        description={`${post.timeToRead} Minute Read`}
-        detail={moment(post.frontmatter.createdAt).format("MMM YYYY")}
-      /> */}
     </Container>
   </>
 )
@@ -55,17 +44,6 @@ export const pageQuery = graphql`
       edges {
         node {
           ...Project
-        }
-      }
-    }
-    posts: allMarkdownRemark(
-      filter: { fields: { collection: { eq: "posts" } } }
-      sort: { fields: [frontmatter___updatedAt, frontmatter___commits], order: DESC }
-      limit: 3
-    ) {
-      edges {
-        node {
-          ...Post
         }
       }
     }
