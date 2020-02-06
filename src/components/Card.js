@@ -11,17 +11,14 @@ export const Container = styled.div`
 const LinkRow = styled(Link)`
   display: grid;
   margin: ${props => props.theme.size[500]} 0;
-  padding: ${props => props.theme.size[500]};
+  width: 100%;
   background-color: ${props => props.theme.isDarkMode ? props.theme.grayscale[800] : props.theme.grayscale[200]};
   border-radius: ${props => props.theme.size[500]};
+  overflow: hidden;
   grid-template-areas: 
-    "badge title detail arrow"
-    "badge description detail arrow"
-    "badge indicators detail arrow";
-  grid-template-columns: ${props => props.theme.size[900]} auto auto ${props => props.theme.size[600]};
-  grid-template-rows: ${props => props.theme.size[600]} ${props => props.theme.size[600]} ${props => props.theme.size[500]};
-  grid-column-gap: ${props => props.theme.size[500]};
-  grid-row-gap: ${props => props.theme.size[200]};
+    "card"
+    "row";
+  grid-template-rows: auto auto;
   color: inherit;
 
   &:hover {
@@ -29,7 +26,27 @@ const LinkRow = styled(Link)`
   }
 `
 
+const Row = styled.div`
+  display: grid;
+  padding: ${props => props.theme.size[500]};
+  background-color: ${props => props.theme.isDarkMode ? props.theme.grayscale[800] : props.theme.grayscale[200]};
+  grid-area: row;
+  grid-template-areas: 
+    "badge title detail arrow"
+    "badge description detail arrow"
+    "badge indicators detail arrow";
+  grid-template-columns: auto 1fr auto auto;
+  grid-template-rows: auto auto auto;
+  grid-row-gap: ${props => props.theme.size[200]};
+`
+
+const Card = styled(Img)`
+  height: ${props => props.theme.device.phoneSmall};
+  grid-area: card;
+`
+
 const Badge = styled(Img)`
+  margin-right: ${props => props.theme.size[500]};
   width: ${props => props.theme.size[900]};
   height: ${props => props.theme.size[900]};
   grid-area: badge;
@@ -74,17 +91,21 @@ const Arrow = styled(Icon).attrs({
   size: 600
 })`
   margin: auto 0;
+  margin-left: ${props => props.theme.size[500]};
   grid-area: arrow;
   color: ${props => props.theme.grayscale[400]};
 `
 
 export default props => (
   <LinkRow to={props.to}>
-    <Badge fluid={props.badge} />
-    <Title>{props.title}</Title>
-    <Description>{props.description}</Description>
-    <Indicators>{props.indicators}</Indicators>
-    <Detail>{props.detail}</Detail>
-    <Arrow />
+    {props.card && <Card fluid={props.card} />}
+    <Row>
+      {props.badge && <Badge fluid={props.badge} />}
+      <Title>{props.title}</Title>
+      <Description>{props.description}</Description>
+      <Indicators>{props.indicators}</Indicators>
+      <Detail>{props.detail}</Detail>
+      <Arrow />
+    </Row>
   </LinkRow>
 )

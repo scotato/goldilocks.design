@@ -1,69 +1,63 @@
 import React from 'react'
 import styled from 'styled-components'
-import Slider from 'react-slick'
+import Flickity from 'react-flickity-component'
 import Img from 'gatsby-image'
 
-const Device = styled.div`
+export const Slider = styled(Flickity)`
   position: relative;
   margin: auto;
-  margin-bottom: ${props => props.theme.size[900]};
-  padding-bottom: ${props => props.theme.size[700]};
-  box-sizing: content-box;
-  width: 713px;
+  margin-bottom: ${props => props.theme.size[600]};
+  width: 100%;
 
-  .slick-slide {
-    padding: 0 ${props => props.theme.size[400]};
+  &:focus {
+    outline: none;
   }
 
-  .slick-slide > div {
-    display: flex;
-    border-radius: ${props => props.theme.size[500]};
-    border: ${props => props.theme.size[200]} solid ${props => props.theme.isDarkMode ? props.theme.grayscale[800] : props.theme.grayscale[200]};
-    overflow: hidden;
+  .flickity-button {
+    display: none;
   }
 
-  .slick-dots {
-    bottom: -${props => props.theme.size[800]};
-    
-    li,
-    li.slick-active {
-      button:before {
-        color: ${props => props.theme.isDarkMode ? props.theme.grayscale[300] : props.theme.grayscale[700]};
-        font-size: ${props => props.theme.size[400]};
-        transition: color .2s ease-out, opacity .2s ease-out;
-      }
+  .flickity-slider > * {
+    width: 100%;
+    margin-right: ${props => props.theme.size[900]};
+    margin-bottom: 0;
 
-      button:focus:before {
-        color: ${props => props.theme.isDarkMode ? props.theme.grayscale[300] : props.theme.grayscale[700]};
-      }
+    &:last-child {
+      margin-right: 0;
     }
+  }
 
-    li button:focus:before {
-      color: ${props => props.theme.isDarkMode ? props.theme.grayscale[700] : props.theme.grayscale[300]};
+  .flickity-page-dots {
+    display: flex;
+    margin: ${props => props.theme.size[400]} 0; 
+    padding: 0;
+    justify-content: center;
+    list-style-type: none;
+
+    li {
+      margin: ${props => props.theme.size[400]}; 
+      background-color: ${props => props.theme.isDarkMode ? props.theme.grayscale[700] : props.theme.grayscale[300]};
+      width: ${props => props.theme.size[400]};
+      height: ${props => props.theme.size[400]};
+      border-radius: ${props => props.theme.size[400]};
+      transition: background-color .2s ease-out, opacity .2s ease-out;
+      cursor: pointer;
+
+      &.is-selected {
+        background-color: ${props => props.theme.isDarkMode ? props.theme.grayscale[300] : props.theme.grayscale[700]};
+      }
     }
   }
 `
 
 const Image = styled(Img)`
-  width: 100%;
+  border-radius: ${props => props.theme.size[600]};
+  box-shadow: 0 ${props => props.theme.size[200]} ${props => props.theme.size[300]} ${props => props.theme.isDarkMode ? 'transparent' : props.theme.grayscale[200]};
+  overflow: hidden;
 `
 
-export const Gallery = ({ children, ...props}) => (
-  <Device {...props}>
-    <Slider
-      dots={true}
-      arrows={false}
-      speed={500}
-      slidesToShow={2}
-      slidesToScroll={1}
-    >
-      {children}
-    </Slider>
-  </Device>
-)
-
 export default ({images = [], ...props}) => (
-  <Gallery {...props}>
+  <Slider {...props}>
     {images.map((screenshot, i) => (
       <a
         key={i}
@@ -77,5 +71,5 @@ export default ({images = [], ...props}) => (
         />
       </a>
     ))}
-  </Gallery>
+  </Slider>
 )

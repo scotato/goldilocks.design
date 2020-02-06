@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import { Container } from '../components/Layout'
 import Header from '../components/Header'
 import { Back } from '../components/Link'
-import LinkRowDetailed from '../components/LinkRowDetailed'
+import Card from '../components/Card'
 import ToolsIndicators from '../components/ToolsIndicators'
 
 const getIndicators = ({ projects, posts, tools }) => ({
@@ -20,7 +20,7 @@ const ToolsPage = ({ data: { tools } }) => (
     />
     <Container>
       {tools.edges.map(({node: tool}) => (
-        <LinkRowDetailed
+        <Card
           to={tool.fields.slug}
           key={tool.fields.slug}
           badge={tool.frontmatter.badge.childImageSharp.fluid}

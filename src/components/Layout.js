@@ -32,6 +32,7 @@ const Body = styled.main`
   position: relative;
   margin-left: ${props => props.theme.device.phoneSmall};
   background-color: ${props => props.theme.isDarkMode ? props.theme.grayscale[900] : 'white'};
+  overflow: hidden;
 `
 
 export const Container = styled.div`

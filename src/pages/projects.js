@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Container } from '../components/Layout'
-import LinkRowDetailed from '../components/LinkRowDetailed'
+import Card from '../components/Card'
 import Header from '../components/Header'
 import { Back } from '../components/Link'
 import ProjectIndicators from '../components/ProjectIndicators'
@@ -14,7 +14,7 @@ const ProjectsPage = ({ data: { projects } }) => (
     />
     <Container>
       {projects.edges.map(({node: project}) => (
-        <LinkRowDetailed
+        <Card
           to={project.fields.slug}
           key={project.fields.slug}
           badge={project.frontmatter.logo.childImageSharp.fluid}
