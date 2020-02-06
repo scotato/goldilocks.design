@@ -1,12 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
+import Archive from '../icons/archive.svg'
 import Bells from '../icons/bells.svg'
+import Bicycle from '../icons/bicycle.svg'
 import Book from '../icons/book.svg'
 import Calendar from '../icons/calendar.svg'
 import CalendarEdit from '../icons/calendar-edit.svg'
 import CalendarPlus from '../icons/calendar-plus.svg'
 import ChevronLeft from '../icons/chevron-left.svg'
 import ChevronRight from '../icons/chevron-right.svg'
+import Construction from '../icons/construction.svg'
+import DraftingCompass from '../icons/drafting-compass.svg'
 import Github from '../icons/github.svg'
 import Cogs from '../icons/cogs.svg'
 import CodeBranch from '../icons/code-branch.svg'
@@ -15,9 +19,14 @@ import CodeMerge from '../icons/code-merge.svg'
 import Comments from '../icons/comments.svg'
 import ComputerClassic from '../icons/computer-classic.svg'
 import ExternalLink from '../icons/external-link.svg'
+import History from '../icons/history.svg'
 import Moon from '../icons/moon.svg'
 import MoonStars from '../icons/moon-stars.svg'
+import PencilRuler from '../icons/pencil-ruler.svg'
+import Rocket from '../icons/rocket.svg'
 import RSS from '../icons/rss.svg'
+import Tag from '../icons/tag.svg'
+import Tools from '../icons/tools.svg'
 import Twitter from '../icons/twitter.svg'
 import Typewriter from '../icons/typewriter.svg'
 import Wikipedia from '../icons/wikipedia.svg'
@@ -25,8 +34,12 @@ import Window from '../icons/window.svg'
 
 const IconSwitch = props => {
   switch (props.name) {
+    case "archive":
+      return <Archive />
     case "bells":
       return <Bells />
+    case "bicycle":
+      return <Bicycle />
     case "book":
       return <Book />
     case "calendar":
@@ -51,16 +64,30 @@ const IconSwitch = props => {
       return <Comments />
     case "computer-classic":
       return <ComputerClassic />
+    case "construction":
+      return <Construction />
+    case "drafting-compass":
+      return <DraftingCompass />
     case "external-link":
       return <ExternalLink />
+    case "history":
+      return <History />
     case "github":
       return <Github />
     case "moon":
       return <Moon />
     case "moon-stars":
       return <MoonStars />
+    case "pencil-ruler":
+      return <PencilRuler />
+    case "rocket":
+      return <Rocket />
     case "rss":
       return <RSS />
+    case "tag":
+      return <Tag />
+    case "tools":
+      return <Tools />
     case "twitter":
       return <Twitter />
     case "typewriter":
