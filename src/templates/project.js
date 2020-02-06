@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
  
 import Header from '../components/Header'
 import ProjectHeader from '../components/ProjectHeader'
+import ProjectIndicators from '../components/ProjectIndicators'
 import Gallery from '../components/Gallery'
 import ContentList from '../components/ContentList'
 import { Back, LinkIcon } from '../components/Link'
@@ -30,6 +31,7 @@ export default ({ data }) => {
         <ProjectHeader
           title={project.title}
           description={project.description}
+          indicators={<ProjectIndicators project={project} />}
           badge={project.logo.childImageSharp.fluid}
         />
         {project.gallery && <Gallery images={project.gallery} />}

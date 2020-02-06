@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import Icon from './Icon'
 
-const ToolIndicator = styled.div`
+const Indicator = styled.div`
   display: flex;
   align-items: center;
-  margin-right: ${props => props.theme.size[300]};
+  margin-right: ${props => props.theme.size[400]};
   font-size: ${props => props.theme.size[500]};
   font-weight: 600;
   color: ${props => props.theme.color[props.color]};
@@ -18,8 +18,8 @@ const Badge = styled.span`
 `
 
 export default props => props.badge ? (
-  <ToolIndicator title={props.title} color={props.color}>
+  <Indicator title={`${props.title} ${props.badge}`} color={props.color}>
     <Icon name={props.icon} size={400} />
     <Badge>{props.badge}</Badge>
-  </ToolIndicator>
+  </Indicator>
 ) : null

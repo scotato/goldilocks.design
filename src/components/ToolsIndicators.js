@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
-import ToolIndicator from './ToolIndicator'
+import Indicator from './Indicator'
 
 const ToolsIndicators = styled.div`
   display: flex;
@@ -39,7 +39,7 @@ export default props => {
   return (
     <ToolsIndicators>
       {indicators.map(item => (
-        <ToolIndicator 
+        <Indicator 
           key={item.id}
           icon={item.icon}
           color={item.color}

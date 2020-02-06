@@ -1,10 +1,10 @@
 import React from 'react'
-import moment from 'moment'
 import { graphql } from 'gatsby'
 import { Container } from '../components/Layout'
-import LinkRow from '../components/LinkRow'
+import LinkRowDetailed from '../components/LinkRowDetailed'
 import Header from '../components/Header'
 import { Back } from '../components/Link'
+import ProjectIndicators from '../components/ProjectIndicators'
 
 const ProjectsPage = ({ data: { projects } }) => (
   <>
@@ -13,15 +13,14 @@ const ProjectsPage = ({ data: { projects } }) => (
       primary={<Back to='/' />}
     />
     <Container>
-      {console.log(projects.edges.filter(({node: project}) => !project.frontmatter.logo))}
       {projects.edges.map(({node: project}) => (
-        <LinkRow
+        <LinkRowDetailed
           to={project.fields.slug}
           key={project.fields.slug}
           badge={project.frontmatter.logo.childImageSharp.fluid}
           title={project.frontmatter.title}
           description={project.frontmatter.description}
-          detail={moment(project.frontmatter.createdAt).format("MMM YYYY")}
+          indicators={<ProjectIndicators project={project.frontmatter} />}
         />
       ))}
     </Container>
@@ -43,6 +42,21 @@ export const query = graphql`
       title
       description
       createdAt
+      updatedAt
+      commits
+      version
+      status
+      date
+      twitter
+      github
+      website
+      isSourcePublic
+      isProjectPublic
+      isProjectActive
+      isWebsiteActive
+      projects
+      posts
+      tools
       galleryIsPhone
       gallery {
         description
@@ -68,17 +82,6 @@ export const query = graphql`
           }
         }
       }
-      date
-      twitter
-      github
-      website
-      isSourcePublic
-      isProjectPublic
-      isProjectActive
-      isWebsiteActive
-      projects
-      posts
-      tools
     }
   }
 `

@@ -77,6 +77,8 @@ color.success = color.green
 color.warning = color.yellow
 color.danger = color.red
 color.default = grayscale[500]
+color.defaultLight = grayscale[300]
+color.defaultDark = grayscale[700]
 
 const size = {
   100: '2px',
