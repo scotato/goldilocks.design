@@ -35,8 +35,9 @@ gallery:
     img: gallery/Screen Shot 2018-03-08 at 1.31.59 PM.png
 tools: 
   - react
+  - create-react-app
   - spotify
-  - google-firestore
+  - cloud-firestore
 ---
 
 ## A Social Web Client for Spotify

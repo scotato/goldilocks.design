@@ -27,8 +27,8 @@ gallery:
 tools: 
   - react
   - netlify
-  - netlify-functions
-  - node-js
+  - create-react-app
+  - node
 ---
 
 ## Machine Readable Recipes

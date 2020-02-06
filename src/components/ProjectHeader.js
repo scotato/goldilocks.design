@@ -47,7 +47,6 @@ const BadgeLarge = styled(Badge)`
 
   .gatsby-image-wrapper {
     height: ${props => props.theme.size[900]};
-    border-radius: ${props => props.theme.size[300]};
     overflow: hidden;
   }
 `

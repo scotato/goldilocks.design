@@ -19,7 +19,7 @@ isSourcePublic: false
 tools: 
   - swift
   - ar-kit
-  - google-vision
+  - cloud-vision
 ---
 
 ## AR for Albums

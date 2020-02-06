@@ -33,6 +33,7 @@ gallery:
     img: gallery/Screen Shot 2018-04-19 at 4.51.00 PM.png
 tools: 
   - react
+  - create-react-app
   - cloud-firestore
   - figma
 ---

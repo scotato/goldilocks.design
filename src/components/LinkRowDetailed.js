@@ -32,7 +32,6 @@ const LinkRow = styled(Link)`
 const Badge = styled(Img)`
   width: ${props => props.theme.size[900]};
   height: ${props => props.theme.size[900]};
-  border-radius: ${props => props.theme.size[400]};
   grid-area: badge;
 `
 

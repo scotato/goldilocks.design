@@ -26,6 +26,7 @@ gallery:
 tools: 
   - react
   - styled-components
+  - create-react-app
 ---
 
 ## Experimental UI

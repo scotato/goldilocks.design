@@ -20,6 +20,7 @@ isProjectPublic: true
 isSourcePublic: true
 tools: 
   - react
+  - create-react-app
   - styled-components
 ---
 
