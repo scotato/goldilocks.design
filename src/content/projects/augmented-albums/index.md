@@ -20,6 +20,7 @@ tools:
   - swift
   - ar-kit
   - cloud-vision
+  - spotify
 ---
 
 ## AR for Albums
