@@ -18,7 +18,8 @@ isProjectActive: false
 isProjectPublic: true
 isSourcePublic: false
 tools: 
-  - node-js
+  - node
+  - javascript
   - express
   - ejs
   - passport

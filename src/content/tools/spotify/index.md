@@ -10,7 +10,7 @@ category: browser
 projects:
   - wavy
   - augmented-albums
-tools: 
+tools:
   - javascript
   - node
 date: 2019-04-09

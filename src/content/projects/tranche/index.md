@@ -17,8 +17,7 @@ isProjectActive: true
 isProjectPublic: true
 isSourcePublic: true
 tools: 
-  - js
-  - firefox
+  - javascript
 ---
 
 ## Just the Link
