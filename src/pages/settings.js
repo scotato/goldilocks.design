@@ -22,6 +22,12 @@ const SettingsPage = () => {
           title="Dark Mode"
           action={<Switch onChange={darkMode.toggle} checked={darkMode.value}/>}
         />
+
+        <SettingsRow
+          badge={<Icon name='tag' size={700} />}
+          title="Version"
+          action="2.0.0"
+        />
       </Container>
     </>
   )
