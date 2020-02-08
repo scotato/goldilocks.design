@@ -19,6 +19,14 @@ const Header = styled.header`
   ${props => props.theme.media.desktopLarge`
     max-width: ${props => `calc(100% - ${props.theme.device.phoneSmall})`};
   `}
+
+  ${props => props.theme.media.tabletVertical`
+    max-width: 100%;
+  `}
+
+  ${props => props.theme.media.phone`
+    padding: ${props => props.theme.size[500]};
+  `}
 `
 
 const Divider = styled.div`

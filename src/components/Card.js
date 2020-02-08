@@ -10,7 +10,7 @@ export const Container = styled.div`
 
 const LinkRow = styled(Link)`
   display: grid;
-  margin: ${props => props.theme.size[500]} 0;
+  margin-bottom: ${props => props.theme.size[500]};
   width: 100%;
   background-color: ${props => props.theme.isDarkMode ? props.theme.grayscale[800] : props.theme.grayscale[200]};
   border-radius: ${props => props.theme.size[500]};
@@ -41,7 +41,6 @@ const Row = styled.div`
 `
 
 const Card = styled(Img)`
-  /* max-height: 50vh; */
   grid-area: card;
 `
 

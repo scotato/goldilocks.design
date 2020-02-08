@@ -26,6 +26,10 @@ const Aside = styled.aside`
   width: ${props => props.theme.device.phoneSmall};
   min-height: 100vh;
   z-index: 2;
+
+  ${props => props.theme.media.tabletVertical`
+    display: none;
+  `}
 `
 
 const Body = styled.main`
@@ -33,11 +37,25 @@ const Body = styled.main`
   margin-left: ${props => props.theme.device.phoneSmall};
   background-color: ${props => props.theme.isDarkMode ? props.theme.grayscale[900] : 'white'};
   overflow: hidden;
+
+  ${props => props.theme.media.tabletVertical`
+    margin-left: 0;
+  `}
 `
 
 export const Container = styled.div`
   margin: 0 ${props => props.theme.size[900]};
   padding: ${props => props.theme.size[700]} ${props => props.theme.size[900]};
+
+  ${props => props.theme.media.tabletHorizontal`
+    margin: 0 ${props => props.theme.size[700]};
+    padding: ${props => props.theme.size[500]} ${props => props.theme.size[700]};
+  `}
+
+  ${props => props.theme.media.phone`
+    margin: 0;
+    padding: ${props => props.theme.size[500]};
+  `}
 `
 
 export default props => {

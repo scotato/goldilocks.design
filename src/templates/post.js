@@ -7,11 +7,31 @@ import { Back } from '../components/Link'
  
 const Post = styled.article`
   margin-bottom: ${props => props.theme.size[900]};
+
+  ${props => props.theme.media.tabletHorizontal`
+    margin: 0 ${props => props.theme.size[700]};
+    padding: ${props => props.theme.size[500]} ${props => props.theme.size[700]};
+  `}
+
+  ${props => props.theme.media.phone`
+    margin: 0;
+    padding: ${props => props.theme.size[500]};
+  `}
 `
 
 const Content = styled.div`
   margin: 0 ${props => props.theme.size[700]};
   padding: ${props => props.theme.size[900]};
+
+  ${props => props.theme.media.tabletHorizontal`
+    margin: 0 ${props => props.theme.size[700]};
+    padding: ${props => props.theme.size[500]} ${props => props.theme.size[700]};
+  `}
+
+  ${props => props.theme.media.phone`
+    margin: 0;
+    padding: ${props => props.theme.size[500]};
+  `}
 `
 
 export default props => (

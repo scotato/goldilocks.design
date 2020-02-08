@@ -12,6 +12,16 @@ import { Back, LinkIcon } from '../components/Link'
 const Project = styled.article`
   margin: 0 ${props => props.theme.size[700]};
   padding: ${props => props.theme.size[900]};
+
+  ${props => props.theme.media.tabletHorizontal`
+    margin: 0 ${props => props.theme.size[700]};
+    padding: ${props => props.theme.size[500]} ${props => props.theme.size[700]};
+  `}
+
+  ${props => props.theme.media.phone`
+    margin: 0;
+    padding: ${props => props.theme.size[500]};
+  `}
 `
 
 export default ({ data }) => {

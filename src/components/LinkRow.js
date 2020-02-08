@@ -51,6 +51,10 @@ const Detail = styled.span`
   grid-area: detail;
   font-size: ${props => props.theme.size[500]};
   color: ${props => props.theme.grayscale[500]};
+
+  ${props => props.theme.media.phone`
+    display: none;
+  `}
 `
 
 const Arrow = styled(Icon).attrs({
