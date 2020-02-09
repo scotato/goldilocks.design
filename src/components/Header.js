@@ -26,6 +26,7 @@ const Header = styled.header`
 
   ${props => props.theme.media.phone`
     padding: ${props => props.theme.size[500]};
+    font-size: ${props => props.theme.size[500]};
   `}
 `
 
@@ -36,17 +37,24 @@ const Divider = styled.div`
 `
 
 const Title = styled.div`
+  padding: 0 ${props => props.theme.size[500]};
   justify-self: center;
   font-weight: 500;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
 `
 
 const Primary = styled.div``
 
 const Secondary = styled.div`
-  display: grid;
+  display: flex;
   justify-self: flex-end;
-  grid-template-columns: auto auto auto;
-  grid-column-gap: ${props => props.theme.size[500]};
+
+  a:not(:first-child) {
+    margin-left: ${props => props.theme.size[500]};
+  }
 `
 
 export default props => {

@@ -2,9 +2,10 @@ import React from 'react'
 import moment from 'moment'
 import { graphql } from 'gatsby'
 import { Container } from '../components/Layout'
-import LinkRow from '../components/LinkRow'
+import Card from '../components/Card'
 import Header from '../components/Header'
 import { Back } from '../components/Link'
+import ToolsIndicators from '../components/ToolsIndicators'
 
 const PostsPage = ({ data: { posts } }) => (
   <>
@@ -14,12 +15,19 @@ const PostsPage = ({ data: { posts } }) => (
     />
     <Container>
     {posts.edges.map(({node: post}) => (
-      <LinkRow
+      <Card
         to={post.fields.slug}
         key={post.fields.slug}
         badge={post.frontmatter.badge.childImageSharp.fluid}
         title={post.frontmatter.title}
         description={`${post.timeToRead} Minute Read`}
+        indicators={(
+          <ToolsIndicators
+            projectCount={post.frontmatter.projects ? post.frontmatter.projects.length : 0}
+            postCount={post.frontmatter.posts ? post.frontmatter.posts.length : 0}
+            toolCount={post.frontmatter.tools ? post.frontmatter.tools.length : 0}
+          />
+        )}
         detail={moment(post.frontmatter.createdAt).format("MMM YYYY")}
       />
     ))}

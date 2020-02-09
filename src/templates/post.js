@@ -15,7 +15,8 @@ const Post = styled.article`
 
   ${props => props.theme.media.phone`
     margin: 0;
-    padding: ${props => props.theme.size[500]};
+    margin-bottom: ${props => props.theme.size[700]};
+    padding: 0;
   `}
 `
 

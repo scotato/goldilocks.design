@@ -13,6 +13,17 @@ const Header = styled.div`
     "badge title"
     "badge description"
     "badge indicators";
+
+    
+  ${props => props.theme.media.phone`
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+      "badge "
+      "title"
+      "description"
+      "indicators";
+  `}
 `
 
 const Image = styled(Img)`
@@ -49,14 +60,15 @@ const BadgeLarge = styled(Badge)`
     height: ${props => props.theme.size[900]};
     overflow: hidden;
   }
+
+  ${props => props.theme.media.phone`
+    margin: ${props => props.theme.size[500]} auto;
+  `}
 `
 
 export default props => (
   <Header>
-    <BadgeLarge
-      title={props.title}
-      fluid={props.badge}
-    />
+    <BadgeLarge title={props.title} fluid={props.badge} />
     <Title>{props.title}</Title>
     <Description>{props.description}</Description>
     <Indicators>{props.indicators}</Indicators>

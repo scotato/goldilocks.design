@@ -12,7 +12,7 @@ const LinkRow = styled(Link)`
   border-radius: ${props => props.theme.size[400]};
   grid-template-areas: "badge title detail arrow";
   grid-template-columns: ${props => props.theme.size[700]} auto auto ${props => props.theme.size[600]};
-  grid-column-gap: ${props => props.theme.size[500]};
+  grid-column-gap: ${props => props.theme.size[400]};
   color: inherit;
 
   &:hover {
@@ -33,6 +33,9 @@ const Badge = styled(Img)`
 const Title = styled.span`
   grid-area: title;
   font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `
 
 const Detail = styled.span`

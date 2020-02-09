@@ -31,6 +31,10 @@ const GlobalStyle = createGlobalStyle`
     &:first-child {
       margin-top: 0;
     }
+
+    ${props => props.theme.media.phone`
+      margin-top: 1em;
+    `}
   }
 
   h1 {

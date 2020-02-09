@@ -38,6 +38,14 @@ const Row = styled.div`
   grid-template-columns: auto 1fr auto auto;
   grid-template-rows: auto auto auto;
   grid-row-gap: ${props => props.theme.size[200]};
+
+  ${props => props.theme.media.phone`
+    padding: ${props.theme.size[400]};
+    grid-template-areas: 
+      "badge title detail arrow"
+      "badge description detail arrow";
+    grid-template-rows: auto auto;
+  `}
 `
 
 const Card = styled(Img)`
@@ -49,6 +57,12 @@ const Badge = styled(Img)`
   width: ${props => props.theme.size[900]};
   height: ${props => props.theme.size[900]};
   grid-area: badge;
+
+  ${props => props.theme.media.phone`
+    margin-right: ${props => props.theme.size[400]};
+    width: ${props => props.theme.size[700]};
+    height: ${props => props.theme.size[700]};
+  `}
 `
 
 const Title = styled.span`
@@ -66,6 +80,10 @@ const Description = styled.span`
   text-overflow: ellipsis;
   overflow: hidden;
   line-height: 1;
+
+  ${props => props.theme.media.phone`
+    font-size: ${props => props.theme.size[400]};
+  `}
 `
 
 const Indicators = styled.span`
@@ -74,6 +92,10 @@ const Indicators = styled.span`
   align-items: center;
   color: ${props => props.theme.grayscale[500]};
   line-height: 1;
+
+  ${props => props.theme.media.phone`
+    display: none;
+  `}
 `
 
 const Detail = styled.span`
@@ -83,6 +105,10 @@ const Detail = styled.span`
   grid-area: detail;
   font-size: ${props => props.theme.size[500]};
   color: ${props => props.theme.grayscale[500]};
+
+  ${props => props.theme.media.phone`
+    font-size: ${props => props.theme.size[400]};
+  `}
 `
 
 const Arrow = styled(Icon).attrs({
@@ -93,6 +119,10 @@ const Arrow = styled(Icon).attrs({
   margin-left: ${props => props.theme.size[500]};
   grid-area: arrow;
   color: ${props => props.theme.grayscale[400]};
+
+  ${props => props.theme.media.phone`
+    margin-left: ${props => props.theme.size[400]};
+  `}
 `
 
 export default props => (
