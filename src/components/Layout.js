@@ -28,7 +28,9 @@ const Aside = styled.aside`
   z-index: 2;
 
   ${props => props.theme.media.tabletVertical`
-    display: none;
+    display: ${props.isRoot ? 'grid' : 'none'};
+    padding: ${props => props.theme.size[500]};
+    width: 100%;
   `}
 `
 
@@ -39,6 +41,7 @@ const Body = styled.main`
   overflow: hidden;
 
   ${props => props.theme.media.tabletVertical`
+    display: ${props.isRoot ? 'none' : 'block'};
     margin-left: 0;
   `}
 `
@@ -60,6 +63,7 @@ export const Container = styled.div`
 
 export default props => {
   const darkMode = useDarkMode()
+  const isRoot = props.path === '/'
 
   return (
     <ThemeProvider theme={{...theme, isDarkMode: darkMode.value}}>
@@ -67,12 +71,12 @@ export default props => {
         <GlobalStyle />
         <SEO />
         
-        <Aside>
+        <Aside isRoot={isRoot}>
           <Navigation />
           <Social />
         </Aside>
         
-        <Body>
+        <Body isRoot={isRoot}>
           {props.children}
         </Body>
       </Layout>
