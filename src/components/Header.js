@@ -7,7 +7,7 @@ const Header = styled.header`
   grid-template-columns: 1fr 3fr 1fr;
   padding: ${props => props.theme.size[500]} ${props => props.theme.size[700]};
   height: ${props => props.theme.size[900]};
-  background-color: ${props => props.theme.isDarkMode ? 'rgba(0, 0, 0, 0.25)' : 'rgba(255, 255, 255, 0.25)'};
+  background-color: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(64px);
   top: 0;
   width: 100%;
@@ -15,6 +15,10 @@ const Header = styled.header`
   z-index: 2;
   line-height: 1;
   align-items: center;
+
+  .dark-mode & {
+    background-color: rgba(0, 0, 0, 0.25);
+  }
 
   ${props => props.theme.media.desktopLarge`
     max-width: ${props => `calc(100% - ${props.theme.device.phoneSmall})`};
@@ -33,7 +37,11 @@ const Header = styled.header`
 const Divider = styled.div`
   margin-top: ${props => props.theme.size[100]};
   height: ${props => props.theme.size[900]};
-  border-bottom: ${({ theme }) => `${theme.size[100]} solid ${theme.isDarkMode ? 'black' : theme.grayscale[100]}`};
+  border-bottom: ${props => props.theme.size[100]} solid ${props => props.theme.grayscale[100]};
+
+  .dark-mode & {
+    border-bottom: ${props => props.theme.size[100]} solid black;
+  }
 `
 
 const Title = styled.div`

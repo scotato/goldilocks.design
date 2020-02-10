@@ -13,10 +13,18 @@ const Social = styled.div`
 
 const SocialLink = styled(Link)`
   padding: ${props => props.theme.size[400]};
-  color: ${props => props.theme.isDarkMode ? props.theme.grayscale[600] : props.theme.grayscale[300]};
+  color: ${props => props.theme.grayscale[300]};
+
+  .dark-mode & {
+    color: ${props => props.theme.grayscale[600]};
+  }
 
   &:hover {
     color: ${props => props.theme.grayscale[300]};
+
+    .dark-mode & {
+      color: ${props => props.theme.grayscale[600]};
+    }
   }
 `
 

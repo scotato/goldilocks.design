@@ -5,7 +5,7 @@ const SettingsRow = styled.div`
   display: grid;
   margin: ${props => props.theme.size[500]} 0;
   padding: ${props => props.theme.size[500]};
-  background-color: ${props => props.theme.isDarkMode ? props.theme.grayscale[800] : props.theme.grayscale[200]};
+    background-color: ${props => props.theme.grayscale[200]};
   border-radius: ${props => props.theme.size[500]};
   grid-template-areas: "badge title action";
   grid-template-columns: ${props => props.theme.size[700]} 1fr auto;
@@ -13,6 +13,10 @@ const SettingsRow = styled.div`
   grid-column-gap: ${props => props.theme.size[500]};
   color: inherit;
   align-items: center;
+
+  .dark-mode & {
+    background-color: ${props => props.theme.grayscale[800]};
+  }
 
   &:hover {
     color: inherit;

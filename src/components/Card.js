@@ -12,7 +12,7 @@ const LinkRow = styled(Link)`
   display: grid;
   margin-bottom: ${props => props.theme.size[500]};
   width: 100%;
-  background-color: ${props => props.theme.isDarkMode ? props.theme.grayscale[800] : props.theme.grayscale[200]};
+  background-color: ${props => props.theme.grayscale[200]};
   border-radius: ${props => props.theme.size[500]};
   overflow: hidden;
   grid-template-areas: 
@@ -24,12 +24,16 @@ const LinkRow = styled(Link)`
   &:hover {
     color: inherit;
   }
+
+  .dark-mode & {
+    background-color: ${props => props.theme.grayscale[800]};
+  }
 `
 
 const Row = styled.div`
   display: grid;
   padding: ${props => props.theme.size[500]};
-  background-color: ${props => props.theme.isDarkMode ? props.theme.grayscale[800] : props.theme.grayscale[200]};
+  background-color: ${props => props.theme.grayscale[200]};
   grid-area: row;
   grid-template-areas: 
     "badge title detail arrow"
@@ -46,6 +50,10 @@ const Row = styled.div`
       "badge description detail arrow";
     grid-template-rows: auto auto;
   `}
+
+  .dark-mode & {
+    background-color: ${props => props.theme.grayscale[800]};
+  }
 `
 
 const Card = styled(Img)`

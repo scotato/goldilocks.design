@@ -13,8 +13,8 @@ const NavigationRow = styled(Link)`
   grid-template-columns: ${props => props.theme.size[700]} auto  ${props => props.theme.size[700]};
   grid-template-areas: 
     "icon title badge";
-  color: ${props => props.theme.isDarkMode ? props.theme.grayscale[400] : props.theme.grayscale[600]};
-  background-color: ${props => props.theme.isDarkMode ? props.theme.grayscale[800] : props.theme.grayscale[200]};
+  color: ${props => props.theme.grayscale[600]};
+  background-color: ${props => props.theme.grayscale[200]};
   border-radius: ${props => props.theme.size[500]};
   text-decoration: none;
   cursor: pointer;
@@ -22,8 +22,17 @@ const NavigationRow = styled(Link)`
   transition: color 0.2s ease-out, background-color 0.2s ease-out;
   font-weight: 600;
 
+  .dark-mode & {
+    color: ${props => props.theme.grayscale[400]};
+    background-color: ${props => props.theme.grayscale[800]};
+  }
+
   &:hover {
-    color: ${props => props.theme.isDarkMode ? props.theme.grayscale[400] : props.theme.grayscale[600]};
+    color: ${props => props.theme.grayscale[600]};
+  
+    .dark-mode & {
+      color: ${props => props.theme.grayscale[400]};
+    }
   }
 
   &.active {
@@ -55,13 +64,18 @@ const Badge = styled.div.attrs({
 })`
   display: grid;
   grid-area: badge;
-  color: ${props => props.theme.isDarkMode ? props.theme.grayscale[800] : props.theme.grayscale[500]};
-  background-color: ${props => props.theme.isDarkMode ? props.theme.grayscale[700] : props.theme.grayscale[300]};
+  color: ${props => props.theme.grayscale[500]};
+  background-color: ${props => props.theme.grayscale[300]};
   border-radius: ${props => props.theme.size[600]};
   align-self: stretch;
   place-items: center;
   will-change: color, background-color;
   transition: color 0.2s ease-out, background-color 0.2s ease-out;
+
+  .dark-mode & {
+    color: ${props => props.theme.grayscale[800]};
+    background-color: ${props => props.theme.grayscale[700]};
+  }
 `
 
 const BadgeOptional = props => props.children ? <Badge {...props} /> : null

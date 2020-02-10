@@ -8,7 +8,7 @@ import Icon from '../components/Icon'
 import Switch from '../components/Switch'
 
 const SettingsPage = () => {
-  const darkMode = useDarkMode(false)
+  const darkMode = useDarkMode()
 
   return (
     <Layout>
@@ -26,7 +26,7 @@ const SettingsPage = () => {
         <SettingsRow
           badge={<Icon name='tag' size={700} />}
           title="Version"
-          action="2.0.0"
+          action="2.0.1"
         />
       </Container>
     </Layout>

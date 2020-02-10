@@ -8,12 +8,16 @@ const LinkRow = styled(Link)`
   display: grid;
   margin: ${props => props.theme.size[500]} 0;
   padding: ${props => props.theme.size[400]};
-  background-color: ${props => props.theme.isDarkMode ? props.theme.grayscale[800] : props.theme.grayscale[200]};
+    background-color: ${props => props.theme.grayscale[200]};
   border-radius: ${props => props.theme.size[400]};
   grid-template-areas: "badge title detail arrow";
   grid-template-columns: ${props => props.theme.size[700]} auto auto ${props => props.theme.size[600]};
   grid-column-gap: ${props => props.theme.size[400]};
   color: inherit;
+
+  .dark-mode & {
+    background-color: ${props => props.theme.grayscale[800]};
+  }
 
   &:hover {
     color: inherit;

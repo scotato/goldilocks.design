@@ -12,14 +12,29 @@ const GlobalStyle = createGlobalStyle`
       fontSizeBase: theme.size[600],
       fontWeightBase: 400,
       lineHeightBase: 1.6,
-      bodyColor: theme.isDarkMode ? theme.grayscale[100] : theme.grayscale[900],
-      bodyBg: theme.isDarkMode ? 'black' : theme.grayscale[100],
       headingsMarginBottom: theme.size[300],
       paragraphMarginBottom: theme.size[400],
       linkColor: theme.color.info,
       linkHoverColor: theme.color.info,
       linkHoverDecoration: 'none'
     })
+  }
+
+  html,
+  body,
+  #___gatsby,
+  #___gatsby > div {
+    height: 100%;
+  }
+
+  body {
+    color: ${props => props.theme.grayscale[900]};
+    background-color: ${props => props.theme.grayscale[100]};
+    
+    &.dark-mode {
+      color: ${props => props.theme.grayscale[100]};
+      background-color: black;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -63,13 +78,6 @@ const GlobalStyle = createGlobalStyle`
 
   strong {
     font-weight: 700;
-  }
-
-  html,
-  body,
-  #___gatsby,
-  #___gatsby > div {
-    height: 100%;
   }
 `
  

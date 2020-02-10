@@ -36,7 +36,7 @@ export const Slider = styled(Flickity)`
 
     li {
       margin: ${props => props.theme.size[400]}; 
-      background-color: ${props => props.theme.isDarkMode ? props.theme.grayscale[700] : props.theme.grayscale[300]};
+      background-color: ${props => props.theme.grayscale[300]};
       width: ${props => props.theme.size[400]};
       height: ${props => props.theme.size[400]};
       border-radius: ${props => props.theme.size[400]};
@@ -44,7 +44,15 @@ export const Slider = styled(Flickity)`
       cursor: pointer;
 
       &.is-selected {
-        background-color: ${props => props.theme.isDarkMode ? props.theme.grayscale[300] : props.theme.grayscale[700]};
+        background-color: ${props => props.theme.grayscale[700]};
+      
+        .dark-mode & {
+          background-color: ${props => props.theme.grayscale[300]};
+        }
+      }
+
+      .dark-mode & {
+        background-color: ${props => props.theme.grayscale[700]};
       }
     }
   }
@@ -52,8 +60,12 @@ export const Slider = styled(Flickity)`
 
 const Image = styled(Img)`
   border-radius: ${props => props.theme.size[600]};
-  box-shadow: 0 ${props => props.theme.size[200]} ${props => props.theme.size[300]} ${props => props.theme.isDarkMode ? 'transparent' : props.theme.grayscale[200]};
+  box-shadow: 0 ${props => props.theme.size[200]} ${props => props.theme.size[300]} ${props => props.theme.grayscale[200]};
   overflow: hidden;
+
+  .dark-mode & {
+    box-shadow: 0 ${props => props.theme.size[200]} ${props => props.theme.size[300]} transparent;
+  }
 `
 
 export default ({images = [], ...props}) => (

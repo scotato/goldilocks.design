@@ -1,4 +1,7 @@
-import { ServerStyleSheet } from 'styled-components'
+import React from "react"
+import { ServerStyleSheet, ThemeProvider } from 'styled-components'
+import useDarkMode from 'use-dark-mode'
+import theme from './src/theme'
 
 export const replaceRenderer = ({
   setHeadComponents,
@@ -8,3 +11,21 @@ export const replaceRenderer = ({
   const styleElement = sheet.getStyleElement()
   setHeadComponents(styleElement)
 }
+
+const Provider = props => {
+  const darkMode = useDarkMode()
+  const state = { isDarkMode: darkMode.value }
+
+  return (
+    <ThemeProvider theme={{...theme, ...state}}>
+      {props.children}
+    </ThemeProvider>
+  )
+}
+
+export const wrapRootElement = ({ element }) => (
+  <Provider>
+    {element}
+  </Provider>
+)
+
