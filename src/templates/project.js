@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
  
+import Layout from '../components/Layout'
 import Header from '../components/Header'
 import ProjectHeader from '../components/ProjectHeader'
 import ProjectIndicators from '../components/ProjectIndicators'
@@ -28,7 +29,7 @@ export default ({ data }) => {
   const project = data.project.frontmatter
 
   return (
-    <>
+    <Layout>
       <Header
         title={project.title}
         primary={<Back to='projects'>Projects</Back>}
@@ -56,7 +57,7 @@ export default ({ data }) => {
           tools={project.tools || []}
         />
       </Project>
-  </>
+  </Layout>
   )
 } 
 

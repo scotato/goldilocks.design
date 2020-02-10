@@ -1,13 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Container } from '../components/Layout'
+import Layout, { Container } from '../components/Layout'
 import Card from '../components/Card'
 import Header from '../components/Header'
 import { Back } from '../components/Link'
 import ProjectIndicators from '../components/ProjectIndicators'
 
 const ProjectsPage = ({ data: { projects } }) => (
-  <>
+  <Layout>
     <Header
       title="Projects"
       primary={<Back to='/' />}
@@ -24,7 +24,7 @@ const ProjectsPage = ({ data: { projects } }) => (
         />
       ))}
     </Container>
-  </>
+  </Layout>
 )
 
 export default ProjectsPage

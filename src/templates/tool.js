@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 
+import Layout from '../components/Layout'
 import Header from '../components/Header'
 import ProjectHeader from '../components/ProjectHeader'
 import ContentList from '../components/ContentList'
@@ -23,7 +24,7 @@ const Tool = styled.div`
 `
 
 const ToolPage = ({ data: { tool } }) => (
-  <>
+  <Layout>
     <Header
       title={tool.frontmatter.title}
       primary={<Back to='tools'>Tools</Back>}
@@ -47,7 +48,7 @@ const ToolPage = ({ data: { tool } }) => (
         tools={tool.frontmatter.tools || []}
       />
     </Tool>
-  </>
+  </Layout>
 )
 
 export default ToolPage

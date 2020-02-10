@@ -1,6 +1,6 @@
 import React from 'react'
 import useDarkMode from 'use-dark-mode'
-import { Container } from '../components/Layout'
+import Layout, { Container } from '../components/Layout'
 import SettingsRow from '../components/SettingsRow'
 import Header from '../components/Header'
 import { Back } from '../components/Link'
@@ -11,7 +11,7 @@ const SettingsPage = () => {
   const darkMode = useDarkMode(false)
 
   return (
-    <>
+    <Layout>
       <Header
         title="Settings"
         primary={<Back to='/' />}
@@ -29,7 +29,7 @@ const SettingsPage = () => {
           action="2.0.0"
         />
       </Container>
-    </>
+    </Layout>
   )
 } 
 

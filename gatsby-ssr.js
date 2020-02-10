@@ -1,6 +1,4 @@
-import React from 'react'
 import { ServerStyleSheet } from 'styled-components'
-import Layout from './src/components/Layout'
 
 export const replaceRenderer = ({
   setHeadComponents,
@@ -10,7 +8,3 @@ export const replaceRenderer = ({
   const styleElement = sheet.getStyleElement()
   setHeadComponents(styleElement)
 }
-
-export const wrapPageElement = ({ element, props }) => (
-  <Layout {...props}>{element}</Layout>
-)

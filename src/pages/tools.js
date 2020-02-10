@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Container } from '../components/Layout'
+import Layout, { Container } from '../components/Layout'
 import Header from '../components/Header'
 import { Back } from '../components/Link'
 import Card from '../components/Card'
@@ -13,7 +13,7 @@ const getIndicators = ({ projects, posts, tools }) => ({
 })
 
 const ToolsPage = ({ data: { tools } }) => (
-  <>
+  <Layout>
     <Header
       title="Tools"
       primary={<Back to='/' />}
@@ -30,7 +30,7 @@ const ToolsPage = ({ data: { tools } }) => (
         />
       ))}
     </Container>
-  </>
+  </Layout>
 )
 
 export default ToolsPage

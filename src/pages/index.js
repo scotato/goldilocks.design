@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
 import Header from '../components/Header'
 import Emoji from '../components/Emoji'
 import Card from '../components/Card'
@@ -28,8 +30,8 @@ const Container = styled.div`
   }
 `
 
-const HomePage = ({ data: { posts, projects } }) => (
-  <>
+const HomePage = ({ data: { projects } }) => (
+  <Layout isRoot>
     <Header title={<Emoji name="fingers-crossed" size={700} />} />
     <Container>
       {projects.edges.map(({node: project}) => (
@@ -44,7 +46,7 @@ const HomePage = ({ data: { posts, projects } }) => (
         />
       ))}
     </Container>
-  </>
+  </Layout>
 )
 
 export default HomePage

@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
+
+import Layout from '../components/Layout'
 import Header from '../components/Header'
 import ContentList from '../components/ContentList'
 import { Back } from '../components/Link'
@@ -36,7 +38,7 @@ const Content = styled.div`
 `
 
 export default props => (
-  <>
+  <Layout>
     <Header
       title={props.data.post.frontmatter.title}
       primary={<Back to='posts'>Posts</Back>}
@@ -52,7 +54,7 @@ export default props => (
         tools={props.data.post.frontmatter.tools || []}
       />
     </Content>
-  </>
+  </Layout>
 )
 
 export const pageQuery = graphql`

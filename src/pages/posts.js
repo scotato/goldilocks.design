@@ -2,13 +2,14 @@ import React from 'react'
 import moment from 'moment'
 import { graphql } from 'gatsby'
 import { Container } from '../components/Layout'
+import Layout from '../components/Layout'
 import Card from '../components/Card'
 import Header from '../components/Header'
 import { Back } from '../components/Link'
 import ToolsIndicators from '../components/ToolsIndicators'
 
 const PostsPage = ({ data: { posts } }) => (
-  <>
+  <Layout>
     <Header
       title="Posts"
       primary={<Back to='/' />}
@@ -32,7 +33,7 @@ const PostsPage = ({ data: { posts } }) => (
       />
     ))}
     </Container>
-  </>
+  </Layout>
 )
 
 export default PostsPage
