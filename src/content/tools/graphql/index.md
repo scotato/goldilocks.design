@@ -6,7 +6,7 @@ github: https://github.com/graphql/graphql-js
 docs: https://facebook.github.io/graphql/
 website: https://graphql.org
 badge: graphQL-logo.png
-category: query-language
+category: web
 projects:
   - goldilocks-design
 tools: 

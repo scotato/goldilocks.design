@@ -5,7 +5,7 @@ description: Integrate iOS device camera and motion features to produce augmente
 docs: https://developer.apple.com/documentation/arkit/
 website: https://developer.apple.com/augmented-reality/arkit/
 badge: ar-kit-logo.png
-category: api
+category: augmented-reality
 projects:
   - augmented-albums
 date: 2019-04-12

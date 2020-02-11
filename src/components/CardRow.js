@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-// import Link from './Link'
-// import Icon from './Icon'
 
 export const Container = styled.div`
   padding: ${props => props.theme.size[900]};

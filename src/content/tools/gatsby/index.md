@@ -6,7 +6,7 @@ github: https://github.com/gatsbyjs/gatsby
 docs: https://www.gatsbyjs.org/docs
 website: https://www.gatsbyjs.org
 badge: gatsby-logo.png
-category: framework
+category: web
 projects:
   - goldilocks-design
 posts:

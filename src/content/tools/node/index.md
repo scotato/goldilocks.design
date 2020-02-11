@@ -6,7 +6,7 @@ github: https://github.com/nodejs/node
 docs: https://nodejs.org/dist/latest-v12.x/docs
 website: https://nodejs.org
 badge: node-logo.png
-category: framework
+category: web
 projects:
   - goldilocks-design
   - bokchoy

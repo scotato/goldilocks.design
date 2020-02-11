@@ -6,7 +6,7 @@ github: https://github.com/facebook/react
 docs: https://reactjs.org/docs
 website: https://reactjs.org
 badge: react-logo.png
-category: framework
+category: user-interface
 version: 16.12.0
 projects:
   - goldilocks-design

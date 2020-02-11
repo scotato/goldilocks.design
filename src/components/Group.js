@@ -1,0 +1,38 @@
+import React from 'react'
+import styled from 'styled-components'
+
+const Group = styled.div`
+`
+
+const Title = styled.div`
+  display: grid;
+  padding: ${props => props.theme.size[300]} ${props => props.theme.size[500]};
+  font-size: ${props => props.theme.size[500]};
+  color: ${props => props.theme.color.default};
+  grid-template-columns: auto auto 1fr;
+  grid-column-gap: ${props => props.theme.size[300]};
+  align-items: center;
+  text-transform: uppercase;
+`
+
+const Body = styled.div`
+  background-color: ${props => props.theme.isDarkMode ?props.theme.grayscale[900] : 'white'};
+  will-change: background-color;
+  transition: background-color 0.2s ease-out;
+  border-radius: ${props => props.theme.size[500]};
+  overflow: hidden;
+`
+
+const Caption = styled.div`
+  padding: ${props => props.theme.size[300]} ${props => props.theme.size[500]};
+  font-size: ${props => props.theme.size[500]};
+  color: ${props => props.theme.color.default};
+`
+
+export default props => (
+  <Group>
+    <Title>{props.title}</Title>
+    <Body>{props.children}</Body>
+    <Caption>{props.caption}</Caption>
+  </Group>
+)
