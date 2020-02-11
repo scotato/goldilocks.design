@@ -7,7 +7,7 @@ import { Back } from '../components/Link'
 import Icon from '../components/Icon'
 import Switch from '../components/Switch'
 
-const SettingsPage = () => {
+const SettingsPage = ({ data: { site } }) => {
   const darkMode = useDarkMode()
 
   return (
@@ -26,7 +26,7 @@ const SettingsPage = () => {
         <SettingsRow
           badge={<Icon name='tag' size={700} />}
           title="Version"
-          action="2.0.1"
+          action={site.siteMetadata.version}
         />
       </Container>
     </Layout>
@@ -34,3 +34,13 @@ const SettingsPage = () => {
 } 
 
 export default SettingsPage
+
+export const pageQuery = graphql`
+  query SettingsQuery {
+    site {
+      siteMetadata {
+        version
+      }
+    }
+  }
+`

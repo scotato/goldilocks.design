@@ -1,4 +1,5 @@
 require('dotenv').config()
+const { version } = require('./package.json')
 
 module.exports = {
   siteMetadata: {
@@ -13,6 +14,7 @@ module.exports = {
     shareImageWidth: 900, // Change to the width of your default share image
     shareImageHeight: 600, // Change to the height of your default share image
     siteLogo: '/images/logo-512.png', // Logo used for SEO, RSS, and App manifest
+    version,
     content:[
       {
         id: 'projects',
