@@ -6,7 +6,7 @@ website: https://swift.org/
 docs: https://swift.org/documentation
 github: https://github.com/apple/swift
 badge: swift-logo.png
-category: language
+category: programming-language
 projects:
   - noodle
   - augmented-albums

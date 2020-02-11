@@ -6,7 +6,7 @@ github: https://github.com/googleapis/nodejs-firestore
 docs: https://cloud.google.com/firestore/docs/
 website: https://cloud.google.com/firestore/
 badge: cloud-firestore-logo.png
-category: devOps
+category: dev-ops
 projects:
   - wavy
   - mecha

@@ -6,7 +6,7 @@ github: https://github.com/netlify
 docs: https://docs.netlify.com/
 website: https://www.netlify.com
 badge: netlify-logo.png
-category: devOps
+category: dev-ops
 projects:
   - goldilocks-design
   - caffeine-calculator

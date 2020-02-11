@@ -6,7 +6,7 @@ github: https://github.com/spotify/web-api
 docs: https://developer.spotify.com/documentation/web-api/reference/
 website: https://developer.spotify.com/documentation/web-api/
 badge: spotify-logo.png
-category: browser
+category: api
 projects:
   - wavy
   - augmented-albums
