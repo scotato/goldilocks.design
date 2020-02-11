@@ -1,12 +1,12 @@
 import React from 'react'
-import moment from 'moment'
 import { graphql } from 'gatsby'
 import { Container } from '../components/Layout'
 import Layout from '../components/Layout'
 import Card from '../components/Card'
 import Header from '../components/Header'
 import { Back } from '../components/Link'
-import ToolsIndicators from '../components/ToolsIndicators'
+import PostIndicators from '../components/PostIndicators'
+import Badges from '../components/Badges'
 
 const PostsPage = ({ data: { posts } }) => (
   <Layout>
@@ -19,17 +19,10 @@ const PostsPage = ({ data: { posts } }) => (
       <Card
         to={post.fields.slug}
         key={post.fields.slug}
-        badge={post.frontmatter.badge.childImageSharp.fluid}
+        card={post.frontmatter.badge.childImageSharp.fluid}
         title={post.frontmatter.title}
-        description={`${post.timeToRead} Minute Read`}
-        indicators={(
-          <ToolsIndicators
-            projectCount={post.frontmatter.projects ? post.frontmatter.projects.length : 0}
-            postCount={post.frontmatter.posts ? post.frontmatter.posts.length : 0}
-            toolCount={post.frontmatter.tools ? post.frontmatter.tools.length : 0}
-          />
-        )}
-        detail={moment(post.frontmatter.createdAt).format("MMM YYYY")}
+        indicators={<PostIndicators post={{...post.frontmatter, timeToRead: post.timeToRead}} />}
+        detail={<Badges ids={post.frontmatter.tools} size={600} />}
       />
     ))}
     </Container>
@@ -44,6 +37,7 @@ export const query = graphql`
     fields {
       slug
     }
+    excerpt
     timeToRead
     frontmatter {
       id

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Archive from '../icons/archive.svg'
 import Bells from '../icons/bells.svg'
 import Bicycle from '../icons/bicycle.svg'
+import BookOpen from '../icons/book-open.svg'
 import Book from '../icons/book.svg'
 import Calendar from '../icons/calendar.svg'
 import CalendarEdit from '../icons/calendar-edit.svg'
@@ -40,6 +41,8 @@ const IconSwitch = props => {
       return <Bells />
     case "bicycle":
       return <Bicycle />
+    case "book-open":
+      return <BookOpen />
     case "book":
       return <Book />
     case "calendar":
