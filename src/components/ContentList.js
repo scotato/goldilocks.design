@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import moment from 'moment'
 
+import Group from './Group'
 import LinkRowSmall from './LinkRowSmall'
 
 const ContentList = styled.nav`
@@ -11,13 +12,8 @@ const ContentList = styled.nav`
   grid-row-gap: ${props => props.theme.size[500]};
 `
 
-const Content = styled.div`
-  margin-bottom: ${props => props.theme.size[700]};
-`
-
 const Projects = props => props.items.length ? (
-  <Content>
-    <strong>Projects</strong>
+  <Group title="Projects">
     {props.items.map(project => (
       <LinkRowSmall
         to={project.fields.slug}
@@ -28,12 +24,11 @@ const Projects = props => props.items.length ? (
         detail={moment(project.frontmatter.updatedAt || project.frontmatter.createdAt).format("MMM YYYY")}
       />
     ))}
-  </Content>
+  </Group>
 ) : null
 
 const Posts = props => props.items.length ? (
-  <Content>
-    <strong>Posts</strong>
+  <Group title="Posts">
     {props.items.map(post => (
       <LinkRowSmall
         to={post.fields.slug}
@@ -43,12 +38,11 @@ const Posts = props => props.items.length ? (
         detail={moment(post.frontmatter.createdAt).format("MMM YYYY")}
       />
     ))}
-  </Content>
+  </Group>
 ) : null
 
 const Tools = props => props.items.length ? (
-  <Content>
-    <strong>Tools</strong>
+  <Group title="Tools">
     {props.items.map(tool => (
       <LinkRowSmall
         to={tool.fields.slug}
@@ -57,7 +51,7 @@ const Tools = props => props.items.length ? (
         title={tool.frontmatter.title}
       />
     ))}
-  </Content>
+  </Group>
 ) : null
 
 export default props => {

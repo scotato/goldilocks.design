@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Group = styled.div`
-`
+const Group = styled.div``
 
 const Title = styled.div`
   display: grid;
@@ -16,11 +15,25 @@ const Title = styled.div`
 `
 
 const Body = styled.div`
-  background-color: ${props => props.theme.isDarkMode ?props.theme.grayscale[900] : 'white'};
   will-change: background-color;
   transition: background-color 0.2s ease-out;
   border-radius: ${props => props.theme.size[500]};
   overflow: hidden;
+
+  & > * {
+    margin-bottom: 0;
+    border-radius: 0;
+    border-bottom: ${props => props.theme.size[100]} solid ${props => props.theme.grayscale[300]};
+
+    &:last-child {
+      border-bottom-left-radius: ${props => props.theme.size[500]};
+      border-bottom-right-radius: ${props => props.theme.size[500]};
+    }
+
+    .dark-mode & {
+      border-color: ${props => props.theme.grayscale[900]};
+    }
+  }
 `
 
 const Caption = styled.div`

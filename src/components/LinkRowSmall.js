@@ -6,7 +6,8 @@ import Icon from './Icon'
 
 const LinkRow = styled(Link)`
   display: grid;
-  margin: ${props => props.theme.size[500]} 0;
+  margin: 0;
+  margin-bottom: ${props => props.theme.size[500]};
   padding: ${props => props.theme.size[400]};
     background-color: ${props => props.theme.grayscale[200]};
   border-radius: ${props => props.theme.size[400]};
