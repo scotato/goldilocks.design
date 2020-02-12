@@ -59,6 +59,7 @@ const Primary = styled.div``
 const Secondary = styled.div`
   display: flex;
   justify-self: flex-end;
+  color: ${props => props.theme.color.default};
 
   a:not(:first-child) {
     margin-left: ${props => props.theme.size[500]};

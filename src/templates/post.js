@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
+import moment from 'moment'
 
 import Layout from '../components/Layout'
 import Header from '../components/Header'
@@ -42,6 +43,7 @@ export default props => (
     <Header
       title={props.data.post.frontmatter.title}
       primary={<Back to='posts'>Posts</Back>}
+      secondary={moment(props.data.post.frontmatter.createdAt).format("MMM YYYY")}
     />
     
     <Content>
@@ -70,7 +72,7 @@ export const pageQuery = graphql`
       frontmatter {
         author
         title
-        date
+        createdAt
         intro
         twitter
         github
