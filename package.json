@@ -2,7 +2,7 @@
   "name": "goldilocks-design",
   "private": true,
   "description": "thoughts on the web",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "author": "scott <scott@goldilocks.design>",
   "dependencies": {
     "flickity": "2.2.1",
