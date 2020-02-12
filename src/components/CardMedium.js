@@ -4,10 +4,6 @@ import Img from 'gatsby-image'
 import Link from './Link'
 import Icon from './Icon'
 
-export const Container = styled.div`
-  padding: 0 ${props => props.theme.size[900]};
-`
-
 const LinkRow = styled(Link)`
   display: grid;
   margin-bottom: ${props => props.theme.size[500]};
@@ -36,19 +32,14 @@ const Row = styled.div`
   background-color: ${props => props.theme.grayscale[200]};
   grid-area: row;
   grid-template-areas: 
-    "badge title detail arrow"
-    "badge description detail arrow"
-    "badge indicators detail arrow";
+      "badge title detail arrow"
+      "badge description detail arrow";
   grid-template-columns: auto 1fr auto auto;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: auto auto;
   grid-row-gap: ${props => props.theme.size[200]};
 
   ${props => props.theme.media.phone`
     padding: ${props.theme.size[400]};
-    grid-template-areas: 
-      "badge title detail arrow"
-      "badge description detail arrow";
-    grid-template-rows: auto auto;
   `}
 
   .dark-mode & {
@@ -62,8 +53,8 @@ const Card = styled(Img)`
 
 const Badge = styled(Img)`
   margin-right: ${props => props.theme.size[500]};
-  width: ${props => props.theme.size[900]};
-  height: ${props => props.theme.size[900]};
+  width: ${props => props.theme.size[800]};
+  height: ${props => props.theme.size[800]};
   grid-area: badge;
 
   ${props => props.theme.media.phone`
@@ -91,18 +82,6 @@ const Description = styled.span`
 
   ${props => props.theme.media.phone`
     font-size: ${props => props.theme.size[400]};
-  `}
-`
-
-const Indicators = styled.span`
-  display: flex;
-  grid-area: indicators;
-  align-items: center;
-  color: ${props => props.theme.grayscale[500]};
-  line-height: 1;
-
-  ${props => props.theme.media.phone`
-    display: none;
   `}
 `
 
@@ -140,7 +119,6 @@ export default props => (
       {props.badge && <Badge fluid={props.badge} />}
       <Title>{props.title}</Title>
       <Description>{props.description}</Description>
-      <Indicators>{props.indicators}</Indicators>
       <Detail>{props.detail}</Detail>
       <Arrow />
     </Row>

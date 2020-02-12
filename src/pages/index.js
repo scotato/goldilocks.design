@@ -1,33 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
+import Layout, { Container } from '../components/Layout'
 import Header from '../components/Header'
 import Emoji from '../components/Emoji'
 import Card from '../components/Card'
 import ProjectIndicators from '../components/ProjectIndicators'
 
-const Container = styled.div`
-  margin: 0 ${props => props.theme.size[700]};
-  padding: ${props => props.theme.size[700]} ${props => props.theme.size[900]};
-
-  ${props => props.theme.media.tabletHorizontal`
-    margin: 0 ${props => props.theme.size[700]};
-    padding: ${props => props.theme.size[500]} ${props => props.theme.size[700]};
-  `}
-
-  ${props => props.theme.media.phone`
-    margin: 0;
-    padding: ${props => props.theme.size[500]};
-  `}
-
-  a {
-    margin-bottom: ${props => props.theme.size[800]};
-
-    ${props => props.theme.media.phone`
-      margin-bottom: ${props => props.theme.size[700]};
-    `}
-  }
+const IndexCard = styled(Card)`
+  margin-bottom: ${props => props.theme.size[800]};
 `
 
 const HomePage = ({ data: { projects } }) => (
@@ -35,7 +16,7 @@ const HomePage = ({ data: { projects } }) => (
     <Header title={<Emoji name="fingers-crossed" size={700} />} />
     <Container>
       {projects.edges.map(({node: project}) => (
-        <Card
+        <IndexCard
           to={project.fields.slug}
           key={project.fields.slug}
           card={project.frontmatter.gallery && project.frontmatter.gallery[0].img.childImageSharp.fluid}

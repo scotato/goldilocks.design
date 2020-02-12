@@ -6,14 +6,7 @@ import Layout, { Container } from '../components/Layout'
 import Header from '../components/Header'
 import { Back } from '../components/Link'
 import Group from '../components/Group'
-import Card from '../components/Card'
-import ToolsIndicators from '../components/ToolsIndicators'
-
-const getIndicators = ({ projects, posts, tools }) => ({
-  projectCount: projects ? projects.length : 0,
-  postCount: posts ? posts.length : 0,
-  toolCount: tools ? tools.length : 0,
-})
+import CardMedium from '../components/CardMedium'
 
 const ToolsPage = ({ data }) => {
   const tools = data.tools.edges.map(tool => tool.node)
@@ -38,13 +31,12 @@ const ToolsPage = ({ data }) => {
         {categoryOrder.map(category => (
           <Group title={category.replace('-', ' ')}>
             {toolsByCategory[category].map(tool => (
-              <Card
+              <CardMedium
                 to={tool.fields.slug}
                 key={tool.fields.slug}
                 badge={tool.frontmatter.badge.childImageSharp.fluid}
                 title={tool.frontmatter.title}
                 description={tool.frontmatter.description}
-                indicators={<ToolsIndicators {...getIndicators(tool.frontmatter)} />}
               />
             ))}
           </Group>
