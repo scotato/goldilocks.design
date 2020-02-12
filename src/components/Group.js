@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Group = styled.div``
+const Group = styled.div`
+  margin-bottom: ${props => props.theme.size[500]};
+`
 
 const Title = styled.div`
   display: grid;

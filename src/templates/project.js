@@ -42,7 +42,7 @@ export default ({ data }) => {
         <ProjectHeader
           title={project.title}
           description={project.description}
-          indicators={<ProjectIndicators project={project} />}
+          indicators={<ProjectIndicators project={project} showStatus />}
           badge={project.logo.childImageSharp.fluid}
         />
         {project.gallery && <Gallery images={project.gallery} />}

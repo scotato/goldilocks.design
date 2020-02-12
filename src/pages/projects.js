@@ -1,31 +1,49 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import groupBy from 'lodash/groupBy'
+
 import Layout, { Container } from '../components/Layout'
+import Group from '../components/Group'
 import Card from '../components/Card'
 import Header from '../components/Header'
 import { Back } from '../components/Link'
 import ProjectIndicators from '../components/ProjectIndicators'
 
-const ProjectsPage = ({ data: { projects } }) => (
-  <Layout>
-    <Header
-      title="Projects"
-      primary={<Back to='/' />}
-    />
-    <Container>
-      {projects.edges.map(({node: project}) => (
-        <Card
-          to={project.fields.slug}
-          key={project.fields.slug}
-          badge={project.frontmatter.logo.childImageSharp.fluid}
-          title={project.frontmatter.title}
-          description={project.frontmatter.description}
-          indicators={<ProjectIndicators project={project.frontmatter} />}
-        />
-      ))}
-    </Container>
-  </Layout>
-)
+const ProjectsPage = ({ data }) => {
+  const projects = data.projects.edges.map(project => project.node)
+  const projectsByStatus = groupBy(projects, 'frontmatter.status')
+  const statusOrder = [
+    'production',
+    'development',
+    'prototype',
+    'archived'
+  ]
+
+  return (
+    <Layout>
+      <Header
+        title="Projects"
+        primary={<Back to='/' />}
+      />
+      <Container>
+        {statusOrder.map(status => (
+          <Group title={status.replace('-', ' ')}>
+            {projectsByStatus[status].map(project => (
+              <Card
+              to={project.fields.slug}
+              key={project.fields.slug}
+              badge={project.frontmatter.logo.childImageSharp.fluid}
+              title={project.frontmatter.title}
+              description={project.frontmatter.description}
+              indicators={<ProjectIndicators project={project.frontmatter} />}
+            />
+            ))}
+          </Group>
+        ))}
+      </Container>
+    </Layout>
+  )
+}
 
 export default ProjectsPage
 

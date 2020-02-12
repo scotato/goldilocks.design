@@ -38,7 +38,8 @@ const getStatusBadge = status => {
 }
 
 export default props => {
-  const { commits, createdAt, updatedAt, version, status } = props.project
+  const { project, showStatus } = props
+  const { commits, createdAt, updatedAt, version, status } = project
 
   return (
     <ProjectIndicators>
@@ -67,7 +68,7 @@ export default props => {
         icon={getStatusIcon(status)}
         color="default"
         title="Status"
-        badge={getStatusBadge(status)}
+        badge={showStatus && getStatusBadge(status)}
       />
     </ProjectIndicators>
   )

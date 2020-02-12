@@ -42,7 +42,7 @@ const HomePage = ({ data: { projects } }) => (
           badge={project.frontmatter.logo.childImageSharp.fluid}
           title={project.frontmatter.title}
           description={project.frontmatter.description}
-          indicators={<ProjectIndicators project={project.frontmatter} />}
+          indicators={<ProjectIndicators project={project.frontmatter} showStatus />}
         />
       ))}
     </Container>
