@@ -15,16 +15,16 @@ const PostsPage = ({ data: { posts } }) => (
       primary={<Back to='/' />}
     />
     <Container>
-    {posts.edges.map(({node: post}) => (
-      <Card
-        to={post.fields.slug}
-        key={post.fields.slug}
-        card={post.frontmatter.badge.childImageSharp.fluid}
-        title={post.frontmatter.title}
-        indicators={<PostIndicators post={{...post.frontmatter, timeToRead: post.timeToRead}} />}
-        detail={<Badges ids={post.frontmatter.tools} size={600} />}
-      />
-    ))}
+      {posts.edges.map(({node: post}) => (
+        <Card
+          to={post.fields.slug}
+          key={post.fields.slug}
+          card={post.frontmatter.badge.childImageSharp.fluid}
+          title={post.frontmatter.title}
+          indicators={<PostIndicators post={{...post.frontmatter, timeToRead: post.timeToRead}} />}
+          detail={<Badges ids={post.frontmatter.tools} size={600} />}
+        />
+      ))}
     </Container>
   </Layout>
 )
