@@ -20,7 +20,7 @@ const Body = styled.div`
   border-radius: ${props => props.theme.size[500]};
   overflow: hidden;
 
-  & > * {
+  & > a {
     margin-bottom: 0;
     border-radius: 0;
     border-bottom: ${props => props.theme.size[100]} solid ${props => props.theme.grayscale[300]};
