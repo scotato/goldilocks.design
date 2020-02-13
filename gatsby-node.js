@@ -1,5 +1,8 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
+const sourceGithub = require('./src/plugins/sourceGithub')
+
+exports.sourceNodes = sourceGithub
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
@@ -40,6 +43,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) =>
             }
             frontmatter {
               title
+              github
             }
           }
         }
