@@ -26,6 +26,7 @@ import MoonStars from '../icons/moon-stars.svg'
 import PencilRuler from '../icons/pencil-ruler.svg'
 import Rocket from '../icons/rocket.svg'
 import RSS from '../icons/rss.svg'
+import Star from '../icons/star.svg'
 import Tag from '../icons/tag.svg'
 import Tools from '../icons/tools.svg'
 import Twitter from '../icons/twitter.svg'
@@ -87,6 +88,8 @@ const IconSwitch = props => {
       return <Rocket />
     case "rss":
       return <RSS />
+    case "star":
+      return <Star />
     case "tag":
       return <Tag />
     case "tools":

@@ -5,6 +5,7 @@ description: A cross-device iOS/MacOS recipe app built with Swift and SwiftUI.
 author: scotato
 website: https://cookwithnoodle.com
 github: https://github.com/scotato/noodle
+githubNodeId: 'MDEwOlJlcG9zaXRvcnkxOTgzMjUwNTY='
 badge: noodle-badge.png
 logo: noodle-logo.png
 date: '2019-08-13'

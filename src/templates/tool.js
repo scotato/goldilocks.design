@@ -5,6 +5,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
 import ProjectHeader from '../components/ProjectHeader'
+import Indicators from '../components/Indicators'
 import ContentList from '../components/ContentList'
 import { Back, LinkIcon } from '../components/Link'
 
@@ -29,7 +30,7 @@ const ToolPage = ({ data: { tool } }) => (
       title={tool.frontmatter.title}
       primary={<Back to='tools'>Tools</Back>}
       secondary={[
-        // <LinkIcon to={tool.frontmatter.github.url} icon="github" size={600} />,
+        <LinkIcon to={tool.frontmatter.github && tool.frontmatter.github.url} icon="github" size={600} />,
         <LinkIcon to={tool.frontmatter.docs} icon="book" size={600} />,
         <LinkIcon to={tool.frontmatter.website} icon="external-link" size={600} />
       ]}
@@ -38,6 +39,13 @@ const ToolPage = ({ data: { tool } }) => (
       <ProjectHeader
         title={tool.frontmatter.title}
         description={tool.frontmatter.description}
+        indicators={
+          <Indicators
+            stargazers={tool.frontmatter.github && tool.frontmatter.github.stargazers}
+            commits={tool.frontmatter.github && tool.frontmatter.github.commits}
+            version={tool.frontmatter.github && tool.frontmatter.github.version}
+          />
+        }
         badge={tool.frontmatter.badge.childImageSharp.fluid}
       />
 

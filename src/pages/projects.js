@@ -7,7 +7,7 @@ import Group from '../components/Group'
 import Card from '../components/Card'
 import Header from '../components/Header'
 import { Back } from '../components/Link'
-import ProjectIndicators from '../components/ProjectIndicators'
+import Indicators from '../components/Indicators'
 
 const ProjectsPage = ({ data }) => {
   const projects = data.projects.edges.map(project => project.node)
@@ -35,7 +35,14 @@ const ProjectsPage = ({ data }) => {
               badge={project.frontmatter.logo.childImageSharp.fluid}
               title={project.frontmatter.title}
               description={project.frontmatter.description}
-              indicators={<ProjectIndicators project={project.frontmatter} />}
+              indicators={
+                <Indicators
+                  createdAt={project.github && project.github.createdAt}
+                  updatedAt={project.github && project.github.updatedAt}
+                  commits={project.github && project.github.commits}
+                  version={project.github && project.github.version}
+                />
+              }
             />
             ))}
           </Group>
@@ -67,11 +74,7 @@ export const query = graphql`
       date
       twitter
       github {
-        url
-        commits
-        createdAt
-        updatedAt
-        version
+        ...Repository
       }
       website
       isSourcePublic

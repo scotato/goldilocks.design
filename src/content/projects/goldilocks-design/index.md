@@ -5,6 +5,7 @@ description: An experimental software design and engineering blog built with mod
 author: scotato
 website: https://goldilocks.design
 github: https://github.com/scotato/goldilocks.design
+githubNodeId: 'MDEwOlJlcG9zaXRvcnkxNjUyODY2MTI='
 twitter: '1095771958732574720'
 badge: goldilocks-design-badge.png
 logo: goldilocks-design-logo.png

@@ -6,6 +6,7 @@ intro: a time based social network for online videos
 author: scotato
 website: http://aggbuzz.com
 github: https://github.com/scotato/aggbuzz
+githubNodeId: 'MDEwOlJlcG9zaXRvcnk1NjcyNTI0OQ=='
 badge: aggbuzz-badge.png
 logo: aggbuzz-logo.png
 date: '2015-12-07'

@@ -5,6 +5,7 @@ description: A web app to find games to play with your friends on steam.
 intro: find games to play with your friends on steam
 author: scotato
 github: https://github.com/scotato/superheated
+githubNodeId: 'MDEwOlJlcG9zaXRvcnkzMzUyMTAyMw=='
 badge: superheated-badge.png
 logo: superheated-logo.png
 date: '2015-03-19'

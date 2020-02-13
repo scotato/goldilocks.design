@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
+import numeral from 'numeral'
 import Indicator from './Indicator'
 
-const ProjectIndicators = styled.div`
+const Indicators = styled.div`
   display: flex;
 `
 
@@ -37,25 +38,34 @@ const getStatusBadge = status => {
   }
 }
 
+const formatNumber = number => number > 999 ? numeral(number).format('0.0a') : number
+const formatDate = date => moment(date).format("MMM YYYY")
+
 export default props => {
-  const { project, showStatus } = props
-  const { github, status } = project
-  const { createdAt, updatedAt, commits, version } = github
+  const { stargazers, commits, version, updatedAt, createdAt, status } = props
+  const date = updatedAt || createdAt
 
   return (
-    <ProjectIndicators>
+    <Indicators>
+      <Indicator 
+        icon="star"
+        color="default"
+        title={'Github Stargazers'}
+        badge={stargazers && formatNumber(stargazers)}
+      />
+
       <Indicator 
         icon="calendar"
         color="default"
         title={updatedAt ? 'Updated' : 'Created'}
-        badge={moment(updatedAt || createdAt).format("MMM YYYY")}
+        badge={date && formatDate(date)}
       />
 
       <Indicator 
         icon="history"
         color="default"
         title="Commits"
-        badge={commits}
+        badge={commits && formatNumber(commits)}
       />
 
       <Indicator 
@@ -69,8 +79,8 @@ export default props => {
         icon={getStatusIcon(status)}
         color="default"
         title="Status"
-        badge={showStatus && getStatusBadge(status)}
+        badge={getStatusBadge(status)}
       />
-    </ProjectIndicators>
+    </Indicators>
   )
 }

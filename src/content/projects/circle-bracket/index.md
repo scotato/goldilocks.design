@@ -4,6 +4,7 @@ title: circle bracket
 description: A circular tournament bracket design experiment.
 author: scotato
 github: https://github.com/scotato/circle-bracket
+githubNodeId: 'MDEwOlJlcG9zaXRvcnkxNjAwNzk0Mjg='
 badge: circle-bracket-badge.png
 logo: circle-bracket-logo.png
 date: '2018-12-02'

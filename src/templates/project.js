@@ -5,7 +5,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
 import ProjectHeader from '../components/ProjectHeader'
-import ProjectIndicators from '../components/ProjectIndicators'
+import Indicators from '../components/Indicators'
 import Gallery from '../components/Gallery'
 import ContentList from '../components/ContentList'
 import { Back, LinkIcon } from '../components/Link'
@@ -42,7 +42,15 @@ export default ({ data }) => {
         <ProjectHeader
           title={project.title}
           description={project.description}
-          indicators={<ProjectIndicators project={project} showStatus />}
+          indicators={
+            <Indicators
+              createdAt={project.github && project.github.createdAt}
+              updatedAt={project.github && project.github.updatedAt}
+              commits={project.github && project.github.commits}
+              version={project.github && project.github.version}
+              status={project.github && project.github.status}
+            />
+          }
           badge={project.logo.childImageSharp.fluid}
         />
         {project.gallery && <Gallery images={project.gallery} />}

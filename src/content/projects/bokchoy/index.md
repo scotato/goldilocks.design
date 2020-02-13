@@ -5,6 +5,7 @@ description: Scrape JSON-LD and metadata from websites.
 author: scotato
 website: https://bokchoy.netlify.com
 github: https://github.com/scotato/bokchoy
+githubNodeId: 'MDEwOlJlcG9zaXRvcnkyMDgwODY0OTk='
 twitter: '1172308843100954624'
 badge: bokchoy-badge.png
 logo: bokchoy-logo.png

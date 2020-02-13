@@ -4,6 +4,7 @@ title: augmented albums
 description: An augmented reality wrapper for physical albums.
 author: scotato
 github: https://github.com/scotato/augmented-albums
+githubNodeId: 'MDEwOlJlcG9zaXRvcnkxOTAyMjI0NTc='
 badge: augmented-albums-badge.png
 logo: augmented-albums-logo.png
 date: '2019-05-16'

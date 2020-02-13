@@ -4,6 +4,7 @@ title: tranche
 description: A browser extension to get the url of the current page.
 author: scotato
 github: https://github.com/scotato/tranche
+githubNodeId: 'MDEwOlJlcG9zaXRvcnk1Mzk4Mzg0NA=='
 badge: tranche-badge.png
 logo: tranche-logo.png
 date: '2016-03-15'

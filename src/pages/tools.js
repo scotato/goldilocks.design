@@ -64,6 +64,21 @@ export const pageQuery = graphql`
 `
 
 export const query = graphql`
+  fragment Repository on GithubRepo {
+    name
+    url
+    description
+    createdAt
+    pushedAt
+    updatedAt
+    homepageUrl
+    openGraphImageUrl
+    language
+    stargazers
+    commits
+    version
+  }
+
   fragment Tool on MarkdownRemark {
     id
     fields {
@@ -75,7 +90,7 @@ export const query = graphql`
       title
       description
       github {
-        url
+        ...Repository
       }
       docs
       website

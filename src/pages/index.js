@@ -5,7 +5,7 @@ import Layout, { Container } from '../components/Layout'
 import Header from '../components/Header'
 import Emoji from '../components/Emoji'
 import Card from '../components/Card'
-import ProjectIndicators from '../components/ProjectIndicators'
+import Indicators from '../components/Indicators'
 
 const IndexCard = styled(Card)`
   margin-bottom: ${props => props.theme.size[800]};
@@ -23,7 +23,15 @@ const HomePage = ({ data: { projects } }) => (
           badge={project.frontmatter.logo.childImageSharp.fluid}
           title={project.frontmatter.title}
           description={project.frontmatter.description}
-          indicators={<ProjectIndicators project={project.frontmatter} showStatus />}
+          indicators={
+            <Indicators
+              createdAt={project.github && project.github.createdAt}
+              updatedAt={project.github && project.github.updatedAt}
+              commits={project.github && project.github.commits}
+              version={project.github && project.github.version}
+              status={project.github && project.github.status}
+            />
+          }
         />
       ))}
     </Container>

@@ -5,6 +5,7 @@ description: Set up a modern web app by running one command.
 website: https://create-react-app.dev/
 docs: https://create-react-app.dev/docs/getting-started
 github: https://github.com/facebook/create-react-app
+githubNodeId: 'MDEwOlJlcG9zaXRvcnk2MzUzNzI0OQ=='
 badge: create-react-app-logo.png
 category: scaffolding
 projects:

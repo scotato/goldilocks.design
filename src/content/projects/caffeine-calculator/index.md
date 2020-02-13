@@ -5,6 +5,7 @@ description: Visualize how long caffeine stays in your system.
 author: scotato
 website: https://caffeine-calculator.goldilocks.design
 github: https://github.com/scotato/caffeine-calculator
+githubNodeId: 'MDEwOlJlcG9zaXRvcnkyMzE2NDU1Mjk='
 badge: caffeine-calculator-badge.png
 logo: caffeine-calculator-logo.png
 date: '2017-10-17'

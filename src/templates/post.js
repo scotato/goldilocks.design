@@ -62,26 +62,7 @@ export default props => (
 export const pageQuery = graphql`
   query PostsPostBySlug($slug: String!) {
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt(pruneLength: 160)
-      html
-      timeToRead
-      fields {
-        collection
-      }
-      frontmatter {
-        author
-        title
-        createdAt
-        intro
-        twitter
-        github {
-          url
-        }
-        projects
-        posts
-        tools
-      }
+      ...Post
     }
   }
 `

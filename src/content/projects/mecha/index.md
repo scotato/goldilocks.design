@@ -5,6 +5,7 @@ description: A web app for finding and watching great software technical talks.
 author: scotato
 website: https://mecha.video
 github: https://github.com/scotato/mecha
+githubNodeId: 'MDEwOlJlcG9zaXRvcnkxMjczODAyNjg='
 badge: mecha-badge.png
 logo: mecha-logo.png
 date: '2018-03-29'
