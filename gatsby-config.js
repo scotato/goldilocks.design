@@ -46,6 +46,9 @@ module.exports = {
       }
     ]
   },
+  mapping: {
+    'MarkdownRemark.frontmatter.github': `GithubRepo.url`
+  },
   plugins: [
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,

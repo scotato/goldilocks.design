@@ -74,7 +74,9 @@ export const query = graphql`
       id
       title
       description
-      github
+      github {
+        url
+      }
       docs
       website
       version

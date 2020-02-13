@@ -75,7 +75,9 @@ export const pageQuery = graphql`
         createdAt
         intro
         twitter
-        github
+        github {
+          url
+        }
         projects
         posts
         tools

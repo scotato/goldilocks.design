@@ -66,7 +66,13 @@ export const query = graphql`
       status
       date
       twitter
-      github
+      github {
+        url
+        commits
+        createdAt
+        updatedAt
+        version
+      }
       website
       isSourcePublic
       isProjectPublic

@@ -43,7 +43,6 @@ exports.createPages = ({ graphql, actions: { createPage } }) =>
             }
             frontmatter {
               title
-              github
             }
           }
         }

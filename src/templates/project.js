@@ -34,7 +34,7 @@ export default ({ data }) => {
         title={project.title}
         primary={<Back to='projects'>Projects</Back>}
         secondary={[
-          <LinkIcon to={project.isSourcePublic && project.github} icon="github" size={600} />,
+          <LinkIcon to={project.isSourcePublic && project.github.url} icon="github" size={600} />,
           <LinkIcon to={project.isProjectPublic && project.website} icon="external-link" size={600} />
         ]}
       />

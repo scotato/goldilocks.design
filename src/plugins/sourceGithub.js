@@ -7,13 +7,13 @@ const urlToRepo = url => {
   return { name, owner }
 }
 
-module.exports = async ({ actions: { createNode } }) => {
+module.exports = async ({ actions: { createNode }, createNodeId, createContentDigest }) => {
   const graphqlWithAuth = graphql.defaults({
     headers: {
       Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
     }
   })
-  
+
   const projects = await getFiles(`${__dirname}/../content/projects`, { match: /.md$/ })
     .map(frontmatter)
     .map(project => project.attributes.github)
@@ -26,20 +26,44 @@ module.exports = async ({ actions: { createNode } }) => {
         repositories(first: 100) {
           nodes {
             name
+            url
             description
+            createdAt
             pushedAt
+            updatedAt
             homepageUrl
             openGraphImageUrl
             primaryLanguage {
               color
               name
             }
-            releases(first: 100) {
-              nodes {
-                createdAt
-                name
-                description
-                tagName
+            stargazers {
+              totalCount
+            }
+            defaultBranchRef {
+              name
+              target {
+                ... on Commit {
+                  history(first: 0) {
+                    totalCount
+                  }
+                }
+              }
+            }
+            ref(qualifiedName: "master") {
+              target {
+                ... on Commit {
+                  history(first: 0) {
+                    totalCount
+                  }
+                }
+              }
+            }
+            refs(refPrefix: "refs/tags/", last: 1) {
+              edges {
+                node {
+                  name
+                }
               }
             }
           }
@@ -48,16 +72,32 @@ module.exports = async ({ actions: { createNode } }) => {
     }`
   )
 
-  const repositories = user.repositories.nodes
+  user.repositories.nodes
     .filter(repo => projects.includes(repo.name))
-  console.log(JSON.stringify(repositories, null, 2))
+    .forEach(repo => {
+      const { primaryLanguage, stargazers, defaultBranchRef, ref, refs, ...meta } = repo
+      const repository = {
+        ...meta,
+        language: primaryLanguage.name,
+        stargazers: stargazers.totalCount,
+        commits: ref ? ref.target.history.totalCount : 0,
+        version: refs.edges.length ? refs.edges[0].node.name : 'v0.0.0'
+      }
 
-  // projects.forEach(project => {
-  //   createNode({
-  //     project
-  //   })
-  // })
+      const nodeMeta = {
+        id: createNodeId(`github-repo-${repository.name}`),
+        parent: null,
+        children: [],
+        internal: {
+          type: `GithubRepo`,
+          mediaType: `application/javascript`,
+          content: JSON.stringify(repository),
+          contentDigest: createContentDigest(repository)
+        }
+      }
 
-  // repository.forEach(datum => createNode(processDatum(datum)))
-  return
+      createNode({ ...repository, ...nodeMeta })
+    })
+
+    return
 }
