@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import useDarkMode from 'use-dark-mode'
 import Layout, { Container } from '../components/Layout'
 import SettingsRow from '../components/SettingsRow'
