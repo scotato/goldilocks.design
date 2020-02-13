@@ -29,7 +29,7 @@ const ToolPage = ({ data: { tool } }) => (
       title={tool.frontmatter.title}
       primary={<Back to='tools'>Tools</Back>}
       secondary={[
-        <LinkIcon to={tool.frontmatter.github.url} icon="github" size={600} />,
+        // <LinkIcon to={tool.frontmatter.github.url} icon="github" size={600} />,
         <LinkIcon to={tool.frontmatter.docs} icon="book" size={600} />,
         <LinkIcon to={tool.frontmatter.website} icon="external-link" size={600} />
       ]}
