@@ -48,7 +48,7 @@ export default ({ data }) => {
               updatedAt={project.github && project.github.updatedAt}
               commits={project.github && project.github.commits}
               version={project.github && project.github.version}
-              status={project.github && project.github.status}
+              status={project.status}
             />
           }
           badge={project.logo.childImageSharp.fluid}
