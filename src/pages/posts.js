@@ -39,6 +39,7 @@ export const query = graphql`
     }
     excerpt
     timeToRead
+    html
     frontmatter {
       id
       author
