@@ -8,9 +8,9 @@ const LinkRow = styled(Link)`
   display: grid;
   margin: 0;
   margin-bottom: ${props => props.theme.size[500]};
-  padding: ${props => props.theme.size[400]};
-    background-color: ${props => props.theme.grayscale[200]};
-  border-radius: ${props => props.theme.size[400]};
+  padding: ${props => props.theme.size[500]};
+  background-color: ${props => props.theme.grayscale[200]};
+  border-radius: ${props => props.theme.size[500]};
   grid-template-areas: "badge title detail arrow";
   grid-template-columns: ${props => props.theme.size[700]} auto auto ${props => props.theme.size[600]};
   grid-column-gap: ${props => props.theme.size[400]};
@@ -48,7 +48,6 @@ const Detail = styled.span`
   align-items: center;
   justify-content: flex-end;
   grid-area: detail;
-  font-size: ${props => props.theme.size[500]};
   color: ${props => props.theme.grayscale[500]};
 
   ${props => props.theme.media.phone`

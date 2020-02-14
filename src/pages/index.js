@@ -5,7 +5,7 @@ import Layout, { Container } from '../components/Layout'
 import Header from '../components/Header'
 import Emoji from '../components/Emoji'
 import Card from '../components/Card'
-import Indicators from '../components/Indicators'
+import RepositoryIndicators from '../components/RepositoryIndicators'
 
 const IndexCard = styled(Card)`
   margin-bottom: ${props => props.theme.size[800]};
@@ -24,7 +24,7 @@ const HomePage = ({ data: { projects } }) => (
           title={project.frontmatter.title}
           description={project.frontmatter.description}
           indicators={
-            <Indicators
+            <RepositoryIndicators
               createdAt={project.frontmatter.github && project.frontmatter.github.createdAt}
               updatedAt={project.frontmatter.github && project.frontmatter.github.updatedAt}
               commits={project.frontmatter.github && project.frontmatter.github.commits}

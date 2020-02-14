@@ -16,6 +16,8 @@ const Header = styled.div`
 
     
   ${props => props.theme.media.phone`
+    margin-bottom: ${props => props.theme.size[700]};
+    padding: 0 ${props => props.theme.size[500]};
     grid-template-columns: auto;
     grid-template-rows: auto auto auto auto;
     grid-template-areas:

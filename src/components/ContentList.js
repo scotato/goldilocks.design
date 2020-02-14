@@ -1,16 +1,9 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
 import moment from 'moment'
 
 import Group from './Group'
 import LinkRowSmall from './LinkRowSmall'
-
-const ContentList = styled.nav`
-  display: grid;
-  grid-template-rows: auto auto auto;
-  grid-row-gap: ${props => props.theme.size[500]};
-`
 
 const Projects = props => props.items.length ? (
   <Group title="Projects">
@@ -102,10 +95,10 @@ export default props => {
     .filter(tool => props.tools.includes(tool.frontmatter.id))
 
   return (
-    <ContentList>
+    <>
       <Projects items={projects} title={props.title} />
       <Posts items={posts} title={props.title} />
       <Tools items={tools} title={props.title} />
-    </ContentList>
+    </>
   )
 }

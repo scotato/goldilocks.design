@@ -7,7 +7,7 @@ import Group from '../components/Group'
 import Card from '../components/Card'
 import Header from '../components/Header'
 import { Back } from '../components/Link'
-import Indicators from '../components/Indicators'
+import RepositoryIndicators from '../components/RepositoryIndicators'
 
 const ProjectsPage = ({ data }) => {
   const projects = data.projects.edges.map(project => project.node)
@@ -36,7 +36,7 @@ const ProjectsPage = ({ data }) => {
               title={project.frontmatter.title}
               description={project.frontmatter.description}
               indicators={
-                <Indicators
+                <RepositoryIndicators
                   createdAt={project.frontmatter.github && project.frontmatter.github.createdAt}
                   updatedAt={project.frontmatter.github && project.frontmatter.github.updatedAt}
                   commits={project.frontmatter.github && project.frontmatter.github.commits}

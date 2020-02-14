@@ -1,25 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
+import Icon from './Icon'
 
 const Row = styled.div`
   display: grid;
-  margin: ${props => props.theme.size[500]} 0;
+  margin-bottom: ${props => props.theme.size[500]};
   padding: ${props => props.theme.size[500]};
-    background-color: ${props => props.theme.grayscale[200]};
-  border-radius: ${props => props.theme.size[500]};
-  grid-template-areas: "badge title action";
+  background-color: ${props => props.theme.grayscale[200]};
+  border-radius: ${props => props.theme.size[600]};
+  grid-template-areas: "badge title detail";
   grid-template-columns: ${props => props.theme.size[700]} 1fr auto;
-  grid-template-rows: ${props => props.theme.size[700]};
-  grid-column-gap: ${props => props.theme.size[500]};
-  color: inherit;
+  grid-column-gap: ${props => props.theme.size[400]};
+  line-height: ${props => props.theme.size[700]};
   align-items: center;
 
   .dark-mode & {
     background-color: ${props => props.theme.grayscale[800]};
-  }
-
-  &:hover {
-    color: inherit;
   }
 
   &:last-child {
@@ -27,27 +23,33 @@ const Row = styled.div`
   }
 `
 
-const Badge = styled.div`
+const Badge = styled(Icon)`
+  margin: 0 auto;
   grid-area: badge;
   color: ${props => props.theme.grayscale[400]};
 `
 
 const Title = styled.span`
   grid-area: title;
-  font-weight: 500;
-  line-height: 1;
-  font-size: ${props => props.theme.size[600]};
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `
 
-const Action = styled.div`
-  grid-area: action;
-  line-height: 1;
+const Detail = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  grid-area: detail;
+  /* font-size: ${props => props.theme.size[500]}; */
+  color: ${props => props.theme.grayscale[500]};
 `
 
 export default props => (
   <Row>
-    <Badge>{props.badge}</Badge>
+    <Badge name={props.icon} size={700} />
     <Title>{props.title}</Title>
-    <Action>{props.action}</Action>
+    <Detail>{props.detail}</Detail>
   </Row>
 )

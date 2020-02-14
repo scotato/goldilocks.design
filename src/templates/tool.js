@@ -5,7 +5,8 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
 import ProjectHeader from '../components/ProjectHeader'
-import Indicators from '../components/Indicators'
+import RepositoryRows from '../components/RepositoryRows'
+import RepositoryIndicators from '../components/RepositoryIndicators'
 import ContentList from '../components/ContentList'
 import { Back, LinkIcon } from '../components/Link'
 
@@ -39,14 +40,14 @@ const ToolPage = ({ data: { tool } }) => (
       <ProjectHeader
         title={tool.frontmatter.title}
         description={tool.frontmatter.description}
+        badge={tool.frontmatter.badge.childImageSharp.fluid}
         indicators={
-          <Indicators
+          <RepositoryIndicators
             stargazers={tool.frontmatter.github && tool.frontmatter.github.stargazers}
             commits={tool.frontmatter.github && tool.frontmatter.github.commits}
             version={tool.frontmatter.github && tool.frontmatter.github.version}
           />
         }
-        badge={tool.frontmatter.badge.childImageSharp.fluid}
       />
 
       <ContentList
@@ -54,6 +55,12 @@ const ToolPage = ({ data: { tool } }) => (
         projects={tool.frontmatter.projects || []}
         posts={tool.frontmatter.posts || []}
         tools={tool.frontmatter.tools || []}
+      />
+
+      <RepositoryRows
+        stargazers={tool.frontmatter.github && tool.frontmatter.github.stargazers}
+        commits={tool.frontmatter.github && tool.frontmatter.github.commits}
+        version={tool.frontmatter.github && tool.frontmatter.github.version}
       />
     </Tool>
   </Layout>

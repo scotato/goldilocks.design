@@ -38,8 +38,8 @@ const getStatusBadge = status => {
   }
 }
 
-const formatNumber = number => number > 999 ? numeral(number).format('0.0a') : number
-const formatDate = date => moment(date).format("MMM YYYY")
+export const formatNumber = number => number > 999 ? numeral(number).format('0.0a') : number
+export const formatDate = date => moment(date).format("MMM YYYY")
 
 export default props => {
   const { stargazers, commits, version, updatedAt, createdAt, status } = props

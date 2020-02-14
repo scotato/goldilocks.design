@@ -5,10 +5,11 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
 import ProjectHeader from '../components/ProjectHeader'
-import Indicators from '../components/Indicators'
 import Gallery from '../components/Gallery'
 import ContentList from '../components/ContentList'
 import { Back, LinkIcon } from '../components/Link'
+import RepositoryIndicators from '../components/RepositoryIndicators'
+import RepositoryRows from '../components/RepositoryRows'
  
 const Project = styled.article`
   margin: 0 ${props => props.theme.size[700]};
@@ -27,6 +28,8 @@ const Project = styled.article`
 
 export default ({ data }) => {
   const project = data.project.frontmatter
+  const { github } = data.project.frontmatter
+  const { createdAt, updatedAt, version, commits } = github
 
   return (
     <Layout>
@@ -34,7 +37,7 @@ export default ({ data }) => {
         title={project.title}
         primary={<Back to='projects'>Projects</Back>}
         secondary={[
-          <LinkIcon to={project.isSourcePublic && project.github.url} icon="github" size={600} />,
+          <LinkIcon to={project.isSourcePublic && github.url} icon="github" size={600} />,
           <LinkIcon to={project.isProjectPublic && project.website} icon="external-link" size={600} />
         ]}
       />
@@ -42,27 +45,35 @@ export default ({ data }) => {
         <ProjectHeader
           title={project.title}
           description={project.description}
+          badge={project.logo.childImageSharp.fluid}
           indicators={
-            <Indicators
-              createdAt={project.github && project.github.createdAt}
-              updatedAt={project.github && project.github.updatedAt}
-              commits={project.github && project.github.commits}
-              version={project.github && project.github.version}
+            <RepositoryIndicators
+              createdAt={createdAt}
+              updatedAt={updatedAt}
+              commits={commits}
+              version={version}
               status={project.status}
             />
           }
-          badge={project.logo.childImageSharp.fluid}
         />
-        {project.gallery && <Gallery images={project.gallery} />}
-        <div dangerouslySetInnerHTML={{ __html: data.project.html }} />
         
-        <br />
+        {project.gallery && <Gallery images={project.gallery} />}
+        
+        <div dangerouslySetInnerHTML={{ __html: data.project.html }} />
 
         <ContentList
           title={project.title}
           projects={project.projects || []}
           posts={project.posts || []}
           tools={project.tools || []}
+        />
+
+        <RepositoryRows
+          createdAt={createdAt}
+          updatedAt={updatedAt}
+          commits={commits}
+          version={version}
+          status={project.status}
         />
       </Project>
   </Layout>

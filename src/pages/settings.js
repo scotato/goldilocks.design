@@ -5,7 +5,6 @@ import Layout, { Container } from '../components/Layout'
 import Row from '../components/Row'
 import Header from '../components/Header'
 import { Back } from '../components/Link'
-import Icon from '../components/Icon'
 import Switch from '../components/Switch'
 
 const SettingsPage = ({ data: { site } }) => {
@@ -19,15 +18,15 @@ const SettingsPage = ({ data: { site } }) => {
       />
       <Container>
         <Row
-          badge={<Icon name='moon' size={700} />}
+          icon="moon"
           title="Dark Mode"
-          action={<Switch onChange={darkMode.toggle} checked={darkMode.value}/>}
+          detail={<Switch onChange={darkMode.toggle} checked={darkMode.value}/>}
         />
 
         <Row
-          badge={<Icon name='tag' size={700} />}
+          icon="tag"
           title="Version"
-          action={site.siteMetadata.version}
+          detail={site.siteMetadata.version}
         />
       </Container>
     </Layout>
