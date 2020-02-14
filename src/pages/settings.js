@@ -6,9 +6,11 @@ import Row from '../components/Row'
 import Header from '../components/Header'
 import { Back } from '../components/Link'
 import Switch from '../components/Switch'
+import RepositoryRows from '../components/RepositoryRows'
 
-const SettingsPage = ({ data: { site } }) => {
+const SettingsPage = ({ data: { source } }) => {
   const darkMode = useDarkMode()
+  console.log(source)
 
   return (
     <Layout>
@@ -23,10 +25,9 @@ const SettingsPage = ({ data: { site } }) => {
           detail={<Switch onChange={darkMode.toggle} checked={darkMode.value}/>}
         />
 
-        <Row
-          icon="tag"
-          title="Version"
-          detail={site.siteMetadata.version}
+        <RepositoryRows
+          updatedAt={source.frontmatter.github.updatedAt}
+          version={source.frontmatter.github.version}
         />
       </Container>
     </Layout>
@@ -37,10 +38,8 @@ export default SettingsPage
 
 export const pageQuery = graphql`
   query SettingsQuery {
-    site {
-      siteMetadata {
-        version
-      }
+    source: markdownRemark(frontmatter: { id: { eq: "goldilocks-design" } }) {
+      ...Project
     }
   }
 `
