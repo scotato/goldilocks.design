@@ -16,7 +16,7 @@ export default props => {
     <Group title="Source">
       <SourceRow
         icon="star"
-        title="GitHub Stargazers"
+        title="Stargazers"
         detail={stargazers && formatNumber(stargazers)}
       />
 
@@ -33,15 +33,15 @@ export default props => {
       />
 
       <SourceRow
-        icon="tag"
-        title="Version"
-        detail={version}
-      />
-
-      <SourceRow
         icon='history'
         title="Commits"
         detail={commits && formatNumber(commits)}
+      />
+
+      <SourceRow
+        icon="tag"
+        title="Version"
+        detail={version}
       />
 
       <SourceRow 

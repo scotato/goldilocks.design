@@ -27,6 +27,10 @@ const Badge = styled(Icon)`
   margin: 0 auto;
   grid-area: badge;
   color: ${props => props.theme.grayscale[400]};
+  
+  .dark-mode & {
+    color: ${props => props.theme.grayscale[500]};
+  }
 `
 
 const Title = styled.span`
@@ -42,7 +46,6 @@ const Detail = styled.span`
   align-items: center;
   justify-content: flex-end;
   grid-area: detail;
-  /* font-size: ${props => props.theme.size[500]}; */
   color: ${props => props.theme.grayscale[500]};
 `
 
