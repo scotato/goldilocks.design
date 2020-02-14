@@ -58,6 +58,8 @@ const ToolPage = ({ data: { tool } }) => (
       />
 
       <RepositoryRows
+        createdAt={tool.frontmatter.github && tool.frontmatter.github.createdAt}
+        updatedAt={tool.frontmatter.github && tool.frontmatter.github.updatedAt}
         stargazers={tool.frontmatter.github && tool.frontmatter.github.stargazers}
         commits={tool.frontmatter.github && tool.frontmatter.github.commits}
         version={tool.frontmatter.github && tool.frontmatter.github.version}

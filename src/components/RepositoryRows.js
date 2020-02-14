@@ -15,9 +15,9 @@ export default props => {
   return visible ? (
     <Group title="Source">
       <SourceRow
-        icon="star"
-        title="Stargazers"
-        detail={stargazers && formatNumber(stargazers)}
+        icon="calendar-plus"
+        title="Created"
+        detail={createdAt && formatDate(createdAt)}
       />
 
       <SourceRow
@@ -27,9 +27,9 @@ export default props => {
       />
 
       <SourceRow
-        icon="calendar-plus"
-        title="Created"
-        detail={createdAt && formatDate(createdAt)}
+        icon="star"
+        title="Stargazers"
+        detail={stargazers && formatNumber(stargazers)}
       />
 
       <SourceRow
