@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const SettingsRow = styled.div`
+const Row = styled.div`
   display: grid;
   margin: ${props => props.theme.size[500]} 0;
   padding: ${props => props.theme.size[500]};
@@ -45,9 +45,9 @@ const Action = styled.div`
 `
 
 export default props => (
-  <SettingsRow>
+  <Row>
     <Badge>{props.badge}</Badge>
     <Title>{props.title}</Title>
     <Action>{props.action}</Action>
-  </SettingsRow>
+  </Row>
 )

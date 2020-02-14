@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import useDarkMode from 'use-dark-mode'
 import Layout, { Container } from '../components/Layout'
-import SettingsRow from '../components/SettingsRow'
+import Row from '../components/Row'
 import Header from '../components/Header'
 import { Back } from '../components/Link'
 import Icon from '../components/Icon'
@@ -18,13 +18,13 @@ const SettingsPage = ({ data: { site } }) => {
         primary={<Back to='/' />}
       />
       <Container>
-        <SettingsRow
+        <Row
           badge={<Icon name='moon' size={700} />}
           title="Dark Mode"
           action={<Switch onChange={darkMode.toggle} checked={darkMode.value}/>}
         />
 
-        <SettingsRow
+        <Row
           badge={<Icon name='tag' size={700} />}
           title="Version"
           action={site.siteMetadata.version}
