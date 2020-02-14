@@ -25,11 +25,11 @@ const HomePage = ({ data: { projects } }) => (
           description={project.frontmatter.description}
           indicators={
             <Indicators
-              createdAt={project.github && project.github.createdAt}
-              updatedAt={project.github && project.github.updatedAt}
-              commits={project.github && project.github.commits}
-              version={project.github && project.github.version}
-              status={project.github && project.github.status}
+              createdAt={project.frontmatter.github && project.frontmatter.github.createdAt}
+              updatedAt={project.frontmatter.github && project.frontmatter.github.updatedAt}
+              commits={project.frontmatter.github && project.frontmatter.github.commits}
+              version={project.frontmatter.github && project.frontmatter.github.version}
+              status={project.frontmatter.github && project.frontmatter.github.status}
             />
           }
         />
