@@ -52,7 +52,6 @@ export default ({ data }) => {
               updatedAt={updatedAt}
               commits={commits}
               version={version}
-              status={project.status}
             />
           }
         />

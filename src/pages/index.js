@@ -29,7 +29,6 @@ const HomePage = ({ data: { projects } }) => (
               updatedAt={project.frontmatter.github && project.frontmatter.github.updatedAt}
               commits={project.frontmatter.github && project.frontmatter.github.commits}
               version={project.frontmatter.github && project.frontmatter.github.version}
-              status={project.frontmatter.status}
             />
           }
         />
