@@ -52,6 +52,7 @@ const Title = styled.div`
   text-overflow: ellipsis;
   overflow: hidden;
   max-width: 100%;
+  line-height: 1.1;
 `
 
 const Primary = styled.div``
