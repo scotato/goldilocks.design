@@ -5,7 +5,6 @@ description: Swift is a general-purpose programming language built using a moder
 website: https://swift.org/
 docs: https://swift.org/documentation
 github: https://github.com/apple/swift
-githubNodeId: 'MDEwOlJlcG9zaXRvcnk0NDgzODk0OQ=='
 badge: swift-logo.png
 category: programming-language
 projects:

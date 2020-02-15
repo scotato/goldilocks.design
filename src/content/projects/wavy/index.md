@@ -3,7 +3,6 @@ id: wavy
 title: wavy
 description: A social web client for Spotify.
 github: https://github.com/scotato/wavy
-githubNodeId: 'MDEwOlJlcG9zaXRvcnk5OTk3ODQzMA=='
 badge: wavy-badge.png
 logo: wavy-logo.png
 status: archived

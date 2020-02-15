@@ -3,7 +3,6 @@ id: react
 title: React
 description: A JavaScript library for building user interfaces.
 github: https://github.com/facebook/react
-githubNodeId: 'MDEwOlJlcG9zaXRvcnkxMDI3MDI1MA=='
 docs: https://reactjs.org/docs
 website: https://reactjs.org
 badge: react-logo.png

@@ -3,7 +3,6 @@ id: superheated
 title: superheated
 description: A web app to find games to play with your friends on steam.
 github: https://github.com/scotato/superheated
-githubNodeId: 'MDEwOlJlcG9zaXRvcnkzMzUyMTAyMw=='
 badge: superheated-badge.png
 logo: superheated-logo.png
 status: prototype

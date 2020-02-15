@@ -3,7 +3,6 @@ id: bokchoy
 title: bokchoy
 description: Scrape JSON-LD and metadata from websites.
 github: https://github.com/scotato/bokchoy
-githubNodeId: 'MDEwOlJlcG9zaXRvcnkyMDgwODY0OTk='
 badge: bokchoy-badge.png
 logo: bokchoy-logo.png
 status: prototype

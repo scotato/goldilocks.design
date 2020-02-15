@@ -27,6 +27,7 @@ const Tool = styled.div`
 
 const ToolPage = ({ data: { tool } }) => (
   <Layout>
+    {console.log(tool.frontmatter)}
     <Header
       title={tool.frontmatter.title}
       primary={<Back to='tools'>Tools</Back>}

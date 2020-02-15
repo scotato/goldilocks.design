@@ -3,7 +3,6 @@ id: goldilocks-design
 title: goldilocks design
 description: An experimental software design and engineering blog built with modern web tools.
 github: https://github.com/scotato/goldilocks.design
-githubNodeId: 'MDEwOlJlcG9zaXRvcnkxNjUyODY2MTI='
 badge: goldilocks-design-badge.png
 logo: goldilocks-design-logo.png
 status: production
@@ -21,6 +20,7 @@ tools:
   - gatsby
   - styled-components
   - graphql
+  - github
   - netlify
   - figma
 posts:

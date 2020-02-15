@@ -3,7 +3,6 @@ id: caffeine-calculator
 title: caffeine calculator
 description: Visualize how long caffeine stays in your system.
 github: https://github.com/scotato/caffeine-calculator
-githubNodeId: 'MDEwOlJlcG9zaXRvcnkyMzE2NDU1Mjk='
 badge: caffeine-calculator-badge.png
 logo: caffeine-calculator-logo.png
 status: prototype

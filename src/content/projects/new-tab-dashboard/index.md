@@ -3,7 +3,6 @@ id: new-tab-dashboard
 title: new tab dashboard
 description: A browser extension that displays the time and changes color throughout the day.
 github: https://github.com/scotato/new-tab-dashboard
-githubNodeId: 'MDEwOlJlcG9zaXRvcnkyMjY1ODg2Njc='
 badge: new-tab-dashboard-badge.png
 logo: new-tab-dashboard-logo.png
 status: prototype
