@@ -73,6 +73,8 @@ export const query = graphql`
     updatedAt
     homepageUrl
     openGraphImageUrl
+    usesCustomOpenGraphImage
+    isPrivate
     language
     stargazers
     commits

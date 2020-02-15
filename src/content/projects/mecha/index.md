@@ -2,23 +2,11 @@
 id: mecha
 title: mecha
 description: A web app for finding and watching great software technical talks.
-author: scotato
-website: https://mecha.video
 github: https://github.com/scotato/mecha
 githubNodeId: 'MDEwOlJlcG9zaXRvcnkxMjczODAyNjg='
 badge: mecha-badge.png
 logo: mecha-logo.png
-date: '2018-03-29'
-addedAt: '2020-01-02'
-createdAt: '2018-03-29'
-updatedAt: '2018-04-27'
-version: '1.0.0'
 status: archived
-commits: 206
-isWebsiteActive: true
-isProjectActive: true
-isProjectPublic: true
-isSourcePublic: false
 gallery:
   - description: Feed
     img: gallery/Screen Shot 2018-04-17 at 12.15.15 PM.png

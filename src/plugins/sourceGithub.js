@@ -21,6 +21,8 @@ module.exports = async ({ actions: { createNode }, createNodeId, createContentDi
           updatedAt
           homepageUrl
           openGraphImageUrl
+          usesCustomOpenGraphImage
+          isPrivate
           primaryLanguage {
             color
             name

@@ -18,7 +18,7 @@ export default props => {
     query BadgesQuery {
       projects: allMarkdownRemark(
         filter: { fields: { collection: { eq: "projects" } } }
-        sort: { fields: [frontmatter___updatedAt, frontmatter___commits], order: DESC }
+        sort: { fields: [frontmatter___github___updatedAt, frontmatter___github___commits], order: DESC }
       ) {
         edges {
           node {

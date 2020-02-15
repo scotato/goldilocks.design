@@ -2,24 +2,11 @@
 id: goldilocks-design
 title: goldilocks design
 description: An experimental software design and engineering blog built with modern web tools.
-author: scotato
-website: https://goldilocks.design
 github: https://github.com/scotato/goldilocks.design
 githubNodeId: 'MDEwOlJlcG9zaXRvcnkxNjUyODY2MTI='
-twitter: '1095771958732574720'
 badge: goldilocks-design-badge.png
 logo: goldilocks-design-logo.png
-date: '2019-02-14'
-addedAt: '2020-01-02'
-createdAt: '2019-02-14'
-updatedAt: '2020-02-06'
-version: '2.0.0'
 status: production
-commits: 357
-isWebsiteActive: true
-isProjectActive: true
-isProjectPublic: true
-isSourcePublic: true
 gallery:
   - description: Home
     img: gallery/Screen Shot 2020-01-07 at 1.08.01 PM.png

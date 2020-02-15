@@ -2,21 +2,11 @@
 id: circle-bracket
 title: circle bracket
 description: A circular tournament bracket design experiment.
-author: scotato
 github: https://github.com/scotato/circle-bracket
 githubNodeId: 'MDEwOlJlcG9zaXRvcnkxNjAwNzk0Mjg='
 badge: circle-bracket-badge.png
 logo: circle-bracket-logo.png
-date: '2018-12-02'
-addedAt: '2020-01-02'
-createdAt: '2018-12-02'
-updatedAt: '2018-12-07'
-version: '0.1.0'
 status: prototype
-commits: 28
-isProjectActive: false
-isProjectPublic: true
-isSourcePublic: true
 gallery:
   - description: Small
     img: gallery/Screen Shot 2018-12-06 at 10.36.19 PM.png

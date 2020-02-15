@@ -2,24 +2,11 @@
 id: bokchoy
 title: bokchoy
 description: Scrape JSON-LD and metadata from websites.
-author: scotato
-website: https://bokchoy.netlify.com
 github: https://github.com/scotato/bokchoy
 githubNodeId: 'MDEwOlJlcG9zaXRvcnkyMDgwODY0OTk='
-twitter: '1172308843100954624'
 badge: bokchoy-badge.png
 logo: bokchoy-logo.png
-date: '2019-09-12'
-addedAt: '2020-01-02'
-createdAt: '2019-09-12'
-updatedAt: '2019-09-12'
-version: '0.1.0'
 status: prototype
-commits: 17
-isWebsiteActive: true
-isProjectActive: true
-isProjectPublic: true
-isSourcePublic: true
 gallery:
   - description: Splash
     img: gallery/Screen Shot 2020-01-08 at 8.37.25 AM.png

@@ -2,23 +2,11 @@
 id: noodle
 title: noodle
 description: A cross-device iOS/MacOS recipe app built with Swift and SwiftUI. 
-author: scotato
-website: https://cookwithnoodle.com
 github: https://github.com/scotato/noodle
 githubNodeId: 'MDEwOlJlcG9zaXRvcnkxOTgzMjUwNTY='
 badge: noodle-badge.png
 logo: noodle-logo.png
-date: '2019-08-13'
-addedAt: '2020-01-02'
-createdAt: '2019-08-13'
-updatedAt: '2019-11-20'
-version: '0.10.0'
 status: development
-commits: 192
-isProjectActive: true
-isProjectPublic: true
-isSourcePublic: false
-galleryIsPhone: true
 gallery:
   - description: Home
     img: gallery/1083C017-ECA9-4490-804A-B8CBA18F65CD_1_102_o.jpeg

@@ -63,28 +63,15 @@ export const query = graphql`
     }
     frontmatter {
       id
-      author
       title
       description
-      createdAt
-      updatedAt
-      commits
-      version
       status
-      date
-      twitter
       github {
         ...Repository
       }
-      website
-      isSourcePublic
-      isProjectPublic
-      isProjectActive
-      isWebsiteActive
       projects
       posts
       tools
-      galleryIsPhone
       gallery {
         description
         img {
@@ -117,7 +104,7 @@ export const pageQuery = graphql`
   query {
     projects: allMarkdownRemark(
         filter: { fields: { collection: { eq: "projects" } } }
-        sort: { fields: [frontmatter___updatedAt, frontmatter___commits], order: DESC }
+        sort: { fields: [frontmatter___github___updatedAt, frontmatter___github___commits], order: DESC }
       ) {
         edges {
           node {
