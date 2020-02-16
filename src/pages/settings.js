@@ -41,7 +41,9 @@ export default SettingsPage
 export const pageQuery = graphql`
   query SettingsQuery {
     source: markdownRemark(frontmatter: { id: { eq: "goldilocks-design" } }) {
-      ...Project
+      frontmatter {
+        ...ProjectFrontmatter
+      }
     }
   }
 `
