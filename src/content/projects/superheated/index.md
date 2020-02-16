@@ -12,12 +12,6 @@ isSourcePublic: false
 tools: 
   - node
   - javascript
-  - express
-  - ejs
-  - passport
-  - socket-io
-  - steam-web-api
-  - grunt
 ---
 
 ## Squad PC Gaming
