@@ -22,7 +22,7 @@ const PostsPage = ({ data: { posts } }) => (
           card={post.frontmatter.badge.childImageSharp.fluid}
           title={post.frontmatter.title}
           indicators={<PostIndicators post={{...post.frontmatter, timeToRead: post.timeToRead}} />}
-          detail={<Badges ids={post.frontmatter.tools} size={600} />}
+          detail={<Badges tools={post.frontmatter.tools} size={600} />}
         />
       ))}
     </Container>
@@ -30,34 +30,6 @@ const PostsPage = ({ data: { posts } }) => (
 )
 
 export default PostsPage
-
-export const query = graphql`
-  fragment Post on MarkdownRemark {
-    id
-    fields {
-      slug
-    }
-    excerpt
-    timeToRead
-    html
-    frontmatter {
-      id
-      author
-      title
-      createdAt
-      badge {
-        childImageSharp {
-          fluid(maxWidth: 900) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      projects
-      posts
-      tools
-    }
-  }
-`
 
 export const pageQuery = graphql`
   query {
@@ -69,6 +41,10 @@ export const pageQuery = graphql`
         edges {
           node {
             ...Post
+            frontmatter {
+              ...PostFrontmatter
+              ...Collections
+            }
           }
         }
     }

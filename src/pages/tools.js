@@ -57,59 +57,12 @@ export const pageQuery = graphql`
         edges {
           node {
             ...Tool
+            frontmatter{
+              ...ToolFrontmatter
+              ...Collections
+            }
           }
         }
     }
   }
 `
-
-export const query = graphql`
-  fragment Repository on GithubRepo {
-    name
-    url
-    description
-    createdAt
-    pushedAt
-    updatedAt
-    homepageUrl
-    openGraphImageUrl
-    usesCustomOpenGraphImage
-    isPrivate
-    language
-    stargazers
-    commits
-    version
-  }
-
-  fragment Tool on MarkdownRemark {
-    id
-    fields {
-      slug
-      collection
-    }
-    frontmatter {
-      id
-      title
-      description
-      github {
-        ...Repository
-      }
-      docs
-      website
-      version
-      category
-      badge {
-        childImageSharp {
-          fluid(maxWidth: 512) {
-            ...GatsbyImageSharpFluid_withWebp_tracedSVG
-          }
-        }
-      }
-      date
-      projects
-      posts
-      tools
-    }
-  }
-`
-

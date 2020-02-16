@@ -54,52 +54,6 @@ const ProjectsPage = ({ data }) => {
 
 export default ProjectsPage
 
-export const query = graphql`
-  fragment Project on MarkdownRemark {
-    id
-    html
-    fields {
-      slug
-    }
-    frontmatter {
-      id
-      title
-      description
-      status
-      github {
-        ...Repository
-      }
-      projects
-      posts
-      tools
-      gallery {
-        description
-        img {
-          childImageSharp {
-            fluid(maxWidth: 1280) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-      badge {
-        childImageSharp {
-          fluid(maxWidth: 900) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      logo {
-        childImageSharp {
-          fluid(maxWidth: 900) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  }
-`
-
 export const pageQuery = graphql`
   query {
     projects: allMarkdownRemark(
@@ -109,6 +63,10 @@ export const pageQuery = graphql`
         edges {
           node {
             ...Project
+            frontmatter {
+              ...ProjectFrontmatter
+              ...Collections
+            }
           }
         }
     }

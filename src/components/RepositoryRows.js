@@ -9,8 +9,8 @@ const SourceRow = props => props.detail ? (
 ) : null
 
 export default props => {
-  const { stargazers, commits, version, updatedAt, createdAt, status } = props
-  const visible = stargazers || commits || version || updatedAt || createdAt || status
+  const { stargazers, commits, downloads, version, updatedAt, createdAt, status } = props
+  const visible = stargazers || downloads || commits || version || updatedAt || createdAt || status
   
   return visible ? (
     <Group title="Source">
@@ -24,6 +24,12 @@ export default props => {
         icon="calendar-edit"
         title="Updated"
         detail={updatedAt && formatDate(updatedAt)}
+      />
+
+      <SourceRow 
+        icon="fire"
+        title="Weekly Downloads"
+        detail={downloads && formatNumber(downloads)}
       />
 
       <SourceRow

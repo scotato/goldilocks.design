@@ -26,15 +26,14 @@ const Project = styled.article`
   `}
 `
 
-export default ({ data }) => {
-  const project = data.project.frontmatter
-  const { github } = data.project.frontmatter
+export default ({ data: { project } }) => {
+  const { title, description, logo, gallery, projects, posts, tools, status, github } = project.frontmatter
   const { createdAt, updatedAt, version, commits } = github
 
   return (
     <Layout>
       <Header
-        title={project.title}
+        title={title}
         primary={<Back to='projects'>Projects</Back>}
         secondary={[
           <LinkIcon to={!github.isPrivate && github.url} icon="github" size={600} />,
@@ -43,9 +42,9 @@ export default ({ data }) => {
       />
       <Project>
         <ProjectHeader
-          title={project.title}
-          description={project.description}
-          badge={project.logo.childImageSharp.fluid}
+          title={title}
+          description={description}
+          badge={logo.childImageSharp.fluid}
           indicators={
             <RepositoryIndicators
               createdAt={createdAt}
@@ -56,15 +55,14 @@ export default ({ data }) => {
           }
         />
         
-        {project.gallery && <Gallery images={project.gallery} />}
+        {gallery && <Gallery images={gallery} />}
         
-        <div dangerouslySetInnerHTML={{ __html: data.project.html }} />
+        <div dangerouslySetInnerHTML={{ __html: project.html }} />
 
         <ContentList
-          title={project.title}
-          projects={project.projects || []}
-          posts={project.posts || []}
-          tools={project.tools || []}
+          projects={projects}
+          posts={posts}
+          tools={tools}
         />
 
         <RepositoryRows
@@ -72,7 +70,7 @@ export default ({ data }) => {
           updatedAt={updatedAt}
           commits={commits}
           version={version}
-          status={project.status}
+          status={status}
         />
       </Project>
   </Layout>
@@ -83,6 +81,10 @@ export const pageQuery = graphql`
   query ProjectBySlug($slug: String!) {
     project: markdownRemark(fields: { slug: { eq: $slug } }) {
       ...Project
+      frontmatter {
+        ...ProjectFrontmatter
+        ...Collections
+      }
     }
   }
 `

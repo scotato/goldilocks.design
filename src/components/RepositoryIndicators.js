@@ -1,56 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
-import moment from 'moment'
-import numeral from 'numeral'
+import { formatNumber, formatDate, statusIcon, statusBadge} from './Repository'
 import Indicator from './Indicator'
 
 const Indicators = styled.div`
   display: flex;
 `
 
-const getStatusIcon = status => {
-  switch (status) {
-    case 'prototype':
-      return 'pencil-ruler'
-    case 'development':
-      return 'tools'
-    case 'production':
-      return 'drafting-compass'
-    case 'archived':
-      return 'archive'
-    default:
-      return null
-  }
-}
-
-const getStatusBadge = status => {
-  switch (status) {
-    case 'prototype':
-      return 'Prototype'
-    case 'development':
-      return 'Development'
-    case 'production':
-      return 'Production'
-    case 'archived':
-      return 'Archived'
-    default:
-      return null
-  }
-}
-
-export const formatNumber = number => number > 999 ? numeral(number).format('0.0a') : number
-export const formatDate = date => moment(date).format("MMM YYYY")
-
 export default props => {
-  const { stargazers, commits, version, updatedAt, createdAt, status } = props
+  const { stargazers, commits, downloads, version, updatedAt, createdAt, status } = props
   const date = updatedAt || createdAt
 
   return (
     <Indicators>
       <Indicator 
+        icon="fire"
+        color="default"
+        title="Weekly Downloads"
+        badge={downloads && formatNumber(downloads)}
+      />
+
+      <Indicator 
         icon="star"
         color="default"
-        title={'Github Stargazers'}
+        title="Stargazers"
         badge={stargazers && formatNumber(stargazers)}
       />
 
@@ -76,10 +49,10 @@ export default props => {
       />
 
       <Indicator 
-        icon={getStatusIcon(status)}
+        icon={statusIcon(status)}
         color="default"
         title="Status"
-        badge={getStatusBadge(status)}
+        badge={statusBadge(status)}
       />
     </Indicators>
   )

@@ -49,6 +49,10 @@ export const pageQuery = graphql`
       edges {
         node {
           ...Project
+          frontmatter {
+            ...ProjectFrontmatter
+            ...Collections
+          }
         }
       }
     }

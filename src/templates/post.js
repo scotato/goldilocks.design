@@ -38,31 +38,38 @@ const Content = styled.div`
   `}
 `
 
-export default props => (
-  <Layout>
-    <Header
-      title={props.data.post.frontmatter.title}
-      primary={<Back to='posts'>Posts</Back>}
-      secondary={moment(props.data.post.frontmatter.createdAt).format("MMM YYYY")}
-    />
-    
-    <Content>
-      <Post dangerouslySetInnerHTML={{ __html: props.data.post.html }} />
-      
-      <ContentList
-        title={props.data.post.frontmatter.title}
-        projects={props.data.post.frontmatter.projects || []}
-        posts={props.data.post.frontmatter.posts || []}
-        tools={props.data.post.frontmatter.tools || []}
+export default ({ data: { post }}) => {
+  const { title, createdAt, projects, posts, tools } = post.frontmatter
+
+  return (
+    <Layout>
+      <Header
+        title={title}
+        primary={<Back to='posts'>Posts</Back>}
+        secondary={moment(createdAt).format("MMM YYYY")}
       />
-    </Content>
-  </Layout>
-)
+      
+      <Content>
+        <Post dangerouslySetInnerHTML={{ __html: post.html }} />
+        
+        <ContentList
+          projects={projects}
+          posts={posts}
+          tools={tools}
+        />
+      </Content>
+    </Layout>
+  )
+}
 
 export const pageQuery = graphql`
   query PostsPostBySlug($slug: String!) {
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
       ...Post
+      frontmatter {
+        ...PostFrontmatter
+        ...Collections
+      }
     }
   }
 `

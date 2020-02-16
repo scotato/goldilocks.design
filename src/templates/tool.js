@@ -16,7 +16,7 @@ const Tool = styled.div`
 
   ${props => props.theme.media.tabletHorizontal`
     margin: 0 ${props => props.theme.size[700]};
-    padding: ${props => props.theme.size[500]} ${props => props.theme.size[700]};
+    padding: ${props => props.theme.size[700]};
   `}
 
   ${props => props.theme.media.phone`
@@ -25,49 +25,53 @@ const Tool = styled.div`
   `}
 `
 
-const ToolPage = ({ data: { tool } }) => (
-  <Layout>
-    {console.log(tool.frontmatter)}
-    <Header
-      title={tool.frontmatter.title}
-      primary={<Back to='tools'>Tools</Back>}
-      secondary={[
-        <LinkIcon to={tool.frontmatter.github && tool.frontmatter.github.url} icon="github" size={600} />,
-        <LinkIcon to={tool.frontmatter.docs} icon="book" size={600} />,
-        <LinkIcon to={tool.frontmatter.website} icon="external-link" size={600} />
-      ]}
-    />
-    <Tool>
-      <ProjectHeader
-        title={tool.frontmatter.title}
-        description={tool.frontmatter.description}
-        badge={tool.frontmatter.badge.childImageSharp.fluid}
-        indicators={
-          <RepositoryIndicators
-            stargazers={tool.frontmatter.github && tool.frontmatter.github.stargazers}
-            commits={tool.frontmatter.github && tool.frontmatter.github.commits}
-            version={tool.frontmatter.github && tool.frontmatter.github.version}
-          />
-        }
-      />
+const ToolPage = ({ data: { tool } }) => {
+  const { title, description, docs, website, github, npm, badge, projects, posts, tools } = tool.frontmatter
+  const version = npm ? npm.version : github && github.version
 
-      <ContentList
-        title={tool.frontmatter.title}
-        projects={tool.frontmatter.projects || []}
-        posts={tool.frontmatter.posts || []}
-        tools={tool.frontmatter.tools || []}
+  return (
+    <Layout>
+      <Header
+        title={title}
+        primary={<Back to='tools'>Tools</Back>}
+        secondary={[
+          <LinkIcon to={github && github.url} icon="github" size={600} />,
+          <LinkIcon to={docs} icon="book" size={600} />,
+          <LinkIcon to={website} icon="external-link" size={600} />
+        ]}
       />
-
-      <RepositoryRows
-        createdAt={tool.frontmatter.github && tool.frontmatter.github.createdAt}
-        updatedAt={tool.frontmatter.github && tool.frontmatter.github.updatedAt}
-        stargazers={tool.frontmatter.github && tool.frontmatter.github.stargazers}
-        commits={tool.frontmatter.github && tool.frontmatter.github.commits}
-        version={tool.frontmatter.github && tool.frontmatter.github.version}
-      />
-    </Tool>
-  </Layout>
-)
+      <Tool>
+        <ProjectHeader
+          title={title}
+          description={description}
+          badge={badge.childImageSharp.fluid}
+          indicators={
+            <RepositoryIndicators
+              stargazers={github && github.stargazers}
+              downloads={npm && npm.downloadsWeekly}
+              version={version}
+            />
+          }
+        />
+  
+        <ContentList
+          projects={projects}
+          posts={posts}
+          tools={tools}
+        />
+  
+        <RepositoryRows
+          createdAt={github && github.createdAt}
+          updatedAt={github && github.updatedAt}
+          stargazers={github && github.stargazers}
+          downloads={npm && npm.downloadsWeekly}
+          commits={github && github.commits}
+          version={version}
+        />
+      </Tool>
+    </Layout>
+  )
+}
 
 export default ToolPage
 
@@ -75,6 +79,10 @@ export const pageQuery = graphql`
   query ToolBySlug($slug: String!) {
     tool: markdownRemark(fields: { slug: { eq: $slug } }) {
       ...Tool
+      frontmatter {
+        ...ToolFrontmatter
+        ...Collections
+      }
     }
   }
 `

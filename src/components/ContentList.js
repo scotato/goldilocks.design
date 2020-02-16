@@ -1,5 +1,4 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
 import moment from 'moment'
 
 import Group from './Group'
@@ -14,7 +13,7 @@ const Projects = props => props.items.length ? (
         badge={project.frontmatter.logo.childImageSharp.fluid}
         title={project.frontmatter.title}
         description={project.frontmatter.description}
-        detail={moment(project.frontmatter.updatedAt || project.frontmatter.createdAt).format("MMM YYYY")}
+        detail={moment(project.frontmatter.github.updatedAt || project.frontmatter.github.createdAt).format("MMM YYYY")}
       />
     ))}
   </Group>
@@ -47,58 +46,10 @@ const Tools = props => props.items.length ? (
   </Group>
 ) : null
 
-export default props => {
-  const data = useStaticQuery(graphql`
-    query ContentListQuery {
-      projects: allMarkdownRemark(
-        filter: { fields: { collection: { eq: "projects" } } }
-        sort: { fields: [frontmatter___github___updatedAt, frontmatter___github___commits], order: DESC }
-      ) {
-        edges {
-          node {
-            ...Project
-          }
-        }
-      }
-      posts: allMarkdownRemark(
-        filter: { fields: { collection: { eq: "posts" } } }
-        sort: { fields: [frontmatter___createdAt], order: DESC }
-      ) {
-        edges {
-          node {
-            ...Post
-          }
-        }
-      }
-      tools: allMarkdownRemark(
-        filter: { fields: { collection: { eq: "tools" } } }
-      ) {
-        edges {
-          node {
-            ...Tool
-          }
-        }
-      }
-    }
-  `)
-  
-  const projects = data.projects.edges
-    .map(project => project.node)
-    .filter(project => props.projects.includes(project.frontmatter.id))
-
-  const posts = data.posts.edges
-    .map(post => post.node)
-    .filter(post => props.posts.includes(post.frontmatter.id))
-
-  const tools = data.tools.edges
-    .map(tool => tool.node)
-    .filter(tool => props.tools.includes(tool.frontmatter.id))
-
-  return (
-    <>
-      <Projects items={projects} title={props.title} />
-      <Posts items={posts} title={props.title} />
-      <Tools items={tools} title={props.title} />
-    </>
-  )
-}
+export default ({ projects, posts, tools }) => (
+  <>
+    <Projects items={projects || []} />
+    <Posts items={posts || []} />
+    <Tools items={tools || []} />
+  </>
+)

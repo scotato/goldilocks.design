@@ -14,7 +14,10 @@ const Header = styled.div`
     "badge description"
     "badge indicators";
 
-    
+  ${props => props.theme.media.tabletHorizontal`
+    margin-bottom: ${props => props.theme.size[700]};
+  `}
+
   ${props => props.theme.media.phone`
     margin-bottom: ${props => props.theme.size[700]};
     padding: 0 ${props => props.theme.size[500]};
