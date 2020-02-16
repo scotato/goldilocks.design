@@ -20,6 +20,7 @@ import CodeMerge from '../icons/code-merge.svg'
 import Comments from '../icons/comments.svg'
 import ComputerClassic from '../icons/computer-classic.svg'
 import ExternalLink from '../icons/external-link.svg'
+import Fire from '../icons/fire.svg'
 import History from '../icons/history.svg'
 import Moon from '../icons/moon.svg'
 import MoonStars from '../icons/moon-stars.svg'
@@ -74,7 +75,9 @@ const IconSwitch = props => {
       return <DraftingCompass />
     case "external-link":
       return <ExternalLink />
-    case "history":
+    case "fire":
+      return <Fire />
+      case "history":
       return <History />
     case "github":
       return <Github />

@@ -45,7 +45,11 @@ module.exports = {
     ]
   },
   mapping: {
-    'MarkdownRemark.frontmatter.github': `GithubRepo.url`
+    'MarkdownRemark.frontmatter.projects': `MarkdownRemark.frontmatter.id`,
+    'MarkdownRemark.frontmatter.posts': `MarkdownRemark.frontmatter.id`,
+    'MarkdownRemark.frontmatter.tools': `MarkdownRemark.frontmatter.id`,
+    'MarkdownRemark.frontmatter.github': `GithubRepo.url`,
+    'MarkdownRemark.frontmatter.npm': `NPMPackage.url`
   },
   plugins: [
     `gatsby-plugin-sharp`,

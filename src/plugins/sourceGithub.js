@@ -58,7 +58,7 @@ async function queryRepo({ owner, name }) {
   return query.repository
 }
 
-module.exports = async ({ actions: { createNode }, createNodeId, createContentDigest }) => {
+module.exports = async ({ createNode, createNodeId, createContentDigest }) => {
   const githubUrls = await getFiles(`${__dirname}/../content`, { match: /.md$/ })
     .map(frontmatter)
     .filter(project => project.attributes.github)
