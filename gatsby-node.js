@@ -1,6 +1,6 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
-const sourceGitHub = require('./src/plugins/sourceGitHub')
+const sourceGitHub = require('./src/plugins/sourceGithub')
 const sourceNPM = require('./src/plugins/sourceNPM')
 
 exports.sourceNodes = async ({ actions: { createNode }, createNodeId, createContentDigest }) => {
