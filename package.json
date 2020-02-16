@@ -2,7 +2,7 @@
   "name": "goldilocks-design",
   "private": true,
   "description": "thoughts on the web",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "author": "scott <scott@goldilocks.design>",
   "dependencies": {
     "@octokit/graphql": "4.3.1",
