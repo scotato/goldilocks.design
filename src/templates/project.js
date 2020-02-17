@@ -28,7 +28,7 @@ const Project = styled.article`
 
 export default ({ data: { project } }) => {
   const { title, description, logo, gallery, projects, posts, tools, status, github } = project.frontmatter
-  const { createdAt, updatedAt, version, commits } = github
+  const { createdAt, committedAt, version, commits } = github
 
   return (
     <Layout>
@@ -66,7 +66,7 @@ export default ({ data: { project } }) => {
 
         <RepositoryRows
           createdAt={createdAt}
-          updatedAt={updatedAt}
+          updatedAt={committedAt}
           commits={commits}
           version={version}
           status={status}
