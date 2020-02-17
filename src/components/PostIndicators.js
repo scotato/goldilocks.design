@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import moment from 'moment'
 import Indicator from './Indicator'
 
 const PostIndicators = styled.div`
@@ -13,15 +12,8 @@ export default props => {
   return (
     <PostIndicators>
       <Indicator 
-        icon="calendar"
-        color="default"
-        title={updatedAt ? 'Updated' : 'Created'}
-        badge={moment(updatedAt || createdAt).format("MMM YYYY")}
-      />
-
-      <Indicator 
         icon="book-open"
-        color="default"
+        color="yellow"
         title="Read"
         badge={`${timeToRead} minute read`}
       />

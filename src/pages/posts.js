@@ -7,6 +7,7 @@ import Header from '../components/Header'
 import { Back } from '../components/Link'
 import PostIndicators from '../components/PostIndicators'
 import Badges from '../components/Badges'
+import moment from 'moment'
 
 const PostsPage = ({ data: { posts } }) => (
   <Layout>
@@ -22,7 +23,7 @@ const PostsPage = ({ data: { posts } }) => (
           card={post.frontmatter.badge.childImageSharp.fluid}
           title={post.frontmatter.title}
           indicators={<PostIndicators post={{...post.frontmatter, timeToRead: post.timeToRead}} />}
-          detail={<Badges tools={post.frontmatter.tools} size={600} />}
+          detail={moment(post.frontmatter.updatedAt || post.frontmatter.createdAt).format("MMM YYYY")}
         />
       ))}
     </Container>

@@ -15,18 +15,21 @@ export default props => {
     <Indicators>
       <Indicator 
         icon="fire"
+        color="red"
         title="Weekly Downloads"
         badge={downloads && formatNumber(downloads)}
       />
 
       <Indicator 
         icon="star"
+        color="yellow"
         title="Stargazers"
         badge={stargazers && formatNumber(stargazers)}
       />
 
       <Indicator 
         icon="calendar"
+        color="orange"
         title={updatedAt ? 'Updated' : 'Created'}
         badge={date && formatDate(date)}
       />
@@ -34,17 +37,20 @@ export default props => {
       <Indicator 
         icon="history"
         title="Commits"
+        color="yellow"
         badge={commits && formatNumber(commits)}
       />
 
       <Indicator 
         icon="tag"
+        color="blue"
         title="Version"
         badge={version}
       />
 
       <Indicator 
         icon={statusIcon(status)}
+        color="orange"
         title="Status"
         badge={statusBadge(status)}
       />

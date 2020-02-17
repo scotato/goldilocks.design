@@ -40,6 +40,10 @@ const Icon = styled.div`
   line-height: 1;
   will-change: color;
   transition: color 0.2s ease-out;
+
+  svg {
+    max-width: 100%;
+  }
 `
 
 const iconSwitch = icon => {
