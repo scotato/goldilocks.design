@@ -35,15 +35,13 @@ export const pageQuery = graphql`
   query {
     posts: allMarkdownRemark(
         filter: { fields: { collection: { eq: "posts" } } }
-        sort: { fields: [frontmatter___date], order: DESC }
-        limit: 1000
+        sort: { fields: [frontmatter___createdAt], order: DESC }
       ) {
         edges {
           node {
             ...Post
             frontmatter {
               ...PostFrontmatter
-              ...Collections
             }
           }
         }

@@ -14,10 +14,10 @@ const ToolsPage = ({ data }) => {
   const categoryOrder = [
     'programming-language',
     'user-interface',
+    'design',
     'web',
     'devops',
     'api',
-    'design',
     'augmented-reality'
   ]
 

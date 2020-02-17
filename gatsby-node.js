@@ -12,25 +12,29 @@ exports.sourceNodes = async ({ actions: { createNode }, createNodeId, createCont
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
-  const collection = node => getNode(node.parent).sourceInstanceName
-  if (node.internal.type === `MarkdownRemark`) {
+  const isMarkdown = node.internal.type === 'MarkdownRemark'
+  const collection = isMarkdown && getNode(node.parent).sourceInstanceName
+  
+  if (isMarkdown) {
     createNodeField({
       name: `slug`,
       node,
-      value: `/${collection(node)}${createFilePath({ node, getNode })}`,
+      value: `/${collection}${createFilePath({ node, getNode })}`,
     })
 
     createNodeField({
       name: `collection`,
       node,
-      value: collection(node),
+      value: collection,
     })
 
-    createNodeField({
-      name: `app`,
-      node,
-      value: collection(node),
-    })
+    if (collection === 'tools') {
+      createNodeField({
+        name: `isPackage`,
+        node,
+        value: !!node.frontmatter.npm,
+      })
+    }
   }
 }
 
@@ -39,7 +43,6 @@ exports.createPages = ({ graphql, actions: { createPage } }) =>
     {
       allMarkdownRemark(
         sort: { fields: [frontmatter___date], order: DESC }
-        limit: 1000
       ) {
         edges {
           node {

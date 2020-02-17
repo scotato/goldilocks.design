@@ -49,6 +49,7 @@ const Description = styled.p`
 const Indicators = styled.span`
   margin: 0;
   grid-area: indicators;
+  font-size: ${props => props.theme.size[400]};
   color: ${props => props.theme.grayscale[500]};
 `
 

@@ -7,7 +7,7 @@ npm: https://www.npmjs.com/package/styled-components
 docs: https://www.styled-components.com/docs
 website: https://www.styled-components.com
 badge: styledComponents-logo.png
-category: user-interface
+category: design
 projects:
   - goldilocks-design
   - new-tab-dashboard

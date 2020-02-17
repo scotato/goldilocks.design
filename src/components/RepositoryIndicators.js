@@ -15,7 +15,7 @@ export default props => {
     <Indicators>
       <Indicator 
         icon="fire"
-        color="red"
+        color="orange"
         title="Weekly Downloads"
         badge={downloads && formatNumber(downloads)}
       />

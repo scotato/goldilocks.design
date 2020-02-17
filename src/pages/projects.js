@@ -61,14 +61,13 @@ export const pageQuery = graphql`
   query {
     projects: allMarkdownRemark(
         filter: { fields: { collection: { eq: "projects" } } }
-        sort: { fields: [frontmatter___github___updatedAt, frontmatter___github___commits], order: DESC }
+        sort: { fields: [frontmatter___github___updatedAt, frontmatter___github___createdAt], order: DESC }
       ) {
         edges {
           node {
             ...Project
             frontmatter {
               ...ProjectFrontmatter
-              ...Collections
             }
           }
         }

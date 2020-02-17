@@ -90,6 +90,7 @@ const Indicators = styled.span`
   grid-area: indicators;
   align-items: center;
   color: ${props => props.theme.grayscale[500]};
+  font-size: ${props => props.theme.size[400]};
   line-height: 1;
 
   ${props => props.theme.media.phone`
