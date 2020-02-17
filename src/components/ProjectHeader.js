@@ -49,6 +49,7 @@ const Description = styled.p`
 const Indicators = styled.span`
   margin: 0;
   grid-area: indicators;
+  color: ${props => props.theme.grayscale[500]};
 `
 
 const Badge = ({className, ...props}) => (

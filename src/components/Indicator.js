@@ -8,7 +8,6 @@ const Indicator = styled.div`
   margin-right: ${props => props.theme.size[400]};
   font-size: ${props => props.theme.size[500]};
   font-weight: 600;
-  color: ${props => props.theme.color[props.color]};
 `
 
 const Badge = styled.span`
@@ -18,7 +17,7 @@ const Badge = styled.span`
 `
 
 export default props => props.badge ? (
-  <Indicator title={`${props.title} ${props.badge}`} color={props.color}>
+  <Indicator title={`${props.title} ${props.badge}`}>
     <Icon name={props.icon} size={400} />
     <Badge>{props.badge}</Badge>
   </Indicator>
