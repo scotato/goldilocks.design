@@ -9,6 +9,10 @@ const Indicator = styled.div`
   font-size: ${props => props.theme.size[500]};
   font-weight: 700;
   color: ${props => props.theme.color[props.color]};
+
+  svg {
+    max-width: 100%;
+  }
 `
 
 const Badge = styled.span`
