@@ -28,19 +28,22 @@ const ProjectsPage = ({ data }) => {
       <Container>
         {statusOrder.map(status => (
           <Group title={status.replace('-', ' ')}>
-            {projectsByStatus[status].map(project => (
+            {projectsByStatus[status].map(({
+              fields: { slug },
+              frontmatter: { title, description, github, logo }
+            }) => (
               <Card
-              to={project.fields.slug}
-              key={project.fields.slug}
-              badge={project.frontmatter.logo.childImageSharp.fluid}
-              title={project.frontmatter.title}
-              description={project.frontmatter.description}
+              to={slug}
+              key={slug}
+              badge={logo.childImageSharp.fluid}
+              title={title}
+              description={description}
               indicators={
                 <RepositoryIndicators
-                  createdAt={project.frontmatter.github && project.frontmatter.github.createdAt}
-                  updatedAt={project.frontmatter.github && project.frontmatter.github.updatedAt}
-                  commits={project.frontmatter.github && project.frontmatter.github.commits}
-                  version={project.frontmatter.github && project.frontmatter.github.version}
+                  createdAt={github && github.createdAt}
+                  updatedAt={github && github.updatedAt}
+                  commits={github && github.commits}
+                  version={github && github.version}
                 />
               }
             />
