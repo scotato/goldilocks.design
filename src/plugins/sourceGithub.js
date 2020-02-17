@@ -33,8 +33,12 @@ async function queryRepo({ owner, name }) {
         ref(qualifiedName: "master") {
           target {
             ... on Commit {
-              history(first: 0) {
+              history(first: 1) {
                 totalCount
+                nodes {
+                  authoredDate
+                  committedDate
+                }
               }
             }
           }
@@ -72,12 +76,15 @@ module.exports = async ({ createNode, createNodeId, createContentDigest }) => {
       const versionBlacklist = ['vundefined', 'type-name-lookup-fail']
       const versionName = refs.edges.length ? refs.edges[0].node.name : ''
       const version = versionBlacklist.includes(versionName) ? '' : versionName
-  
+      const { authoredDate, committedDate } = ref ? ref.target.history.nodes[0] : {}
+
       const repository = {
         ...meta,
         language: primaryLanguage.name,
         stargazers: stargazers.totalCount,
         commits: ref ? ref.target.history.totalCount : 0,
+        committedAt: committedDate,
+        commitAuthoredAt: authoredDate,
         version
       }
   

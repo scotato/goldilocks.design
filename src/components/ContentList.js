@@ -6,14 +6,16 @@ import LinkRowSmall from './LinkRowSmall'
 
 const Projects = props => props.items.length ? (
   <Group title="Projects">
-    {props.items.map(project => (
+    {props.items.sort((a,b) =>
+      new Date(b.frontmatter.github.committedAt) - new Date(a.frontmatter.github.committedAt)
+    ).map(project => (
       <LinkRowSmall
         to={project.fields.slug}
         key={project.fields.slug}
         badge={project.frontmatter.logo.childImageSharp.fluid}
         title={project.frontmatter.title}
         description={project.frontmatter.description}
-        detail={moment(project.frontmatter.github.updatedAt || project.frontmatter.github.createdAt).format("MMM YYYY")}
+        detail={moment(project.frontmatter.github.committedAt || project.frontmatter.github.createdAt).format("MMM YYYY")}
       />
     ))}
   </Group>
@@ -21,7 +23,9 @@ const Projects = props => props.items.length ? (
 
 const Posts = props => props.items.length ? (
   <Group title="Posts">
-    {props.items.map(post => (
+    {props.items.sort((a,b) =>
+      new Date(b.frontmatter.createdAt) - new Date(a.frontmatter.createdAt)
+    ).map(post => (
       <LinkRowSmall
         to={post.fields.slug}
         key={post.fields.slug}

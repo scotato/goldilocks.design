@@ -8,6 +8,8 @@ export const query = graphql`
     createdAt
     pushedAt
     updatedAt
+    committedAt
+    commitAuthoredAt
     homepageUrl
     openGraphImageUrl
     usesCustomOpenGraphImage

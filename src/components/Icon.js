@@ -8,6 +8,7 @@ export const icons = [
   'faBook',
   'faCalendar',
   'faCalendarPlus',
+  'faCarCrash',
   'faChevronLeft',
   'faChevronRight',
   'faCogs',

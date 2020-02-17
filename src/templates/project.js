@@ -47,8 +47,7 @@ export default ({ data: { project } }) => {
           badge={logo.childImageSharp.fluid}
           indicators={
             <RepositoryIndicators
-              createdAt={createdAt}
-              updatedAt={updatedAt}
+              status={status}
               commits={commits}
               version={version}
             />

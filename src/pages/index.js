@@ -37,7 +37,7 @@ const HomePage = ({ data }) => {
               badge={badge.childImageSharp.fluid}
               title={title}
               indicators={<PostIndicators post={{ timeToRead }} />}
-              detail={formatDate(updatedAt || createdAt)}
+              detail={formatDate(createdAt)}
             />
           ))}
         </Group>
@@ -53,7 +53,7 @@ const HomePage = ({ data }) => {
               badge={logo.childImageSharp.fluid}
               title={title}
               description={description}
-              detail={formatDate(github.updatedAt || github.createdAt)}
+              detail={formatDate(github.committedAt || github.createdAt)}
             />
           ))}
         </Group>
@@ -108,7 +108,7 @@ export const pageQuery = graphql`
     }
     projects: allMarkdownRemark(
       filter: { fields: { collection: { eq: "projects" } } }
-      sort: { fields: [frontmatter___github___updatedAt, frontmatter___github___createdAt], order: DESC }
+      sort: { fields: [frontmatter___github___committedAt, frontmatter___github___createdAt], order: DESC }
       limit: 5
     ) {
       edges {

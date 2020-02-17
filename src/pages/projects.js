@@ -40,8 +40,7 @@ const ProjectsPage = ({ data }) => {
               description={description}
               indicators={
                 <RepositoryIndicators
-                  createdAt={github && github.createdAt}
-                  updatedAt={github && github.updatedAt}
+                  updatedAt={github && github.committedAt}
                   commits={github && github.commits}
                   version={github && github.version}
                 />
@@ -61,7 +60,7 @@ export const pageQuery = graphql`
   query {
     projects: allMarkdownRemark(
         filter: { fields: { collection: { eq: "projects" } } }
-        sort: { fields: [frontmatter___github___updatedAt, frontmatter___github___createdAt], order: DESC }
+        sort: { fields: [frontmatter___github___committedAt, frontmatter___github___createdAt], order: DESC }
       ) {
         edges {
           node {

@@ -21,6 +21,13 @@ export default props => {
       />
 
       <Indicator 
+        icon={statusIcon(status)}
+        color="orange"
+        title="Status"
+        badge={statusBadge(status)}
+      />
+
+      <Indicator 
         icon="star"
         color="yellow"
         title="Stargazers"
@@ -46,13 +53,6 @@ export default props => {
         color="blue"
         title="Version"
         badge={version}
-      />
-
-      <Indicator 
-        icon={statusIcon(status)}
-        color="orange"
-        title="Status"
-        badge={statusBadge(status)}
       />
     </Indicators>
   )
