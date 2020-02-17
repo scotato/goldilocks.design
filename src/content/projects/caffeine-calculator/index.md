@@ -15,6 +15,7 @@ tools:
   - react
   - create-react-app
   - styled-components
+  - fontawesome
 ---
 
 ## Health Visualization 

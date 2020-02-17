@@ -28,6 +28,7 @@ tools:
   - create-react-app
   - spotify
   - cloud-firestore
+  - fontawesome
 ---
 
 ## A Social Web Client for Spotify

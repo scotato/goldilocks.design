@@ -22,6 +22,7 @@ tools:
   - graphql
   - github
   - netlify
+  - fontawesome
   - figma
 posts:
   - whats-up
