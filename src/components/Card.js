@@ -4,15 +4,10 @@ import Img from 'gatsby-image'
 import Link from './Link'
 import Icon from './Icon'
 
-export const Container = styled.div`
-  padding: 0 ${props => props.theme.size[900]};
-`
-
 const LinkRow = styled(Link)`
   display: grid;
   margin-bottom: ${props => props.theme.size[500]};
   width: 100%;
-  background-color: ${props => props.theme.grayscale[200]};
   border-radius: ${props => props.theme.size[500]};
   overflow: hidden;
   grid-template-areas: 
@@ -23,10 +18,6 @@ const LinkRow = styled(Link)`
 
   &:hover {
     color: inherit;
-  }
-
-  .dark-mode & {
-    background-color: ${props => props.theme.grayscale[800]};
   }
 `
 

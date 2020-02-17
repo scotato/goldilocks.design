@@ -7,7 +7,7 @@ const PostIndicators = styled.div`
 `
 
 export default props => {
-  const { createdAt, updatedAt, timeToRead } = props.post
+  const { timeToRead } = props.post
 
   return (
     <PostIndicators>

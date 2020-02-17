@@ -6,7 +6,6 @@ import Card from '../components/Card'
 import Header from '../components/Header'
 import { Back } from '../components/Link'
 import PostIndicators from '../components/PostIndicators'
-import Badges from '../components/Badges'
 import moment from 'moment'
 
 const PostsPage = ({ data: { posts } }) => (
