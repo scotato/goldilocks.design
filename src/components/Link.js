@@ -12,10 +12,6 @@ const BackLink = styled(LinkGatsby)`
   grid-column-gap: ${props => props.theme.size[300]};
   align-items: center;
   font-weight: 500;
-
-  svg {
-    transform: scale(1.25);
-  }
 `
 
 export const Back = props =>

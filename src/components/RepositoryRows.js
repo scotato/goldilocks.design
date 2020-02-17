@@ -14,18 +14,6 @@ export default props => {
   
   return visible ? (
     <Group title="Source">
-      <SourceRow
-        icon="calendar-plus"
-        title="Created"
-        detail={createdAt && formatDate(createdAt)}
-      />
-
-      <SourceRow
-        icon="calendar-edit"
-        title="Updated"
-        detail={updatedAt && formatDate(updatedAt)}
-      />
-
       <SourceRow 
         icon="fire"
         title="Weekly Downloads"
@@ -54,6 +42,18 @@ export default props => {
         icon={statusIcon(status)}
         title="Status"
         detail={statusBadge(status)}
+      />
+
+      <SourceRow
+        icon="calendar-plus"
+        title="Created"
+        detail={createdAt && formatDate(createdAt)}
+      />
+
+      <SourceRow
+        icon="calendar"
+        title="Updated"
+        detail={updatedAt && formatDate(updatedAt)}
       />
     </Group>
   ) : null

@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Layout, { Container } from '../components/Layout'
 import Header from '../components/Header'
-import Emoji from '../components/Emoji'
 import Card from '../components/Card'
 import RepositoryIndicators from '../components/RepositoryIndicators'
 
@@ -13,7 +12,7 @@ const IndexCard = styled(Card)`
 
 const HomePage = ({ data: { projects } }) => (
   <Layout isRoot>
-    <Header title={<Emoji name="fingers-crossed" size={700} />} />
+    <Header />
     <Container>
       {projects.edges.map(({node: project}) => (
         <IndexCard

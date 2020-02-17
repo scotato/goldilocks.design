@@ -24,9 +24,10 @@ const Row = styled.div`
 `
 
 const Badge = styled(Icon)`
-  margin: 0 auto;
   grid-area: badge;
+  justify-self: center;
   color: ${props => props.theme.grayscale[400]};
+  transform: scale(1.25);
   
   .dark-mode & {
     color: ${props => props.theme.grayscale[500]};
@@ -51,7 +52,7 @@ const Detail = styled.span`
 
 export default props => (
   <Row>
-    <Badge name={props.icon} size={700} />
+    <Badge name={props.icon} size={600} />
     <Title>{props.title}</Title>
     <Detail>{props.detail}</Detail>
   </Row>

@@ -5,6 +5,10 @@
   "version": "2.3.2",
   "author": "scott <scott@goldilocks.design>",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "1.2.27",
+    "@fortawesome/free-brands-svg-icons": "5.12.1",
+    "@fortawesome/free-solid-svg-icons": "5.12.1",
+    "@fortawesome/react-fontawesome": "0.1.8",
     "@octokit/graphql": "4.3.1",
     "bluebird": "3.7.2",
     "flickity": "2.2.1",

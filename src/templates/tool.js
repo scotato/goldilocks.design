@@ -37,7 +37,7 @@ const ToolPage = ({ data: { tool } }) => {
         secondary={[
           <LinkIcon to={github && github.url} icon="github" size={600} />,
           <LinkIcon to={docs} icon="book" size={600} />,
-          <LinkIcon to={website} icon="external-link" size={600} />
+          <LinkIcon to={website} icon="link" size={600} />
         ]}
       />
       <Tool>

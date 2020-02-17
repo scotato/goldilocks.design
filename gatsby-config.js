@@ -15,22 +15,22 @@ module.exports = {
     siteLogo: '/images/logo-512.png', // Logo used for SEO, RSS, and App manifest
     content:[
       {
-        id: 'projects',
-        icon: 'computer-classic',
-        slug: 'projects',
-        title: 'Projects',
-        color: 'blue'
-      },
-      {
         id: 'posts',
-        icon: 'typewriter',
+        icon: 'pen-alt',
         slug: 'posts',
         title: 'Posts',
         color: 'yellow'
       },
       {
+        id: 'projects',
+        icon: 'pencil-ruler',
+        slug: 'projects',
+        title: 'Projects',
+        color: 'blue'
+      },
+      {
         id: 'tools',
-        icon: 'window',
+        icon: 'tools',
         slug: 'tools',
         title: 'Tools',
         color: 'orange'
@@ -65,20 +65,6 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `icons`,
-        path: `${__dirname}/src/icons`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `emoji`,
-        path: `${__dirname}/src/emoji`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
         name: `posts`,
         path: `${__dirname}/src/content/posts`,
       },
@@ -99,14 +85,6 @@ module.exports = {
     },
     `gatsby-transformer-yaml`,
     `gatsby-plugin-styled-components`,
-    {
-      resolve: 'gatsby-plugin-react-svg',
-      options: {
-          rule: {
-            include: /icons|emoji/
-          }
-      }
-    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

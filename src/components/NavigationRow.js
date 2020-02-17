@@ -82,14 +82,16 @@ const BadgeOptional = props => props.children ? <Badge {...props} /> : null
 
 const NavigationIcon = styled(Icon)`
   grid-area: icon;
+  justify-self: center;
   color: ${props => props.theme.color[props.color]};
   will-change: color;
   transition: color 0.2s ease-out;
+  transform: scale(1.25);
 `
 
 export default props => (
   <NavigationRow to={props.to} color={props.color} onClick={props.onClick}>
-    <NavigationIcon name={props.icon} size={700} color={props.color} />
+    <NavigationIcon name={props.icon} size={600} color={props.color} />
     <Title>{props.title}</Title>
     <BadgeOptional>{props.badge}</BadgeOptional>
   </NavigationRow>

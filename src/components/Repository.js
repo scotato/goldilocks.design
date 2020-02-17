@@ -7,9 +7,9 @@ export const formatDate = date => moment(date).format("MMM YYYY")
 export const statusIcon = status => {
   switch (status) {
     case 'prototype':
-      return 'pencil-ruler'
+      return 'ruler-combined'
     case 'development':
-      return 'tools'
+      return 'hammer'
     case 'production':
       return 'drafting-compass'
     case 'archived':
