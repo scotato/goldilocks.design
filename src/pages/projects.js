@@ -33,19 +33,19 @@ const ProjectsPage = ({ data }) => {
               frontmatter: { title, description, github, logo }
             }) => (
               <Card
-              to={slug}
-              key={slug}
-              badge={logo.childImageSharp.fluid}
-              title={title}
-              description={description}
-              indicators={
-                <RepositoryIndicators
-                  updatedAt={github && github.committedAt}
-                  commits={github && github.commits}
-                  version={github && github.version}
-                />
-              }
-            />
+                to={slug}
+                key={slug}
+                badge={logo.childImageSharp.fluid}
+                title={title}
+                description={description}
+                indicators={
+                  <RepositoryIndicators
+                    updatedAt={github && github.committedAt}
+                    commits={github && github.commits}
+                    version={github && github.version}
+                  />
+                }
+              />
             ))}
           </Group>
         ))}

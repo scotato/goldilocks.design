@@ -1,32 +1,42 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Img from 'gatsby-image'
 import Link from './Link'
 import Icon from './Icon'
 
-const LinkRow = styled(Link)`
+const rowStyle = css`
   display: grid;
   margin: 0;
   margin-bottom: ${props => props.theme.size[500]};
   padding: ${props => props.theme.size[500]};
   background-color: ${props => props.theme.grayscale[200]};
   border-radius: ${props => props.theme.size[500]};
-  grid-template-areas: "badge title detail arrow";
-  grid-template-columns: ${props => props.theme.size[700]} auto auto ${props => props.theme.size[600]};
   grid-column-gap: ${props => props.theme.size[400]};
-  color: inherit;
 
   .dark-mode & {
     background-color: ${props => props.theme.grayscale[800]};
   }
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+`
+
+const LinkRow = styled(Link)`
+  ${rowStyle}
+  grid-template-areas: "badge title detail arrow";
+  grid-template-columns: ${props => props.theme.size[700]} auto auto ${props => props.theme.size[600]};
+  color: inherit;
 
   &:hover {
     color: inherit;
   }
+`
 
-  &:last-child {
-    margin-bottom: 0;
-  }
+const Row = styled.div`
+  ${rowStyle}
+  grid-template-areas: "badge title detail";
+  grid-template-columns: ${props => props.theme.size[700]} 1fr auto;
 `
 
 const Badge = styled(Img)`
@@ -63,6 +73,14 @@ const Arrow = styled(Icon).attrs({
   grid-area: arrow;
   color: ${props => props.theme.grayscale[400]};
 `
+
+export const RowSmall = props => (
+  <Row>
+    <Badge fluid={props.badge} />
+    <Title>{props.title}</Title>
+    <Detail>{props.detail}</Detail>
+  </Row>
+)
 
 export default props => (
   <LinkRow to={props.to}>

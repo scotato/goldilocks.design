@@ -68,30 +68,44 @@ exports.createPages = ({ graphql, actions: { createPage } }) =>
     const projects = remark.filter(({node: project}) => project.fields.collection === 'projects')
     const tools = remark.filter(({node: tools}) => tools.fields.collection === 'tools')
     const template = name => path.resolve(`src/templates/${name}.js`)
+    const createFeedbackPage = slug => createPage({
+      path: slug + 'feedback',
+      component: template('feedback'),
+      context: {
+        slug: slug + 'feedback',
+        from: slug
+      }
+    })
 
     posts.forEach((post, index) => {
+      const slug = post.node.fields.slug
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
       const next = index === 0 ? null : posts[index - 1].node
-
       createPage({
-        path: post.node.fields.slug,
+        path: slug,
         component: template('post'),
         context: {
-          slug: post.node.fields.slug,
+          slug: slug,
           previous,
           next
         }
       })
+
+      createFeedbackPage(slug)
     })
 
     projects.forEach(project => {
+      const slug = project.node.fields.slug
+
       createPage({
-        path: project.node.fields.slug,
+        path: slug,
         component: template('project'),
         context: {
-          slug: project.node.fields.slug,
+          slug: slug,
         }
       })
+
+      createFeedbackPage(slug)
     })
 
     tools.forEach(tool => {

@@ -1,10 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Img from 'gatsby-image'
 import Link from './Link'
 import Icon from './Icon'
 
-const LinkRow = styled(Link)`
+const cardStyles = css`
   display: grid;
   margin-bottom: ${props => props.theme.size[500]};
   width: 100%;
@@ -14,6 +14,14 @@ const LinkRow = styled(Link)`
     "card"
     "row";
   grid-template-rows: auto auto;
+`
+
+const InfoCard = styled.div`
+  ${cardStyles}
+`
+
+const LinkCard = styled(Link)`
+  ${cardStyles}
   color: inherit;
 
   &:hover {
@@ -47,7 +55,7 @@ const Row = styled.div`
   }
 `
 
-const Card = styled(Img)`
+const CardImg = styled(Img)`
   grid-area: card;
 `
 
@@ -115,6 +123,7 @@ const Arrow = styled(Icon).attrs({
   name: 'chevron-right',
   size: 600
 })`
+  display: ${props => props.visible ? 'block' : 'none' };
   margin: auto 0;
   margin-left: ${props => props.theme.size[500]};
   grid-area: arrow;
@@ -125,16 +134,20 @@ const Arrow = styled(Icon).attrs({
   `}
 `
 
+const Card = props => props.to
+  ? <LinkCard {...props} />
+  : <InfoCard {...props} />
+
 export default props => (
-  <LinkRow to={props.to} className={props.className}>
-    {props.card && <Card fluid={props.card} />}
+  <Card to={props.to} className={props.className}>
+    {props.card && <CardImg fluid={props.card} />}
     <Row>
       {props.badge && <Badge fluid={props.badge} />}
       <Title>{props.title}</Title>
       <Description>{props.description}</Description>
       <Indicators>{props.indicators}</Indicators>
       <Detail>{props.detail}</Detail>
-      <Arrow />
+      <Arrow visible={props.to} />
     </Row>
-  </LinkRow>
+  </Card>
 )

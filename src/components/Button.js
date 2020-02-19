@@ -12,6 +12,15 @@ export const ButtonBase = styled.button`
   cursor: pointer;
 `
 
+export const ButtonText = styled(ButtonBase)`
+  color: ${props => props.theme.color.info};
+
+  &:disabled {
+    color: ${props => props.theme.color.default};
+    cursor: default;
+  }
+`
+
 const Button = styled(ButtonBase).attrs({
   disabled: props => props.isActive
 })`

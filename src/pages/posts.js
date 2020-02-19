@@ -22,7 +22,7 @@ const PostsPage = ({ data: { posts } }) => (
           card={post.frontmatter.badge.childImageSharp.fluid}
           title={post.frontmatter.title}
           indicators={<PostIndicators post={{...post.frontmatter, timeToRead: post.timeToRead}} />}
-          detail={moment(post.frontmatter.updatedAt || post.frontmatter.createdAt).format("MMM YYYY")}
+          detail={moment(post.frontmatter.createdAt).format("MMM YYYY")}
         />
       ))}
     </Container>

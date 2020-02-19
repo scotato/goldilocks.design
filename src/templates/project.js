@@ -26,7 +26,7 @@ const Project = styled.article`
   `}
 `
 
-export default ({ data: { project } }) => {
+export default ({ data: { project }, location: { pathname } }) => {
   const { title, description, logo, gallery, projects, posts, tools, status, github } = project.frontmatter
   const { createdAt, committedAt, version, commits } = github
 
@@ -35,10 +35,13 @@ export default ({ data: { project } }) => {
       <Header
         title={title}
         primary={<Back to='projects'>Projects</Back>}
-        secondary={[
-          <LinkIcon to={!github.isPrivate && github.url} icon="github" size={600} />,
-          <LinkIcon to={github.homepageUrl} icon="link" size={600} />
-        ]}
+        secondary={
+          <>
+            <LinkIcon to={github.homepageUrl} icon="link" size={600} />
+            <LinkIcon to={!github.isPrivate && github.url} icon="github" size={600} />
+            <LinkIcon to={`${pathname}/feedback`} icon="comment" size={600} />
+          </>
+        }
       />
       <Project>
         <ProjectHeader

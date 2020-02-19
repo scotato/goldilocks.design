@@ -1,9 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Icon from './Icon'
 
-const Row = styled.div`
+export const rowStyle = css`
   display: grid;
+  position: relative;
   margin-bottom: ${props => props.theme.size[500]};
   padding: ${props => props.theme.size[500]};
   background-color: ${props => props.theme.grayscale[200]};
@@ -23,37 +24,44 @@ const Row = styled.div`
   }
 `
 
-const Badge = styled(Icon)`
+const Row = styled.div`
+  ${rowStyle}
+`
+
+export const Badge = styled(Icon)`
   grid-area: badge;
   justify-self: center;
   color: ${props => props.theme.grayscale[400]};
   transform: scale(1.25);
+  z-index: 1;
   
   .dark-mode & {
     color: ${props => props.theme.grayscale[500]};
   }
 `
 
-const Title = styled.span`
+export const Title = styled.span`
   grid-area: title;
   font-weight: 600;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  z-index: 1;
 `
 
-const Detail = styled.span`
+export const Detail = styled.span`
   display: flex;
   align-items: center;
   justify-content: flex-end;
   grid-area: detail;
   color: ${props => props.theme.grayscale[500]};
+  z-index: 1;
 `
 
-export default props => (
+export default props => !props.hidden ? (
   <Row>
     <Badge name={props.icon} size={600} />
     <Title>{props.title}</Title>
     <Detail>{props.detail}</Detail>
   </Row>
-)
+) : null

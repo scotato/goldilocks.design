@@ -6,14 +6,16 @@ const Group = styled.div`
 `
 
 const Title = styled.div`
-  display: grid;
+  display: flex;
   padding: ${props => props.theme.size[300]} ${props => props.theme.size[500]};
   font-size: ${props => props.theme.size[500]};
   color: ${props => props.theme.color.default};
-  grid-template-columns: auto auto 1fr;
-  grid-column-gap: ${props => props.theme.size[300]};
   align-items: center;
   text-transform: uppercase;
+`
+
+const Detail = styled.span`
+  margin-left: auto;
 `
 
 const Body = styled.div`
@@ -23,6 +25,8 @@ const Body = styled.div`
   overflow: hidden;
 
   & > a,
+  & > textarea,
+  & > input,
   & > div {
     margin-top: 0;
     margin-bottom: 0;
@@ -48,7 +52,10 @@ const Caption = styled.div`
 
 export default props => (
   <Group>
-    <Title>{props.title}</Title>
+    <Title>
+      {props.title}
+      <Detail>{props.detail}</Detail>
+    </Title>
     <Body>{props.children}</Body>
     <Caption>{props.caption}</Caption>
   </Group>

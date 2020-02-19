@@ -1,12 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
-import moment from 'moment'
 
 import Layout from '../components/Layout'
 import Header from '../components/Header'
 import ContentList from '../components/ContentList'
-import { Back } from '../components/Link'
+import { Back, LinkIcon } from '../components/Link'
  
 const Post = styled.article`
   margin-top: ${props => props.theme.size[500]};
@@ -38,15 +37,15 @@ const Content = styled.div`
   `}
 `
 
-export default ({ data: { post }}) => {
-  const { title, createdAt, projects, posts, tools } = post.frontmatter
+export default ({ data: { post }, location: { pathname } }) => {
+  const { title, projects, posts, tools } = post.frontmatter
 
   return (
     <Layout>
       <Header
         title={title}
         primary={<Back to='posts'>Posts</Back>}
-        secondary={moment(createdAt).format("MMM YYYY")}
+        secondary={<LinkIcon to={`${pathname}/feedback`} icon="comment" size={600} />}
       />
       
       <Content>

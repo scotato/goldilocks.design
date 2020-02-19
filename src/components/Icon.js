@@ -9,10 +9,15 @@ export const icons = [
   'faCalendar',
   'faCalendarPlus',
   'faCarCrash',
+  'faCheck',
   'faChevronLeft',
   'faChevronRight',
   'faCogs',
+  'faComment',
   'faDraftingCompass',
+  'faEnvelope',
+  'faEnvelopeOpenText',
+  'faExclamationCircle',
   'faFire',
   'faHammer',
   'faHistory',
@@ -25,6 +30,7 @@ export const icons = [
   'faStar',
   'faTag',
   'faTools',
+  'faUserAlt',
   'faWrench',
 ]
 
