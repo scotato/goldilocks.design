@@ -1,6 +1,6 @@
 ---
 id: cloud-vision
-title: Cloud Vision
+title: Vision AI
 description: Powerful pre-trained machine learning models through REST and RPC APIs.
 github: https://github.com/googleapis/nodejs-vision
 npm: https://www.npmjs.com/package/@google-cloud/vision
