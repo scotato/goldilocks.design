@@ -110,7 +110,7 @@ export default props => {
     >
       <Hidden>
         <label>Don’t fill this out if you're human: <input name="bot-field" value={honeypot}onChange={onChangeHoneypot} /></label>
-        <input type="hidden" name="form-name" value="feedback" />
+        <input type="hidden" name="form-name" value={props.name} />
       </Hidden>
 
       <Group

@@ -35,6 +35,7 @@ export default ({
   navigate
 }) => {
   const [submitButton, setSubmitButton] = useState(null)
+  const id = project.frontmatter.id || post.frontmatter.id
   const topic = project.frontmatter.title || post.frontmatter.title
   
   return (
@@ -48,7 +49,7 @@ export default ({
         <Project {...project} />
         <Post {...post} />
         <Form
-          name="feedback"
+          name={id}
           action={from}
           topic={topic}
           setSubmitButton={setSubmitButton} 
