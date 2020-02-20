@@ -4,6 +4,8 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Header from '../components/Header'
+import ResourceList from '../components/ResourceList'
+import ActivityList from '../components/ActivityList'
 import ContentList from '../components/ContentList'
 import { Back, LinkIcon } from '../components/Link'
  
@@ -38,18 +40,36 @@ const Content = styled.div`
 `
 
 export default ({ data: { post }, location: { pathname } }) => {
-  const { title, projects, posts, tools } = post.frontmatter
+  const { title, website, createdAt, updatedAt, githubUrl, projects, posts, tools } = post.frontmatter
+  const feedback = `${pathname}/feedback`
 
   return (
     <Layout>
       <Header
         title={title}
         primary={<Back to='posts'>Posts</Back>}
-        secondary={<LinkIcon to={`${pathname}/feedback`} icon="comment" size={600} />}
+        secondary={
+          <>
+            <LinkIcon to={website} icon="link" size={600} />
+            <LinkIcon to={githubUrl} icon="github" size={600} />
+            <LinkIcon to={feedback} icon="comment" size={600} />
+          </>
+        }
       />
       
       <Content>
         <Post dangerouslySetInnerHTML={{ __html: post.html }} />
+
+        <ResourceList
+          website={website}
+          github={githubUrl}
+          feedback={feedback}
+        />
+
+        <ActivityList
+          createdAt={createdAt}
+          updatedAt={updatedAt}
+        />
         
         <ContentList
           projects={projects}

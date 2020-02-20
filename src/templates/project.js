@@ -6,10 +6,11 @@ import Layout from '../components/Layout'
 import Header from '../components/Header'
 import ProjectHeader from '../components/ProjectHeader'
 import Gallery from '../components/Gallery'
+import ActivityList from '../components/ActivityList'
+import ResourceList from '../components/ResourceList'
 import ContentList from '../components/ContentList'
 import { Back, LinkIcon } from '../components/Link'
 import RepositoryIndicators from '../components/RepositoryIndicators'
-import RepositoryRows from '../components/RepositoryRows'
  
 const Project = styled.article`
   margin: 0 ${props => props.theme.size[700]};
@@ -29,6 +30,9 @@ const Project = styled.article`
 export default ({ data: { project }, location: { pathname } }) => {
   const { title, description, logo, gallery, projects, posts, tools, status, github } = project.frontmatter
   const { createdAt, committedAt, version, commits } = github
+  const website = github.homepageUrl
+  const githubUrl = !github.isPrivate && github.url
+  const feedback = `${pathname}/feedback`
 
   return (
     <Layout>
@@ -37,9 +41,9 @@ export default ({ data: { project }, location: { pathname } }) => {
         primary={<Back to='projects'>Projects</Back>}
         secondary={
           <>
-            <LinkIcon to={github.homepageUrl} icon="link" size={600} />
-            <LinkIcon to={!github.isPrivate && github.url} icon="github" size={600} />
-            <LinkIcon to={`${pathname}/feedback`} icon="comment" size={600} />
+            <LinkIcon to={website} icon="link" size={600} />
+            <LinkIcon to={githubUrl} icon="github" size={600} />
+            <LinkIcon to={feedback} icon="comment" size={600} />
           </>
         }
       />
@@ -61,18 +65,24 @@ export default ({ data: { project }, location: { pathname } }) => {
         
         <div dangerouslySetInnerHTML={{ __html: project.html }} />
 
-        <ContentList
-          projects={projects}
-          posts={posts}
-          tools={tools}
+        <ResourceList
+          website={website}
+          github={githubUrl}
+          feedback={feedback}
         />
 
-        <RepositoryRows
+        <ActivityList
           createdAt={createdAt}
           updatedAt={committedAt}
           commits={commits}
           version={version}
           status={status}
+        />
+
+        <ContentList
+          projects={projects}
+          posts={posts}
+          tools={tools}
         />
       </Project>
   </Layout>

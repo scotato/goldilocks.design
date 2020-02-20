@@ -18,6 +18,7 @@ export const icons = [
   'faEnvelope',
   'faEnvelopeOpenText',
   'faExclamationCircle',
+  'faExternalLinkAlt',
   'faFire',
   'faHammer',
   'faHistory',

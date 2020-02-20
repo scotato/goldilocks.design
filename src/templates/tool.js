@@ -5,9 +5,10 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
 import ProjectHeader from '../components/ProjectHeader'
-import RepositoryRows from '../components/RepositoryRows'
-import RepositoryIndicators from '../components/RepositoryIndicators'
+import ActivityList from '../components/ActivityList'
+import ResourceList from '../components/ResourceList'
 import ContentList from '../components/ContentList'
+import RepositoryIndicators from '../components/RepositoryIndicators'
 import { Back, LinkIcon } from '../components/Link'
 
 const Tool = styled.div`
@@ -34,11 +35,13 @@ const ToolPage = ({ data: { tool } }) => {
       <Header
         title={title}
         primary={<Back to='tools'>Tools</Back>}
-        secondary={[
-          <LinkIcon to={github && github.url} icon="github" size={600} />,
-          <LinkIcon to={docs} icon="book" size={600} />,
-          <LinkIcon to={website} icon="link" size={600} />
-        ]}
+        secondary={
+          <>
+            <LinkIcon to={website} icon="link" size={600} />
+            <LinkIcon to={github && github.url} icon="github" size={600} />
+            <LinkIcon to={docs} icon="book" size={600} />
+          </>
+        }
       />
       <Tool>
         <ProjectHeader
@@ -53,20 +56,26 @@ const ToolPage = ({ data: { tool } }) => {
             />
           }
         />
-  
-        <ContentList
-          projects={projects}
-          posts={posts}
-          tools={tools}
+
+        <ResourceList
+          website={website}
+          github={github && github.url}
+          docs={docs}
         />
-  
-        <RepositoryRows
+
+        <ActivityList
           createdAt={github && github.createdAt}
           updatedAt={github && github.updatedAt}
           stargazers={github && github.stargazers}
           downloads={npm && npm.downloadsWeekly}
           commits={github && github.commits}
           version={version}
+        />
+  
+        <ContentList
+          projects={projects}
+          posts={posts}
+          tools={tools}
         />
       </Tool>
     </Layout>

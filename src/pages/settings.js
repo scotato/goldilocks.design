@@ -7,7 +7,7 @@ import Row from '../components/Row'
 import Header from '../components/Header'
 import { Back } from '../components/Link'
 import Switch from '../components/Switch'
-import RepositoryRows from '../components/RepositoryRows'
+import ActivityList from '../components/ActivityList'
 
 const SettingsPage = ({ data: { source } }) => {
   const darkMode = useDarkMode()
@@ -27,7 +27,7 @@ const SettingsPage = ({ data: { source } }) => {
           />
         </Group>
 
-        <RepositoryRows
+        <ActivityList
           updatedAt={source.frontmatter.github.updatedAt}
           version={source.frontmatter.github.version}
         />

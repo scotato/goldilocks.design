@@ -2,6 +2,8 @@
 id: whats-up
 title: What's Up?
 author: scotato
+website: https://goldilocks.design
+githubUrl: https://github.com/scotato/goldilocks.design
 createdAt: '2019-03-28T21:06:22.497Z'
 updatedAt: '2020-02-01T21:06:22.497Z'
 badge: whats-up.png
