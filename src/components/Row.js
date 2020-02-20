@@ -58,7 +58,7 @@ export const Title = styled.span`
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  z-index: 1;
+  z-index: 1.1;
 `
 
 export const Detail = styled.span`
@@ -68,7 +68,7 @@ export const Detail = styled.span`
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  line-height: 1;
+  line-height: 1.1;
   max-height: ${props => props.theme.size[700]};
   z-index: 1;
 `
