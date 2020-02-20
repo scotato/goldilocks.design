@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import isemail from 'isemail'
 import TextAreaAutosize from 'react-textarea-autosize'
@@ -32,7 +32,7 @@ const encode = data => Object
   .join("&")
 
 export default props => {
-  const form = useRef(null)
+  const [honeypot, setHoneypot] = useState(null)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
@@ -42,6 +42,7 @@ export default props => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const { action, topic, navigate, setSubmitButton } = props
 
+  const onChangeHoneypot = event => setHoneypot(event.target.value)
   const onChangeName = event => setName(event.target.value)
   const onChangeEmail = event => setEmail(event.target.value)
   const onChangeMessage = event => setMessage(event.target.value)
@@ -64,14 +65,16 @@ export default props => {
   const onSubmit = event => {
     const state = { topic, name, email, message, subscribe, posts, projects }
     setIsSubmitting(true)
-    fetch(action, {
+    fetch('/', {
       method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        "form-name": form.current.getAttribute("name"),
+        "form-name": props.name,
+        "bot-field": honeypot,
         ...state
       })
     })
-    .then(() => navigate(form.current.getAttribute("action")))
+    .then(() => navigate(props.action))
     .catch(error => {
       setIsSubmitting(false)
       alert(error)
@@ -84,13 +87,13 @@ export default props => {
   const isEmail = email.length
   const isEmailValid = isemail.validate(email)
   const canSubmitEmail = !isEmail || isEmailValid
-  const canSubmitMessage = message.length > 10
+  const canSubmitMessage = message.length > 3
   const canSubscribe = !isSubscribing || (isSubscribing && isEmailValid)
   const canSubmit = !isSubmitting && canSubmitMessage && canSubmitEmail && canSubscribe
   
   useEffect(() => setSubmitButton(
     <ButtonText disabled={!canSubmit} onClick={onSubmit}>Submit</ButtonText>
-  ), [name, email, message, subscribe, posts, projects, isSubmitting])
+  ), [name, email, message, subscribe, posts, projects, isSubmitting, canSubmit, setSubmitButton])
 
   return (
     <Form
@@ -100,10 +103,10 @@ export default props => {
       data-netlify="true"
       data-netlify-honeypot="bot-field"
       onSubmit={onSubmit}
-      ref={form}
     >
       <Hidden>
-        <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+        <label>Don’t fill this out if you're human: <input name="bot-field" value={honeypot}onChange={onChangeHoneypot} /></label>
+        <input type="hidden" name="form-name" value="feedback" />
       </Hidden>
 
       <Group
