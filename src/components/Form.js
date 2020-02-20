@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import isemail from 'isemail'
 import TextAreaAutosize from 'react-textarea-autosize'
@@ -32,6 +32,7 @@ const encode = data => Object
   .join("&")
 
 export default props => {
+  const form = useRef(null);
   const [honeypot, setHoneypot] = useState(null)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -61,6 +62,8 @@ export default props => {
     setPosts(val)
     setProjects(val)
   }
+
+  const onSubmitClick = () => form.current.dispatchEvent(new Event("submit"));
   
   const onSubmit = event => {
     const state = { topic, name, email, message, subscribe, posts, projects }
@@ -92,7 +95,7 @@ export default props => {
   const canSubmit = !isSubmitting && canSubmitMessage && canSubmitEmail && canSubscribe
   
   useEffect(() => setSubmitButton(
-    <ButtonText disabled={!canSubmit} onClick={onSubmit}>Submit</ButtonText>
+    <ButtonText disabled={!canSubmit} onClick={onSubmitClick}>Submit</ButtonText>
   ), [name, email, message, subscribe, posts, projects, isSubmitting, canSubmit, setSubmitButton])
 
   return (
@@ -103,6 +106,7 @@ export default props => {
       data-netlify="true"
       data-netlify-honeypot="bot-field"
       onSubmit={onSubmit}
+      ref={form}
     >
       <Hidden>
         <label>Don’t fill this out if you're human: <input name="bot-field" value={honeypot}onChange={onChangeHoneypot} /></label>
