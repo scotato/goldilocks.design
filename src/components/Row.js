@@ -62,15 +62,14 @@ export const Title = styled.span`
 `
 
 export const Detail = styled.span`
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: flex-end; */
   grid-area: detail;
   text-align: right;
   color: ${props => props.theme.grayscale[500]};
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  line-height: 1;
+  max-height: ${props => props.theme.size[700]};
   z-index: 1;
 `
 
