@@ -40,6 +40,7 @@ export default props => {
   const [posts, setPosts] = useState(false)
   const [projects, setProjects] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const { action, topic, navigate, setSubmitButton } = props
 
   const onChangeName = event => setName(event.target.value)
   const onChangeEmail = event => setEmail(event.target.value)
@@ -61,16 +62,16 @@ export default props => {
   }
   
   const onSubmit = event => {
-    const state = { name, email, message, subscribe, posts, projects }
+    const state = { topic, name, email, message, subscribe, posts, projects }
     setIsSubmitting(true)
-    fetch("/", {
+    fetch(action, {
       method: "POST",
       body: encode({
         "form-name": form.current.getAttribute("name"),
         ...state
       })
     })
-    .then(() => props.navigate(form.current.getAttribute("action")))
+    .then(() => navigate(form.current.getAttribute("action")))
     .catch(error => {
       setIsSubmitting(false)
       alert(error)
@@ -87,16 +88,14 @@ export default props => {
   const canSubscribe = !isSubscribing || (isSubscribing && isEmailValid)
   const canSubmit = !isSubmitting && canSubmitMessage && canSubmitEmail && canSubscribe
   
-  useEffect(() => {
-    props.setSubmitButton(
-      <ButtonText disabled={!canSubmit} onClick={onSubmit}>Submit</ButtonText>
-    )
-  }, [name, email, message, subscribe, posts, projects])
+  useEffect(() => setSubmitButton(
+    <ButtonText disabled={!canSubmit} onClick={onSubmit}>Submit</ButtonText>
+  ), [name, email, message, subscribe, posts, projects, isSubmitting])
 
   return (
     <Form
-      name={props.action}
-      action={props.action}
+      name={props.name}
+      action={action}
       method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"

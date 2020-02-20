@@ -35,6 +35,7 @@ export default ({
   navigate
 }) => {
   const [submitButton, setSubmitButton] = useState(null)
+  const topic = project.frontmatter.title || post.frontmatter.title
   
   return (
     <Layout>
@@ -47,7 +48,9 @@ export default ({
         <Project {...project} />
         <Post {...post} />
         <Form
+          name="feedback"
           action={from}
+          topic={topic}
           setSubmitButton={setSubmitButton} 
           navigate={navigate}
         />
