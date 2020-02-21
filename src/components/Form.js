@@ -69,17 +69,27 @@ export default props => {
 
   const onSubmitClick = () => form.current.dispatchEvent(new Event("submit"));
   
-  const onSubmit = event => {
+  const handleSubmit = event => {
     const state = { topic, name, email, message, subscribe, posts, projects }
+
+    event.preventDefault()
     setIsSubmitting(true)
-    fetch(action, {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": props.name,
-        "bot-field": honeypot,
-        ...state
-      })
+
+    const body = {
+      "form-name": props.name,
+      ...state
+    }
+
+    if (honeypot) {
+      body["bot-field"] = honeypot
+    }
+
+    console.log(encode(body))
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode(body)
     })
     .then(() => navigate(props.action))
     .catch(error => {
@@ -87,7 +97,6 @@ export default props => {
       alert(error)
     })
 
-    event && event.preventDefault()
   }
 
   const isSubscribing = posts || projects
@@ -105,13 +114,17 @@ export default props => {
   return (
     <Form
       name={props.name}
-      action={action}
       method="post"
+      action={action}
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      onSubmit={onSubmit}
+      onSubmit={handleSubmit}
       ref={form}
     >
+      <noscript>
+        <p>This form won’t work with Javascript disabled</p>
+      </noscript>
+
       <Hidden>
         <label>Don’t fill this out if you're human: <input name="bot-field" value={honeypot}onChange={onChangeHoneypot} /></label>
         <input type="hidden" name="form-name" value={props.name} />
@@ -132,7 +145,7 @@ export default props => {
         />
 
         <Input
-          type="text"
+          type="email"
           name="email"
           title="Email"
           icon={isEmail ? isEmailValid ? 'check' : 'exclamation-circle' : 'envelope'}
