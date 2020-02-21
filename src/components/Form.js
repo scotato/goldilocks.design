@@ -68,7 +68,7 @@ export default props => {
   const onSubmit = event => {
     const state = { topic, name, email, message, subscribe, posts, projects }
     setIsSubmitting(true)
-    fetch('/', {
+    fetch(action, {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
