@@ -84,8 +84,6 @@ export default props => {
       body["bot-field"] = honeypot
     }
 
-    console.log(encode(body))
-
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
