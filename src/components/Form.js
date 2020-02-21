@@ -24,6 +24,10 @@ const TextArea = styled(TextAreaAutosize)`
     outline: none;
     border-color: ${props => props.theme.color.info};
   }
+
+  .dark-mode & {
+    color: ${props => props.theme.grayscale[500]};
+  }
 `
 
 const encode = data => Object
