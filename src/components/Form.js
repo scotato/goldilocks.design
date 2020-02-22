@@ -42,8 +42,8 @@ export default props => {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [subscribe, setSubscribe] = useState(false)
-  const [posts, setPosts] = useState(false)
-  const [projects, setProjects] = useState(false)
+  const [subscribePosts, setSubscribePosts] = useState(false)
+  const [subscribeProjects, setSubscribeProjects] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const { action, topic, navigate, setSubmitButton } = props
 
@@ -51,32 +51,33 @@ export default props => {
   const onChangeName = event => setName(event.target.value)
   const onChangeEmail = event => setEmail(event.target.value)
   const onChangeMessage = event => setMessage(event.target.value)
-  const onChangeSubscribe = event => subscribeAll(!subscribe)
+  const onChangeSubscribe = () => subscribeAll(!subscribe)
   
-  const onChangePosts = event => posts && !projects
+  const onChangePosts = event => subscribePosts && !subscribeProjects
     ? subscribeAll(false)
-    : setPosts(!posts)
+    : setSubscribePosts(!subscribePosts)
 
-  const onChangeProjects = event => !posts && projects
+  const onChangeProjects = event => !subscribePosts && subscribeProjects
     ? subscribeAll(false)
-    : setProjects(!projects)
+    : setSubscribeProjects(!subscribeProjects)
 
   const subscribeAll = val => {
     setSubscribe(val)
-    setPosts(val)
-    setProjects(val)
+    setSubscribePosts(val)
+    setSubscribeProjects(val)
   }
 
   const onSubmitClick = () => form.current.dispatchEvent(new Event("submit"));
   
   const handleSubmit = event => {
-    const state = { topic, name, email, message, subscribe, posts, projects }
+    const state = { topic, name, email, message, subscribe, subscribePosts, subscribeProjects }
 
     event.preventDefault()
     setIsSubmitting(true)
 
     const body = {
       "form-name": props.name,
+      "context": action,
       ...state
     }
 
@@ -89,7 +90,7 @@ export default props => {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode(body)
     })
-    .then(() => navigate(props.action))
+    .then(() => navigate(action))
     .catch(error => {
       setIsSubmitting(false)
       alert(error)
@@ -97,7 +98,7 @@ export default props => {
 
   }
 
-  const isSubscribing = posts || projects
+  const isSubscribing = subscribePosts || subscribeProjects
   const isEmail = email.length
   const isEmailValid = isemail.validate(email)
   const canSubmitEmail = !isEmail || isEmailValid
@@ -107,7 +108,7 @@ export default props => {
   
   useEffect(() => setSubmitButton(
     <ButtonText disabled={!canSubmit} onClick={onSubmitClick}>Submit</ButtonText>
-  ), [name, email, message, subscribe, posts, projects, isSubmitting, canSubmit, setSubmitButton])
+  ), [name, email, message, subscribe, subscribePosts, subscribeProjects, isSubmitting, canSubmit, setSubmitButton])
 
   return (
     <Form
@@ -126,6 +127,9 @@ export default props => {
       <Hidden>
         <label>Don’t fill this out if you're human: <input name="bot-field" value={honeypot}onChange={onChangeHoneypot} /></label>
         <input type="hidden" name="form-name" value={props.name} />
+        <input type="text" name="context" value={action} />
+        <input type="checkbox" name="subscribePosts" />
+        <input type="checkbox" name="subscribeProjects" />
       </Hidden>
 
       <Group
@@ -183,7 +187,7 @@ export default props => {
             <Switch
               name="subscribePosts"
               onChange={onChangePosts}
-              checked={posts}
+              checked={subscribePosts}
             />
           }
         />
@@ -196,7 +200,7 @@ export default props => {
             <Switch
               name="subscribeProjects"
               onChange={onChangeProjects}
-              checked={projects}
+              checked={subscribeProjects}
             />
           }
         />
