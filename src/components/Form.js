@@ -42,8 +42,6 @@ export default props => {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [subscribe, setSubscribe] = useState(false)
-  const [subscribePosts, setSubscribePosts] = useState(false)
-  const [subscribeProjects, setSubscribeProjects] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const { action, topic, navigate, setSubmitButton } = props
 
@@ -51,26 +49,11 @@ export default props => {
   const onChangeName = event => setName(event.target.value)
   const onChangeEmail = event => setEmail(event.target.value)
   const onChangeMessage = event => setMessage(event.target.value)
-  const onChangeSubscribe = () => subscribeAll(!subscribe)
-  
-  const onChangePosts = event => subscribePosts && !subscribeProjects
-    ? subscribeAll(false)
-    : setSubscribePosts(!subscribePosts)
-
-  const onChangeProjects = event => !subscribePosts && subscribeProjects
-    ? subscribeAll(false)
-    : setSubscribeProjects(!subscribeProjects)
-
-  const subscribeAll = val => {
-    setSubscribe(val)
-    setSubscribePosts(val)
-    setSubscribeProjects(val)
-  }
-
+  const onChangeSubscribe = () => setSubscribe(!subscribe)
   const onSubmitClick = () => form.current.dispatchEvent(new Event("submit"));
   
   const handleSubmit = event => {
-    const state = { topic, name, email, message, subscribe, subscribePosts, subscribeProjects }
+    const state = { topic, name, email, message, subscribe }
 
     event.preventDefault()
     setIsSubmitting(true)
@@ -98,17 +81,16 @@ export default props => {
 
   }
 
-  const isSubscribing = subscribePosts || subscribeProjects
   const isEmail = email.length
   const isEmailValid = isemail.validate(email)
   const canSubmitEmail = !isEmail || isEmailValid
   const canSubmitMessage = message.length > 3
-  const canSubscribe = !isSubscribing || (isSubscribing && isEmailValid)
+  const canSubscribe = subscribe ? isEmailValid : true
   const canSubmit = !isSubmitting && canSubmitMessage && canSubmitEmail && canSubscribe
   
   useEffect(() => setSubmitButton(
     <ButtonText disabled={!canSubmit} onClick={onSubmitClick}>Submit</ButtonText>
-  ), [name, email, message, subscribe, subscribePosts, subscribeProjects, isSubmitting, canSubmit, setSubmitButton])
+  ), [name, email, message, subscribe, isSubmitting, canSubmit, setSubmitButton])
 
   return (
     <Form
@@ -128,8 +110,6 @@ export default props => {
         <label>Don’t fill this out if you're human: <input name="bot-field" value={honeypot}onChange={onChangeHoneypot} /></label>
         <input type="hidden" name="form-name" value={props.name} />
         <input type="text" name="context" value={action} />
-        <input type="checkbox" name="subscribePosts" />
-        <input type="checkbox" name="subscribeProjects" />
       </Hidden>
 
       <Group
@@ -175,32 +155,6 @@ export default props => {
               name="subscribe"
               onChange={onChangeSubscribe}
               checked={subscribe}
-            />
-          }
-        />
-
-        <Row
-          icon="pen-alt"
-          title="Post Updates"
-          hidden={!subscribe}
-          detail={
-            <Switch
-              name="subscribePosts"
-              onChange={onChangePosts}
-              checked={subscribePosts}
-            />
-          }
-        />
-
-        <Row
-          icon="pencil-ruler"
-          title="Project Updates"
-          hidden={!subscribe}
-          detail={
-            <Switch
-              name="subscribeProjects"
-              onChange={onChangeProjects}
-              checked={subscribeProjects}
             />
           }
         />
