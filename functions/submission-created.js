@@ -3,10 +3,9 @@ const fetch = require('node-fetch')
 const { EMAIL_TOKEN } = process.env
 
 exports.handler = async event => {
-  const { subscribe, email } = JSON.parse(event.body).payload
+  const { subscribe, email } = JSON.parse(event.body).payload.data
   const canSubscribe = subscribe && email
   console.log(`Recieved a submission: ${subscribe} ${email}`)
-  console.log('body', JSON.parse(event.body))
   
   return canSubscribe ? fetch('https://api.buttondown.email/v1/subscribers', {
     method: 'POST',
