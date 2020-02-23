@@ -35,6 +35,28 @@ const encode = data => Object
   .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
   .join("&")
 
+const Success = props => {
+  const [countdown, setCountdown] = useState(3)
+  countdown === 0 && props.redirect()
+  
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCountdown(c => c - 1)
+    }, 1000)
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <Group>
+      <Row
+        icon="check"
+        title="Feedback submitted"
+        detail={`Redirecting in ${countdown}`}
+      />
+    </Group>
+  )
+}
+
 export default props => {
   const form = useRef(null);
   const [honeypot, setHoneypot] = useState(null)
@@ -43,6 +65,7 @@ export default props => {
   const [message, setMessage] = useState('')
   const [subscribe, setSubscribe] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [success, setSuccess] = useState(false)
   const { action, topic, navigate, setSubmitButton } = props
 
   const onChangeHoneypot = event => setHoneypot(event.target.value)
@@ -73,7 +96,7 @@ export default props => {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode(body)
     })
-    .then(() => navigate(action))
+    .then(() => setSuccess(true))
     .catch(error => {
       setIsSubmitting(false)
       alert(error)
@@ -92,7 +115,7 @@ export default props => {
     <ButtonText disabled={!canSubmit} onClick={onSubmitClick}>Submit</ButtonText>
   ), [name, email, message, subscribe, isSubmitting, canSubmit, setSubmitButton])
 
-  return (
+  return !success ? (
     <Form
       name={props.name}
       method="post"
@@ -160,5 +183,7 @@ export default props => {
         />
       </Group>
     </Form>
+  ) : (
+    <Success redirect={() => navigate(action)} />
   )
 }
