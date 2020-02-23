@@ -56,6 +56,7 @@ export default props => {
 
     const body = {
       "form-name": formName,
+      subscribe: true,
       ...state
     }
 
