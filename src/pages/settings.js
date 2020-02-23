@@ -7,9 +7,10 @@ import Row from '../components/Row'
 import Header from '../components/Header'
 import { Back } from '../components/Link'
 import Switch from '../components/Switch'
+import Subscribe from '../components/Subscribe'
 import ActivityList from '../components/ActivityList'
 
-const SettingsPage = ({ data: { source } }) => {
+const SettingsPage = ({ data: { source }, location: { pathname } }) => {
   const darkMode = useDarkMode()
 
   return (
@@ -26,6 +27,8 @@ const SettingsPage = ({ data: { source } }) => {
             detail={<Switch onChange={darkMode.toggle} checked={darkMode.value}/>}
           />
         </Group>
+
+        <Subscribe context={pathname} />
 
         <ActivityList
           updatedAt={source.frontmatter.github.updatedAt}

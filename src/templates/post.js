@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Header from '../components/Header'
+import Subscribe from '../components/Subscribe'
 import ResourceList from '../components/ResourceList'
 import ActivityList from '../components/ActivityList'
 import ContentList from '../components/ContentList'
@@ -59,6 +60,8 @@ export default ({ data: { post }, location: { pathname } }) => {
       
       <Content>
         <Post dangerouslySetInnerHTML={{ __html: post.html }} />
+
+        <Subscribe context={pathname} />
 
         <ResourceList
           website={website}
