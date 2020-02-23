@@ -20,6 +20,10 @@ const TextArea = styled(TextAreaAutosize)`
   width: 100%;
   border: 0;
 
+  ::placeholder {
+    color: ${props => props.theme.grayscale[500]};
+  }
+
   &:focus {
     outline: none;
     border-color: ${props => props.theme.color.info};
@@ -27,6 +31,10 @@ const TextArea = styled(TextAreaAutosize)`
 
   .dark-mode & {
     color: ${props => props.theme.grayscale[500]};
+
+    ::placeholder {
+      color: ${props => props.theme.grayscale[700]};
+    }
   }
 `
 
@@ -163,6 +171,7 @@ export default props => {
       <Group title="Message" detail={message && `${message.length} / 260`}>
         <TextArea
           name="message"
+          placeholder="Feedback..."
           maxLength={260}
           value={message}
           onChange={onChangeMessage}
