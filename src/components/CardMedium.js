@@ -29,7 +29,7 @@ const LinkRow = styled(Link)`
 const Row = styled.div`
   display: grid;
   padding: ${props => props.theme.size[500]};
-  background-color: ${props => props.theme.grayscale[200]};
+  background-color: ${props => props.theme.grayscale[100]};
   grid-area: row;
   grid-template-areas: 
       "badge title detail arrow"

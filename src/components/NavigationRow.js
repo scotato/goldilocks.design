@@ -69,7 +69,8 @@ const Badge = styled.div.attrs({
 })`
   display: grid;
   grid-area: badge;
-  color: ${props => props.theme.grayscale[500]};
+  font-size: ${props => props.theme.size[500]};
+  font-weight: 700;
   background-color: ${props => props.theme.grayscale[300]};
   border-radius: ${props => props.theme.size[600]};
   align-self: stretch;
