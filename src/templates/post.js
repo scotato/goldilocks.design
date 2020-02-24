@@ -23,6 +23,13 @@ const Post = styled.article`
     margin-bottom: ${props => props.theme.size[700]};
     padding: 0 ${props => props.theme.size[500]};
   `}
+
+  a {
+    &:focus {
+      outline: none;
+      text-decoration: underline;
+    }
+  }
 `
 
 const Content = styled.div`

@@ -31,6 +31,10 @@ const LinkRow = styled(Link)`
   &:hover {
     color: inherit;
   }
+
+  &:focus svg {
+    color: ${props => props.theme.color.info};
+  }
 `
 
 const Row = styled.div`

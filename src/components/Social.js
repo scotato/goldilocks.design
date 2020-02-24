@@ -19,6 +19,11 @@ const SocialLink = styled(Link)`
     color: ${props => props.theme.grayscale[600]};
   }
 
+  &:focus {
+    outline: none;
+    color: ${props => props.theme.color.info};
+  }
+
   &:hover {
     color: ${props => props.theme.grayscale[300]};
 

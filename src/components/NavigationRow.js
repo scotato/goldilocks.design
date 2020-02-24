@@ -13,18 +13,23 @@ const NavigationRow = styled(Link)`
   grid-template-columns: ${props => props.theme.size[700]} auto  ${props => props.theme.size[700]};
   grid-template-areas: 
     "icon title badge";
-  color: ${props => props.theme.grayscale[600]};
+  color: ${props => props.theme.grayscale[500]};
   background-color: ${props => props.theme.grayscale[200]};
   border-radius: ${props => props.theme.size[500]};
   text-decoration: none;
   cursor: pointer;
-  will-change: color, background-color;
-  transition: color 0.2s ease-out, background-color 0.2s ease-out;
+  will-change: color, background-color, box-shadow;
+  transition: color 0.2s ease-out, background-color 0.2s ease-out, box-shadow 0.2s ease-out;
   font-weight: 600;
 
   .dark-mode & {
     color: ${props => props.theme.grayscale[400]};
     background-color: ${props => props.theme.grayscale[800]};
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 ${props => props.theme.size[100]} ${props => props.theme.color.primary};
   }
 
   &:hover {

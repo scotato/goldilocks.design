@@ -1,10 +1,21 @@
 import React from 'react'
 import { Link as LinkGatsby } from 'gatsby'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Icon from './Icon'
 
-const LinkInternal = styled(LinkGatsby)``
-const LinkExternal = styled.a``
+const link = css`
+  &:focus {
+    outline: none;
+  }
+`
+
+const LinkInternal = styled(LinkGatsby)`
+  ${link}
+`
+
+const LinkExternal = styled.a`
+  ${link}
+`
 
 const BackLink = styled(LinkGatsby)`
   display: grid;
@@ -12,6 +23,11 @@ const BackLink = styled(LinkGatsby)`
   grid-column-gap: ${props => props.theme.size[300]};
   align-items: center;
   font-weight: 500;
+  ${link}
+
+  &:focus {
+    text-decoration: underline;
+  }
 `
 
 const isActive = ({ isCurrent, isPartiallyCurrent }) => {
@@ -29,10 +45,16 @@ const Link = ({to, ...props}) => to.includes('http') ? (
     <LinkInternal to={to} getProps={isActive} {...props} />
 )
 
+const LinkIconStyled = styled(Link)`
+  &:focus {
+    color: ${props => props.theme.color.blueDark};
+  }
+`
+
 export const LinkIcon = ({icon, to, size}) => to ? (
-  <Link to={to}>
+  <LinkIconStyled to={to}>
     <Icon name={icon} size={size} />
-  </Link>
+  </LinkIconStyled>
 ) : null
 
 export default Link

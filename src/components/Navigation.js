@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
+import { Search } from './Input'
 import NavigationRow from './NavigationRow'
 
 const Navigation = styled.nav``
@@ -49,6 +50,8 @@ export default props => {
     }
   `)
 
+  const [search, setSearch] = useState("")
+
   const badges = {
     "Projects": data.projects.edges.length,
     "Posts": data.posts.edges.length,
@@ -57,6 +60,11 @@ export default props => {
 
   return (
     <Navigation>
+      <Search
+        value={search}
+        onChange={e => setSearch(e.target.value)}
+      />
+      
       {data.site.siteMetadata.content.map(item => (
         <NavigationRow
           key={item.id}

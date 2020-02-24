@@ -24,6 +24,14 @@ const LinkCard = styled(Link)`
   ${cardStyles}
   color: inherit;
 
+  &:focus {
+    outline: none;
+
+    .arrow {
+      color: ${props => props.theme.color.info};
+    }
+  }
+
   &:hover {
     color: inherit;
   }
@@ -147,7 +155,7 @@ export default props => (
       <Description>{props.description}</Description>
       <Indicators>{props.indicators}</Indicators>
       <Detail>{props.detail}</Detail>
-      <Arrow visible={props.to} />
+      <Arrow visible={props.to} className="arrow" />
     </Row>
   </Card>
 )

@@ -28,6 +28,7 @@ export const icons = [
   'faPencilRuler',
   'faRss',
   'faRulerCombined',
+  'faSearch',
   'faStar',
   'faTag',
   'faTools',

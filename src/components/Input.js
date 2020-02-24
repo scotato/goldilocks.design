@@ -18,6 +18,13 @@ const InputRow = styled.label`
   margin-top: 0;
   margin-bottom: 0;
   grid-template-columns: ${props => props.theme.size[700]} 1fr 2fr;
+  will-change: box-shadow;
+  transition: box-shadow 0.2s ease-out;
+
+  ${props => props.isFocused && css`
+    outline: none;
+    box-shadow: 0 0 0 ${props => props.theme.size[100]} ${props => props.theme.color.primary};
+  `}
 `
 
 const InputBadge = styled(Badge)`
@@ -54,18 +61,70 @@ const Input = styled.input`
 
   &:focus {
     outline: none;
-    border-color: ${props => props.theme.color.info};
+  }
+`
+
+const SearchRow = styled(InputRow)`
+  padding: ${props => props.theme.size[200]} ${props => props.theme.size[500]};
+  margin-bottom: ${props => props.theme.size[500]};
+  color: ${props => props.theme.grayscale[600]};
+  background-color: ${props => props.theme.grayscale[200]};
+  grid-template-columns: ${props => props.theme.size[700]} 1fr;
+  grid-template-areas: "badge detail";
+
+  input {
+    color: ${props => props.theme.grayscale[900]};
+    text-align: left;
+
+    &::placeholder {
+      color: ${props => props.theme.grayscale[400]};
+    }
+  }
+
+  .dark-mode & {
+    color: ${props => props.theme.grayscale[400]};
+    background-color: ${props => props.theme.grayscale[800]};
+
+    input {
+      color: ${props => props.theme.grayscale[200]};
+      text-align: left;
+
+      &::placeholder {
+        color: ${props => props.theme.grayscale[700]};
+      }
+    }
   }
 `
 
 const checkFocus = ref => document.activeElement === ref.current
 
-export default props => {
+export const Search = ({className, ...props}) => {
   const input = useRef(null)
   const [isFocused, setIsFocused] = useState()
 
   return (
-    <InputRow onClick={props.onClick}>
+    <SearchRow onClick={props.onClick} isFocused={isFocused} className={className}>
+      <InputBadge name="search" size={500} isFocused={isFocused} />
+      <Input
+        ref={input}
+        onFocus={() => setIsFocused(checkFocus(input))}
+        onBlur={() => setIsFocused(checkFocus(input))}
+        name="search"
+        type="search"
+        placeholder="Search..."
+        maxLength={30}
+        {...props}
+      />
+    </SearchRow>
+  )
+}
+
+export default ({className, ...props}) => {
+  const input = useRef(null)
+  const [isFocused, setIsFocused] = useState()
+
+  return (
+    <InputRow onClick={props.onClick} isFocused={isFocused} className={className}>
       <InputBadge name={props.icon} size={600} isFocused={isFocused} />
       <Title>{props.title}</Title>
       <Input
