@@ -13,12 +13,6 @@ const Hidden = styled.p`
   display: none;
 `
 
-const SubmitButton = styled(ButtonText).attrs({type: "submit"})`
-  /* margin-left: auto; */
-  /* align-self: flex-end; */
-  /* font-weight: 700; */
-`
-
 const encode = data => Object
   .keys(data)
   .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
@@ -98,7 +92,9 @@ export default props => {
 
       <Group
         title={groupTitle}
-        detail={isSubmitVisible && <SubmitButton disabled={isSubmitDisabled}>Submit</SubmitButton>}
+        detail={isSubmitVisible && (
+          <ButtonText type="submit" disabled={isSubmitDisabled}>Submit</ButtonText>
+        )}
       >
         <Input
           type="email"

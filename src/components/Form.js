@@ -66,7 +66,7 @@ const Success = props => {
 }
 
 export default props => {
-  const form = useRef(null);
+  const form = useRef(null)
   const [honeypot, setHoneypot] = useState(null)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')

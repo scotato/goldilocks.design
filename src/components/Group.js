@@ -26,7 +26,7 @@ const Body = styled.div`
 
   & > a,
   & > textarea,
-  & > input,
+  & > label,
   & > div {
     margin-top: 0;
     margin-bottom: 0;

@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import { rowStyle, Badge, Title, Detail } from './Row'
+import React, { useRef, useState } from 'react'
+import styled, { css } from 'styled-components'
+import { rowStyle, Badge, Title } from './Row'
 
 export function moveCursorToEnd(el) {
   if (typeof el.selectionStart == "number") {
@@ -17,28 +17,29 @@ const InputRow = styled.label`
   ${rowStyle}
   margin-top: 0;
   margin-bottom: 0;
-  border-radius: 0;
   grid-template-columns: ${props => props.theme.size[700]} 1fr 2fr;
+`
 
-  &:last-child input {
-    border-bottom-left-radius: ${props => props.theme.size[500]};
-    border-bottom-right-radius: ${props => props.theme.size[500]};
-  }
+const InputBadge = styled(Badge)`
+  will-change: color;
+  transition: color 0.2s ease-in;
+  ${props => props.isFocused && css`
+    color: ${props.theme.color.info};
+  `}
 `
 
 const Input = styled.input`
-  position: absolute;
   margin: 0;
-  padding: ${props => props.theme.size[500]};
-  border: 0;
-  border-bottom: ${props => props.theme.size[100]} solid ${props => props.theme.grayscale[300]};
+  padding: 0;
   background-color: transparent;
   color: inherit;
   text-align: right;
   color: ${props => props.theme.grayscale[500]};
-  width: 100%;
-  height: 100%;
-  z-index: 0;
+  grid-area: detail;
+  border: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 
   .dark-mode & {
     border-color: ${props => props.theme.grayscale[900]};
@@ -50,11 +51,22 @@ const Input = styled.input`
   }
 `
 
-export default props => (
-  <InputRow onClick={props.onClick}>
-    <Badge name={props.icon} size={600} />
-    <Title>{props.title}</Title>
-    <Detail />
-    <Input {...props} />
-  </InputRow>
-)
+const checkFocus = ref => document.activeElement === ref.current
+
+export default props => {
+  const input = useRef(null)
+  const [isFocused, setIsFocused] = useState()
+
+  return (
+    <InputRow onClick={props.onClick}>
+      <InputBadge name={props.icon} size={600} isFocused={isFocused} />
+      <Title>{props.title}</Title>
+      <Input
+        ref={input}
+        onFocus={() => setIsFocused(checkFocus(input))}
+        onBlur={() => setIsFocused(checkFocus(input))}
+        {...props}
+      />
+    </InputRow>
+  )
+}
