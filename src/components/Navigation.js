@@ -3,8 +3,14 @@ import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import { Search } from './Input'
 import NavigationRow from './NavigationRow'
+import SearchResults from './SearchResults'
 
-const Navigation = styled.nav``
+const Navigation = styled.nav`
+  a {
+    background-color: ${props => props.theme.grayscale[200]};
+    border-color: ${props => props.theme.grayscale[300]};
+  }
+`
 
 export default props => {
   const data = useStaticQuery(graphql`
@@ -65,7 +71,9 @@ export default props => {
         onChange={e => setSearch(e.target.value)}
       />
       
-      {data.site.siteMetadata.content.map(item => (
+      {search.length ? (
+        <SearchResults query={search} />
+      ) : data.site.siteMetadata.content.map(item => (
         <NavigationRow
           key={item.id}
           icon={item.icon}

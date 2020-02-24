@@ -21,8 +21,9 @@ const Aside = styled.aside`
   grid-template-rows: 1fr auto;
   grid-row-gap: ${props => props.theme.size[300]};
   width: ${props => props.theme.device.phoneSmall};
-  min-height: 100vh;
+  height: 100vh;
   z-index: 2;
+  overflow-y: scroll;
 
   ${props => props.theme.media.tabletVertical`
     display: ${props.isRoot ? 'grid' : 'none'};

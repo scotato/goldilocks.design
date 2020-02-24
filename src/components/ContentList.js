@@ -15,7 +15,7 @@ const Projects = props => props.items.length ? (
         badge={project.frontmatter.logo.childImageSharp.fluid}
         title={project.frontmatter.title}
         description={project.frontmatter.description}
-        detail={moment(project.frontmatter.github.committedAt || project.frontmatter.github.createdAt).format("MMM YYYY")}
+        detail={!props.hideDetail && moment(project.frontmatter.github.committedAt || project.frontmatter.github.createdAt).format("MMM YYYY")}
       />
     ))}
   </Group>
@@ -31,7 +31,7 @@ const Posts = props => props.items.length ? (
         key={post.fields.slug}
         badge={post.frontmatter.badge.childImageSharp.fluid}
         title={post.frontmatter.title}
-        detail={moment(post.frontmatter.createdAt).format("MMM YYYY")}
+        detail={!props.hideDetail && moment(post.frontmatter.createdAt).format("MMM YYYY")}
       />
     ))}
   </Group>
@@ -50,10 +50,10 @@ const Tools = props => props.items.length ? (
   </Group>
 ) : null
 
-export default ({ projects, posts, tools }) => (
+export default ({ projects, posts, tools, ...props }) => (
   <>
-    <Projects items={projects || []} />
-    <Posts items={posts || []} />
-    <Tools items={tools || []} />
+    <Projects items={projects || []} {...props} />
+    <Posts items={posts || []} {...props} />
+    <Tools items={tools || []} {...props} />
   </>
 )
