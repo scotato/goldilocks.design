@@ -32,7 +32,7 @@ const LinkCard = styled(Link)`
 const Row = styled.div`
   display: grid;
   padding: ${props => props.theme.size[500]};
-  background-color: ${props => props.theme.grayscale[200]};
+  background-color: ${props => props.theme.grayscale[100]};
   grid-area: row;
   grid-template-areas: 
     "badge title detail arrow"
@@ -127,7 +127,7 @@ const Arrow = styled(Icon).attrs({
   margin: auto 0;
   margin-left: ${props => props.theme.size[500]};
   grid-area: arrow;
-  color: ${props => props.theme.grayscale[400]};
+  color: ${props => props.theme.grayscale[300]};
 
   ${props => props.theme.media.phone`
     margin-left: ${props => props.theme.size[400]};

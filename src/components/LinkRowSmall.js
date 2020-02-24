@@ -9,7 +9,7 @@ const rowStyle = css`
   margin: 0;
   margin-bottom: ${props => props.theme.size[500]};
   padding: ${props => props.theme.size[500]};
-  background-color: ${props => props.theme.grayscale[200]};
+  background-color: ${props => props.theme.grayscale[100]};
   border-radius: ${props => props.theme.size[500]};
   grid-column-gap: ${props => props.theme.size[400]};
 

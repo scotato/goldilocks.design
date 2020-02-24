@@ -31,7 +31,7 @@ const Body = styled.div`
     margin-top: 0;
     margin-bottom: 0;
     border-radius: 0;
-    border-bottom: ${props => props.theme.size[100]} solid ${props => props.theme.grayscale[300]};
+    border-bottom: ${props => props.theme.size[100]} solid ${props => props.theme.grayscale[200]};
 
     &:last-child {
       border-bottom-left-radius: ${props => props.theme.size[500]};

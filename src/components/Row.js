@@ -8,7 +8,7 @@ export const rowStyle = css`
   position: relative;
   margin-bottom: ${props => props.theme.size[500]};
   padding: ${props => props.theme.size[500]};
-  background-color: ${props => props.theme.grayscale[200]};
+  background-color: ${props => props.theme.grayscale[100]};
   border-radius: ${props => props.theme.size[600]};
   grid-template-areas: "badge title detail";
   grid-template-columns: ${props => props.theme.size[700]} 1fr auto;
@@ -43,12 +43,12 @@ const LinkRow = styled(Link)`
 export const Badge = styled(Icon)`
   grid-area: badge;
   justify-self: center;
-  color: ${props => props.theme.grayscale[400]};
+  color: ${props => props.theme.grayscale[300]};
   transform: scale(1.25);
   z-index: 1;
   
   .dark-mode & {
-    color: ${props => props.theme.grayscale[500]};
+    color: ${props => props.theme.grayscale[700]};
   }
 `
 
