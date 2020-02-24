@@ -72,7 +72,7 @@ export default props => {
       />
       
       {search.length ? (
-        <SearchResults query={search} />
+        <SearchResults query={search.toLowerCase()} />
       ) : data.site.siteMetadata.content.map(item => (
         <NavigationRow
           key={item.id}
