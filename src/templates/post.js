@@ -61,7 +61,10 @@ export default ({ data: { post }, location: { pathname } }) => {
       <Content>
         <Post dangerouslySetInnerHTML={{ __html: post.html }} />
 
-        <Subscribe context={pathname} />
+        <ActivityList
+          createdAt={createdAt}
+          updatedAt={updatedAt}
+        />
 
         <ResourceList
           website={website}
@@ -69,10 +72,7 @@ export default ({ data: { post }, location: { pathname } }) => {
           feedback={feedback}
         />
 
-        <ActivityList
-          createdAt={createdAt}
-          updatedAt={updatedAt}
-        />
+        <Subscribe context={pathname} />
         
         <ContentList
           projects={projects}
