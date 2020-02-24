@@ -23,9 +23,16 @@ const InputRow = styled.label`
 const InputBadge = styled(Badge)`
   will-change: color;
   transition: color 0.2s ease-in;
+  
   ${props => props.isFocused && css`
     color: ${props.theme.color.info};
   `}
+
+  .dark-mode & {
+    ${props => props.isFocused && css`
+      color: ${props.theme.color.info};
+    `}
+  }
 `
 
 const Input = styled.input`
