@@ -14,6 +14,10 @@ const BackLink = styled(LinkGatsby)`
   font-weight: 500;
 `
 
+const isActive = ({ isCurrent, isPartiallyCurrent }) => {
+  return isCurrent || isPartiallyCurrent ? { "data-active": "active" } : null
+}
+
 export const Back = props =>
   <BackLink to={props.to}>
     <Icon name="chevron-left" /> {props.children || 'Back'}
@@ -22,7 +26,7 @@ export const Back = props =>
 const Link = ({to, ...props}) => to.includes('http') ? (
     <LinkExternal href={to} target="_blank" {...props} />
   ) : (
-    <LinkInternal to={to} activeClassName='active' {...props} />
+    <LinkInternal to={to} getProps={isActive} {...props} />
 )
 
 export const LinkIcon = ({icon, to, size}) => to ? (

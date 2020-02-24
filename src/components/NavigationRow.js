@@ -35,7 +35,12 @@ const NavigationRow = styled(Link)`
     }
   }
 
-  &.active {
+  &[aria-current] {
+    cursor: default;
+  }
+
+  &[aria-current],
+  &[data-active]  {
     color: white;
     background-color: ${props => props.theme.color[props.color]};
 
