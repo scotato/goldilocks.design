@@ -1,15 +1,25 @@
 import React from "react"
 import { ServerStyleSheet, ThemeProvider } from 'styled-components'
+import { library, dom } from "@fortawesome/fontawesome-svg-core"
+import * as svgIcons from "@fortawesome/free-solid-svg-icons"
+import * as svgBrandIcons from "@fortawesome/free-brands-svg-icons"
+import { icons, iconsBrand } from './src/components/Icon'
 import useDarkMode from 'use-dark-mode'
 import theme from './src/theme'
 
 export const replaceRenderer = ({
   setHeadComponents,
 }) => {
+  // Add font-awesome in SSR/build
+  icons.forEach(icon => library.add(svgIcons[icon]))
+  iconsBrand.forEach(icon => library.add(svgBrandIcons[icon]))
+  const faStyles = <style>{dom.css()}</style>
+
   // Add styled-components in SSR/build
   const sheet = new ServerStyleSheet()
   const styleElement = sheet.getStyleElement()
-  setHeadComponents(styleElement)
+  
+  setHeadComponents([faStyles, styleElement])
 }
 
 const Provider = props => {
