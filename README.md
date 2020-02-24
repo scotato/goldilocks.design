@@ -5,6 +5,8 @@ thoughts on the web
 
 ![Trigger Netlify Build](https://github.com/scotato/goldilocks.design/workflows/Trigger%20Netlify%20Build/badge.svg)
 
+[![Trigger Netlify Build](https://github.com/scotato/goldilocks.design/workflows/Trigger%20Netlify%20Build/badge.svg)](https://github.com/scotato/goldilocks.design/actions)
+
 # run it!
 1. clone
 2. `npm install`
