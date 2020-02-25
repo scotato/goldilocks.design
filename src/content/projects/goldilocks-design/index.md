@@ -8,13 +8,21 @@ logo: goldilocks-design-logo.png
 status: production
 gallery:
   - description: Home
-    img: gallery/Screen Shot 2020-01-07 at 1.08.01 PM.png
-  - description: Projects
-    img: gallery/Screen Shot 2020-01-07 at 1.08.05 PM.png
+    img: gallery/home.png
   - description: Posts
-    img: gallery/Screen Shot 2020-01-07 at 1.08.36 PM.png
+    img: gallery/posts.png
+  - description: Post
+    img: gallery/posts-whats-up.png
+  - description: Projects
+    img: gallery/projects.png
   - description: Project
-    img: gallery/Screen Shot 2020-01-07 at 1.08.40 PM.png
+    img: gallery/projects-wavy.png
+  - description: Tools
+    img: gallery/tools.png
+  - description: Tool
+    img: gallery/tools-react.png
+  - description: Settings
+    img: gallery/settings.png
 tools: 
   - react
   - gatsby
