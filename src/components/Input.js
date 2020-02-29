@@ -103,9 +103,10 @@ export const Search = ({className, ...props}) => {
   const [isFocused, setIsFocused] = useState()
 
   return (
-    <SearchRow onClick={props.onClick} isFocused={isFocused} className={className}>
+    <SearchRow onClick={props.onClick} isFocused={isFocused} for="search" className={className}>
       <InputBadge name="search" size={500} isFocused={isFocused} />
       <Input
+        id="Search"
         ref={input}
         onFocus={() => setIsFocused(checkFocus(input))}
         onBlur={() => setIsFocused(checkFocus(input))}
@@ -124,10 +125,11 @@ export default ({className, ...props}) => {
   const [isFocused, setIsFocused] = useState()
 
   return (
-    <InputRow onClick={props.onClick} isFocused={isFocused} className={className}>
+    <InputRow onClick={props.onClick} isFocused={isFocused} for={props.name} className={className}>
       <InputBadge name={props.icon} size={600} isFocused={isFocused} />
       <Title>{props.title}</Title>
       <Input
+        id={props.name}
         ref={input}
         onFocus={() => setIsFocused(checkFocus(input))}
         onBlur={() => setIsFocused(checkFocus(input))}
