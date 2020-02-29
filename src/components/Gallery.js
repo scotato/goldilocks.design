@@ -71,17 +71,11 @@ const Image = styled(Img)`
 export default ({images = [], ...props}) => (
   <Slider {...props}>
     {images.map((screenshot, i) => (
-      <a
+      <Image
         key={i}
-        href={screenshot.img.childImageSharp.fluid.src}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Image
-          fluid={screenshot.img.childImageSharp.fluid}
-          alt={screenshot.description}
-        />
-      </a>
+        fluid={screenshot.img.childImageSharp.fluid}
+        alt={screenshot.description}
+      />
     ))}
   </Slider>
 )
