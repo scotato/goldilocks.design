@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link as LinkGatsby } from 'gatsby'
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 import styled, { css } from 'styled-components'
 import Icon from './Icon'
 
@@ -13,7 +14,7 @@ const LinkInternal = styled(LinkGatsby)`
   ${link}
 `
 
-const LinkExternal = styled.a`
+const LinkExternal = styled(OutboundLink)`
   ${link}
 `
 
@@ -40,7 +41,7 @@ export const Back = props =>
   </BackLink>
 
 const Link = ({to, ...props}) => to.includes('http') ? (
-    <LinkExternal href={to} target="_blank" {...props} />
+    <LinkExternal href={to} target="_blank" rel="noopener noreferrer" {...props} />
   ) : (
     <LinkInternal to={to} getProps={isActive} {...props} />
 )
