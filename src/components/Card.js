@@ -72,6 +72,7 @@ const Badge = styled(Img)`
   width: ${props => props.theme.size[900]};
   height: ${props => props.theme.size[900]};
   grid-area: badge;
+  border-radius: ${props => props.isRound ? props.theme.size[500] : '0'};
 
   ${props => props.theme.media.phone`
     margin-right: ${props => props.theme.size[400]};
@@ -119,7 +120,6 @@ const Detail = styled.span`
   align-items: center;
   justify-content: flex-end;
   grid-area: detail;
-  font-size: ${props => props.theme.size[500]};
   color: ${props => props.theme.grayscale[500]};
 
   ${props => props.theme.media.phone`
@@ -150,7 +150,7 @@ export default props => (
   <Card to={props.to} className={props.className}>
     {props.card && <CardImg fluid={props.card} />}
     <Row>
-      {props.badge && <Badge fluid={props.badge} />}
+      {props.badge && <Badge fluid={props.badge} isRound={props.badgeRound} />}
       <Title>{props.title}</Title>
       <Description>{props.description}</Description>
       <Indicators>{props.indicators}</Indicators>

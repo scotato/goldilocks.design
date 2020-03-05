@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Container } from '../components/Layout'
 import Layout from '../components/Layout'
+import Group from '../components/Group'
 import Card from '../components/Card'
 import Header from '../components/Header'
 import { Back } from '../components/Link'
@@ -16,14 +17,18 @@ const PostsPage = ({ data: { posts } }) => (
     />
     <Container>
       {posts.edges.map(({node: post}) => (
-        <Card
-          to={post.fields.slug}
-          key={post.fields.slug}
-          card={post.frontmatter.badge.childImageSharp.fluid}
-          title={post.frontmatter.title}
-          indicators={<PostIndicators post={{...post.frontmatter, timeToRead: post.timeToRead}} />}
-          detail={moment(post.frontmatter.createdAt).format("MMM YYYY")}
-        />
+        <Group key={post.id}>
+          <Card
+            to={post.fields.slug}
+            key={post.fields.slug}
+            badge={post.frontmatter.badge.childImageSharp.fluid}
+            title={post.frontmatter.title}
+            description={post.frontmatter.description}
+            indicators={<PostIndicators post={{...post.frontmatter, timeToRead: post.timeToRead}} />}
+            detail={moment(post.frontmatter.createdAt).format("MMM YYYY")}
+            badgeRound
+          />
+        </Group>
       ))}
     </Container>
   </Layout>

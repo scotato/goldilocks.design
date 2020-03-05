@@ -5,6 +5,7 @@ export const query = graphql`
     id
     author
     title
+    description
     website
     githubUrl
     createdAt
