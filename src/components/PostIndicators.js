@@ -7,10 +7,17 @@ const PostIndicators = styled.div`
 `
 
 export default props => {
-  const { timeToRead } = props.post
+  const { author, timeToRead } = props.post
 
   return (
     <PostIndicators>
+      <Indicator 
+        icon="at"
+        color="blue"
+        title="Author"
+        badge={author}
+      />
+
       <Indicator 
         icon="book-open"
         color="yellow"

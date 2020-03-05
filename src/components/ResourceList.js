@@ -24,7 +24,7 @@ export default ({ website, github, feedback, docs }) => {
   const visible = website || github || feedback || docs
 
   return visible ? (
-    <Group title="Resources">
+    <Group>
       <SourceRow 
         to={website}
         icon="link"

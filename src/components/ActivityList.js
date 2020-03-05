@@ -13,7 +13,7 @@ export default props => {
   const visible = stargazers || downloads || commits || version || updatedAt || createdAt || status
   
   return visible ? (
-    <Group title="Activity">
+    <Group>
       <SourceRow 
         icon="fire"
         title="Weekly Downloads"

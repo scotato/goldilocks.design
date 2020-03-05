@@ -10,6 +10,13 @@ export const query = graphql`
     githubUrl
     createdAt
     updatedAt
+    authorImg {
+      childImageSharp {
+        fluid(maxWidth: 128) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
     badge {
       childImageSharp {
         fluid(maxWidth: 900) {

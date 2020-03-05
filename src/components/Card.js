@@ -6,7 +6,7 @@ import Icon from './Icon'
 
 const cardStyles = css`
   display: grid;
-  margin-bottom: ${props => props.theme.size[500]};
+  margin-bottom: ${props => props.theme.size[700]};
   width: 100%;
   border-radius: ${props => props.theme.size[500]};
   overflow: hidden;
@@ -72,7 +72,11 @@ const Badge = styled(Img)`
   width: ${props => props.theme.size[900]};
   height: ${props => props.theme.size[900]};
   grid-area: badge;
-  border-radius: ${props => props.isRound ? props.theme.size[500] : '0'};
+  border-radius: ${props =>
+    props.isCircle ? props.theme.size[900] :
+    props.isRound ? props.theme.size[500] :
+    '0'
+  };
 
   ${props => props.theme.media.phone`
     margin-right: ${props => props.theme.size[400]};
@@ -150,7 +154,7 @@ export default props => (
   <Card to={props.to} className={props.className}>
     {props.card && <CardImg fluid={props.card} />}
     <Row>
-      {props.badge && <Badge fluid={props.badge} isRound={props.badgeRound} />}
+      {props.badge && <Badge fluid={props.badge} isRound={props.badgeRound} isCircle={props.badgeCircle} />}
       <Title>{props.title}</Title>
       <Description>{props.description}</Description>
       <Indicators>{props.indicators}</Indicators>

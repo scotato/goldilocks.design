@@ -21,7 +21,7 @@ const Badge = styled.span`
 
 export default props => props.badge ? (
   <Indicator title={`${props.title} ${props.badge}`} color={props.color}>
-    <Icon name={props.icon} fixedWidth />
+    <Icon name={props.icon} />
     <Badge>{props.badge}</Badge>
   </Indicator>
 ) : null

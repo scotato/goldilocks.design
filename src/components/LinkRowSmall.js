@@ -46,6 +46,7 @@ const Row = styled.div`
 const Badge = styled(Img)`
   width: ${props => props.theme.size[700]};
   height: ${props => props.theme.size[700]};
+  border-radius: ${props => props.theme.size[300]};
   grid-area: badge;
 `
 

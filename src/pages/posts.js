@@ -16,20 +16,19 @@ const PostsPage = ({ data: { posts } }) => (
       primary={<Back to='/' />}
     />
     <Container>
-      {posts.edges.map(({node: post}) => (
-        <Group key={post.id}>
+        {posts.edges.map(({node: post}) => (
           <Card
             to={post.fields.slug}
             key={post.fields.slug}
-            badge={post.frontmatter.badge.childImageSharp.fluid}
+            badge={post.frontmatter.authorImg.childImageSharp.fluid}
+            card={post.frontmatter.badge.childImageSharp.fluid}
             title={post.frontmatter.title}
             description={post.frontmatter.description}
             indicators={<PostIndicators post={{...post.frontmatter, timeToRead: post.timeToRead}} />}
             detail={moment(post.frontmatter.createdAt).format("MMM YYYY")}
-            badgeRound
+            badgeCircle
           />
-        </Group>
-      ))}
+        ))}
     </Container>
   </Layout>
 )

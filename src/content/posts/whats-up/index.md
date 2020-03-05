@@ -3,6 +3,7 @@ id: whats-up
 title: What's Up?
 description: A modern website with Gatsby and Netlify
 author: scotato
+authorImg: '../scotato.png'
 website: https://goldilocks.design
 githubUrl: https://github.com/scotato/goldilocks.design
 createdAt: '2019-03-28T21:06:22.497Z'

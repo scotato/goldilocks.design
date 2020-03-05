@@ -10,8 +10,8 @@ module.exports = {
     siteUrl: 'https://goldilocks.design', // https://www.gatsbyjs.org/docs/path-prefix
     shortTitle: 'goldilocks.design', // Used for App manifest e.g. Mobile Home Screen
     shareImage: '/images/share.png', // Open Graph Default Share Image. 1200x1200 is recommended
-    shareImageWidth: 900, // Change to the width of your default share image
-    shareImageHeight: 600, // Change to the height of your default share image
+    shareImageWidth: 1280,
+    shareImageHeight: 640,
     siteLogo: '/images/logo-512.png', // Logo used for SEO, RSS, and App manifest
     content:[
       {
