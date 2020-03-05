@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
  
 import Layout from '../components/Layout'
 import Header from '../components/Header'
@@ -48,8 +47,6 @@ export default ({ data: { project }, location: { pathname } }) => {
           </>
         }
       />
-
-      <Img fluid={badge.childImageSharp.fluid} />
 
       <Project>
         <ProjectHeader
