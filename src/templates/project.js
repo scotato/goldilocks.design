@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
  
 import Layout from '../components/Layout'
 import Header from '../components/Header'
@@ -28,7 +29,7 @@ const Project = styled.article`
 `
 
 export default ({ data: { project }, location: { pathname } }) => {
-  const { title, description, logo, gallery, projects, posts, tools, status, github } = project.frontmatter
+  const { badge, title, description, logo, gallery, projects, posts, tools, status, github } = project.frontmatter
   const { createdAt, committedAt, version, commits } = github
   const website = github.homepageUrl
   const githubUrl = !github.isPrivate && github.url
@@ -47,6 +48,9 @@ export default ({ data: { project }, location: { pathname } }) => {
           </>
         }
       />
+
+      <Img fluid={badge.childImageSharp.fluid} />
+
       <Project>
         <ProjectHeader
           title={title}

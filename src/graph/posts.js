@@ -19,7 +19,7 @@ export const query = graphql`
     }
     badge {
       childImageSharp {
-        fluid(maxWidth: 900) {
+        fluid(maxWidth: 1280) {
           ...GatsbyImageSharpFluid
         }
       }

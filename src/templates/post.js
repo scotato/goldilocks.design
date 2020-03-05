@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
 import Layout from '../components/Layout'
 import Header from '../components/Header'
@@ -48,7 +49,7 @@ const Content = styled.div`
 `
 
 export default ({ data: { post }, location: { pathname } }) => {
-  const { title, website, createdAt, updatedAt, githubUrl, projects, posts, tools } = post.frontmatter
+  const { badge, title, website, createdAt, updatedAt, githubUrl, projects, posts, tools } = post.frontmatter
   const feedback = `${pathname}/feedback`
 
   return (
@@ -64,6 +65,8 @@ export default ({ data: { post }, location: { pathname } }) => {
           </>
         }
       />
+
+      <Img fluid={badge.childImageSharp.fluid} />
       
       <Content>
         <Post dangerouslySetInnerHTML={{ __html: post.html }} />
