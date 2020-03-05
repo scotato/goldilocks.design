@@ -55,7 +55,7 @@ export default ({ data: { post }, location: { pathname } }) => {
 
   return (
     <Layout>
-      <SEO title={title} description={description} badge={badge.publicURL} />
+      <SEO title={title} description={description} badge={badge.childImageSharp.fluid.src} />
       <Header
         title={title}
         primary={<Back to='posts'>Posts</Back>}

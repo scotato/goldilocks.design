@@ -37,7 +37,7 @@ export default ({ data: { project }, location: { pathname } }) => {
 
   return (
     <Layout>
-      <SEO title={title} description={description} badge={badge.publicURL} />
+      <SEO title={title} description={description} badge={badge.childImageSharp.fluid.src} />
       <Header
         title={title}
         primary={<Back to='projects'>Projects</Back>}
