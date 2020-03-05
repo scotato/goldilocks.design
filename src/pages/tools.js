@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import groupBy from 'lodash/groupBy'
 
 import Layout, { Container } from '../components/Layout'
+import SEO from '../components/SEO'
 import Header from '../components/Header'
 import { Back } from '../components/Link'
 import Group from '../components/Group'
@@ -23,6 +24,7 @@ const ToolsPage = ({ data }) => {
 
   return (
     <Layout>
+      <SEO />
       <Header
         title="Tools"
         primary={<Back to='/' />}

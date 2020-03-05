@@ -3,12 +3,13 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-const SEO = ({ lang, meta, keywords, title, description }) => (
+const SEO = ({ lang, meta, keywords, title, description, badge }) => (
   <StaticQuery
     query={detailsQuery}
     render={data => {
       const shareTitle = title || data.site.siteMetadata.title
       const shareDescription = description || data.site.siteMetadata.description
+      const shareImage = badge || data.site.siteMetadata.shareImage
 
       return (
         <Helmet
@@ -20,11 +21,11 @@ const SEO = ({ lang, meta, keywords, title, description }) => (
           meta={[
             {
               name: `description`,
-              content: data.site.siteMetadata.description,
+              content: shareDescription,
             },
             {
               property: `image`,
-              content: data.site.siteMetadata.shareImage,
+              content: shareImage,
             },
             {
               property: `og:title`,
@@ -36,7 +37,7 @@ const SEO = ({ lang, meta, keywords, title, description }) => (
             },
             {
               property: `og:image`,
-              content: data.site.siteMetadata.shareImage,
+              content: shareImage,
             },
             {
               property: `og:image:width`,
@@ -68,7 +69,7 @@ const SEO = ({ lang, meta, keywords, title, description }) => (
             },
             {
               name: `twitter:image`,
-              content: data.site.siteMetadata.shareImage,
+              content: shareImage,
             },
           ]
             .concat(

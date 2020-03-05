@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 import Header from '../components/Header'
 import Subscribe from '../components/Subscribe'
 import ResourceList from '../components/ResourceList'
@@ -49,11 +50,12 @@ const Content = styled.div`
 `
 
 export default ({ data: { post }, location: { pathname } }) => {
-  const { badge, title, website, createdAt, updatedAt, githubUrl, projects, posts, tools } = post.frontmatter
+  const { badge, title, description, website, createdAt, updatedAt, githubUrl, projects, posts, tools } = post.frontmatter
   const feedback = `${pathname}/feedback`
 
   return (
     <Layout>
+      <SEO title={title} description={description} badge={badge.publicURL} />
       <Header
         title={title}
         primary={<Back to='posts'>Posts</Back>}

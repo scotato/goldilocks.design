@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import groupBy from 'lodash/groupBy'
 
+import SEO from '../components/SEO'
 import Layout, { Container } from '../components/Layout'
 import Group from '../components/Group'
 import Card from '../components/Card'
@@ -21,6 +22,7 @@ const ProjectsPage = ({ data }) => {
 
   return (
     <Layout>
+      <SEO />
       <Header
         title="Projects"
         primary={<Back to='/' />}

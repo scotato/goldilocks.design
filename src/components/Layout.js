@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 import GlobalStyle from './GlobalStyle'
-import SEO from './SEO'
 import Navigation from './Navigation'
 import Social from './Social'
 
@@ -65,7 +64,6 @@ export const Container = styled.div`
 export default props => (
   <Layout>
     <GlobalStyle />
-    <SEO />
     
     <Aside isRoot={props.isRoot}>
       <Navigation />

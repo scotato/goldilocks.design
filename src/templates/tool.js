@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 import Header from '../components/Header'
 import ProjectHeader from '../components/ProjectHeader'
 import ActivityList from '../components/ActivityList'
@@ -32,6 +33,7 @@ const ToolPage = ({ data: { tool } }) => {
 
   return (
     <Layout>
+      <SEO title={title} description={description} />
       <Header
         title={title}
         primary={<Back to='tools'>Tools</Back>}

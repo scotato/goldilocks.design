@@ -1,16 +1,19 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Container } from '../components/Layout'
+import moment from 'moment'
+
 import Layout from '../components/Layout'
+import SEO from '../components/SEO'
+import Header from '../components/Header'
+import { Container } from '../components/Layout'
 import Group from '../components/Group'
 import Card from '../components/Card'
-import Header from '../components/Header'
 import { Back } from '../components/Link'
 import PostIndicators from '../components/PostIndicators'
-import moment from 'moment'
 
 const PostsPage = ({ data: { posts } }) => (
   <Layout>
+    <SEO />
     <Header
       title="Posts"
       primary={<Back to='/' />}

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
  
 import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 import Header from '../components/Header'
 import ProjectHeader from '../components/ProjectHeader'
 import Gallery from '../components/Gallery'
@@ -36,6 +37,7 @@ export default ({ data: { project }, location: { pathname } }) => {
 
   return (
     <Layout>
+      <SEO title={title} description={description} badge={badge.publicURL} />
       <Header
         title={title}
         primary={<Back to='projects'>Projects</Back>}

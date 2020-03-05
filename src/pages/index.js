@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
+import SEO from '../components/SEO'
 import Layout, { Container } from '../components/Layout'
 import Header from '../components/Header'
 import Group from '../components/Group'
@@ -23,6 +24,7 @@ const HomePage = ({ data }) => {
 
   return (
     <Layout isRoot>
+      <SEO />
       <Header title={<Logo fluid={logo.childImageSharp.fluid} />} />
       <Container>
         <Group title="Recent Posts">
