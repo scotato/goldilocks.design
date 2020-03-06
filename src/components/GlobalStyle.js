@@ -38,8 +38,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1, h2, h3, h4, h5, h6 {
-    margin-top: 2em;
-    margin-bottom: 0.25em;
+    margin-top: ${props => props.theme.size[800]};
+    margin-bottom: ${props => props.theme.size[400]};
     font-weight: 700;
     line-height: 1;
 
@@ -48,7 +48,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     ${props => props.theme.media.phone`
-      margin-top: 1em;
+      margin-top: ${props => props.theme.size[600]};
     `}
   }
 
@@ -78,6 +78,19 @@ const GlobalStyle = createGlobalStyle`
 
   strong {
     font-weight: 700;
+  }
+
+  p {
+    margin-bottom: ${props => props.theme.size[700]};
+    font-weight: 300;
+
+    ${props => props.theme.media.phone`
+      margin-bottom: ${props => props.theme.size[500]};
+    `}
+  }
+
+  li {
+    font-weight: 300;
   }
 `
  

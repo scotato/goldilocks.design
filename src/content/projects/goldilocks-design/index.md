@@ -33,5 +33,6 @@ tools:
   - fontawesome
   - figma
 posts:
+  - version-two
   - whats-up
 ---
