@@ -17,7 +17,7 @@ export const query = graphql`
     }
     badge {
       childImageSharp {
-        fluid(maxWidth: 512) {
+        fluid(maxWidth: 128) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }

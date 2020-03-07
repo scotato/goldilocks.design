@@ -16,7 +16,7 @@ export const query = graphql`
       description
       img {
         childImageSharp {
-          fluid(maxWidth: 1280) {
+          fluid(maxWidth: 1280, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -24,14 +24,14 @@ export const query = graphql`
     }
     badge {
       childImageSharp {
-        fluid(maxWidth: 1280) {
+        fluid(maxWidth: 1280, quality: 100) {
           ...GatsbyImageSharpFluid
         }
       }
     }
     logo {
       childImageSharp {
-        fluid(maxWidth: 512) {
+        fluid(maxWidth: 128, quality: 100) {
           ...GatsbyImageSharpFluid
         }
       }

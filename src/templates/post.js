@@ -50,12 +50,12 @@ const Content = styled.div`
 `
 
 export default ({ data: { post }, location: { pathname } }) => {
-  const { badge, title, description, website, createdAt, updatedAt, githubUrl, projects, posts, tools } = post.frontmatter
+  const { hero, title, description, website, createdAt, updatedAt, githubUrl, projects, posts, tools } = post.frontmatter
   const feedback = `${pathname}/feedback`
 
   return (
     <Layout>
-      <SEO title={title} description={description} badge={badge.childImageSharp.fluid.src} />
+      <SEO title={title} description={description} badge={hero.childImageSharp.fluid.src} />
       <Header
         title={title}
         primary={<Back to='posts'>Posts</Back>}
@@ -68,7 +68,7 @@ export default ({ data: { post }, location: { pathname } }) => {
         }
       />
 
-      <Img fluid={badge.childImageSharp.fluid} />
+      <Img fluid={hero.childImageSharp.fluid} />
       
       <Content>
         <Post dangerouslySetInnerHTML={{ __html: post.html }} />

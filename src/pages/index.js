@@ -31,7 +31,7 @@ const HomePage = ({ data }) => {
           {posts.map(({
             timeToRead,
             fields: { slug },
-            frontmatter: { title, badge, updatedAt, createdAt }
+            frontmatter: { title, badge, createdAt }
           }) => (
             <LinkRowSmall
               to={slug}
@@ -87,7 +87,7 @@ export const pageQuery = graphql`
       frontmatter {
         logo {
           childImageSharp {
-            fluid(maxWidth: 900) {
+            fluid(maxWidth: 64, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -95,18 +95,18 @@ export const pageQuery = graphql`
       }
     }
     posts: allMarkdownRemark(
-        filter: { fields: { collection: { eq: "posts" } } }
-        sort: { fields: [frontmatter___createdAt], order: DESC }
-        limit: 5
-      ) {
-        edges {
-          node {
-            ...Post
-            frontmatter {
-              ...PostFrontmatter
-            }
+      filter: { fields: { collection: { eq: "posts" } } }
+      sort: { fields: [frontmatter___createdAt], order: DESC }
+      limit: 5
+    ) {
+      edges {
+        node {
+          ...Post
+          frontmatter {
+            ...PostFrontmatter
           }
         }
+      }
     }
     projects: allMarkdownRemark(
       filter: { fields: { collection: { eq: "projects" } } }

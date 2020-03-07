@@ -12,14 +12,21 @@ export const query = graphql`
     updatedAt
     authorImg {
       childImageSharp {
-        fluid(maxWidth: 128) {
+        fluid(maxWidth: 128, quality: 100) {
           ...GatsbyImageSharpFluid
         }
       }
     }
     badge {
       childImageSharp {
-        fluid(maxWidth: 1280) {
+        fluid(maxHeight: 64, quality: 100) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    hero {
+      childImageSharp {
+        fluid(maxWidth: 1280, quality: 100) {
           ...GatsbyImageSharpFluid
         }
       }
