@@ -17,7 +17,7 @@ export const query = graphql`
       img {
         childImageSharp {
           fluid(maxWidth: 1280, quality: 100) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
       }
@@ -25,14 +25,14 @@ export const query = graphql`
     badge {
       childImageSharp {
         fluid(maxWidth: 1280, quality: 100) {
-          ...GatsbyImageSharpFluid
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
     logo {
       childImageSharp {
         fluid(maxWidth: 128, quality: 100) {
-          ...GatsbyImageSharpFluid
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
