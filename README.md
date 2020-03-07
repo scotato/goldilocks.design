@@ -12,7 +12,7 @@
 npm install
 ```
 
-Create a [`.env`]((https://github.com/motdotla/dotenv)) file in the root directory of your project.
+Create a [`.env`](https://github.com/motdotla/dotenv) file in the root directory of your project.
 Add [GitHub](https://github.com/settings/tokens), [Buttondown](https://buttondown.email/), [Google Analytics](https://analytics.google.com/analytics/web/) auth tokens.
 
 ```dosini
