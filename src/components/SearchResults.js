@@ -5,7 +5,7 @@ import ContentList from './ContentList'
 export default ({ query }) => {
   const data = useStaticQuery(graphql`
     query SearchQuery {
-      posts: allMarkdownRemark(
+      posts: allMdx(
         filter: { fields: { collection: { eq: "posts" } } }
       ) {
         edges {
@@ -17,7 +17,7 @@ export default ({ query }) => {
           }
         }
       }
-      projects: allMarkdownRemark(
+      projects: allMdx(
         filter: { fields: { collection: { eq: "projects" } } }
       ) {
         edges {
@@ -29,7 +29,7 @@ export default ({ query }) => {
           }
         }
       }
-      tools: allMarkdownRemark(
+      tools: allMdx(
         filter: { fields: { collection: { eq: "tools" } } }
       ) {
         edges {

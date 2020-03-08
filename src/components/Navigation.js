@@ -26,7 +26,7 @@ export default props => {
           }
         }
       }
-      projects: allMarkdownRemark(
+      projects: allMdx(
         filter: { fields: { collection: { eq: "projects" } } }
       ) {
         edges {
@@ -35,7 +35,7 @@ export default props => {
           }
         }
       }
-      posts: allMarkdownRemark(
+      posts: allMdx(
         filter: { fields: { collection: { eq: "posts" } } }
       ) {
         edges {
@@ -44,7 +44,7 @@ export default props => {
           }
         }
       }
-      tools: allMarkdownRemark(
+      tools: allMdx(
         filter: { fields: { collection: { eq: "tools" } } }
       ) {
         edges {

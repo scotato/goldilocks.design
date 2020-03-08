@@ -88,7 +88,7 @@ export default ToolPage
 
 export const pageQuery = graphql`
   query ToolBySlug($slug: String!) {
-    tool: markdownRemark(fields: { slug: { eq: $slug } }) {
+    tool: mdx(fields: { slug: { eq: $slug } }) {
       ...Tool
       frontmatter {
         ...ToolFrontmatter

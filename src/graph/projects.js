@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby'
 
 export const query = graphql`
-  fragment ProjectFrontmatter on MarkdownRemarkFrontmatter {
+  fragment ProjectFrontmatter on MdxFrontmatter {
     id
     title
     description
@@ -38,7 +38,7 @@ export const query = graphql`
     }
   }
 
-  fragment Project on MarkdownRemark {
+  fragment Project on Mdx {
     id
     fields {
       slug

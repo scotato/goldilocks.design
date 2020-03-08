@@ -26,7 +26,7 @@ const queryPackage = async id => {
 
 
 module.exports = async ({ createNode, createNodeId, createContentDigest }) => {
-  const npmUrls = await getFiles(`${__dirname}/../content`, { match: /.md$/ })
+  const npmUrls = await getFiles(`${__dirname}/..`, { match: /.mdx$/ })
     .map(frontmatter)
     .filter(project => project.attributes.npm)
     .map(project => project.attributes.npm)

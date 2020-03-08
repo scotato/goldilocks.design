@@ -63,14 +63,14 @@ export default ({
 
 export const pageQuery = graphql`
   query FeedbackByFrom($from: String!) {
-    project: markdownRemark(fields: { slug: { eq: $from } }) {
+    project: mdx(fields: { slug: { eq: $from } }) {
       ...Project
       frontmatter {
         ...ProjectFrontmatter
       }
     }
 
-    post: markdownRemark(fields: { slug: { eq: $from } }) {
+    post: mdx(fields: { slug: { eq: $from } }) {
       ...Post
       frontmatter {
         ...PostFrontmatter

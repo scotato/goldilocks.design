@@ -63,7 +63,7 @@ async function queryRepo({ owner, name }) {
 }
 
 module.exports = async ({ createNode, createNodeId, createContentDigest }) => {
-  const githubUrls = await getFiles(`${__dirname}/../content`, { match: /.md$/ })
+  const githubUrls = await getFiles(`${__dirname}/..`, { match: /.mdx$/ })
     .map(frontmatter)
     .filter(project => project.attributes.github)
     .map(project => project.attributes.github)

@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
+import { MDXProvider } from "@mdx-js/react"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import Img from 'gatsby-image'
 
 import Layout from '../components/Layout'
@@ -71,7 +73,11 @@ export default ({ data: { post }, location: { pathname } }) => {
       <Img fluid={hero.childImageSharp.fluid} />
       
       <Content>
-        <Post dangerouslySetInnerHTML={{ __html: post.html }} />
+        <Post>
+          <MDXProvider>
+            <MDXRenderer>{post.body}</MDXRenderer>
+          </MDXProvider>
+        </Post>
 
         <ActivityList
           createdAt={createdAt}
@@ -98,7 +104,7 @@ export default ({ data: { post }, location: { pathname } }) => {
 
 export const pageQuery = graphql`
   query PostsPostBySlug($slug: String!) {
-    post: markdownRemark(fields: { slug: { eq: $slug } }) {
+    post: mdx(fields: { slug: { eq: $slug } }) {
       ...Post
       frontmatter {
         ...PostFrontmatter

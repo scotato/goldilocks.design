@@ -39,7 +39,7 @@ export default PostsPage
 
 export const pageQuery = graphql`
   query {
-    posts: allMarkdownRemark(
+    posts: allMdx(
         filter: { fields: { collection: { eq: "posts" } } }
         sort: { fields: [frontmatter___createdAt], order: DESC }
       ) {

@@ -45,11 +45,11 @@ module.exports = {
     ]
   },
   mapping: {
-    'MarkdownRemark.frontmatter.projects': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.posts': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.tools': `MarkdownRemark.frontmatter.id`,
-    'MarkdownRemark.frontmatter.github': `GithubRepo.url`,
-    'MarkdownRemark.frontmatter.npm': `NPMPackage.url`
+    'Mdx.frontmatter.projects': `Mdx.frontmatter.id`,
+    'Mdx.frontmatter.posts': `Mdx.frontmatter.id`,
+    'Mdx.frontmatter.tools': `Mdx.frontmatter.id`,
+    'Mdx.frontmatter.github': `GithubRepo.url`,
+    'Mdx.frontmatter.npm': `NPMPackage.url`
   },
   plugins: [
     `gatsby-plugin-sharp`,
@@ -58,10 +58,11 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-use-dark-mode`,
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        plugins: [`gatsby-remark-external-links`]
-      }
+        name: `pages`,
+        path: `${__dirname}/src/pages/`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -84,8 +85,14 @@ module.exports = {
         path: `${__dirname}/src/content/tools`,
       },
     },
-    `gatsby-plugin-mdx`,
-    `gatsby-transformer-yaml`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          `gatsby-remark-external-links`
+        ],
+      },
+    },
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -158,21 +165,6 @@ module.exports = {
         ],
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-prefetch-google-fonts`,
-    //   options: {
-    //     fonts: [
-    //       {
-    //         family: `Source Sans Pro`,
-    //         variants: [`200`,`200i`, `300`,`300i`, `400`, `400i`, `600`, `600i`, `700`, `700i`, `900`, `900i`]
-    //       },
-    //       {
-    //         family: `Source Code Pro`,
-    //         variants: [`200`, `300`, `400`, `500`, `600`, `700`, `900`]
-    //       },
-    //     ],
-    //   },
-    // },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {

@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby'
 
 export const query = graphql`
-  fragment Collections on MarkdownRemarkFrontmatter {
+  fragment Collections on MdxFrontmatter {
     projects {
       ...Project
       frontmatter {

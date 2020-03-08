@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby'
 
 export const query = graphql`
-  fragment PostFrontmatter on MarkdownRemarkFrontmatter {
+  fragment PostFrontmatter on MdxFrontmatter {
     id
     author
     title
@@ -33,13 +33,13 @@ export const query = graphql`
     }
   }
 
-  fragment Post on MarkdownRemark {
+  fragment Post on Mdx {
     id
     fields {
       slug
     }
     excerpt
     timeToRead
-    html
+    body
   }
 `

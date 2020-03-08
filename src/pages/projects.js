@@ -60,7 +60,7 @@ export default ProjectsPage
 
 export const pageQuery = graphql`
   query {
-    projects: allMarkdownRemark(
+    projects: allMdx(
         filter: { fields: { collection: { eq: "projects" } } }
         sort: { fields: [frontmatter___github___committedAt, frontmatter___github___createdAt], order: DESC }
       ) {

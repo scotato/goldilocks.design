@@ -83,7 +83,7 @@ export default HomePage
 
 export const pageQuery = graphql`
   query HomePageQuery {
-    brand: markdownRemark(frontmatter: { id: { eq: "goldilocks-design" } }) {
+    brand: mdx(frontmatter: { id: { eq: "goldilocks-design" } }) {
       frontmatter {
         logo {
           childImageSharp {
@@ -94,7 +94,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    posts: allMarkdownRemark(
+    posts: allMdx(
       filter: { fields: { collection: { eq: "posts" } } }
       sort: { fields: [frontmatter___createdAt], order: DESC }
       limit: 5
@@ -108,7 +108,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    projects: allMarkdownRemark(
+    projects: allMdx(
       filter: { fields: { collection: { eq: "projects" } } }
       sort: { fields: [frontmatter___github___committedAt, frontmatter___github___createdAt], order: DESC }
       limit: 5
@@ -122,7 +122,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    tools: allMarkdownRemark(
+    tools: allMdx(
       filter: { fields: { isPackage: { eq: true } } }
       sort: { fields: [frontmatter___npm___downloadsWeekly], order: DESC }
       limit: 5

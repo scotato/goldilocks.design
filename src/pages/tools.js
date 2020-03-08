@@ -52,7 +52,7 @@ export default ToolsPage
 
 export const pageQuery = graphql`
   query {
-    tools: allMarkdownRemark(
+    tools: allMdx(
         filter: { fields: { collection: { eq: "tools" } } }
         sort: { fields: [frontmatter___title], order: ASC }
       ) {

@@ -12,7 +12,7 @@ exports.sourceNodes = async ({ actions: { createNode }, createNodeId, createCont
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
-  const isMarkdown = node.internal.type === 'MarkdownRemark'
+  const isMarkdown = node.internal.type === 'Mdx'
   const collection = isMarkdown && getNode(node.parent).sourceInstanceName
   
   if (isMarkdown) {
@@ -41,7 +41,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.createPages = ({ graphql, actions: { createPage } }) =>
   graphql(`
     {
-      allMarkdownRemark(
+      allMdx(
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
         edges {
@@ -63,11 +63,13 @@ exports.createPages = ({ graphql, actions: { createPage } }) =>
       throw result.errors
     }
 
-    const remark = result.data.allMarkdownRemark.edges
-    const posts = remark.filter(({node: post}) => post.fields.collection === 'posts')
-    const projects = remark.filter(({node: project}) => project.fields.collection === 'projects')
-    const tools = remark.filter(({node: tools}) => tools.fields.collection === 'tools')
+    const mdx = result.data.allMdx.edges
+    const posts = mdx.filter(({node: post}) => post.fields.collection === 'posts')
+    const projects = mdx.filter(({node: project}) => project.fields.collection === 'projects')
+    const tools = mdx.filter(({node: tool}) => tool.fields.collection === 'tools')
+    
     const template = name => path.resolve(`src/templates/${name}.js`)
+
     const createFeedbackPage = slug => createPage({
       path: slug + 'feedback',
       component: template('feedback'),
@@ -81,6 +83,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) =>
       const slug = post.node.fields.slug
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
       const next = index === 0 ? null : posts[index - 1].node
+
       createPage({
         path: slug,
         component: template('post'),

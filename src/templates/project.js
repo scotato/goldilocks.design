@@ -94,7 +94,7 @@ export default ({ data: { project }, location: { pathname } }) => {
 
 export const pageQuery = graphql`
   query ProjectBySlug($slug: String!) {
-    project: markdownRemark(fields: { slug: { eq: $slug } }) {
+    project: mdx(fields: { slug: { eq: $slug } }) {
       ...Project
       frontmatter {
         ...ProjectFrontmatter
