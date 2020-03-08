@@ -84,6 +84,7 @@ module.exports = {
         path: `${__dirname}/src/content/tools`,
       },
     },
+    `gatsby-plugin-mdx`,
     `gatsby-transformer-yaml`,
     `gatsby-plugin-styled-components`,
     {
