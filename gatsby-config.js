@@ -190,34 +190,29 @@ module.exports = {
           {
             serialize: ({ query: { site, posts } }) => {
               return posts.edges.map(edge => {
-                return Object.assign({}, edge.node.childMarkdownRemark.frontmatter, {
-                  description: edge.node.childMarkdownRemark.excerpt,
-                  date: edge.node.childMarkdownRemark.frontmatter.date,
-                  url: `${site.siteMetadata.siteUrl}/posts/${edge.node.childMarkdownRemark.fields.slug}`,
-                  guid: `${site.siteMetadata.siteUrl}/posts/${edge.node.childMarkdownRemark.fields.slug}`,
-                  custom_elements: [{ "content:encoded": edge.node.childMarkdownRemark.html }],
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url: `${site.siteMetadata.siteUrl}/posts/${edge.node.fields.slug}`,
+                  guid: `${site.siteMetadata.siteUrl}/posts/${edge.node.fields.slug}`,
+                  custom_elements: [{ "content:encoded": edge.node.html }],
                 })
               })
             },
             query: `
               {
-                posts: allFile(
-                  sort: { order: DESC, fields: [childMarkdownRemark___frontmatter___date] },
-                  filter: {
-                    internal: {mediaType: {eq: "text/markdown"}}, 
-                    sourceInstanceName: {eq: "posts"}
-                  }
+                posts: allMdx(
+                  filter: { fields: { collection: { eq: "posts" } } }
+                  sort: { fields: [frontmatter___createdAt], order: DESC }
                 ) {
                   edges {
                     node {
-                      childMarkdownRemark {
-                        excerpt
-                        html
-                        fields { slug }
-                        frontmatter {
-                          title
-                          date
-                        }
+                      excerpt
+                      html
+                      fields { slug }
+                      frontmatter {
+                        title
+                        date
                       }
                     }
                   }
