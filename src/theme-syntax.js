@@ -87,4 +87,8 @@ export default css`
       color: rgb(255, 44, 109);
     }
   }
+
+  .language-text {
+    font-weight: 500;
+  }
 `
