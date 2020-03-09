@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import reboot from 'styled-reboot'
- 
+import themeSyntax from '../theme-syntax'
+
 const GlobalStyle = createGlobalStyle`
   ${({ theme }) =>
     reboot({
@@ -92,6 +93,9 @@ const GlobalStyle = createGlobalStyle`
   li {
     font-weight: 300;
   }
+
+  /* syntax highlighting */
+  ${themeSyntax}
 `
  
 export default GlobalStyle
