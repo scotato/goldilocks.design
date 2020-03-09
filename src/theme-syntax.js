@@ -72,7 +72,11 @@ export default css`
 
     .keyword,
     .class-name {
-      color: ${props => props.theme.color.pink};
+      color: ${props => props.theme.color.pinkDark};
+
+      .dark-mode & {
+        color: ${props => props.theme.color.pink};
+      }
     }
 
     .changed {
