@@ -16,7 +16,7 @@ import { Back, LinkIcon } from '../components/Link'
  
 const Post = styled.article`
   margin-top: ${props => props.theme.size[500]};
-  margin-bottom: ${props => props.theme.size[900]};
+  margin-bottom: ${props => props.theme.size[800]};
 
   ${props => props.theme.media.tabletHorizontal`
     margin-bottom: ${props => props.theme.size[500]};
@@ -33,6 +33,10 @@ const Post = styled.article`
       outline: none;
       text-decoration: underline;
     }
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
   }
 `
 
