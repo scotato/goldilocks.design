@@ -54,7 +54,7 @@ const color = {
   blueDark: 'hsl(210, 100%, 40%)',
   cyan: 'hsl(171, 95%, 54%)',
   cyanLight: 'hsl(171, 95%, 64%)',
-  cyanDark: 'hsl(171, 95%, 44%)',
+  cyanDark: 'hsl(171, 95%, 40%)',
   green: 'hsl(150, 92.5%, 50%)',
   greenLight: 'hsl(150, 90%, 60%)',
   greenDark: 'hsl(150, 90%, 40%)',
