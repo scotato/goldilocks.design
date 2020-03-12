@@ -9,7 +9,8 @@ const SEO = ({ lang, meta, keywords, title, description, badge }) => (
     render={data => {
       const shareTitle = title || data.site.siteMetadata.title
       const shareDescription = description || data.site.siteMetadata.description
-      const shareImage = badge || data.site.siteMetadata.shareImage
+      const shareImagePath = badge || data.site.siteMetadata.shareImage
+      const shareImage = data.site.siteMetadata.siteUrl + shareImagePath
 
       return (
         <Helmet
