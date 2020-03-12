@@ -12,8 +12,10 @@ import Subscribe from '../components/Subscribe'
 import ResourceList from '../components/ResourceList'
 import ActivityList from '../components/ActivityList'
 import ContentList from '../components/ContentList'
-import { Back, LinkIcon } from '../components/Link'
- 
+import Link, { Back, LinkIcon } from '../components/Link'
+import { DarkMode } from '../pages/settings'
+import { Resources, Resource } from '../components/ResourceList'
+
 const Post = styled.article`
   margin-top: ${props => props.theme.size[500]};
   margin-bottom: ${props => props.theme.size[800]};
@@ -58,6 +60,7 @@ const Content = styled.div`
 export default ({ data: { post }, location: { pathname } }) => {
   const { hero, title, description, website, createdAt, updatedAt, githubUrl, projects, posts, tools } = post.frontmatter
   const feedback = `${pathname}/feedback`
+  const shortcodes = { Link, Resources, Resource, DarkMode }
 
   return (
     <Layout>
@@ -78,7 +81,7 @@ export default ({ data: { post }, location: { pathname } }) => {
       
       <Content>
         <Post>
-          <MDXProvider>
+          <MDXProvider components={shortcodes}>
             <MDXRenderer>{post.body}</MDXRenderer>
           </MDXProvider>
         </Post>

@@ -20,6 +20,14 @@ const cleanUrl = url => {
   return clean
 }
 
+export const Resources = props => (
+  <Group title="Resources" {...props} />
+)
+
+export const Resource = props => (
+  <SourceRow icon="link" detail={cleanUrl(props.to)} {...props} />
+)
+
 export default ({ website, github, feedback, docs }) => {
   const visible = website || github || feedback || docs
 
