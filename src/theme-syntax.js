@@ -89,6 +89,14 @@ export default css`
   }
 
   .language-text {
+    padding: ${props => props.theme.size[100]} ${props => props.theme.size[300]};
     font-weight: 500;
+    font-size: 18px;
+    background-color: ${props => props.theme.grayscale[100]};
+    border-radius: ${props => props.theme.size[300]};
+
+    .dark-mode & {
+      background-color: ${props => props.theme.grayscale[800]};
+    }
   }
 `

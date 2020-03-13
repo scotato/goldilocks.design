@@ -82,7 +82,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   p {
-    margin-bottom: ${props => props.theme.size[700]};
+    margin-bottom: ${props => props.theme.size[600]};
     font-weight: 300;
 
     ${props => props.theme.media.phone`
@@ -92,6 +92,20 @@ const GlobalStyle = createGlobalStyle`
 
   li {
     font-weight: 300;
+  }
+
+  blockquote {
+    padding: ${props => props.theme.size[500]} ${props => props.theme.size[600]};
+    border-radius: ${props => props.theme.size[500]};
+    background-color: ${props => props.theme.grayscale[100]};
+
+    .dark-mode & {
+      background-color: ${props => props.theme.grayscale[800]};
+    }
+
+    & > *:last-child {
+      margin-bottom: 0;
+    }
   }
 
   /* syntax highlighting */

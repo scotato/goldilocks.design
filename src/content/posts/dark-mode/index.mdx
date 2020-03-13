@@ -15,7 +15,40 @@ tools:
   - styled-components
 ---
 # Dark Mode
+Dark mode has recently become an important foundational feature for modern software. Operating systems now support system wide dark mode which can be used to provide an alternate color scheme for software running on the system.
+
+## Apple Guidelines
+From the [iOS](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/dark-mode/) and [macOS](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/) developer documentation:
+
+> **Focus on your content.** Dark Mode puts the focus on the content areas of your interface, allowing that content to stand out while the surrounding chrome recedes into the background.
+
+> **Dark Mode is an aesthetic choice for users.** Users can choose Dark Mode as their default interface style, and may use it at any time of day or in any lighting conditions.
+
+> **Test your designs in both light and dark appearances.** See how your interface looks in both appearances, and adjust your designs as needed to accommodate each one. Designs that work well in one appearance might not work in the other.
+
+> **Adopt vibrancy in your interfaces.** Vibrancy improves the contrast between foreground and background colors, making your foreground content appear more prominent.
+
+## Google Guidelines
+From the [Android](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme) developer documentation:
+
+> Dark theme is available in Android 10 and higher. It has many benefits:
+> * Can reduce power usage by a significant amount.
+> * Improves visibility for users with low vision and those who are sensitive to bright light.
+> * Makes it easier for anyone to use a device in a low-light environment.
+
+> Your themes and styles should avoid hard-coded colors or icons intended for use under a light theme. You should use theme attributes (preferred) or night-qualified resources instead.
+>
+> We recommend using [Material Design Components](https://material.io/develop/android/), since its [color theming system](https://material.io/develop/android/theming/color/) provides easy access to suitable colors. 
+
+## React Example
 Add dark mode to your React app with [`use-dark-mode`](https://github.com/donavon/use-dark-mode) and [`react-switch`](https://github.com/markusenglund/react-switch).
+Check out the example [app](https://react-dark-mode.netlify.com) and [source](https://github.com/scotato/react-dark-mode) or try the dark mode toggle below.
+
+The `use-dark-mode` package is a custom [React Hook](https://reactjs.org/docs/hooks-overview.html) that exposes the `value` of your dark mode and a `toggle` method to switch between modes.
+
+The dark mode `value` can be used to pass different [themes](https://styled-components.com/docs/advanced#theming) into your styled-components [`ThemeProvider`](https://styled-components.com/docs/api#themeprovider), or you can access the `dark-mode` and `light-mode` classes on the `body` tag with CSS.
+
+This example uses the [SASS parent selector](https://sass-lang.com/documentation/style-rules/parent-selector) which is [supported](https://styled-components.com/docs/basics#pseudoelements-pseudoselectors-and-nesting) by styled-components to change `color` and `background-color` styles depending on the current mode.
 
 ```bash
 npm install use-dark-mode react-switch styled-components
@@ -49,11 +82,3 @@ export default styled.div`
 ```
 
 <DarkMode />
-
-<Resources>
-  <Resource title="iOS Guidelines" to="https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/dark-mode/" />
-  <Resource title="macOS Guidelines" to="https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/" />
-  <Resource title="Android Guidelines" to="https://developer.android.com/guide/topics/ui/look-and-feel/darktheme" />
-  <Resource title="Dark Mode in CSS" to="https://css-tricks.com/dark-modes-with-css/" />
-  <Resource title="Dark Mode React Hook" to="https://github.com/donavon/use-dark-mode" icon="github" />
-</Resources>
