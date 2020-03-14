@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import reboot from 'styled-reboot'
-import themeSyntax from '../theme-syntax'
+import themeSyntax from '../theme/syntax'
 
 const GlobalStyle = createGlobalStyle`
   ${({ theme }) =>

@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import NavigationToggle from './NavigationToggle'
+
 const Header = styled.header`
   position: fixed;
   display: grid;
@@ -11,17 +13,20 @@ const Header = styled.header`
   backdrop-filter: blur(64px);
   top: 0;
   width: 100%;
-  max-width: ${props => `calc(${props.theme.device.desktopLarge} - ${props.theme.device.phoneSmall})`};
-  z-index: 2;
+  max-width: ${props => props.theme.isNavigationOpen ? `calc(${props.theme.device.desktopLarge} - ${props.theme.device.phoneSmall})` : props.theme.device.desktopLarge};
+  z-index: 5;
   line-height: 1;
   align-items: center;
+
+  will-change: max-width;
+  transition: max-width 0.2s ease-out;
 
   .dark-mode & {
     background-color: rgba(0, 0, 0, 0.25);
   }
 
   ${props => props.theme.media.desktopLarge`
-    max-width: ${props => `calc(100% - ${props.theme.device.phoneSmall})`};
+    max-width: ${props => props.theme.isNavigationOpen ? `calc(100% - ${props.theme.device.phoneSmall})` : '100%'};
   `}
 
   ${props => props.theme.media.tabletVertical`
@@ -55,7 +60,9 @@ const Title = styled.div`
   line-height: 1.1;
 `
 
-const Primary = styled.div``
+const Primary = styled.div`
+  display: flex;
+`
 
 const Secondary = styled.div`
   display: flex;
@@ -67,15 +74,16 @@ const Secondary = styled.div`
   }
 `
 
-export default props => {
-  return (
-    <>
-      <Header>
-        <Primary>{props.primary}</Primary>
-        <Title>{props.title}</Title>
-        <Secondary>{props.secondary}</Secondary>
-      </Header>
-      <Divider />
-    </>
-  )
-}
+export default props => (
+  <>
+    <Header>
+      <Primary>
+        {props.primary}
+        <NavigationToggle />
+      </Primary>
+      <Title>{props.title}</Title>
+      <Secondary>{props.secondary}</Secondary>
+    </Header>
+    <Divider />
+  </>
+)

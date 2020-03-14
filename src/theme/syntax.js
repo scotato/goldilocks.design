@@ -6,8 +6,8 @@ export default css`
     margin-bottom: ${props => props.theme.size[700]};
     border-radius: ${props => props.theme.size[500]};
     font-size: ${props => props.theme.size[500]};
-    color: ${props => props.theme.grayscale[700]};
-    background-color: ${props => props.theme.grayscale[100]};
+    color: ${props => props.theme.grayscale[100]};
+    background-color: ${props => props.theme.grayscale[800]};
 
     ${props => props.theme.media.phone`
       margin-bottom: ${props => props.theme.size[500]};
@@ -21,22 +21,13 @@ export default css`
       margin-bottom: 0;
     }
 
-    .dark-mode & {
-      color: ${props => props.theme.grayscale[100]};
-      background-color: ${props => props.theme.grayscale[800]};
-    }
-
     .comment {
       color: ${props => props.theme.grayscale[500]};
       font-style: italic;
     }
 
     .parameter {
-      color: ${props => props.theme.grayscale[600]};
-      
-      .dark-mode & {
-        color: ${props => props.theme.grayscale[400]};
-      }
+      color: ${props => props.theme.grayscale[400]};
     }
 
     .constant {
@@ -50,37 +41,21 @@ export default css`
     .string,
     .symbol,
     .inserted {
-      color: ${props => props.theme.color.cyanDark};
-
-      .dark-mode & {
-        color: ${props => props.theme.color.cyan};
-      }
+      color: ${props => props.theme.color.cyan};
     }
 
     .attr-name {
-      color: ${props => props.theme.color.orange};
-
-      .dark-mode & {
-        color: ${props => props.theme.color.orangeLight};
-      }
+      color: ${props => props.theme.color.orangeLight};
     }
 
     .builtin,
     .function {
-      color: ${props => props.theme.color.blue};
-
-      .dark-mode & {
-        color: ${props => props.theme.color.blueLight};
-      }
+      color: ${props => props.theme.color.blueLight};
     }
 
     .keyword,
     .class-name {
-      color: ${props => props.theme.color.pinkDark};
-
-      .dark-mode & {
-        color: ${props => props.theme.color.pink};
-      }
+      color: ${props => props.theme.color.pink};
     }
 
     .changed {

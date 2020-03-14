@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
+
 import { Search } from './Input'
 import NavigationRow from './NavigationRow'
 import SearchResults from './SearchResults'

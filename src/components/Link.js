@@ -37,7 +37,7 @@ const isActive = ({ isCurrent, isPartiallyCurrent }) => {
 
 export const Back = props =>
   <BackLink to={props.to}>
-    <Icon name="chevron-left" /> {props.children || 'Back'}
+    <Icon name="chevron-left" fixedWidth />
   </BackLink>
 
 const Link = ({to, ...props}) => to.includes('http') ? (

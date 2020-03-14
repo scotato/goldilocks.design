@@ -16,12 +16,12 @@ const Layout = styled.div`
 const Aside = styled.aside`
   display: grid;
   position: fixed;
-  padding: ${props => props.theme.size[700]};
+  padding: ${props => props.theme.size[500]} ${props => props.theme.size[700]};
   grid-template-rows: 1fr auto;
   grid-row-gap: ${props => props.theme.size[300]};
   width: ${props => props.theme.device.phoneSmall};
   height: 100vh;
-  z-index: 2;
+  z-index: 1;
   overflow-y: scroll;
 
   ${props => props.theme.media.tabletVertical`
@@ -33,9 +33,12 @@ const Aside = styled.aside`
 
 const Body = styled.main`
   position: relative;
-  margin-left: ${props => props.theme.device.phoneSmall};
+  margin-left: ${props => props.theme.isNavigationOpen ? props.theme.device.phoneSmall : 0};
   background-color: white;
   overflow: hidden;
+  z-index: 2;
+  will-change: margin-left;
+  transition: margin-left 0.2s ease-out;
 
   ${props => props.theme.media.tabletVertical`
     display: ${props.isRoot ? 'none' : 'block'};
@@ -48,16 +51,12 @@ const Body = styled.main`
 `
 
 export const Container = styled.div`
-  margin: 0 ${props => props.theme.size[900]};
+  margin: 0 auto;
   padding: ${props => props.theme.size[700]};
+  max-width: ${props => props.theme.device.tabletVertical};
 
   ${props => props.theme.media.tabletHorizontal`
-    margin: 0 ${props => props.theme.size[700]};
     padding: ${props => props.theme.size[500]};
-  `}
-
-  ${props => props.theme.media.phone`
-    margin: 0;
   `}
 `
 

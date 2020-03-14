@@ -3,9 +3,11 @@ import { ServerStyleSheet, ThemeProvider } from 'styled-components'
 import { library, dom } from "@fortawesome/fontawesome-svg-core"
 import * as svgIcons from "@fortawesome/free-solid-svg-icons"
 import * as svgBrandIcons from "@fortawesome/free-brands-svg-icons"
+
+import theme from './src/theme'
 import { icons, iconsBrand } from './src/components/Icon'
 import useDarkMode from 'use-dark-mode'
-import theme from './src/theme'
+import { useNavigation } from './src/hooks'
 
 export const replaceRenderer = ({
   setHeadComponents,
@@ -24,7 +26,12 @@ export const replaceRenderer = ({
 
 const Provider = props => {
   const darkMode = useDarkMode()
-  const state = { isDarkMode: darkMode.value }
+  const navigation = useNavigation()
+
+  const state = {
+    isDarkMode: darkMode.value,
+    isNavigationOpen: navigation.isOpen
+  }
 
   return (
     <ThemeProvider theme={{...theme, ...state}}>

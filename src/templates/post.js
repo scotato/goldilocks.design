@@ -5,7 +5,7 @@ import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Img from 'gatsby-image'
 
-import Layout from '../components/Layout'
+import Layout, { Container } from '../components/Layout'
 import SEO from '../components/SEO'
 import Header from '../components/Header'
 import Subscribe from '../components/Subscribe'
@@ -42,17 +42,14 @@ const Post = styled.article`
   }
 `
 
-const Content = styled.div`
-  margin: 0 ${props => props.theme.size[700]};
+const Content = styled(Container)`
   padding: ${props => props.theme.size[900]};
 
   ${props => props.theme.media.tabletHorizontal`
-    margin: 0 ${props => props.theme.size[700]};
     padding: ${props => props.theme.size[500]} ${props => props.theme.size[700]};
   `}
 
   ${props => props.theme.media.phone`
-    margin: 0;
     padding: ${props => props.theme.size[500]};
   `}
 `
