@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 
-import Layout from '../components/Layout'
+import Layout, { Container } from '../components/Layout'
 import SEO from '../components/SEO'
 import Header from '../components/Header'
 import ProjectHeader from '../components/ProjectHeader'
@@ -12,20 +12,7 @@ import ContentList from '../components/ContentList'
 import RepositoryIndicators from '../components/RepositoryIndicators'
 import { Back, LinkIcon } from '../components/Link'
 
-const Tool = styled.div`
-  margin: 0 ${props => props.theme.size[700]};
-  padding: ${props => props.theme.size[900]};
-
-  ${props => props.theme.media.tabletHorizontal`
-    margin: 0 ${props => props.theme.size[700]};
-    padding: ${props => props.theme.size[700]};
-  `}
-
-  ${props => props.theme.media.phone`
-    margin: 0;
-    padding: ${props => props.theme.size[500]};
-  `}
-`
+const Tool = styled(Container)``
 
 const ToolPage = ({ data: { tool } }) => {
   const { title, description, docs, website, github, npm, badge, projects, posts, tools } = tool.frontmatter

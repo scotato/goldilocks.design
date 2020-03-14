@@ -52,10 +52,22 @@ const Body = styled.main`
 
 export const Container = styled.div`
   margin: 0 auto;
-  padding: ${props => props.theme.size[700]};
-  max-width: ${props => props.theme.device.tabletVertical};
+  padding: ${props => props.theme.size[700]} ${props => props.theme.size[900]};
+  max-width: ${props => props.theme.device.tabletHorizontal};
+
+  ${props => props.theme.media.desktopLarge`
+    max-width: ${props => props.theme.device.tabletHorizontal};
+  `}
 
   ${props => props.theme.media.tabletHorizontal`
+    padding: ${props => props.theme.size[800]} ${props => props.theme.size[900]};
+  `}
+
+  ${props => props.theme.media.phone`
+    padding: ${props => props.theme.size[600]};
+  `}
+
+  ${props => props.theme.media.phoneSmall`
     padding: ${props => props.theme.size[500]};
   `}
 `

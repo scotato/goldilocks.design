@@ -16,20 +16,9 @@ import Link, { Back, LinkIcon } from '../components/Link'
 import { DarkMode } from '../pages/settings'
 import { Resources, Resource } from '../components/ResourceList'
 
+const Content = styled(Container)``
+
 const Post = styled.article`
-  margin-top: ${props => props.theme.size[500]};
-  margin-bottom: ${props => props.theme.size[800]};
-
-  ${props => props.theme.media.tabletHorizontal`
-    margin-bottom: ${props => props.theme.size[500]};
-    padding: ${props => props.theme.size[500]};
-  `}
-
-  ${props => props.theme.media.phone`
-    margin-bottom: ${props => props.theme.size[700]};
-    padding: 0 ${props => props.theme.size[500]};
-  `}
-
   a {
     &:focus {
       outline: none;
@@ -40,18 +29,6 @@ const Post = styled.article`
   > *:last-child {
     margin-bottom: 0;
   }
-`
-
-const Content = styled(Container)`
-  padding: ${props => props.theme.size[900]};
-
-  ${props => props.theme.media.tabletHorizontal`
-    padding: ${props => props.theme.size[500]} ${props => props.theme.size[700]};
-  `}
-
-  ${props => props.theme.media.phone`
-    padding: ${props => props.theme.size[500]};
-  `}
 `
 
 export default ({ data: { post }, location: { pathname } }) => {
