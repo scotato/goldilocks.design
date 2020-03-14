@@ -18,12 +18,19 @@ const Header = styled.header`
   z-index: 5;
   line-height: 1;
   align-items: center;
-
   will-change: max-width;
   transition: max-width 0.2s ease-out;
 
+  @-moz-document url-prefix() {
+    background-color: rgba(255, 255, 255, 0.99);
+  }
+
   .dark-mode & {
     background-color: rgba(0, 0, 0, 0.25);
+
+    @-moz-document url-prefix() {
+      background-color: rgba(0, 0, 0, 0.99);
+    }
   }
 
   ${props => props.theme.media.desktopLarge`
