@@ -58,11 +58,7 @@ const Body = styled.main`
 export const Container = styled.div`
   margin: 0 auto;
   padding: ${props => props.theme.size[900]};
-  max-width: ${props => props.theme.device.tabletHorizontal};
-
-  ${props => props.theme.media.desktopLarge`
-    max-width: ${props => props.theme.device.tabletHorizontal};
-  `}
+  max-width: calc(${props => props.theme.device.desktop} - ${props => props.theme.device.phoneSmall});
 
   ${props => props.theme.media.phone`
     padding: ${props => props.theme.size[600]};

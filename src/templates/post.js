@@ -19,6 +19,8 @@ import { Resources, Resource } from '../components/ResourceList'
 const Content = styled(Container)``
 
 const Post = styled.article`
+  margin-bottom: ${props => props.theme.size[500]};
+  
   a {
     &:focus {
       outline: none;
