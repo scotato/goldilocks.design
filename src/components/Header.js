@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import NavigationToggle from './NavigationToggle'
+import { DarkModeToggle } from '../components/DarkMode'
 
 const Header = styled.header`
   position: fixed;
@@ -79,6 +80,7 @@ export default props => (
     <Header>
       <Primary>
         {props.primary}
+        <DarkModeToggle />
         <NavigationToggle />
       </Primary>
       <Title>{props.title}</Title>

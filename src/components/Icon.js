@@ -33,6 +33,7 @@ export const icons = [
   'faRulerCombined',
   'faSearch',
   'faStar',
+  'faSun',
   'faTag',
   'faTools',
   'faUserAlt',
