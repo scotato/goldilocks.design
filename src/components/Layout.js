@@ -20,9 +20,14 @@ const Aside = styled.aside`
   grid-template-rows: 1fr auto;
   grid-row-gap: ${props => props.theme.size[300]};
   width: ${props => props.theme.device.phoneSmall};
+  background-color: ${props => props.theme.grayscale[100]};
   height: 100vh;
   z-index: 1;
   overflow-y: scroll;
+
+  .dark-mode & {
+    background-color: black;
+  }
 
   ${props => props.theme.media.tabletVertical`
     display: ${props.isRoot ? 'grid' : 'none'};
@@ -52,15 +57,11 @@ const Body = styled.main`
 
 export const Container = styled.div`
   margin: 0 auto;
-  padding: ${props => props.theme.size[700]} ${props => props.theme.size[900]};
+  padding: ${props => props.theme.size[900]};
   max-width: ${props => props.theme.device.tabletHorizontal};
 
   ${props => props.theme.media.desktopLarge`
     max-width: ${props => props.theme.device.tabletHorizontal};
-  `}
-
-  ${props => props.theme.media.tabletHorizontal`
-    padding: ${props => props.theme.size[800]} ${props => props.theme.size[900]};
   `}
 
   ${props => props.theme.media.phone`
