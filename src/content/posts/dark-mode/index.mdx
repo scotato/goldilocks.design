@@ -50,15 +50,23 @@ npm install use-dark-mode react-switch styled-components
 The `use-dark-mode` package is a custom [React Hook](https://reactjs.org/docs/hooks-overview.html) that exposes the `value` of your dark mode and a `toggle` method to switch between modes.
 
 ```jsx
-// DarkModeToggle.jsx
+// DarkMode.jsx
 import React from 'react'
 import useDarkMode from 'use-dark-mode'
 import Switch from 'react-switch'
+import Button from './Button'
 
-export default () => {
+// with a Switch
+export const DarkModeSwitch () => {
   const { toggle, value } = useDarkMode()
   return <Switch onChange={toggle} checked={value} />
-} 
+}
+
+// or with a Button
+export const DarkModeButton () => {
+  const { toggle, value } = useDarkMode()
+  return <Button onClick={toggle}>{value ? '🌝' : '🌚'}</Button>
+}
 ```
 
 The dark mode `value` can be used to pass different [themes](https://styled-components.com/docs/advanced#theming) into your styled-components [`ThemeProvider`](https://styled-components.com/docs/api#themeprovider), or you can access the `dark-mode` and `light-mode` classes on the `body` tag with CSS.
