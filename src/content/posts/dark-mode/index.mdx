@@ -44,15 +44,10 @@ From the [Android](https://developer.android.com/guide/topics/ui/look-and-feel/d
 Add dark mode to your React app with [`use-dark-mode`](https://github.com/donavon/use-dark-mode) and [`react-switch`](https://github.com/markusenglund/react-switch).
 Check out the example [app](https://react-dark-mode.netlify.com) and [source](https://github.com/scotato/react-dark-mode) or try the dark mode toggle below.
 
-The `use-dark-mode` package is a custom [React Hook](https://reactjs.org/docs/hooks-overview.html) that exposes the `value` of your dark mode and a `toggle` method to switch between modes.
-
-The dark mode `value` can be used to pass different [themes](https://styled-components.com/docs/advanced#theming) into your styled-components [`ThemeProvider`](https://styled-components.com/docs/api#themeprovider), or you can access the `dark-mode` and `light-mode` classes on the `body` tag with CSS.
-
-This example uses the [SASS parent selector](https://sass-lang.com/documentation/style-rules/parent-selector) which is [supported](https://styled-components.com/docs/basics#pseudoelements-pseudoselectors-and-nesting) by styled-components to change `color` and `background-color` styles depending on the current mode.
-
 ```bash
 npm install use-dark-mode react-switch styled-components
 ```
+The `use-dark-mode` package is a custom [React Hook](https://reactjs.org/docs/hooks-overview.html) that exposes the `value` of your dark mode and a `toggle` method to switch between modes.
 
 ```jsx
 // DarkModeToggle.jsx
@@ -65,6 +60,8 @@ export default () => {
   return <Switch onChange={toggle} checked={value} />
 } 
 ```
+
+The dark mode `value` can be used to pass different [themes](https://styled-components.com/docs/advanced#theming) into your styled-components [`ThemeProvider`](https://styled-components.com/docs/api#themeprovider), or you can access the `dark-mode` and `light-mode` classes on the `body` tag with CSS.
 
 ```jsx
 // DarkModeComponent.jsx
@@ -80,5 +77,7 @@ export default styled.div`
   }
 `
 ```
+
+This example uses the [SASS parent selector](https://sass-lang.com/documentation/style-rules/parent-selector) which is [supported](https://styled-components.com/docs/basics#pseudoelements-pseudoselectors-and-nesting) by styled-components to change `color` and `background-color` styles depending on the current mode.
 
 <DarkMode />

@@ -3,11 +3,15 @@ import { css } from 'styled-components'
 export default css`
   .gatsby-highlight {
     padding: ${props => props.theme.size[500]} ${props => props.theme.size[600]};
-    margin-bottom: ${props => props.theme.size[600]};
+    margin-bottom: ${props => props.theme.size[700]};
     border-radius: ${props => props.theme.size[500]};
     font-size: ${props => props.theme.size[500]};
     color: ${props => props.theme.grayscale[700]};
     background-color: ${props => props.theme.grayscale[100]};
+
+    ${props => props.theme.media.phone`
+      margin-bottom: ${props => props.theme.size[500]};
+    `}
 
     &:last-child {
       margin-bottom: 0;

@@ -82,12 +82,20 @@ const GlobalStyle = createGlobalStyle`
   }
 
   p {
-    margin-bottom: ${props => props.theme.size[600]};
+    margin-bottom: ${props => props.theme.size[700]};
     font-weight: 300;
 
     ${props => props.theme.media.phone`
       margin-bottom: ${props => props.theme.size[500]};
     `}
+
+    blockquote & {
+      margin-bottom: ${props => props.theme.size[600]};
+
+      ${props => props.theme.media.phone`
+        margin-bottom: ${props => props.theme.size[500]};
+      `}
+    }
   }
 
   li {
@@ -95,6 +103,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   blockquote {
+    margin-bottom: ${props => props.theme.size[700]};
     padding: ${props => props.theme.size[500]} ${props => props.theme.size[600]};
     border-radius: ${props => props.theme.size[500]};
     background-color: ${props => props.theme.grayscale[100]};
