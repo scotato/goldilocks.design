@@ -18,8 +18,8 @@ const Header = styled.header`
   z-index: 5;
   line-height: 1;
   align-items: center;
-  will-change: max-width;
-  transition: max-width 0.2s ease-out;
+  will-change: max-width, background-color;
+  transition: max-width 0.2s ease-out, background-color 0.2s ease-out;
 
   @-moz-document url-prefix() {
     background-color: rgba(255, 255, 255, 0.99);
@@ -51,6 +51,8 @@ const Divider = styled.div`
   margin-top: ${props => props.theme.size[100]};
   height: ${props => props.theme.size[900]};
   border-bottom: ${props => props.theme.size[100]} solid ${props => props.theme.grayscale[100]};
+  will-change: border-color;
+  transition: border-color 0.2s ease-out;
 
   .dark-mode & {
     border-bottom: ${props => props.theme.size[100]} solid black;

@@ -31,6 +31,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     color: ${props => props.theme.grayscale[900]};
     background-color: ${props => props.theme.grayscale[200]};
+    will-change: color, background-color;
+    transition: color 0.2s ease-out, background-color 0.2s ease-out;
     
     &.dark-mode {
       color: ${props => props.theme.grayscale[100]};
@@ -107,6 +109,9 @@ const GlobalStyle = createGlobalStyle`
     padding: ${props => props.theme.size[500]} ${props => props.theme.size[600]};
     border-radius: ${props => props.theme.size[500]};
     background-color: ${props => props.theme.grayscale[100]};
+    will-change: background-color;
+    transition: background-color 0.2s ease-out;
+
 
     .dark-mode & {
       background-color: ${props => props.theme.grayscale[800]};

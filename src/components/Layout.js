@@ -24,6 +24,8 @@ const Aside = styled.aside`
   height: 100vh;
   z-index: 1;
   overflow-y: scroll;
+  will-change: background-color;
+  transition: background-color 0.2s ease-out;
 
   .dark-mode & {
     background-color: black;
@@ -42,8 +44,8 @@ const Body = styled.main`
   background-color: white;
   overflow: hidden;
   z-index: 2;
-  will-change: margin-left;
-  transition: margin-left 0.2s ease-out;
+  will-change: margin-left, background-color;
+  transition: margin-left 0.2s ease-out, background-color 0.2s ease-out;
 
   ${props => props.theme.media.tabletVertical`
     display: ${props.isRoot ? 'none' : 'block'};

@@ -46,7 +46,6 @@ const Input = styled.input`
   margin: 0;
   padding: 0;
   background-color: transparent;
-  color: inherit;
   text-align: right;
   color: ${props => props.theme.grayscale[500]};
   grid-area: detail;
@@ -54,6 +53,8 @@ const Input = styled.input`
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  will-change: border-color;
+  transition: border-color 0.2s ease-in;
 
   .dark-mode & {
     border-color: ${props => props.theme.grayscale[900]};
@@ -71,13 +72,19 @@ const SearchRow = styled(InputRow)`
   background-color: ${props => props.theme.grayscale[200]};
   grid-template-columns: ${props => props.theme.size[700]} 1fr;
   grid-template-areas: "badge detail";
+  will-change: color, background-color;
+  transition: color 0.2s ease-out, background-color 0.2s ease-out;
 
   input {
     color: ${props => props.theme.grayscale[900]};
     text-align: left;
+    will-change: color;
+    transition: color 0.2s ease-out;
 
     &::placeholder {
       color: ${props => props.theme.grayscale[400]};
+      will-change: color;
+      transition: color 0.2s ease-out;
     }
   }
 
