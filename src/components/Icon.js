@@ -2,49 +2,6 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export const icons = [
-  'faArchive',
-  'faAt',
-  'faBookOpen',
-  'faBook',
-  'faCalendar',
-  'faCalendarPlus',
-  'faCarCrash',
-  'faCheck',
-  'faChevronLeft',
-  'faChevronRight',
-  'faCogs',
-  'faComment',
-  'faCompress',
-  'faDraftingCompass',
-  'faEnvelope',
-  'faEnvelopeOpenText',
-  'faExclamationCircle',
-  'faExpand',
-  'faExternalLinkAlt',
-  'faFire',
-  'faHammer',
-  'faHistory',
-  'faLink',
-  'faMoon',
-  'faPenAlt',
-  'faPencilRuler',
-  'faRss',
-  'faRulerCombined',
-  'faSearch',
-  'faStar',
-  'faSun',
-  'faTag',
-  'faTools',
-  'faUserAlt',
-  'faWrench',
-]
-
-export const iconsBrand = [
-  'faGithub',
-  'faTwitter'
-]
-
 const Icon = styled.div`
   display: grid;
   place-items: center;
