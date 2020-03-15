@@ -32,6 +32,8 @@ const Body = styled.div`
     margin-bottom: 0;
     border-radius: 0;
     border-bottom: ${props => props.theme.size[100]} solid ${props => props.theme.grayscale[200]};
+    will-change: border-color;
+    transition: border-color 0.2s ease-out;
 
     &:last-child {
       border-bottom-left-radius: ${props => props.theme.size[500]};

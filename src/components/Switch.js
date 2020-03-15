@@ -1,6 +1,10 @@
 import React, { useContext } from 'react'
-import Switch from 'react-switch'
-import { ThemeContext } from 'styled-components'
+import ReactSwitch from 'react-switch'
+import styled, { ThemeContext } from 'styled-components'
+
+const Switch = styled(ReactSwitch)`
+  display: block !important;
+`
 
 export default props => {
   const { color, grayscale, size } = useContext(ThemeContext)
