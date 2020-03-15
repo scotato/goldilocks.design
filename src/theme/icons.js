@@ -1,42 +1,11 @@
-export const iconsSolid = [
-  'faArchive',
-  'faAt',
-  'faBookOpen',
-  'faBook',
-  'faCalendar',
-  'faCalendarPlus',
-  'faCarCrash',
-  'faCheck',
-  'faChevronLeft',
-  'faChevronRight',
-  'faCogs',
-  'faComment',
-  'faCompress',
-  'faDraftingCompass',
-  'faEnvelope',
-  'faEnvelopeOpenText',
-  'faExclamationCircle',
-  'faExpand',
-  'faExternalLinkAlt',
-  'faFire',
-  'faHammer',
-  'faHistory',
-  'faLink',
-  'faMoon',
-  'faPenAlt',
-  'faPencilRuler',
-  'faRss',
-  'faRulerCombined',
-  'faSearch',
-  'faStar',
-  'faSun',
-  'faTag',
-  'faTools',
-  'faUserAlt',
-  'faWrench',
-]
+import { library } from "@fortawesome/fontawesome-svg-core"
+import * as solid from "./icons-solid"
+import * as brand from "./icons-brand"
 
-export const iconsBrand = [
-  'faGithub',
-  'faTwitter'
-]
+export const iconsSolid = Object.keys(solid)
+export const iconsBrand = Object.keys(brand)
+
+export default () => {
+  iconsSolid.forEach(icon => library.add(solid[icon]))
+  iconsBrand.forEach(icon => library.add(brand[icon]))
+}
