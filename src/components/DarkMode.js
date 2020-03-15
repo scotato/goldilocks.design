@@ -7,8 +7,6 @@ import Icon from './Icon'
 import Switch from './Switch'
 
 const ToggleButton = styled(ButtonBase)`
-  margin-right: ${props => props.theme.size[300]};
-  padding: ${props => props.theme.size[200]};
   color: ${props => props.theme.color.info};
 
   &:focus {

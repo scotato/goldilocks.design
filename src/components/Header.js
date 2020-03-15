@@ -7,7 +7,7 @@ import { DarkModeToggle } from '../components/DarkMode'
 const Header = styled.header`
   position: fixed;
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: auto 1fr auto;
   padding: ${props => props.theme.size[500]} ${props => props.theme.size[700]};
   height: ${props => props.theme.size[900]};
   background-color: rgba(255, 255, 255, 0.25);
@@ -70,18 +70,19 @@ const Title = styled.div`
   line-height: 1.1;
 `
 
-const Primary = styled.div`
-  display: flex;
+const IconsGroup = styled.div`
+  display: grid;
+  grid-template-columns: ${props => props.theme.size[600]} ${props => props.theme.size[600]} ${props => props.theme.size[600]};
+  grid-column-gap: ${props => props.theme.size[500]};
 `
 
-const Secondary = styled.div`
-  display: flex;
-  justify-self: flex-end;
-  color: ${props => props.theme.color.default};
+const Primary = styled(IconsGroup)``
 
-  a:not(:first-child) {
-    margin-left: ${props => props.theme.size[500]};
-  }
+const Secondary = styled(IconsGroup)`
+  display: ${props => props.block ? 'block' : 'grid'};
+  width: 92px;
+  text-align: right;
+  justify-self: flex-end;
 `
 
 export default props => (
@@ -93,7 +94,7 @@ export default props => (
         <NavigationToggle />
       </Primary>
       <Title>{props.title}</Title>
-      <Secondary>{props.secondary}</Secondary>
+      <Secondary block={props.secondaryBlock}>{props.secondary}</Secondary>
     </Header>
     <Divider />
   </>

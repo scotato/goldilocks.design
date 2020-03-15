@@ -45,6 +45,7 @@ export default ({
         title="Feedback"
         primary={<Back to={from} />}
         secondary={submitButton}
+        secondaryBlock
       />
       <Container>
         <Project {...project} />

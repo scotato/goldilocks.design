@@ -18,27 +18,9 @@ const LinkExternal = styled(OutboundLink)`
   ${link}
 `
 
-const BackLink = styled(LinkGatsby)`
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-column-gap: ${props => props.theme.size[300]};
-  align-items: center;
-  font-weight: 500;
-  ${link}
-
-  &:focus {
-    text-decoration: underline;
-  }
-`
-
 const isActive = ({ isCurrent, isPartiallyCurrent }) => {
   return isCurrent || isPartiallyCurrent ? { "data-active": "active" } : null
 }
-
-export const Back = props =>
-  <BackLink to={props.to}>
-    <Icon name="chevron-left" fixedWidth />
-  </BackLink>
 
 const Link = ({to, ...props}) => to.includes('http') ? (
     <LinkExternal href={to} target="_blank" rel="noopener noreferrer" {...props} />
@@ -48,14 +30,18 @@ const Link = ({to, ...props}) => to.includes('http') ? (
 
 const LinkIconStyled = styled(Link)`
   &:focus {
-    color: ${props => props.theme.color.blueDark};
+    color: inherit;
   }
 `
 
-export const LinkIcon = ({icon, to, size}) => to ? (
-  <LinkIconStyled to={to}>
+export const LinkIcon = ({icon, to, size, fixedWidth}) => to ? (
+  <LinkIconStyled to={to} fixedWidth={fixedWidth}>
     <Icon name={icon} size={size} />
   </LinkIconStyled>
 ) : null
+
+export const Back = props => (
+  <LinkIcon icon="chevron-left" size={600} fixedWidth {...props} />
+)
 
 export default Link
