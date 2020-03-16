@@ -51,8 +51,8 @@ const Aside = styled.aside`
   height: 100vh;
   z-index: 1;
   overflow-y: scroll;
-  will-change: background-color;
-  transition: background-color 0.2s ease-out;
+  will-change: width, background-color;
+  transition: width 0.2s ease-out, background-color 0.2s ease-out;
 
   .dark-mode & {
     background-color: black;
@@ -84,6 +84,8 @@ const BodyContainer = styled.div`
 
 const Body = styled.main`
   overflow-x: hidden;
+  will-change: width, background-color;
+  transition: width 0.2s ease-out, background-color 0.2s ease-out;
 `
 
 export const Container = styled.div`
@@ -97,7 +99,7 @@ export const Container = styled.div`
     ${props.theme.isNavigationOpen ? css`
       max-width: calc(100vw - ${props => props.theme.device.phoneSmall});
     ` : css`
-      max-width: 100vw;
+      max-width: calc(${props.theme.device.desktop} - ${props => props.theme.device.phoneSmall});
     `}
   `}
 
