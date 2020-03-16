@@ -4,7 +4,6 @@ import moment from 'moment'
 
 import Layout, { Container } from '../components/Layout'
 import SEO from '../components/SEO'
-import Header from '../components/Header'
 import Form from '../components/Form'
 import Group from '../components/Group'
 import { RowSmall } from '../components/LinkRowSmall'

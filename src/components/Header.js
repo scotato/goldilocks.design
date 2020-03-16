@@ -54,29 +54,33 @@ const HeaderDivider = styled.div`
 `
 
 const Title = styled.div`
-  padding: 0 ${props => props.theme.size[500]};
+  padding: 0 ${props => props.theme.size[300]};
   justify-self: center;
   font-weight: 500;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  min-width: 100%;
   max-width: 100%;
-  line-height: 1.1;
+  text-align: center;
+  line-height: 1.2;
 `
 
 const IconsGroup = styled.div`
   display: grid;
-  grid-template-columns: ${props => props.theme.size[600]} ${props => props.theme.size[600]} ${props => props.theme.size[600]};
+  grid-auto-columns: ${props => props.theme.size[600]};
   grid-column-gap: ${props => props.theme.size[500]};
+  grid-auto-flow: column;
+  min-width: 92px;
 `
 
 const Primary = styled(IconsGroup)``
 
 const Secondary = styled(IconsGroup)`
   display: ${props => props.block ? 'block' : 'grid'};
-  width: 92px;
   text-align: right;
   justify-self: flex-end;
+  justify-content: end;
 `
 
 export default props => (
