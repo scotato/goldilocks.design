@@ -11,6 +11,17 @@ const Layout = styled.div`
   margin: 0 auto;
   min-height: 100%;
   max-width: ${props => props.theme.device.desktopLarge};
+  box-shadow: 0 ${props => props.theme.size[200]} 0 ${props => props.theme.size[200]} ${props => props.theme.grayscale[100]};
+  will-change: box-shadow;
+  transition: box-shadow 0.2s ease-out;
+
+  ${props => props.theme.media.desktop`
+    max-width: 100%;
+  `}
+
+  .dark-mode & {
+    box-shadow: 0 ${props => props.theme.size[200]} 0 ${props => props.theme.size[200]} ${props => props.theme.grayscale[900]};
+  }
 `
 
 const Aside = styled.aside`
@@ -45,6 +56,8 @@ const Body = styled.main`
   z-index: 2;
   will-change: margin-left, background-color;
   transition: margin-left 0.2s ease-out, background-color 0.2s ease-out;
+  max-width: 100vw;
+  overflow-x: hidden;
 
   ${props => props.theme.media.tabletVertical`
     display: ${props.isRoot ? 'none' : 'block'};

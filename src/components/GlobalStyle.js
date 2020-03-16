@@ -30,13 +30,13 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     color: ${props => props.theme.grayscale[900]};
-    background-color: ${props => props.theme.grayscale[200]};
+    background-color: white;
     will-change: color, background-color;
     transition: color 0.2s ease-out, background-color 0.2s ease-out;
     
     &.dark-mode {
       color: ${props => props.theme.grayscale[100]};
-      background-color: ${props => props.theme.grayscale[800]};
+      background-color: ${props => props.theme.grayscale[900]};
     }
   }
 

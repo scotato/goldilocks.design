@@ -20,6 +20,7 @@ const Content = styled(Container)``
 
 const Post = styled.article`
   margin-bottom: ${props => props.theme.size[500]};
+  overflow-x: hidden;
   
   a {
     &:focus {
