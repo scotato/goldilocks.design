@@ -88,7 +88,7 @@ const Secondary = styled(IconsGroup)`
   display: ${props => props.block ? 'flex' : 'grid'};
   text-align: right;
   justify-self: flex-end;
-  justify-content: end;
+  justify-content: flex-end;
 `
 
 export default props => (

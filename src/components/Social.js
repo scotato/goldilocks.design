@@ -6,7 +6,6 @@ import Icon from '../components/Icon'
 
 const Social = styled.div`
   display: flex;
-  margin-top: ${props => props.theme.size[500]};
   justify-content: center;
   align-items: center;
 `

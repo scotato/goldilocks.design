@@ -40,6 +40,10 @@ const NavigationRow = styled(Link)`
     }
   }
 
+  &:last-child {
+    margin-bottom: 0;
+  }
+
   &[aria-current] {
     cursor: default;
   }
