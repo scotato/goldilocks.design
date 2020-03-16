@@ -42,7 +42,6 @@ const Body = styled.main`
   position: relative;
   margin-left: ${props => props.theme.isNavigationOpen ? props.theme.device.phoneSmall : 0};
   background-color: white;
-  overflow: hidden;
   z-index: 2;
   will-change: margin-left, background-color;
   transition: margin-left 0.2s ease-out, background-color 0.2s ease-out;

@@ -5,7 +5,7 @@ import NavigationToggle from './NavigationToggle'
 import { DarkModeToggle } from '../components/DarkMode'
 
 const Header = styled.header`
-  position: fixed;
+  position: sticky;
   display: grid;
   grid-template-columns: auto 1fr auto;
   padding: ${props => props.theme.size[500]} ${props => props.theme.size[700]};
@@ -13,8 +13,6 @@ const Header = styled.header`
   background-color: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(64px);
   top: 0;
-  width: 100%;
-  max-width: ${props => props.theme.isNavigationOpen ? `calc(${props.theme.device.desktopLarge} - ${props.theme.device.phoneSmall})` : props.theme.device.desktopLarge};
   z-index: 5;
   line-height: 1;
   align-items: center;
@@ -33,26 +31,22 @@ const Header = styled.header`
     }
   }
 
-  ${props => props.theme.media.desktopLarge`
-    max-width: ${props => props.theme.isNavigationOpen ? `calc(100% - ${props.theme.device.phoneSmall})` : '100%'};
-  `}
-
-  ${props => props.theme.media.tabletVertical`
-    max-width: 100%;
-  `}
-
   ${props => props.theme.media.phone`
     padding: ${props => props.theme.size[500]};
     font-size: ${props => props.theme.size[500]};
   `}
 `
 
-const Divider = styled.div`
-  margin-top: ${props => props.theme.size[100]};
+const HeaderDivider = styled.div`
+  position: absolute;
+  top: 0;
+  display: grid;
   height: ${props => props.theme.size[900]};
+  width: 100%;
   border-bottom: ${props => props.theme.size[100]} solid ${props => props.theme.grayscale[100]};
   will-change: border-color;
   transition: border-color 0.2s ease-out;
+  box-sizing: content-box;
 
   .dark-mode & {
     border-bottom: ${props => props.theme.size[100]} solid black;
@@ -96,6 +90,6 @@ export default props => (
       <Title>{props.title}</Title>
       <Secondary block={props.secondaryBlock}>{props.secondary}</Secondary>
     </Header>
-    <Divider />
+    <HeaderDivider />
   </>
 )
