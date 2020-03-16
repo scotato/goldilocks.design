@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
 
 import Layout, { Container } from '../components/Layout'
 import SEO from '../components/SEO'
-import Header from '../components/Header'
 import ProjectHeader from '../components/ProjectHeader'
 import ActivityList from '../components/ActivityList'
 import ResourceList from '../components/ResourceList'
@@ -19,19 +18,18 @@ const ToolPage = ({ data: { tool } }) => {
   const version = npm ? npm.version : github && github.version
 
   return (
-    <Layout>
+    <Layout
+      title={title}
+      headerPrimary={<Back to='tools'>Tools</Back>}
+      headerSecondary={
+        <>
+          <LinkIcon to={website} icon="link" size={600} />
+          <LinkIcon to={github && github.url} icon="github" size={600} />
+          <LinkIcon to={docs} icon="book" size={600} />
+        </>
+      }
+    >
       <SEO title={title} description={description} />
-      <Header
-        title={title}
-        primary={<Back to='tools'>Tools</Back>}
-        secondary={
-          <>
-            <LinkIcon to={website} icon="link" size={600} />
-            <LinkIcon to={github && github.url} icon="github" size={600} />
-            <LinkIcon to={docs} icon="book" size={600} />
-          </>
-        }
-      />
       <Tool>
         <ProjectHeader
           title={title}

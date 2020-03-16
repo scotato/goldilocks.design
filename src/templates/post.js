@@ -7,7 +7,6 @@ import Img from 'gatsby-image'
 
 import Layout, { Container } from '../components/Layout'
 import SEO from '../components/SEO'
-import Header from '../components/Header'
 import Subscribe from '../components/Subscribe'
 import ResourceList from '../components/ResourceList'
 import ActivityList from '../components/ActivityList'
@@ -40,19 +39,18 @@ export default ({ data: { post }, location: { pathname } }) => {
   const shortcodes = { Link, Resources, Resource, DarkMode }
 
   return (
-    <Layout>
+    <Layout
+      title={title}
+      headerPrimary={<Back to='posts'>Posts</Back>}
+      headerSecondary={
+        <>
+          <LinkIcon to={website} icon="link" size={600} />
+          <LinkIcon to={githubUrl} icon="github" size={600} />
+          <LinkIcon to={feedback} icon="comment" size={600} />
+        </>
+      }
+    >
       <SEO title={title} description={description} badge={hero.childImageSharp.fluid.src} />
-      <Header
-        title={title}
-        primary={<Back to='posts'>Posts</Back>}
-        secondary={
-          <>
-            <LinkIcon to={website} icon="link" size={600} />
-            <LinkIcon to={githubUrl} icon="github" size={600} />
-            <LinkIcon to={feedback} icon="comment" size={600} />
-          </>
-        }
-      />
 
       <Img fluid={hero.childImageSharp.fluid} />
       

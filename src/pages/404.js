@@ -11,7 +11,7 @@ const Page = styled.h1`
 `
 
 export default () => (
-  <Layout>
+  <Layout title="Not Found">
     <SEO />
     <Page>404</Page>
   </Layout>

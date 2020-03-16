@@ -5,7 +5,6 @@ import Img from 'gatsby-image'
 
 import SEO from '../components/SEO'
 import Layout, { Container } from '../components/Layout'
-import Header from '../components/Header'
 import Group from '../components/Group'
 import LinkRowSmall from '../components/LinkRowSmall'
 import PostIndicators from '../components/PostIndicators'
@@ -23,9 +22,8 @@ const HomePage = ({ data }) => {
   const tools = data.tools.edges.map(edge => edge.node)
 
   return (
-    <Layout isRoot>
+    <Layout title={<Logo fluid={logo.childImageSharp.fluid} />} isRoot>
       <SEO />
-      <Header title={<Logo fluid={logo.childImageSharp.fluid} />} />
       <Container>
         <Group title="Recent Posts">
           {posts.map(({

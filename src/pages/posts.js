@@ -4,19 +4,14 @@ import moment from 'moment'
 
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
-import Header from '../components/Header'
 import { Container } from '../components/Layout'
 import Card from '../components/Card'
 import { Back } from '../components/Link'
 import PostIndicators from '../components/PostIndicators'
 
 const PostsPage = ({ data: { posts } }) => (
-  <Layout>
+  <Layout title="Posts" headerPrimary={<Back to='/' />}>
     <SEO />
-    <Header
-      title="Posts"
-      primary={<Back to='/' />}
-    />
     <Container>
         {posts.edges.map(({node: post}) => (
           <Card

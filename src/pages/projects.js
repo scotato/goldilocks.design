@@ -6,7 +6,6 @@ import SEO from '../components/SEO'
 import Layout, { Container } from '../components/Layout'
 import Group from '../components/Group'
 import Card from '../components/Card'
-import Header from '../components/Header'
 import { Back } from '../components/Link'
 import RepositoryIndicators from '../components/RepositoryIndicators'
 
@@ -21,12 +20,8 @@ const ProjectsPage = ({ data }) => {
   ]
 
   return (
-    <Layout>
+    <Layout title="Projects" headerPrimary={<Back to='/' />}>
       <SEO />
-      <Header
-        title="Projects"
-        primary={<Back to='/' />}
-      />
       <Container>
         {statusOrder.map(status => (
           <Group title={status.replace('-', ' ')}>

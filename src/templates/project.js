@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
  
 import Layout, { Container } from '../components/Layout'
 import SEO from '../components/SEO'
-import Header from '../components/Header'
 import ProjectHeader from '../components/ProjectHeader'
 import Gallery from '../components/Gallery'
 import ActivityList from '../components/ActivityList'
@@ -23,20 +22,18 @@ export default ({ data: { project }, location: { pathname } }) => {
   const feedback = `${pathname}/feedback`
 
   return (
-    <Layout>
+    <Layout
+      title={title}
+      headerPrimary={<Back to='projects'>Projects</Back>}
+      headerSecondary={
+        <>
+          <LinkIcon to={website} icon="link" size={600} />
+          <LinkIcon to={githubUrl} icon="github" size={600} />
+          <LinkIcon to={feedback} icon="comment" size={600} />
+        </>
+      }
+    >
       <SEO title={title} description={description} badge={badge.childImageSharp.fluid.src} />
-      <Header
-        title={title}
-        primary={<Back to='projects'>Projects</Back>}
-        secondary={
-          <>
-            <LinkIcon to={website} icon="link" size={600} />
-            <LinkIcon to={githubUrl} icon="github" size={600} />
-            <LinkIcon to={feedback} icon="comment" size={600} />
-          </>
-        }
-      />
-
       <Project>
         <ProjectHeader
           title={title}

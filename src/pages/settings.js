@@ -5,7 +5,6 @@ import Layout, { Container } from '../components/Layout'
 import SEO from '../components/SEO'
 import Group from '../components/Group'
 import Row from '../components/Row'
-import Header from '../components/Header'
 import Subscribe from '../components/Subscribe'
 import ActivityList from '../components/ActivityList'
 import { DarkModeSwitch } from '../components/DarkMode'
@@ -22,12 +21,8 @@ export const DarkMode = () => (
 )
 
 const SettingsPage = ({ data: { source }, location: { pathname } }) => (
-  <Layout>
+  <Layout title="Settings" headerPrimary={<Back to='/' />}>
     <SEO />
-    <Header
-      title="Settings"
-      primary={<Back to='/' />}
-    />
     <Container>
       <DarkMode />
 

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import GlobalStyle from './GlobalStyle'
+import Header from './Header'
 import Navigation from './Navigation'
 import Social from './Social'
 
@@ -49,15 +50,14 @@ const Aside = styled.aside`
   `}
 `
 
-const Body = styled.main`
+const BodyContainer = styled.div`
   position: relative;
   margin-left: ${props => props.theme.isNavigationOpen ? props.theme.device.phoneSmall : 0};
+  max-width: 100vw;
   background-color: white;
   z-index: 2;
   will-change: margin-left, background-color;
   transition: margin-left 0.2s ease-out, background-color 0.2s ease-out;
-  max-width: 100vw;
-  overflow-x: hidden;
 
   ${props => props.theme.media.tabletVertical`
     display: ${props.isRoot ? 'none' : 'block'};
@@ -67,6 +67,10 @@ const Body = styled.main`
   .dark-mode & {
     background-color: ${props => props.theme.grayscale[900]};
   }
+`
+
+const Body = styled.main`
+  overflow-x: hidden;
 `
 
 export const Container = styled.div`
@@ -92,8 +96,17 @@ export default props => (
       <Social />
     </Aside>
     
-    <Body isRoot={props.isRoot}>
-      {props.children}
-    </Body>
+    <BodyContainer isRoot={props.isRoot}>
+      <Header
+        title={props.title}
+        primary={props.headerPrimary}
+        secondary={props.headerSecondary}
+        secondaryBlock={props.headerSecondaryBlock}
+      />
+
+      <Body>
+        {props.children}
+      </Body>
+    </BodyContainer>
   </Layout>
 )

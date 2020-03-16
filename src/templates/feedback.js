@@ -39,14 +39,13 @@ export default ({
   const topic = project.frontmatter.title || post.frontmatter.title
   
   return (
-    <Layout>
+    <Layout
+      title="Feedback"
+      headerPrimary={<Back to={from} />}
+      headerSecondary={submitButton}
+      headerSecondaryBlock
+    >
       <SEO />
-      <Header
-        title="Feedback"
-        primary={<Back to={from} />}
-        secondary={submitButton}
-        secondaryBlock
-      />
       <Container>
         <Project {...project} />
         <Post {...post} />
