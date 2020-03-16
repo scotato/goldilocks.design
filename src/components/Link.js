@@ -41,7 +41,7 @@ export const LinkIcon = ({icon, to, size, fixedWidth}) => to ? (
 ) : null
 
 export const Back = props => (
-  <LinkIcon icon="chevron-left" size={600} fixedWidth {...props} />
+  <LinkIcon icon="chevron-left" fixedWidth {...props} />
 )
 
 export default Link

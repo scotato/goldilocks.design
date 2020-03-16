@@ -23,9 +23,9 @@ const ToolPage = ({ data: { tool } }) => {
       headerPrimary={<Back to='tools'>Tools</Back>}
       headerSecondary={
         <>
-          <LinkIcon to={website} icon="link" size={600} />
-          <LinkIcon to={github && github.url} icon="github" size={600} />
-          <LinkIcon to={docs} icon="book" size={600} />
+          <LinkIcon to={website} icon="link" />
+          <LinkIcon to={github && github.url} icon="github" />
+          <LinkIcon to={docs} icon="book" />
         </>
       }
     >

@@ -71,13 +71,21 @@ const IconsGroup = styled.div`
   grid-auto-columns: ${props => props.theme.size[600]};
   grid-column-gap: ${props => props.theme.size[500]};
   grid-auto-flow: column;
-  min-width: 92px;
+  font-size: ${props => props.theme.size[600]};
+  width: 92px;
+
+  ${props => props.theme.media.phoneSmall`
+    grid-auto-columns: ${props => props.theme.size[500]};
+    grid-column-gap: ${props => props.theme.size[400]};
+    font-size: ${props => props.theme.size[500]};
+    width: 72px;
+  `}
 `
 
 const Primary = styled(IconsGroup)``
 
 const Secondary = styled(IconsGroup)`
-  display: ${props => props.block ? 'block' : 'grid'};
+  display: ${props => props.block ? 'flex' : 'grid'};
   text-align: right;
   justify-self: flex-end;
   justify-content: end;

@@ -28,7 +28,7 @@ export const DarkModeToggle = () => {
 
   return (
     <ToggleButton onClick={toggle}>
-      <Icon name={value ? 'moon' : 'sun'} size={600} />
+      <Icon name={value ? 'moon' : 'sun'} />
     </ToggleButton>
   )
 }

@@ -23,7 +23,7 @@ export default () => {
 
   return (
     <NavigationToggle onClick={toggleIsOpen}>
-      <Icon name={isOpen ? 'expand' : 'compress'} size={600} />
+      <Icon name={isOpen ? 'expand' : 'compress'} />
     </NavigationToggle>
   )
 }

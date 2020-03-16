@@ -27,9 +27,9 @@ export default ({ data: { project }, location: { pathname } }) => {
       headerPrimary={<Back to='projects'>Projects</Back>}
       headerSecondary={
         <>
-          <LinkIcon to={website} icon="link" size={600} />
-          <LinkIcon to={githubUrl} icon="github" size={600} />
-          <LinkIcon to={feedback} icon="comment" size={600} />
+          <LinkIcon to={website} icon="link" />
+          <LinkIcon to={githubUrl} icon="github" />
+          <LinkIcon to={feedback} icon="comment" />
         </>
       }
     >
