@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import GlobalStyle from './GlobalStyle'
 import Header from './Header'
@@ -12,17 +12,32 @@ const Layout = styled.div`
   margin: 0 auto;
   min-height: 100%;
   max-width: ${props => props.theme.device.desktopLarge};
+  grid-template-areas: "aside body";
   box-shadow: 0 ${props => props.theme.size[200]} 0 ${props => props.theme.size[200]} ${props => props.theme.grayscale[100]};
-  will-change: box-shadow;
-  transition: box-shadow 0.2s ease-out;
+  will-change: grid-template-columns, box-shadow;
+  transition: grid-template-columns 0.2s ease-out, box-shadow 0.2s ease-out;
 
-  ${props => props.theme.media.desktop`
-    max-width: 100%;
+  ${props => props.theme.isNavigationOpen ? css`
+    grid-template-columns: ${props.theme.device.phoneSmall} 1fr;
+  ` : css`
+    grid-template-columns: 0 1fr;
+  `}
+
+  ${props => props.theme.media.desktopLarge`
+    max-width: 100vw;
+  `}
+
+  ${props => props.theme.media.tabletVertical`
+    grid-template-columns: 0 1fr;
   `}
 
   .dark-mode & {
     box-shadow: 0 ${props => props.theme.size[200]} 0 ${props => props.theme.size[200]} ${props => props.theme.grayscale[900]};
   }
+`
+
+const AsideContainer = styled.aside`
+  grid-area: aside;
 `
 
 const Aside = styled.aside`
@@ -52,16 +67,14 @@ const Aside = styled.aside`
 
 const BodyContainer = styled.div`
   position: relative;
-  margin-left: ${props => props.theme.isNavigationOpen ? props.theme.device.phoneSmall : 0};
-  max-width: 100vw;
   background-color: white;
   z-index: 2;
-  will-change: margin-left, background-color;
-  transition: margin-left 0.2s ease-out, background-color 0.2s ease-out;
+  will-change: width, background-color;
+  transition: width 0.2s ease-out, background-color 0.2s ease-out;
+  grid-area: body;
 
   ${props => props.theme.media.tabletVertical`
     display: ${props.isRoot ? 'none' : 'block'};
-    margin-left: 0;
   `}
 
   .dark-mode & {
@@ -77,6 +90,20 @@ export const Container = styled.div`
   margin: 0 auto;
   padding: ${props => props.theme.size[900]};
   max-width: calc(${props => props.theme.device.desktop} - ${props => props.theme.device.phoneSmall});
+  will-change: max-width;
+  transition: max-width 0.2s ease-out;
+
+  ${props => props.theme.media.desktop`
+    ${props.theme.isNavigationOpen ? css`
+      max-width: calc(100vw - ${props => props.theme.device.phoneSmall});
+    ` : css`
+      max-width: 100vw;
+    `}
+  `}
+
+  ${props => props.theme.media.tabletVertical`
+    max-width: 100vw;
+  `}
 
   ${props => props.theme.media.phone`
     padding: ${props => props.theme.size[600]};
@@ -91,10 +118,12 @@ export default props => (
   <Layout>
     <GlobalStyle />
     
-    <Aside isRoot={props.isRoot}>
-      <Navigation />
-      <Social />
-    </Aside>
+    <AsideContainer>
+      <Aside isRoot={props.isRoot}>
+        <Navigation />
+        <Social />
+      </Aside>
+    </AsideContainer>
     
     <BodyContainer isRoot={props.isRoot}>
       <Header

@@ -54,8 +54,10 @@ const HeaderDivider = styled.div`
 `
 
 const Title = styled.div`
+  display: flex;
   padding: 0 ${props => props.theme.size[300]};
   justify-self: center;
+  justify-content: center;
   font-weight: 500;
   white-space: nowrap;
   text-overflow: ellipsis;
