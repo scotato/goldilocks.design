@@ -1,8 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Layout, { Container } from '../components/Layout'
 import SEO from '../components/SEO'
+import Header from '../components/Header'
+import { Body } from '../components/Layout'
+import Container from '../components/Container'
 import Group from '../components/Group'
 import Row from '../components/Row'
 import Subscribe from '../components/Subscribe'
@@ -21,19 +23,22 @@ export const DarkMode = () => (
 )
 
 const SettingsPage = ({ data: { source }, location: { pathname } }) => (
-  <Layout title="Settings" headerPrimary={<Back to='/' />}>
+  <>
     <SEO />
-    <Container>
-      <DarkMode />
+    <Header title="Settings" primary={<Back to='/' />} />
+    <Body>
+      <Container>
+        <DarkMode />
 
-      <Subscribe context={pathname} />
+        <Subscribe context={pathname} />
 
-      <ActivityList
-        updatedAt={source.frontmatter.github.updatedAt}
-        version={source.frontmatter.github.version}
-      />
-    </Container>
-  </Layout>
+        <ActivityList
+          updatedAt={source.frontmatter.github.updatedAt}
+          version={source.frontmatter.github.version}
+        />
+      </Container>
+    </Body>
+  </>
 )
 
 export default SettingsPage

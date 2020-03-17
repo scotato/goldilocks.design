@@ -2,17 +2,20 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import moment from 'moment'
 
-import Layout from '../components/Layout'
 import SEO from '../components/SEO'
-import { Container } from '../components/Layout'
+import Header from '../components/Header'
+import { Body } from '../components/Layout'
+import Container from '../components/Container'
 import Card from '../components/Card'
 import { Back } from '../components/Link'
 import PostIndicators from '../components/PostIndicators'
 
 const PostsPage = ({ data: { posts } }) => (
-  <Layout title="Posts" headerPrimary={<Back to='/' />}>
+  <>
     <SEO />
-    <Container>
+    <Header title="Posts" primary={<Back to='/' />} />
+    <Body>
+      <Container>
         {posts.edges.map(({node: post}) => (
           <Card
             to={post.fields.slug}
@@ -26,8 +29,9 @@ const PostsPage = ({ data: { posts } }) => (
             badgeCircle
           />
         ))}
-    </Container>
-  </Layout>
+      </Container>
+    </Body>
+  </>
 )
 
 export default PostsPage

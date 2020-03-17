@@ -4,7 +4,9 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 import SEO from '../components/SEO'
-import Layout, { Container } from '../components/Layout'
+import { Body } from '../components/Layout'
+import Header from '../components/Header'
+import Container from '../components/Container'
 import Group from '../components/Group'
 import LinkRowSmall from '../components/LinkRowSmall'
 import PostIndicators from '../components/PostIndicators'
@@ -22,58 +24,61 @@ const HomePage = ({ data }) => {
   const tools = data.tools.edges.map(edge => edge.node)
 
   return (
-    <Layout title={<Logo fluid={logo.childImageSharp.fluid} />} isRoot>
+    <>
       <SEO />
-      <Container>
-        <Group title="Recent Posts">
-          {posts.map(({
-            timeToRead,
-            fields: { slug },
-            frontmatter: { title, badge, createdAt }
-          }) => (
-            <LinkRowSmall
-              to={slug}
-              key={slug}
-              badge={badge.childImageSharp.fluid}
-              title={title}
-              indicators={<PostIndicators post={{ timeToRead }} />}
-              detail={formatDate(createdAt)}
-            />
-          ))}
-        </Group>
-  
-        <Group title="Recent Projects">
-          {projects.map(({
-            fields: { slug },
-            frontmatter: { title, description, logo, github }
-          }) => (
-            <LinkRowSmall
-              to={slug}
-              key={slug}
-              badge={logo.childImageSharp.fluid}
-              title={title}
-              description={description}
-              detail={formatDate(github.committedAt || github.createdAt)}
-            />
-          ))}
-        </Group>
-  
-        <Group title="Tools by Weekly Downloads">
-          {tools.map(({
-            fields: { slug },
-            frontmatter: { title, badge, npm, github }
-          }) => (
-            <LinkRowSmall
-              to={slug}
-              key={slug}
-              badge={badge.childImageSharp.fluid}
-              title={title}
-              detail={formatNumber(npm && npm.downloadsWeekly)}
-            />
-          ))}
-        </Group>
-      </Container>
-    </Layout>
+      <Header title={<Logo fluid={logo.childImageSharp.fluid} />} />
+      <Body>
+        <Container>
+          <Group title="Recent Posts">
+            {posts.map(({
+              timeToRead,
+              fields: { slug },
+              frontmatter: { title, badge, createdAt }
+            }) => (
+              <LinkRowSmall
+                to={slug}
+                key={slug}
+                badge={badge.childImageSharp.fluid}
+                title={title}
+                indicators={<PostIndicators post={{ timeToRead }} />}
+                detail={formatDate(createdAt)}
+              />
+            ))}
+          </Group>
+    
+          <Group title="Recent Projects">
+            {projects.map(({
+              fields: { slug },
+              frontmatter: { title, description, logo, github }
+            }) => (
+              <LinkRowSmall
+                to={slug}
+                key={slug}
+                badge={logo.childImageSharp.fluid}
+                title={title}
+                description={description}
+                detail={formatDate(github.committedAt || github.createdAt)}
+              />
+            ))}
+          </Group>
+    
+          <Group title="Tools by Weekly Downloads">
+            {tools.map(({
+              fields: { slug },
+              frontmatter: { title, badge, npm, github }
+            }) => (
+              <LinkRowSmall
+                to={slug}
+                key={slug}
+                badge={badge.childImageSharp.fluid}
+                title={title}
+                detail={formatNumber(npm && npm.downloadsWeekly)}
+              />
+            ))}
+          </Group>
+        </Container>
+      </Body>
+    </>
   )
 }
 

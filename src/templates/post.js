@@ -5,8 +5,10 @@ import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Img from 'gatsby-image'
 
-import Layout, { Container } from '../components/Layout'
 import SEO from '../components/SEO'
+import Header from '../components/Header'
+import { Body } from '../components/Layout'
+import Container from '../components/Container'
 import Subscribe from '../components/Subscribe'
 import ResourceList from '../components/ResourceList'
 import ActivityList from '../components/ActivityList'
@@ -39,48 +41,50 @@ export default ({ data: { post }, location: { pathname } }) => {
   const shortcodes = { Link, Resources, Resource, DarkMode }
 
   return (
-    <Layout
-      title={title}
-      headerPrimary={<Back to='posts'>Posts</Back>}
-      headerSecondary={
-        <>
-          <LinkIcon to={website} icon="link" />
-          <LinkIcon to={githubUrl} icon="github" />
-          <LinkIcon to={feedback} icon="comment" />
-        </>
-      }
-    >
+    <>
       <SEO title={title} description={description} badge={hero.childImageSharp.fluid.src} />
-
-      <Img fluid={hero.childImageSharp.fluid} />
-      
-      <Content>
-        <Post>
-          <MDXProvider components={shortcodes}>
-            <MDXRenderer>{post.body}</MDXRenderer>
-          </MDXProvider>
-        </Post>
-
-        <ActivityList
-          createdAt={createdAt}
-          updatedAt={updatedAt}
-        />
-
-        <ResourceList
-          website={website}
-          github={githubUrl}
-          feedback={feedback}
-        />
-
-        <Subscribe context={pathname} />
+      <Header
+        title={title}
+        primary={<Back to='posts'>Posts</Back>}
+        secondary={
+          <>
+            <LinkIcon to={website} icon="link" />
+            <LinkIcon to={githubUrl} icon="github" />
+            <LinkIcon to={feedback} icon="comment" />
+          </>
+        }
+      />
+      <Body>
+        <Img fluid={hero.childImageSharp.fluid} />
         
-        <ContentList
-          projects={projects}
-          posts={posts}
-          tools={tools}
-        />
-      </Content>
-    </Layout>
+        <Content>
+          <Post>
+            <MDXProvider components={shortcodes}>
+              <MDXRenderer>{post.body}</MDXRenderer>
+            </MDXProvider>
+          </Post>
+
+          <ActivityList
+            createdAt={createdAt}
+            updatedAt={updatedAt}
+          />
+
+          <ResourceList
+            website={website}
+            github={githubUrl}
+            feedback={feedback}
+          />
+
+          <Subscribe context={pathname} />
+          
+          <ContentList
+            projects={projects}
+            posts={posts}
+            tools={tools}
+          />
+        </Content>
+      </Body>
+    </>
   )
 }
 

@@ -2,8 +2,10 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import groupBy from 'lodash/groupBy'
 
-import Layout, { Container } from '../components/Layout'
 import SEO from '../components/SEO'
+import Header from '../components/Header'
+import { Body } from '../components/Layout'
+import Container from '../components/Container'
 import { Back } from '../components/Link'
 import Group from '../components/Group'
 import CardMedium from '../components/CardMedium'
@@ -22,25 +24,27 @@ const ToolsPage = ({ data }) => {
   ]
 
   return (
-    <Layout title="Tools" headerPrimary={<Back to='/' />}>
+    <>
       <SEO />
-
-      <Container>
-        {categoryOrder.map(category => (
-          <Group title={category.replace('-', ' ')}>
-            {toolsByCategory[category].map(tool => (
-              <CardMedium
-                to={tool.fields.slug}
-                key={tool.fields.slug}
-                badge={tool.frontmatter.badge.childImageSharp.fluid}
-                title={tool.frontmatter.title}
-                description={tool.frontmatter.description}
-              />
-            ))}
-          </Group>
-        ))}
-      </Container>
-    </Layout>
+      <Header title="Tools" primary={<Back to='/' />} />
+      <Body>
+        <Container>
+          {categoryOrder.map(category => (
+            <Group title={category.replace('-', ' ')}>
+              {toolsByCategory[category].map(tool => (
+                <CardMedium
+                  to={tool.fields.slug}
+                  key={tool.fields.slug}
+                  badge={tool.frontmatter.badge.childImageSharp.fluid}
+                  title={tool.frontmatter.title}
+                  description={tool.frontmatter.description}
+                />
+              ))}
+            </Group>
+          ))}
+        </Container>
+      </Body>
+    </>
   )
 }
 

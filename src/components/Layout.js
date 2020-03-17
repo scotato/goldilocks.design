@@ -2,7 +2,6 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 
 import GlobalStyle from './GlobalStyle'
-import Header from './Header'
 import Navigation from './Navigation'
 import Social from './Social'
 
@@ -32,7 +31,7 @@ const Layout = styled.div`
   `}
 
   .dark-mode & {
-    box-shadow: 0 ${props => props.theme.size[200]} 0 ${props => props.theme.size[200]} ${props => props.theme.grayscale[900]};
+    box-shadow: 0 ${props => props.theme.size[200]} 0 ${props => props.theme.size[200]} black;
   }
 `
 
@@ -82,62 +81,28 @@ const BodyContainer = styled.div`
   }
 `
 
-const Body = styled.main`
+export const Body = styled.main`
   overflow-x: hidden;
   will-change: width, background-color;
   transition: width 0.2s ease-out, background-color 0.2s ease-out;
 `
 
-export const Container = styled.div`
-  margin: 0 auto;
-  padding: ${props => props.theme.size[900]};
-  max-width: calc(${props => props.theme.device.desktop} - ${props => props.theme.device.phoneSmall});
-  will-change: max-width;
-  transition: max-width 0.2s ease-out;
-
-  ${props => props.theme.media.desktop`
-    ${props.theme.isNavigationOpen ? css`
-      max-width: calc(100vw - ${props => props.theme.device.phoneSmall});
-    ` : css`
-      max-width: calc(${props.theme.device.desktop} - ${props => props.theme.device.phoneSmall});
-    `}
-  `}
-
-  ${props => props.theme.media.tabletVertical`
-    max-width: 100vw;
-  `}
-
-  ${props => props.theme.media.phone`
-    padding: ${props => props.theme.size[600]};
-  `}
-
-  ${props => props.theme.media.phoneSmall`
-    padding: ${props => props.theme.size[500]};
-  `}
-`
-
-export default props => (
-  <Layout>
-    <GlobalStyle />
-    
-    <AsideContainer>
-      <Aside isRoot={props.isRoot}>
-        <Navigation />
-        <Social />
-      </Aside>
-    </AsideContainer>
-    
-    <BodyContainer isRoot={props.isRoot}>
-      <Header
-        title={props.title}
-        primary={props.headerPrimary}
-        secondary={props.headerSecondary}
-        secondaryBlock={props.headerSecondaryBlock}
-      />
-
-      <Body>
+export default props => {
+  console.log(props)
+  return (
+    <Layout>
+      <GlobalStyle />
+      
+      <AsideContainer>
+        <Aside isRoot={props.isRoot}>
+          <Navigation />
+          <Social />
+        </Aside>
+      </AsideContainer>
+      
+      <BodyContainer isRoot={props.isRoot}>
         {props.children}
-      </Body>
-    </BodyContainer>
-  </Layout>
-)
+      </BodyContainer>
+    </Layout>
+  )
+}

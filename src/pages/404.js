@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import Layout from '../components/Layout'
+
 import SEO from '../components/SEO'
+import Header from '../components/Header'
+import { Body } from '../components/Layout'
 
 const Page = styled.h1`
   display: grid;
@@ -11,8 +13,11 @@ const Page = styled.h1`
 `
 
 export default () => (
-  <Layout title="Not Found">
+  <>
+    <Header title="Not Found" />
     <SEO />
-    <Page>404</Page>
-  </Layout>
+    <Body>
+      <Page>404</Page>
+    </Body>
+  </>
 )

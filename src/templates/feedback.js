@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import moment from 'moment'
 
-import Layout, { Container } from '../components/Layout'
 import SEO from '../components/SEO'
+import Header from '../components/Header'
+import { Body } from '../components/Layout'
+import Container from '../components/Container'
 import Form from '../components/Form'
 import Group from '../components/Group'
 import { RowSmall } from '../components/LinkRowSmall'
@@ -38,25 +40,28 @@ export default ({
   const topic = project.frontmatter.title || post.frontmatter.title
   
   return (
-    <Layout
-      title="Feedback"
-      headerPrimary={<Back to={from} />}
-      headerSecondary={submitButton}
-      headerSecondaryBlock
-    >
+    <>
       <SEO />
-      <Container>
-        <Project {...project} />
-        <Post {...post} />
-        <Form
-          name="feedback"
-          action={from}
-          topic={topic}
-          setSubmitButton={setSubmitButton} 
-          navigate={navigate}
-        />
-      </Container>
-    </Layout>
+      <Header
+        title="Feedback"
+        primary={<Back to={from} />}
+        secondary={submitButton}
+        secondaryBlock
+      />
+      <Body>
+        <Container>
+          <Project {...project} />
+          <Post {...post} />
+          <Form
+            name="feedback"
+            action={from}
+            topic={topic}
+            setSubmitButton={setSubmitButton} 
+            navigate={navigate}
+          />
+        </Container>
+      </Body>
+    </>
   )
 }
 
