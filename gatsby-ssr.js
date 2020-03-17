@@ -1,11 +1,9 @@
 import React from "react"
-import { ServerStyleSheet, ThemeProvider } from 'styled-components'
+import { ServerStyleSheet } from 'styled-components'
 import { dom } from "@fortawesome/fontawesome-svg-core"
 
 import iconsInit from './src/theme/icons'
-import theme from './src/theme'
-import useDarkMode from 'use-dark-mode'
-import { useNavigation } from './src/hooks'
+import wrapWithProvider from './src/plugins/wrapWithProvider'
 
 export const replaceRenderer = ({
   setHeadComponents,
@@ -21,25 +19,4 @@ export const replaceRenderer = ({
   setHeadComponents([faStyles, styleElement])
 }
 
-const Provider = props => {
-  const darkMode = useDarkMode()
-  const navigation = useNavigation()
-
-  const state = {
-    isDarkMode: darkMode.value,
-    isNavigationOpen: navigation.isOpen
-  }
-
-  return (
-    <ThemeProvider theme={{...theme, ...state}}>
-      {props.children}
-    </ThemeProvider>
-  )
-}
-
-export const wrapRootElement = ({ element }) => (
-  <Provider>
-    {element}
-  </Provider>
-)
-
+export const wrapRootElement = wrapWithProvider
