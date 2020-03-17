@@ -87,21 +87,22 @@ export const Body = styled.main`
   transition: width 0.2s ease-out, background-color 0.2s ease-out;
 `
 
-export default props => {
-  console.log(props)
+export default ({ path, children }) => {
+  const isRoot = path === '/'
+  
   return (
     <Layout>
       <GlobalStyle />
       
       <AsideContainer>
-        <Aside isRoot={props.isRoot}>
+        <Aside isRoot={isRoot}>
           <Navigation />
           <Social />
         </Aside>
       </AsideContainer>
       
-      <BodyContainer isRoot={props.isRoot}>
-        {props.children}
+      <BodyContainer isRoot={isRoot}>
+        {children}
       </BodyContainer>
     </Layout>
   )
