@@ -1,22 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
 import useDarkMode from 'use-dark-mode'
+import { useTransition, animated } from 'react-spring'
 
 import { useClient } from '../hooks'
-import { ButtonBase } from './Button'
+import { ButtonToggle, buttonToggleTransition } from './Button'
 import Icon, { IconPlaceholder } from './Icon'
 import Switch from './Switch'
 import Group from './Group'
 import Row from './Row'
-
-const ToggleButton = styled(ButtonBase)`
-  color: ${props => props.theme.color.info};
-
-  &:focus {
-    outline: none;
-    color: inherit;
-  }
-`
 
 export const DarkModeSwitch = () => {
   const isMounted = useClient()
@@ -30,12 +21,18 @@ export const DarkModeSwitch = () => {
 export const DarkModeToggle = () => {
   const isMounted = useClient()
   const { value, toggle } = useDarkMode()
+  const transitions = useTransition(value, null, buttonToggleTransition)
 
-  return isMounted ? (
-    <ToggleButton onClick={toggle}>
-      <Icon name={value ? 'moon' : 'sun'} />
-    </ToggleButton>
-  ) : <IconPlaceholder name="circle" />
+  return (
+    <ButtonToggle onClick={toggle}>
+      {isMounted
+        ? transitions.map(({ item, key, props }) => item
+          ? <animated.div style={props}><Icon name="moon" /></animated.div>
+          : <animated.div style={props}><Icon name="sun" /></animated.div>)
+        : <IconPlaceholder name="circle" />
+      }
+    </ButtonToggle>
+  )
 }
 
 export const DarkModeRow = () => (

@@ -1,31 +1,24 @@
 import React from 'react'
-import styled from 'styled-components'
+import { useTransition, animated } from 'react-spring'
 
 import { useClient } from '../hooks'
-import { ButtonBase } from './Button'
-import Icon, { IconPlaceholder } from './Icon'
 import { useNavigation } from '../hooks'
-
-const NavigationToggle = styled(ButtonBase)`
-  color: ${props => props.theme.color.info};
-
-  &:focus {
-    outline: none;
-    color: inherit;
-  }
-
-  ${props => props.theme.media.tabletVertical`
-    display: none;
-  `}
-`
+import { ButtonToggle, buttonToggleTransition } from './Button'
+import Icon, { IconPlaceholder } from './Icon'
 
 export default () => {
   const isMounted = useClient()
   const { isOpen, toggleIsOpen } = useNavigation()
+  const transitions = useTransition(isOpen, null, buttonToggleTransition)
 
-  return isMounted ? (
-    <NavigationToggle onClick={toggleIsOpen}>
-      <Icon name={isOpen ? 'expand' : 'compress'} />
-    </NavigationToggle>
-  ) : <IconPlaceholder name="square" />
+  return (
+    <ButtonToggle onClick={toggleIsOpen}>
+      {isMounted
+        ? transitions.map(({ item, key, props }) => item
+          ? <animated.div style={props}><Icon name="expand" /></animated.div>
+          : <animated.div style={props}><Icon name="compress" /></animated.div>)
+        : <IconPlaceholder name="square" />
+      }
+    </ButtonToggle>
+  )
 }

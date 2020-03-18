@@ -60,4 +60,24 @@ export const ButtonLink = styled(Link)`
   }
 `
 
+export const ButtonToggle = styled(ButtonBase)`
+  width: ${props => props.theme.size[600]};
+  color: ${props => props.theme.color.info};
+
+  ${props => props.theme.media.tabletVertical`
+    width: ${props => props.theme.size[500]};
+  `}
+
+  &:focus {
+    outline: none;
+    color: inherit;
+  }
+`
+
+export const buttonToggleTransition = {
+  from: { position: 'absolute', transform: 'scale(0)', opacity: 0 },
+  enter: { transform: 'scale(1)', opacity: 1 },
+  leave: { transform: 'scale(0)', opacity: 0 },
+}
+
 export default Button
