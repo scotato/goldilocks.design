@@ -28,7 +28,6 @@ const Button = styled(ButtonBase).attrs({
   background-color: ${props => props.backgroundColor || (props.isActive ? 'dodgerblue' : props.theme.grayscale[200])};
   border-radius: ${props => props.theme.size[400]};
   cursor: ${props => props.isActive ? 'default' : 'pointer'};
-  transition: box-shadow 0.1s ease-out;
 
   &:focus {
     outline: none;

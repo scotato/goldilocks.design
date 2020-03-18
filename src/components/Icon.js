@@ -6,8 +6,6 @@ const IconStyled = styled.div`
   display: grid;
   place-items: center;
   line-height: 1;
-  will-change: color;
-  transition: color 0.2s ease-out;
 
   ${props => props.size && css`
     font-size: ${props.theme.size[props.size]};

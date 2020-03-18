@@ -18,8 +18,6 @@ const NavigationRow = styled(Link)`
   border-radius: ${props => props.theme.size[500]};
   text-decoration: none;
   cursor: pointer;
-  will-change: color, background-color, box-shadow;
-  transition: color 0.2s ease-out, background-color 0.2s ease-out, box-shadow 0.2s ease-out;
   font-weight: 600;
 
   .dark-mode & {
@@ -84,8 +82,6 @@ const Badge = styled.div.attrs({
   border-radius: ${props => props.theme.size[600]};
   align-self: stretch;
   place-items: center;
-  will-change: color, background-color;
-  transition: color 0.2s ease-out, background-color 0.2s ease-out;
 
   .dark-mode & {
     color: ${props => props.theme.grayscale[800]};
@@ -99,8 +95,6 @@ const NavigationIcon = styled(Icon)`
   grid-area: icon;
   justify-self: center;
   color: ${props => props.theme.color[props.color]};
-  will-change: color;
-  transition: color 0.2s ease-out;
   transform: scale(1.25);
 `
 

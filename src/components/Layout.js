@@ -15,8 +15,6 @@ const Layout = styled.div`
   min-height: 100%;
   max-width: ${props => props.theme.device.desktopLarge};
   box-shadow: 0 ${props => props.theme.size[200]} 0 ${props => props.theme.size[200]} ${props => props.theme.grayscale[100]};
-  will-change: grid-template-columns, box-shadow;
-  transition: grid-template-columns 0.2s ease-out, box-shadow 0.2s ease-out;
   justify-content: end;
 
   ${props => props.theme.media.desktopLarge`
@@ -39,8 +37,6 @@ const Aside = styled.aside`
   height: 100vh;
   z-index: 1;
   overflow-y: scroll;
-  will-change: background-color;
-  transition: background-color 0.2s ease-out;
   justify-self: start;
 
   .dark-mode & {
@@ -58,8 +54,6 @@ const BodyContainer = styled(animated.div)`
   position: relative;
   background-color: white;
   z-index: 2;
-  will-change: background-color;
-  transition: background-color 0.2s ease-out;
 
   .dark-mode & {
     background-color: ${props => props.theme.grayscale[900]};
@@ -68,8 +62,6 @@ const BodyContainer = styled(animated.div)`
 
 export const Body = styled.main`
   overflow-x: hidden;
-  will-change: background-color;
-  transition: background-color 0.2s ease-out;
 `
 
 export default ({ path, children }) => {

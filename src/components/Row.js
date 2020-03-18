@@ -15,8 +15,6 @@ export const rowStyle = css`
   grid-column-gap: ${props => props.theme.size[400]};
   line-height: ${props => props.theme.size[700]};
   align-items: center;
-  will-change: background-color;
-  transition: background-color 0.2s ease-out;
 
   .dark-mode & {
     background-color: ${props => props.theme.grayscale[800]};
@@ -39,11 +37,6 @@ const LinkRow = styled(Link)`
 
   &:hover {
     color: inherit;
-  }
-
-  svg {
-    will-change: color;
-    transition: color 0.2s ease-out;
   }
 
   &:focus svg {

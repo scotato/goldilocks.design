@@ -16,8 +16,6 @@ const Header = styled.header`
   z-index: 5;
   line-height: 1;
   align-items: center;
-  will-change: background-color;
-  transition: background-color 0.2s ease-out;
 
   @-moz-document url-prefix() {
     background-color: rgba(255, 255, 255, 0.99);
@@ -44,8 +42,6 @@ const HeaderDivider = styled.div`
   height: ${props => props.theme.size[900]};
   width: 100%;
   border-bottom: ${props => props.theme.size[100]} solid ${props => props.theme.grayscale[100]};
-  will-change: border-color;
-  transition: border-color 0.2s ease-out;
   box-sizing: content-box;
 
   .dark-mode & {
