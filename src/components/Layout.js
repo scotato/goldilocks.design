@@ -1,5 +1,7 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
+import { useSpring, animated } from 'react-spring'
+import { useWindowSize } from "@reach/window-size"
 
 import { useClient, useNavigation } from '../hooks'
 import GlobalStyle from './GlobalStyle'
@@ -12,32 +14,18 @@ const Layout = styled.div`
   margin: 0 auto;
   min-height: 100%;
   max-width: ${props => props.theme.device.desktopLarge};
-  grid-template-areas: "aside body";
   box-shadow: 0 ${props => props.theme.size[200]} 0 ${props => props.theme.size[200]} ${props => props.theme.grayscale[100]};
   will-change: grid-template-columns, box-shadow;
   transition: grid-template-columns 0.2s ease-out, box-shadow 0.2s ease-out;
-
-  ${props => props.isNavigationOpen ? css`
-    grid-template-columns: ${props.theme.device.phoneSmall} 1fr;
-  ` : css`
-    grid-template-columns: 0 1fr;
-  `}
+  justify-content: end;
 
   ${props => props.theme.media.desktopLarge`
     max-width: 100vw;
   `}
 
-  ${props => props.theme.media.tabletVertical`
-    grid-template-columns: 0 1fr;
-  `}
-
   .dark-mode & {
     box-shadow: 0 ${props => props.theme.size[200]} 0 ${props => props.theme.size[200]} black;
   }
-`
-
-const AsideContainer = styled.aside`
-  grid-area: aside;
 `
 
 const Aside = styled.aside`
@@ -51,15 +39,15 @@ const Aside = styled.aside`
   height: 100vh;
   z-index: 1;
   overflow-y: scroll;
-  will-change: width, background-color;
-  transition: width 0.2s ease-out, background-color 0.2s ease-out;
+  will-change: background-color;
+  transition: background-color 0.2s ease-out;
+  justify-self: start;
 
   .dark-mode & {
     background-color: black;
   }
 
   ${props => props.theme.media.tabletVertical`
-    display: ${props.isRoot ? 'grid' : 'none'};
     padding: ${props => props.theme.size[500]};
     width: 100%;
   `}
@@ -69,9 +57,8 @@ const BodyContainer = styled.div`
   position: relative;
   background-color: white;
   z-index: 2;
-  will-change: width, background-color;
-  transition: width 0.2s ease-out, background-color 0.2s ease-out;
-  grid-area: body;
+  will-change: background-color;
+  transition: background-color 0.2s ease-out;
 
   ${props => props.theme.media.tabletVertical`
     display: ${props.isRoot ? 'none' : 'block'};
@@ -84,28 +71,32 @@ const BodyContainer = styled.div`
 
 export const Body = styled.main`
   overflow-x: hidden;
-  will-change: width, background-color;
-  transition: width 0.2s ease-out, background-color 0.2s ease-out;
+  will-change: background-color;
+  transition: background-color 0.2s ease-out;
 `
 
 export default ({ path, children }) => {
   const isMounted = useClient()
   const navigation = useNavigation()
   const isRoot = path === '/'
-  
+  const { width } = useWindowSize()
+  const widthMax = width > 1440 ? 1440 : width
+  const navOpenWidth = width <= 768 ? width : widthMax - 375
+  const props = useSpring({width: navigation.isOpen ? navOpenWidth : widthMax})
+
   return (
-    <Layout isNavigationOpen={isMounted ? navigation.isOpen : false}>
+    <Layout>
       <GlobalStyle />
       
-      <AsideContainer>
-        <Aside isRoot={isRoot}>
-          <Navigation />
-          <Social />
-        </Aside>
-      </AsideContainer>
+      <Aside>
+        <Navigation />
+        <Social />
+      </Aside>
       
       <BodyContainer isRoot={isRoot}>
-        {children}
+        <animated.div style={props}>
+          {children}
+        </animated.div>
       </BodyContainer>
     </Layout>
   )

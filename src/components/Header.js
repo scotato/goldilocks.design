@@ -16,8 +16,8 @@ const Header = styled.header`
   z-index: 5;
   line-height: 1;
   align-items: center;
-  will-change: max-width, background-color;
-  transition: max-width 0.2s ease-out, background-color 0.2s ease-out;
+  will-change: background-color;
+  transition: background-color 0.2s ease-out;
 
   @-moz-document url-prefix() {
     background-color: rgba(255, 255, 255, 0.99);
