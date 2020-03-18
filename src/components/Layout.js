@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
+import { useClient, useNavigation } from '../hooks'
 import GlobalStyle from './GlobalStyle'
 import Navigation from './Navigation'
 import Social from './Social'
@@ -16,7 +17,7 @@ const Layout = styled.div`
   will-change: grid-template-columns, box-shadow;
   transition: grid-template-columns 0.2s ease-out, box-shadow 0.2s ease-out;
 
-  ${props => props.theme.isNavigationOpen ? css`
+  ${props => props.isNavigationOpen ? css`
     grid-template-columns: ${props.theme.device.phoneSmall} 1fr;
   ` : css`
     grid-template-columns: 0 1fr;
@@ -88,10 +89,12 @@ export const Body = styled.main`
 `
 
 export default ({ path, children }) => {
+  const isMounted = useClient()
+  const navigation = useNavigation()
   const isRoot = path === '/'
   
   return (
-    <Layout>
+    <Layout isNavigationOpen={isMounted ? navigation.isOpen : false}>
       <GlobalStyle />
       
       <AsideContainer>

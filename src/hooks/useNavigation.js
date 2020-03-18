@@ -1,4 +1,4 @@
-import createPersistedState from 'use-persisted-state';
+import createPersistedState from 'use-persisted-state'
 const useNavigationState = createPersistedState('navigationIsOpen')
 
 export const useNavigation = (initialState = false) => {

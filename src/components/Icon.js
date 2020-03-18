@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Icon = styled.div`
+const IconStyled = styled.div`
   display: grid;
   place-items: center;
   line-height: 1;
@@ -25,8 +25,18 @@ const iconSwitch = icon => {
   }
 }
 
-export default ({ size, name, fixedWidth, ...props }) => (
-  <Icon size={size} {...props}>
+const Icon = ({ size, name, fixedWidth, ...props }) => (
+  <IconStyled size={size} {...props}>
     <FontAwesomeIcon icon={iconSwitch(name)} fixedWidth={fixedWidth} />
-  </Icon>
+  </IconStyled>
 )
+
+export const IconPlaceholder = styled(Icon)`
+  color: ${props => props.theme.grayscale[200]};
+
+  .dark-mode & {
+    color: ${props => props.theme.grayscale[800]};
+  }
+`
+
+export default Icon

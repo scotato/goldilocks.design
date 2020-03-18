@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { useClient } from '../hooks'
 import { ButtonBase } from './Button'
-import Icon from './Icon'
+import Icon, { IconPlaceholder } from './Icon'
 import { useNavigation } from '../hooks'
 
 const NavigationToggle = styled(ButtonBase)`
@@ -19,11 +20,12 @@ const NavigationToggle = styled(ButtonBase)`
 `
 
 export default () => {
-  const { isOpen, toggleIsOpen } = useNavigation(true)
+  const isMounted = useClient()
+  const { isOpen, toggleIsOpen } = useNavigation()
 
-  return (
+  return isMounted ? (
     <NavigationToggle onClick={toggleIsOpen}>
       <Icon name={isOpen ? 'expand' : 'compress'} />
     </NavigationToggle>
-  )
+  ) : <IconPlaceholder name="square" />
 }

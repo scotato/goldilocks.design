@@ -2,8 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import useDarkMode from 'use-dark-mode'
 
+import { useClient } from '../hooks'
 import { ButtonBase } from './Button'
-import Icon from './Icon'
+import Icon, { IconPlaceholder } from './Icon'
 import Switch from './Switch'
 
 const ToggleButton = styled(ButtonBase)`
@@ -16,19 +17,21 @@ const ToggleButton = styled(ButtonBase)`
 `
 
 export const DarkModeSwitch = () => {
+  const isMounted = useClient()
   const { value, toggle } = useDarkMode()
-
-  return (
-    <Switch checked={value} onChange={toggle} />
-  )
+  
+  return isMounted
+    ? <Switch checked={value} onChange={toggle} />
+    : null
 }
 
 export const DarkModeToggle = () => {
+  const isMounted = useClient()
   const { value, toggle } = useDarkMode()
 
-  return (
+  return isMounted ? (
     <ToggleButton onClick={toggle}>
       <Icon name={value ? 'moon' : 'sun'} />
     </ToggleButton>
-  )
+  ) : <IconPlaceholder name="circle" />
 }
