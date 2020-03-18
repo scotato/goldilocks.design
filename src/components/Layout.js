@@ -29,7 +29,7 @@ const Layout = styled.div`
 `
 
 const Aside = styled.aside`
-  display: grid;
+  display: ${props => props.isVisible ? 'grid' : 'none'};
   position: fixed;
   padding: ${props => props.theme.size[500]} ${props => props.theme.size[700]};
   grid-template-rows: 1fr auto;
@@ -53,16 +53,13 @@ const Aside = styled.aside`
   `}
 `
 
-const BodyContainer = styled.div`
+const BodyContainer = styled(animated.div)`
+  display: ${props => props.isVisible ? 'block' : 'none'};
   position: relative;
   background-color: white;
   z-index: 2;
   will-change: background-color;
   transition: background-color 0.2s ease-out;
-
-  ${props => props.theme.media.tabletVertical`
-    display: ${props.isRoot ? 'none' : 'block'};
-  `}
 
   .dark-mode & {
     background-color: ${props => props.theme.grayscale[900]};
@@ -78,25 +75,28 @@ export const Body = styled.main`
 export default ({ path, children }) => {
   const isMounted = useClient()
   const navigation = useNavigation()
-  const isRoot = path === '/'
   const { width } = useWindowSize()
+  
+  const tabletVertical = 768
+  const isRoot = path === '/'
+  const isMobile = width <= tabletVertical
   const widthMax = width > 1440 ? 1440 : width
-  const navOpenWidth = width <= 768 ? width : widthMax - 375
-  const props = useSpring({width: navigation.isOpen ? navOpenWidth : widthMax})
+  const navOpenWidth = isMobile ? width : widthMax - 375
+  const bodyProps = useSpring({width: navigation.isOpen ? navOpenWidth : widthMax})
+  const showBody = !isMobile || !isRoot
+  const showAside = !isMobile || isRoot
 
   return (
     <Layout>
       <GlobalStyle />
-      
-      <Aside>
+
+      <Aside isVisible={showAside}>
         <Navigation />
         <Social />
       </Aside>
-      
-      <BodyContainer isRoot={isRoot}>
-        <animated.div style={props}>
-          {children}
-        </animated.div>
+
+      <BodyContainer isVisible={showBody} style={bodyProps}>
+        {children}
       </BodyContainer>
     </Layout>
   )
