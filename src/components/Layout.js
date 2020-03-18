@@ -15,7 +15,6 @@ const Layout = styled.div`
   min-height: 100%;
   max-width: ${props => props.theme.device.desktopLarge};
   box-shadow: 0 ${props => props.theme.size[200]} 0 ${props => props.theme.size[200]} ${props => props.theme.grayscale[100]};
-  justify-content: end;
 
   ${props => props.theme.media.desktopLarge`
     max-width: 100vw;
@@ -56,6 +55,8 @@ const BodyContainer = styled(animated.div)`
   display: ${props => props.isVisible ? 'block' : 'none'};
   position: relative;
   background-color: white;
+  justify-self: end;
+  width: 100%;
   z-index: 2;
 
   .dark-mode & {
@@ -72,15 +73,14 @@ export default ({ path, children }) => {
   const navigation = useNavigation()
   const { width } = useWindowSize()
   
-  const tabletVertical = 768
   const isRoot = path === '/'
-  const isMobile = width <= tabletVertical
-  const widthMax = width > 1440 ? 1440 : width
-  const navOpenWidth = isMobile ? width : widthMax - 375
+  const isMobile = width <= 768 // tablet vertical
+  const widthMax = width > 1440 ? 1440 : width // desktop large
+  const navOpenWidth = isMobile ? width : widthMax - 375 // phone small
   const bodyProps = useSpring({width: navigation.isOpen ? navOpenWidth : widthMax})
-  const showBody = !isMobile || !isRoot
-  const showAside = !isMobile || isRoot
-  const hideAside = !isMobile && !navigation.isOpen
+  const showBody = isMounted ? !isMobile || !isRoot : true
+  const showAside = isMounted ? !isMobile || isRoot : false
+  const hideAside = isMounted ? !isMobile && !navigation.isOpen : false
 
   return (
     <Layout>
@@ -91,7 +91,7 @@ export default ({ path, children }) => {
         <Social />
       </Aside>
 
-      <BodyContainer isVisible={showBody} style={bodyProps}>
+      <BodyContainer isVisible={showBody} style={isMounted ? bodyProps : {}}>
         {children}
       </BodyContainer>
     </Layout>
