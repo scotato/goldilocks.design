@@ -14,8 +14,8 @@ import ResourceList from '../components/ResourceList'
 import ActivityList from '../components/ActivityList'
 import ContentList from '../components/ContentList'
 import Link, { Back, LinkIcon } from '../components/Link'
-import { DarkMode } from '../pages/settings'
 import { Resources, Resource } from '../components/ResourceList'
+import { DarkModeRow } from '../components/DarkMode'
 
 const Content = styled(Container)``
 
@@ -38,7 +38,7 @@ const Post = styled.article`
 export default ({ data: { post }, location: { pathname } }) => {
   const { hero, title, description, website, createdAt, updatedAt, githubUrl, projects, posts, tools } = post.frontmatter
   const feedback = `${pathname}/feedback`
-  const shortcodes = { Link, Resources, Resource, DarkMode }
+  const shortcodes = { Link, Resources, Resource, DarkModeRow }
 
   return (
     <>

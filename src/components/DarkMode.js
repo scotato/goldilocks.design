@@ -6,6 +6,8 @@ import { useClient } from '../hooks'
 import { ButtonBase } from './Button'
 import Icon, { IconPlaceholder } from './Icon'
 import Switch from './Switch'
+import Group from './Group'
+import Row from './Row'
 
 const ToggleButton = styled(ButtonBase)`
   color: ${props => props.theme.color.info};
@@ -35,3 +37,13 @@ export const DarkModeToggle = () => {
     </ToggleButton>
   ) : <IconPlaceholder name="circle" />
 }
+
+export const DarkModeRow = () => (
+  <Group>
+    <Row
+      icon="moon"
+      title="Dark Mode"
+      detail={<DarkModeSwitch />}
+    />
+  </Group>
+)

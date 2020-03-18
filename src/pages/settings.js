@@ -5,22 +5,10 @@ import SEO from '../components/SEO'
 import Header from '../components/Header'
 import { Body } from '../components/Layout'
 import Container from '../components/Container'
-import Group from '../components/Group'
-import Row from '../components/Row'
 import Subscribe from '../components/Subscribe'
 import ActivityList from '../components/ActivityList'
-import { DarkModeSwitch } from '../components/DarkMode'
+import { DarkModeRow } from '../components/DarkMode'
 import { Back } from '../components/Link'
-
-export const DarkMode = () => (
-  <Group>
-    <Row
-      icon="moon"
-      title="Dark Mode"
-      detail={<DarkModeSwitch />}
-    />
-  </Group>
-)
 
 const SettingsPage = ({ data: { source }, location: { pathname } }) => (
   <>
@@ -28,10 +16,8 @@ const SettingsPage = ({ data: { source }, location: { pathname } }) => (
     <Header title="Settings" primary={<Back to='/' />} />
     <Body>
       <Container>
-        <DarkMode />
-
+        <DarkModeRow />
         <Subscribe context={pathname} />
-
         <ActivityList
           updatedAt={source.frontmatter.github.updatedAt}
           version={source.frontmatter.github.version}
