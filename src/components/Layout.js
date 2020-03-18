@@ -52,7 +52,6 @@ const Aside = styled.aside`
 `
 
 const BodyContainer = styled(animated.div)`
-  display: ${props => props.isVisible ? 'block' : 'none'};
   position: relative;
   background-color: white;
   justify-self: end;
@@ -68,18 +67,16 @@ export const Body = styled.main`
   overflow-x: hidden;
 `
 
-export default ({ path, children }) => {
+export default ({ children }) => {
   const isMounted = useClient()
   const navigation = useNavigation()
   const { width } = useWindowSize()
   
-  const isRoot = path === '/'
   const isMobile = width <= 768 // tablet vertical
   const widthMax = width > 1440 ? 1440 : width // desktop large
   const navOpenWidth = isMobile ? width : widthMax - 375 // phone small
   const bodyProps = useSpring({width: navigation.isOpen ? navOpenWidth : widthMax})
-  const showBody = isMounted ? !isMobile || !isRoot : true
-  const showAside = isMounted ? !isMobile || isRoot : false
+  const showAside = isMounted ? !isMobile : false
   const hideAside = isMounted ? !isMobile && !navigation.isOpen : false
 
   return (
@@ -91,7 +88,7 @@ export default ({ path, children }) => {
         <Social />
       </Aside>
 
-      <BodyContainer isVisible={showBody} style={isMounted ? bodyProps : {}}>
+      <BodyContainer style={isMounted ? bodyProps : {}}>
         {children}
       </BodyContainer>
     </Layout>

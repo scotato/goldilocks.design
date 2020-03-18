@@ -10,11 +10,21 @@ import Container from '../components/Container'
 import Group from '../components/Group'
 import LinkRowSmall from '../components/LinkRowSmall'
 import PostIndicators from '../components/PostIndicators'
+import Social from '../components/Social'
+import { ButtonLink } from '../components/Button'
 import { formatNumber, formatDate } from '../components/Repository'
 
 const Logo = styled(Img)`
   width: ${props => props.theme.size[700]};
   height: ${props => props.theme.size[700]};
+`
+
+const MobileOnly = styled.div`
+  display: none;
+
+  ${props => props.theme.media.tabletVertical`
+    display: block;
+  `}
 `
 
 const HomePage = ({ data }) => {
@@ -29,7 +39,9 @@ const HomePage = ({ data }) => {
       <Header title={<Logo fluid={logo.childImageSharp.fluid} />} />
       <Body>
         <Container>
-          <Group title="Recent Posts">
+          <Group title="Recent Posts" detail={
+            <ButtonLink to="/posts" color="yellow">More</ButtonLink>
+          }>
             {posts.map(({
               timeToRead,
               fields: { slug },
@@ -46,7 +58,9 @@ const HomePage = ({ data }) => {
             ))}
           </Group>
     
-          <Group title="Recent Projects">
+          <Group title="Recent Projects" detail={
+            <ButtonLink to="/projects" color="blue">More</ButtonLink>
+          }>
             {projects.map(({
               fields: { slug },
               frontmatter: { title, description, logo, github }
@@ -62,7 +76,9 @@ const HomePage = ({ data }) => {
             ))}
           </Group>
     
-          <Group title="Tools by Weekly Downloads">
+          <Group title="Tools by Weekly Downloads" detail={
+            <ButtonLink to="/tools" color="orange">More</ButtonLink>
+          }>
             {tools.map(({
               fields: { slug },
               frontmatter: { title, badge, npm, github }
@@ -76,6 +92,10 @@ const HomePage = ({ data }) => {
               />
             ))}
           </Group>
+
+          <MobileOnly>
+            <Social />
+          </MobileOnly>
         </Container>
       </Body>
     </>

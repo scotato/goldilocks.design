@@ -37,12 +37,13 @@ const Button = styled(ButtonBase).attrs({
 
 export const ButtonLink = styled(Link)`
   display: flex;
-  padding: 0.75em 1.5em;
+  padding: ${props => props.theme.size[400]};
   border-radius: ${props => props.theme.size[500]};
   align-items: center;
-  background-color: ${props => props.theme.color.primary};
-  font-weight: 500;
+  background-color: ${props => props.theme.color[props.color || 'blue']};
+  font-weight: 600;
   height: ${props => props.theme.size[500]};
+  color: white;
 
   ${props => props.theme.media.tabletVertical`
     height: ${props => props.theme.size[550]};
@@ -55,7 +56,7 @@ export const ButtonLink = styled(Link)`
   `}
 
   &:hover {
-    color: inherit;
+    color: white;
   }
 `
 
