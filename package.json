@@ -2,7 +2,7 @@
   "name": "goldilocks-design",
   "private": true,
   "description": "thoughts on the web",
-  "version": "2.11.3",
+  "version": "2.11.4",
   "author": "scott <scott@goldilocks.design>",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.27",
