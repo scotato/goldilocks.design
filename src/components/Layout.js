@@ -38,6 +38,9 @@ const Aside = styled.aside`
   z-index: 1;
   overflow-y: scroll;
   justify-self: start;
+  opacity: ${props => props.isHidden ? 0 : 1};
+  will-change: opacity;
+  transition: opacity 0.2s ease-in-out;
 
   .dark-mode & {
     background-color: black;
@@ -77,12 +80,13 @@ export default ({ path, children }) => {
   const bodyProps = useSpring({width: navigation.isOpen ? navOpenWidth : widthMax})
   const showBody = !isMobile || !isRoot
   const showAside = !isMobile || isRoot
+  const hideAside = !isMobile && !navigation.isOpen
 
   return (
     <Layout>
       <GlobalStyle />
 
-      <Aside isVisible={showAside}>
+      <Aside isVisible={showAside} isHidden={hideAside}>
         <Navigation />
         <Social />
       </Aside>
