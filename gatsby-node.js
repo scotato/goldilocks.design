@@ -38,7 +38,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
-exports.createPages = ({ graphql, actions: { createPage } }) =>
+exports.createPages = ({ graphql, actions: { createPage, createRedirect } }) =>
   graphql(`
     {
       allMdx(
@@ -78,6 +78,9 @@ exports.createPages = ({ graphql, actions: { createPage } }) =>
         from: slug
       }
     })
+
+    createRedirect({ fromPath: "/blog", toPath: "/posts", isPermanent: true })
+    createRedirect({ fromPath: "/blog/whats-up", toPath: "/posts/whats-up", isPermanent: true })
 
     posts.forEach((post, index) => {
       const slug = post.node.fields.slug
