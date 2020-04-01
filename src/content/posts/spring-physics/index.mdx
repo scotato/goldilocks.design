@@ -7,7 +7,7 @@ authorImg: '../scotato.png'
 website: https://sleeper.fyi
 githubUrl: https://github.com/scotato/sleeper
 createdAt: '2020-04-01T11:46:22.497Z'
-updatedAt: '2020-04-01T11:46:22.497Z'
+updatedAt: '2020-04-01T15:07:22.497Z'
 badge: ../../projects/sleeper/sleeper-badge.png
 hero: ../../projects/sleeper/sleeper-badge.png
 tools:
@@ -48,16 +48,16 @@ import React, { useState } from 'react'
 import { useSpring, animated } from 'react-spring'
 
 function App() {
-  const [toggle, setToggle] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
   const [style, setStyle] = useSpring(() => ({opacity: 1}))
-  const onClick = () => setToggle(!toggle)
+  const toggleVisibility = () => setIsVisible(!isVisible)
 
   // Update spring with new style
-  setStyle({opacity: toggle ? 1 : 0})
+  setStyle({opacity: isVisible ? 1 : 0})
 
   return (
-    <animated.div style={style} onClick={onClick}>
-      I will fade in
+    <animated.div style={style} onClick={toggleVisibility}>
+      {isVisible ? 'I will fade out' : 'I will fade in'}
     </animated.div>
   )
 }
@@ -69,8 +69,8 @@ Watch [The State of Animation in React](https://www.youtube.com/watch?v=1tavDv5h
 
 I just launched [sleeper](https://sleeper.fyi), an ambient new tab browser extension for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/sleeper/) and [Chrome](https://chrome.google.com/webstore/detail/sleeper/njihjodgjnlpkoipodopnchepnpoogdi). This is an open source project which you can check out on [GitHub](https://github.com/scotato/sleeper).
 
-This project was inspired by the [iOS 13](https://www.apple.com/ios/ios-13/) dark mode wallpapers. To bring the static wallpapers to life I used [`blobs`](https://github.com/g-harel/blobs) to generate random blobs constrained by size, complexity, and contrast values. To animate the blobs I extracted their SVG paths and used react-spring to [interpolate](https://www.react-spring.io/docs/hooks/basics#up-front-interpolation) between a start and end blob path.
+This project was inspired by the [iOS 13](https://www.apple.com/ios/ios-13/) dark mode wallpapers. To bring the static wallpapers to life I use [`blobs`](https://github.com/g-harel/blobs) to generate random blobs constrained by size, complexity, and contrast values. For animation, I generate two blobs and extract their SVG paths, then use react-spring to [interpolate](https://www.react-spring.io/docs/hooks/basics#up-front-interpolation) between the values.
 
-I'm also using springs on this website to transition between icon states in the header navigation, and to show/reveal the primary site navigation.
+I'm also using springs on this website to transition between icon states in the header navigation, and to reveal/hide the primary site navigation.
 
 If you're looking to breathe some life into your React app, definitely check out [react-spring](https://www.react-spring.io/)!
