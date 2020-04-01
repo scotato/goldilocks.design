@@ -33,6 +33,10 @@ const Post = styled.article`
   > *:last-child {
     margin-bottom: 0;
   }
+
+  h1 {
+    margin-bottom: ${props => props.theme.size[600]};
+  }
 `
 
 export default ({ data: { post }, location: { pathname } }) => {

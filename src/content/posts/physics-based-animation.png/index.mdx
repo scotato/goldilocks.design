@@ -1,0 +1,76 @@
+---
+id: spring-physics
+title: Spring Physics
+description: Spring physics based animation with react-spring
+author: scotato
+authorImg: '../scotato.png'
+website: https://sleeper.fyi
+githubUrl: https://github.com/scotato/sleeper
+createdAt: '2020-04-01T11:46:22.497Z'
+updatedAt: '2020-04-01T11:46:22.497Z'
+badge: ../../projects/sleeper/sleeper-badge.png
+hero: ../../projects/sleeper/sleeper-badge.png
+tools:
+  - react
+  - create-react-app
+  - styled-components
+projects:
+  - sleeper
+---
+# Spring Physics
+
+Animations can be used to enhance the user experience and aesthetics of a software application. The fastest way to add animations to your website or web app is with CSS [transitions](https://www.w3schools.com/css/css3_transitions.asp) and [animations](https://www.w3schools.com/css/css3_animations.asp) which will handle a majority of your basic animation needs.
+
+If you want to implement animations of greater complexity, you can apply physics-based animations which feel much more organic than the time-based CSS animations. For React projects we can use [`react-spring`](https://www.react-spring.io) and the `useSpring` hook for high quality spring based animations.
+
+## How & Why
+
+What is a spring and why should we use it? From the `react-spring` docs:
+
+> The principle you will be working with is called a spring, it does not have a defined curve or a set duration. In that it differs greatly from the animation you are probably used to. We think of animation in terms of time and curves, but that in itself causes most of the struggle we face when trying to make elements on the screen move naturally, because nothing in the real world moves like that.
+
+Here's a quick example of how you might use springs in your app:
+
+```jsx
+import React from 'react'
+import { useSpring, animated } from 'react-spring'
+
+function App() {
+  const style = useSpring({opacity: 1, from: {opacity: 0}})
+  return <animated.div style={style}>I will fade in</animated.div>
+}
+```
+
+With state:
+
+```jsx
+import React, { useState } from 'react'
+import { useSpring, animated } from 'react-spring'
+
+function App() {
+  const [toggle, setToggle] = useState(false)
+  const [style, setStyle] = useSpring(() => ({opacity: 1}))
+  const onClick = () => setToggle(!toggle)
+
+  // Update spring with new style
+  setStyle({opacity: toggle ? 1 : 0})
+
+  return (
+    <animated.div style={style} onClick={onClick}>
+      I will fade in
+    </animated.div>
+  )
+}
+```
+
+Watch [The State of Animation in React](https://www.youtube.com/watch?v=1tavDv5hXpo) form react-europe 2015 by [Cheng Lou](https://twitter.com/_chenglou/) to learn more about springs.
+
+## In Action
+
+I just launched [sleeper](https://sleeper.fyi), an ambient new tab browser extension for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/sleeper/) and [Chrome](https://chrome.google.com/webstore/detail/sleeper/njihjodgjnlpkoipodopnchepnpoogdi). This is an open source project which you can check out on [GitHub](https://github.com/scotato/sleeper).
+
+This project was inspired by the [iOS 13](https://www.apple.com/ios/ios-13/) dark mode wallpapers. To bring the static wallpapers to life I used [`blobs`](https://github.com/g-harel/blobs) to generate random blobs constrained by size, complexity, and contrast values. To animate the blobs I extracted their SVG paths and used react-spring to [interpolate](https://www.react-spring.io/docs/hooks/basics#up-front-interpolation) between a start and end blob path.
+
+I'm also using springs on this website to transition between icon states in the header navigation, and to show/reveal the primary site navigation.
+
+If you're looking to breathe some life into your React app, definitely check out [react-spring](https://www.react-spring.io/)!
